@@ -93,5 +93,22 @@ namespace Restaurante
                 return true;
             }
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+            LimpiarFormulario();
+        }
+
+        private void LimpiarFormulario()
+        {
+            txtUsuario.Text = "";
+            txtClave.Text = "";
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }
