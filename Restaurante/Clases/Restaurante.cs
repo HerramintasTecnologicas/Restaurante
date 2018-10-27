@@ -173,7 +173,7 @@ namespace Restaurante.Clases
                 throw es;
             }
         }
-        /*
+        
                 //Modulo proveedor
         private static void ValidarProveedor
     (
@@ -202,7 +202,7 @@ namespace Restaurante.Clases
             try
             {
                 ValidarProveedor(nombre, telefono, direccion);
-                Clases.Proveedor proveedor = new Clases.Proveedor(
+                Clases.Proveedores proveedor = new Clases.Proveedores(
                     nombre,
                     telefono,
                     direccion
@@ -219,7 +219,7 @@ namespace Restaurante.Clases
             try
             {
                 ValidarProveedor(nombre, telefono, direccion);
-                Clases.Proveedor proveedor = new Clases.Proveedor(
+                Clases.Proveedores proveedor = new Clases.Proveedores(
                     id,
                     nombre,
                     telefono,
@@ -235,7 +235,7 @@ namespace Restaurante.Clases
         {
             try
             {
-                Clases.Proveedor proveedor = new Clases.Proveedor(
+                Clases.Proveedores proveedor = new Clases.Proveedores(
                     id);
                 proveedor.Eliminar();
             }
@@ -541,7 +541,6 @@ namespace Restaurante.Clases
                 Clases.Inventario inventario = new Clases.Inventario(
                     id);
                 inventario.Eliminar();
-
             }
             catch (Exception ex)
             {
@@ -552,7 +551,6 @@ namespace Restaurante.Clases
         private static void ValidarTipoProducto
          (
             string nombre
-
          )
         {
             if (nombre.Length == 0)
@@ -580,7 +578,6 @@ namespace Restaurante.Clases
                     nombre
                     );
                 tipoproducto.Agregar();
-
             }
             catch (Exception ex)
             {
@@ -630,7 +627,6 @@ namespace Restaurante.Clases
         private static void ValidarCategoriaProducto
          (
             string nombre
-
          )
         {
             if (nombre.Length == 0)
@@ -645,7 +641,7 @@ namespace Restaurante.Clases
                     );
             }
         }
-
+  
         public static void AgregarCategoriaProducto
             (
             string nombre
@@ -736,7 +732,7 @@ namespace Restaurante.Clases
             try
             {
                 ValidarInsumoProducto(idInsumo, idInventario, cantidad);
-                Clases.InsumosProductos insumoproducto = new Clases.InsumosProductos(
+                Clases.InsumoProductos insumoproducto = new Clases.InsumoProductos(
                     idInsumo,
                     idInventario,
                     cantidad
@@ -760,7 +756,7 @@ namespace Restaurante.Clases
             try
             {
                 ValidarInsumoProducto(idInsumo, idInventario, cantidad);
-                Clases.InsumosProductos insumoproducto = new Clases.InsumosProductos(
+                Clases.InsumoProductos insumoproducto = new Clases.InsumoProductos(
                     idInsumoProducto,
                     idInsumo,
                     idInventario,
@@ -781,7 +777,7 @@ namespace Restaurante.Clases
         {
             try
             {
-                Clases.InsumosProductos insumoproducto = new Clases.InsumosProductos(
+                Clases.InsumoProductos insumoproducto = new Clases.InsumoProductos(
                     idInsumoProducto,
                     idInventario
                     );
@@ -792,10 +788,5 @@ namespace Restaurante.Clases
                 throw ex;
             }
         }
-
-*/
-
-
-
     }
 }

@@ -361,82 +361,7 @@ BEGIN
 			END
 END
 GO
-/*
 
-CREATE PROCEDURE SP_InsertarArea
-(
-	@nombre VARCHAR(50),
-	@numeroMesas TINYINT
-)
-AS
-BEGIN
-	DECLARE @existe int;
-	SET @existe = 0;
-
-	SELECT @existe = COUNT(Restaurante.Areas.nombre) FROM Restaurante.Areas WHERE nombre=@nombre;
-	IF (@existe > 0)
-		BEGIN
-			RAISERROR(N'Ya existe una area con el nombre "%s"', 16, 1,@nombre);
-			RETURN 0			
-		END
-	ELSE
-		BEGIN
-			INSERT INTO Restaurante.Areas(nombre,numeroMesas)
-				VALUES(@nombre, @numeroMesas)
-			RETURN 1
-		END
-END
-GO
-
-
-CREATE PROCEDURE SP_ModificarArea
-(
-	@id INT,
-	@nombre VARCHAR(50),
-	@numeroMesas TINYINT
-)
-AS
-BEGIN
-	DECLARE @existe int;
-	SET @existe = 0;
-	SELECT @existe = COUNT(Restaurante.Areas.id) FROM Restaurante.Areas WHERE id=@id;
-	IF (@existe = 0)
-		BEGIN
-			RAISERROR(N'No existe ninguna Area con el id "%d"', 16, 1, @id);
-			RETURN 0
-		END 	
-	ELSE
-		BEGIN
-			UPDATE Restaurante.Areas
-				SET nombre = @nombre, 
-					numeroMesas = @numeroMesas
-					WHERE id = @id;
-			RETURN 1
-		END
-END
-GO
-
-CREATE PROCEDURE SP_EliminarArea
-(
-	@id INT
-)
-AS
-BEGIN
-	DECLARE @existe int;
-	SET @existe = 0;
-	SELECT @existe = COUNT(Restaurante.Areas.id) FROM Restaurante.Areas WHERE id=@id;
-	IF (@existe = 0)
-		BEGIN
-			RAISERROR(N'No existe ninguna Area con el id "%d"', 16, 1, @id);
-			RETURN 0
-		END 	
-	ELSE
-		BEGIN
-			DELETE FROM Restaurante.Areas	WHERE id = @id;
-			RETURN 1
-		END
-END
-GO*/
 CREATE PROCEDURE SP_AgregarInsumo
 (
     @nombre NVARCHAR(100),
@@ -536,8 +461,7 @@ BEGIN
     IF (@existe > 0)
         BEGIN
             RAISERROR(N'Ya existe un Tipo de Unidad con el nombre "%s"', 16, 1,@descripcion);
-            RETURN 0
-            
+            RETURN 0          
         END
     ELSE
         BEGIN
