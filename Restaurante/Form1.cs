@@ -55,21 +55,20 @@ namespace Restaurante
                     else
                     {
                         MessageBox.Show("Bienvenidos");
-                       /* MenuPrincipal menuPrincipal = new MenuPrincipal();
-                        menuPrincipal.rol = 1;
+                        /* MenuPrincipal menuPrincipal = new MenuPrincipal();
+                         menuPrincipal.rol = 1;*/
+                        rfMenu menu = new rfMenu();
+
                         this.Hide();
-                        menuPrincipal.ShowDialog();
+                        menu.ShowDialog();
                         this.Show();
-                        LimpiarFormulario();*/
+                        LimpiarFormulario();
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message + "\n\n Origen del problema '" + ex.Source + "'\n en el metodo '" + ex.TargetSite + "'");
                 }
-
-
-
             }
 
         }

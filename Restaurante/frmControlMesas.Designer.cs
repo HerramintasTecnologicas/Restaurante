@@ -44,7 +44,6 @@
             this.mesas = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
-            this.mesas25 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -69,33 +68,8 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.mesas24 = new System.Windows.Forms.PictureBox();
-            this.mesas23 = new System.Windows.Forms.PictureBox();
-            this.mesas22 = new System.Windows.Forms.PictureBox();
-            this.mesas21 = new System.Windows.Forms.PictureBox();
-            this.mesas20 = new System.Windows.Forms.PictureBox();
-            this.mesas19 = new System.Windows.Forms.PictureBox();
-            this.mesas18 = new System.Windows.Forms.PictureBox();
-            this.mesas17 = new System.Windows.Forms.PictureBox();
-            this.mesas16 = new System.Windows.Forms.PictureBox();
-            this.mesas15 = new System.Windows.Forms.PictureBox();
-            this.mesas14 = new System.Windows.Forms.PictureBox();
-            this.mesas13 = new System.Windows.Forms.PictureBox();
-            this.mesas12 = new System.Windows.Forms.PictureBox();
-            this.mesas11 = new System.Windows.Forms.PictureBox();
-            this.mesas10 = new System.Windows.Forms.PictureBox();
-            this.mesas9 = new System.Windows.Forms.PictureBox();
-            this.mesas8 = new System.Windows.Forms.PictureBox();
-            this.mesas7 = new System.Windows.Forms.PictureBox();
-            this.mesas6 = new System.Windows.Forms.PictureBox();
-            this.mesas5 = new System.Windows.Forms.PictureBox();
-            this.mesas4 = new System.Windows.Forms.PictureBox();
-            this.mesas3 = new System.Windows.Forms.PictureBox();
-            this.mesas2 = new System.Windows.Forms.PictureBox();
-            this.mesas1 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lblmesa25 = new System.Windows.Forms.Label();
-            this.mesas50 = new System.Windows.Forms.PictureBox();
             this.lab24 = new System.Windows.Forms.Label();
             this.lab23 = new System.Windows.Forms.Label();
             this.lab22 = new System.Windows.Forms.Label();
@@ -120,6 +94,39 @@
             this.lab3 = new System.Windows.Forms.Label();
             this.lab2 = new System.Windows.Forms.Label();
             this.lab1 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.mesas25 = new System.Windows.Forms.PictureBox();
+            this.mesas24 = new System.Windows.Forms.PictureBox();
+            this.mesas23 = new System.Windows.Forms.PictureBox();
+            this.mesas22 = new System.Windows.Forms.PictureBox();
+            this.mesas21 = new System.Windows.Forms.PictureBox();
+            this.mesas20 = new System.Windows.Forms.PictureBox();
+            this.mesas19 = new System.Windows.Forms.PictureBox();
+            this.mesas18 = new System.Windows.Forms.PictureBox();
+            this.mesas17 = new System.Windows.Forms.PictureBox();
+            this.mesas16 = new System.Windows.Forms.PictureBox();
+            this.mesas15 = new System.Windows.Forms.PictureBox();
+            this.mesas14 = new System.Windows.Forms.PictureBox();
+            this.mesas13 = new System.Windows.Forms.PictureBox();
+            this.mesas12 = new System.Windows.Forms.PictureBox();
+            this.mesas11 = new System.Windows.Forms.PictureBox();
+            this.mesas10 = new System.Windows.Forms.PictureBox();
+            this.mesas9 = new System.Windows.Forms.PictureBox();
+            this.mesas8 = new System.Windows.Forms.PictureBox();
+            this.mesas7 = new System.Windows.Forms.PictureBox();
+            this.mesas6 = new System.Windows.Forms.PictureBox();
+            this.mesas5 = new System.Windows.Forms.PictureBox();
+            this.mesas4 = new System.Windows.Forms.PictureBox();
+            this.mesas3 = new System.Windows.Forms.PictureBox();
+            this.mesas2 = new System.Windows.Forms.PictureBox();
+            this.mesas1 = new System.Windows.Forms.PictureBox();
+            this.mesas50 = new System.Windows.Forms.PictureBox();
             this.mesas49 = new System.Windows.Forms.PictureBox();
             this.mesas48 = new System.Windows.Forms.PictureBox();
             this.mesas47 = new System.Windows.Forms.PictureBox();
@@ -144,16 +151,14 @@
             this.mesas28 = new System.Windows.Forms.PictureBox();
             this.mesas27 = new System.Windows.Forms.PictureBox();
             this.mesas26 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.mesas.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas23)).BeginInit();
@@ -179,7 +184,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mesas3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas1)).BeginInit();
-            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mesas50)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas49)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas48)).BeginInit();
@@ -205,10 +209,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mesas28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas27)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas26)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // button4
@@ -253,12 +253,16 @@
             // btnSalir
             // 
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Image = global::Restaurante.Properties.Resources.Exit;
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.Location = new System.Drawing.Point(18, 132);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(83, 43);
             this.btnSalir.TabIndex = 8;
             this.btnSalir.Text = "Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // label33
             // 
@@ -417,17 +421,6 @@
             this.label4.Size = new System.Drawing.Size(59, 16);
             this.label4.TabIndex = 148;
             this.label4.Text = "Mesa 25";
-            // 
-            // mesas25
-            // 
-            this.mesas25.Image = ((System.Drawing.Image)(resources.GetObject("mesas25.Image")));
-            this.mesas25.ImageLocation = "";
-            this.mesas25.Location = new System.Drawing.Point(462, 390);
-            this.mesas25.Name = "mesas25";
-            this.mesas25.Size = new System.Drawing.Size(92, 79);
-            this.mesas25.TabIndex = 147;
-            this.mesas25.TabStop = false;
-            this.mesas25.Tag = "Mesa";
             // 
             // label5
             // 
@@ -693,274 +686,9 @@
             this.label34.TabIndex = 99;
             this.label34.Text = "Mesa 1";
             // 
-            // mesas24
-            // 
-            this.mesas24.Image = ((System.Drawing.Image)(resources.GetObject("mesas24.Image")));
-            this.mesas24.ImageLocation = "";
-            this.mesas24.Location = new System.Drawing.Point(357, 390);
-            this.mesas24.Name = "mesas24";
-            this.mesas24.Size = new System.Drawing.Size(92, 79);
-            this.mesas24.TabIndex = 144;
-            this.mesas24.TabStop = false;
-            this.mesas24.Tag = "Mesa";
-            // 
-            // mesas23
-            // 
-            this.mesas23.Image = ((System.Drawing.Image)(resources.GetObject("mesas23.Image")));
-            this.mesas23.ImageLocation = "";
-            this.mesas23.Location = new System.Drawing.Point(252, 390);
-            this.mesas23.Name = "mesas23";
-            this.mesas23.Size = new System.Drawing.Size(92, 79);
-            this.mesas23.TabIndex = 142;
-            this.mesas23.TabStop = false;
-            this.mesas23.Tag = "Mesa";
-            // 
-            // mesas22
-            // 
-            this.mesas22.Image = ((System.Drawing.Image)(resources.GetObject("mesas22.Image")));
-            this.mesas22.ImageLocation = "";
-            this.mesas22.Location = new System.Drawing.Point(147, 390);
-            this.mesas22.Name = "mesas22";
-            this.mesas22.Size = new System.Drawing.Size(92, 79);
-            this.mesas22.TabIndex = 140;
-            this.mesas22.TabStop = false;
-            this.mesas22.Tag = "Mesa";
-            // 
-            // mesas21
-            // 
-            this.mesas21.Image = ((System.Drawing.Image)(resources.GetObject("mesas21.Image")));
-            this.mesas21.ImageLocation = "";
-            this.mesas21.Location = new System.Drawing.Point(43, 390);
-            this.mesas21.Name = "mesas21";
-            this.mesas21.Size = new System.Drawing.Size(92, 79);
-            this.mesas21.TabIndex = 138;
-            this.mesas21.TabStop = false;
-            this.mesas21.Tag = "Mesa";
-            // 
-            // mesas20
-            // 
-            this.mesas20.Image = ((System.Drawing.Image)(resources.GetObject("mesas20.Image")));
-            this.mesas20.ImageLocation = "";
-            this.mesas20.Location = new System.Drawing.Point(462, 295);
-            this.mesas20.Name = "mesas20";
-            this.mesas20.Size = new System.Drawing.Size(92, 79);
-            this.mesas20.TabIndex = 136;
-            this.mesas20.TabStop = false;
-            this.mesas20.Tag = "Mesa";
-            // 
-            // mesas19
-            // 
-            this.mesas19.Image = ((System.Drawing.Image)(resources.GetObject("mesas19.Image")));
-            this.mesas19.ImageLocation = "";
-            this.mesas19.Location = new System.Drawing.Point(358, 295);
-            this.mesas19.Name = "mesas19";
-            this.mesas19.Size = new System.Drawing.Size(92, 79);
-            this.mesas19.TabIndex = 134;
-            this.mesas19.TabStop = false;
-            this.mesas19.Tag = "Mesa";
-            // 
-            // mesas18
-            // 
-            this.mesas18.Image = ((System.Drawing.Image)(resources.GetObject("mesas18.Image")));
-            this.mesas18.ImageLocation = "";
-            this.mesas18.Location = new System.Drawing.Point(253, 295);
-            this.mesas18.Name = "mesas18";
-            this.mesas18.Size = new System.Drawing.Size(92, 79);
-            this.mesas18.TabIndex = 132;
-            this.mesas18.TabStop = false;
-            this.mesas18.Tag = "Mesa";
-            // 
-            // mesas17
-            // 
-            this.mesas17.Image = ((System.Drawing.Image)(resources.GetObject("mesas17.Image")));
-            this.mesas17.ImageLocation = "";
-            this.mesas17.Location = new System.Drawing.Point(147, 295);
-            this.mesas17.Name = "mesas17";
-            this.mesas17.Size = new System.Drawing.Size(92, 79);
-            this.mesas17.TabIndex = 130;
-            this.mesas17.TabStop = false;
-            this.mesas17.Tag = "Mesa";
-            // 
-            // mesas16
-            // 
-            this.mesas16.Image = ((System.Drawing.Image)(resources.GetObject("mesas16.Image")));
-            this.mesas16.ImageLocation = "";
-            this.mesas16.Location = new System.Drawing.Point(43, 295);
-            this.mesas16.Name = "mesas16";
-            this.mesas16.Size = new System.Drawing.Size(92, 79);
-            this.mesas16.TabIndex = 128;
-            this.mesas16.TabStop = false;
-            this.mesas16.Tag = "Mesa";
-            // 
-            // mesas15
-            // 
-            this.mesas15.Image = ((System.Drawing.Image)(resources.GetObject("mesas15.Image")));
-            this.mesas15.ImageLocation = "";
-            this.mesas15.Location = new System.Drawing.Point(462, 203);
-            this.mesas15.Name = "mesas15";
-            this.mesas15.Size = new System.Drawing.Size(92, 79);
-            this.mesas15.TabIndex = 126;
-            this.mesas15.TabStop = false;
-            this.mesas15.Tag = "Mesa";
-            // 
-            // mesas14
-            // 
-            this.mesas14.Image = ((System.Drawing.Image)(resources.GetObject("mesas14.Image")));
-            this.mesas14.ImageLocation = "";
-            this.mesas14.Location = new System.Drawing.Point(358, 203);
-            this.mesas14.Name = "mesas14";
-            this.mesas14.Size = new System.Drawing.Size(92, 79);
-            this.mesas14.TabIndex = 124;
-            this.mesas14.TabStop = false;
-            this.mesas14.Tag = "Mesa";
-            // 
-            // mesas13
-            // 
-            this.mesas13.Image = ((System.Drawing.Image)(resources.GetObject("mesas13.Image")));
-            this.mesas13.ImageLocation = "";
-            this.mesas13.Location = new System.Drawing.Point(252, 203);
-            this.mesas13.Name = "mesas13";
-            this.mesas13.Size = new System.Drawing.Size(92, 79);
-            this.mesas13.TabIndex = 122;
-            this.mesas13.TabStop = false;
-            this.mesas13.Tag = "Mesa";
-            // 
-            // mesas12
-            // 
-            this.mesas12.Image = ((System.Drawing.Image)(resources.GetObject("mesas12.Image")));
-            this.mesas12.ImageLocation = "";
-            this.mesas12.Location = new System.Drawing.Point(147, 203);
-            this.mesas12.Name = "mesas12";
-            this.mesas12.Size = new System.Drawing.Size(92, 79);
-            this.mesas12.TabIndex = 120;
-            this.mesas12.TabStop = false;
-            this.mesas12.Tag = "Mesa";
-            // 
-            // mesas11
-            // 
-            this.mesas11.Image = ((System.Drawing.Image)(resources.GetObject("mesas11.Image")));
-            this.mesas11.ImageLocation = "";
-            this.mesas11.Location = new System.Drawing.Point(43, 203);
-            this.mesas11.Name = "mesas11";
-            this.mesas11.Size = new System.Drawing.Size(92, 79);
-            this.mesas11.TabIndex = 118;
-            this.mesas11.TabStop = false;
-            this.mesas11.Tag = "Mesa";
-            // 
-            // mesas10
-            // 
-            this.mesas10.BackColor = System.Drawing.Color.Transparent;
-            this.mesas10.Image = ((System.Drawing.Image)(resources.GetObject("mesas10.Image")));
-            this.mesas10.ImageLocation = "";
-            this.mesas10.Location = new System.Drawing.Point(462, 110);
-            this.mesas10.Name = "mesas10";
-            this.mesas10.Size = new System.Drawing.Size(92, 79);
-            this.mesas10.TabIndex = 116;
-            this.mesas10.TabStop = false;
-            this.mesas10.Tag = "Mesa";
-            // 
-            // mesas9
-            // 
-            this.mesas9.Image = ((System.Drawing.Image)(resources.GetObject("mesas9.Image")));
-            this.mesas9.ImageLocation = "";
-            this.mesas9.Location = new System.Drawing.Point(357, 110);
-            this.mesas9.Name = "mesas9";
-            this.mesas9.Size = new System.Drawing.Size(92, 79);
-            this.mesas9.TabIndex = 114;
-            this.mesas9.TabStop = false;
-            this.mesas9.Tag = "Mesa";
-            // 
-            // mesas8
-            // 
-            this.mesas8.Image = ((System.Drawing.Image)(resources.GetObject("mesas8.Image")));
-            this.mesas8.ImageLocation = "";
-            this.mesas8.Location = new System.Drawing.Point(252, 110);
-            this.mesas8.Name = "mesas8";
-            this.mesas8.Size = new System.Drawing.Size(92, 79);
-            this.mesas8.TabIndex = 112;
-            this.mesas8.TabStop = false;
-            this.mesas8.Tag = "Mesa";
-            // 
-            // mesas7
-            // 
-            this.mesas7.Image = ((System.Drawing.Image)(resources.GetObject("mesas7.Image")));
-            this.mesas7.ImageLocation = "";
-            this.mesas7.Location = new System.Drawing.Point(148, 110);
-            this.mesas7.Name = "mesas7";
-            this.mesas7.Size = new System.Drawing.Size(92, 79);
-            this.mesas7.TabIndex = 110;
-            this.mesas7.TabStop = false;
-            this.mesas7.Tag = "Mesa";
-            // 
-            // mesas6
-            // 
-            this.mesas6.Image = ((System.Drawing.Image)(resources.GetObject("mesas6.Image")));
-            this.mesas6.ImageLocation = "";
-            this.mesas6.Location = new System.Drawing.Point(43, 110);
-            this.mesas6.Name = "mesas6";
-            this.mesas6.Size = new System.Drawing.Size(92, 79);
-            this.mesas6.TabIndex = 108;
-            this.mesas6.TabStop = false;
-            this.mesas6.Tag = "Mesa";
-            // 
-            // mesas5
-            // 
-            this.mesas5.BackColor = System.Drawing.Color.Transparent;
-            this.mesas5.Image = ((System.Drawing.Image)(resources.GetObject("mesas5.Image")));
-            this.mesas5.ImageLocation = "";
-            this.mesas5.Location = new System.Drawing.Point(462, 18);
-            this.mesas5.Name = "mesas5";
-            this.mesas5.Size = new System.Drawing.Size(92, 79);
-            this.mesas5.TabIndex = 106;
-            this.mesas5.TabStop = false;
-            this.mesas5.Tag = "Mesa";
-            // 
-            // mesas4
-            // 
-            this.mesas4.Image = ((System.Drawing.Image)(resources.GetObject("mesas4.Image")));
-            this.mesas4.ImageLocation = "";
-            this.mesas4.Location = new System.Drawing.Point(358, 18);
-            this.mesas4.Name = "mesas4";
-            this.mesas4.Size = new System.Drawing.Size(92, 79);
-            this.mesas4.TabIndex = 104;
-            this.mesas4.TabStop = false;
-            this.mesas4.Tag = "Mesa";
-            // 
-            // mesas3
-            // 
-            this.mesas3.Image = ((System.Drawing.Image)(resources.GetObject("mesas3.Image")));
-            this.mesas3.ImageLocation = "";
-            this.mesas3.Location = new System.Drawing.Point(253, 18);
-            this.mesas3.Name = "mesas3";
-            this.mesas3.Size = new System.Drawing.Size(92, 79);
-            this.mesas3.TabIndex = 102;
-            this.mesas3.TabStop = false;
-            this.mesas3.Tag = "Mesa";
-            // 
-            // mesas2
-            // 
-            this.mesas2.Image = ((System.Drawing.Image)(resources.GetObject("mesas2.Image")));
-            this.mesas2.ImageLocation = "";
-            this.mesas2.Location = new System.Drawing.Point(148, 18);
-            this.mesas2.Name = "mesas2";
-            this.mesas2.Size = new System.Drawing.Size(92, 79);
-            this.mesas2.TabIndex = 100;
-            this.mesas2.TabStop = false;
-            this.mesas2.Tag = "Mesa";
-            // 
-            // mesas1
-            // 
-            this.mesas1.Image = ((System.Drawing.Image)(resources.GetObject("mesas1.Image")));
-            this.mesas1.Location = new System.Drawing.Point(43, 18);
-            this.mesas1.Name = "mesas1";
-            this.mesas1.Size = new System.Drawing.Size(92, 79);
-            this.mesas1.TabIndex = 146;
-            this.mesas1.TabStop = false;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.lblmesa25);
-            this.tabPage3.Controls.Add(this.mesas50);
             this.tabPage3.Controls.Add(this.lab24);
             this.tabPage3.Controls.Add(this.lab23);
             this.tabPage3.Controls.Add(this.lab22);
@@ -985,6 +713,7 @@
             this.tabPage3.Controls.Add(this.lab3);
             this.tabPage3.Controls.Add(this.lab2);
             this.tabPage3.Controls.Add(this.lab1);
+            this.tabPage3.Controls.Add(this.mesas50);
             this.tabPage3.Controls.Add(this.mesas49);
             this.tabPage3.Controls.Add(this.mesas48);
             this.tabPage3.Controls.Add(this.mesas47);
@@ -1026,17 +755,6 @@
             this.lblmesa25.Size = new System.Drawing.Size(59, 16);
             this.lblmesa25.TabIndex = 98;
             this.lblmesa25.Text = "Mesa 50";
-            // 
-            // mesas50
-            // 
-            this.mesas50.Image = ((System.Drawing.Image)(resources.GetObject("mesas50.Image")));
-            this.mesas50.ImageLocation = "";
-            this.mesas50.Location = new System.Drawing.Point(461, 388);
-            this.mesas50.Name = "mesas50";
-            this.mesas50.Size = new System.Drawing.Size(92, 79);
-            this.mesas50.TabIndex = 97;
-            this.mesas50.TabStop = false;
-            this.mesas50.Tag = "Mesa";
             // 
             // lab24
             // 
@@ -1302,6 +1020,370 @@
             this.lab1.TabIndex = 49;
             this.lab1.Text = "Mesa 26";
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(-9, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(1044, 34);
+            this.label1.TabIndex = 70;
+            this.label1.Text = "-Control de Mesas-";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.pictureBox4);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Location = new System.Drawing.Point(634, 62);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(384, 480);
+            this.panel1.TabIndex = 71;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Britannic Bold", 25F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(125)))));
+            this.label2.Location = new System.Drawing.Point(73, 160);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(236, 37);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "Las Marias #3";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Britannic Bold", 28F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(125)))));
+            this.label3.Location = new System.Drawing.Point(44, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(301, 42);
+            this.label3.TabIndex = 67;
+            this.label3.Text = "ESPECIALIDADES";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox3.Image = global::Restaurante.Properties.Resources.pez1;
+            this.pictureBox3.Location = new System.Drawing.Point(139, 18);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 84);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 70;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(7, 41);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(368, 60);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 69;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-8, 548);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1038, 96);
+            this.pictureBox1.TabIndex = 69;
+            this.pictureBox1.TabStop = false;
+            // 
+            // mesas25
+            // 
+            this.mesas25.Image = ((System.Drawing.Image)(resources.GetObject("mesas25.Image")));
+            this.mesas25.ImageLocation = "";
+            this.mesas25.Location = new System.Drawing.Point(462, 390);
+            this.mesas25.Name = "mesas25";
+            this.mesas25.Size = new System.Drawing.Size(92, 79);
+            this.mesas25.TabIndex = 147;
+            this.mesas25.TabStop = false;
+            this.mesas25.Tag = "Mesa";
+            // 
+            // mesas24
+            // 
+            this.mesas24.Image = ((System.Drawing.Image)(resources.GetObject("mesas24.Image")));
+            this.mesas24.ImageLocation = "";
+            this.mesas24.Location = new System.Drawing.Point(357, 390);
+            this.mesas24.Name = "mesas24";
+            this.mesas24.Size = new System.Drawing.Size(92, 79);
+            this.mesas24.TabIndex = 144;
+            this.mesas24.TabStop = false;
+            this.mesas24.Tag = "Mesa";
+            // 
+            // mesas23
+            // 
+            this.mesas23.Image = ((System.Drawing.Image)(resources.GetObject("mesas23.Image")));
+            this.mesas23.ImageLocation = "";
+            this.mesas23.Location = new System.Drawing.Point(252, 390);
+            this.mesas23.Name = "mesas23";
+            this.mesas23.Size = new System.Drawing.Size(92, 79);
+            this.mesas23.TabIndex = 142;
+            this.mesas23.TabStop = false;
+            this.mesas23.Tag = "Mesa";
+            // 
+            // mesas22
+            // 
+            this.mesas22.Image = ((System.Drawing.Image)(resources.GetObject("mesas22.Image")));
+            this.mesas22.ImageLocation = "";
+            this.mesas22.Location = new System.Drawing.Point(147, 390);
+            this.mesas22.Name = "mesas22";
+            this.mesas22.Size = new System.Drawing.Size(92, 79);
+            this.mesas22.TabIndex = 140;
+            this.mesas22.TabStop = false;
+            this.mesas22.Tag = "Mesa";
+            // 
+            // mesas21
+            // 
+            this.mesas21.Image = ((System.Drawing.Image)(resources.GetObject("mesas21.Image")));
+            this.mesas21.ImageLocation = "";
+            this.mesas21.Location = new System.Drawing.Point(43, 390);
+            this.mesas21.Name = "mesas21";
+            this.mesas21.Size = new System.Drawing.Size(92, 79);
+            this.mesas21.TabIndex = 138;
+            this.mesas21.TabStop = false;
+            this.mesas21.Tag = "Mesa";
+            // 
+            // mesas20
+            // 
+            this.mesas20.Image = ((System.Drawing.Image)(resources.GetObject("mesas20.Image")));
+            this.mesas20.ImageLocation = "";
+            this.mesas20.Location = new System.Drawing.Point(462, 295);
+            this.mesas20.Name = "mesas20";
+            this.mesas20.Size = new System.Drawing.Size(92, 79);
+            this.mesas20.TabIndex = 136;
+            this.mesas20.TabStop = false;
+            this.mesas20.Tag = "Mesa";
+            // 
+            // mesas19
+            // 
+            this.mesas19.Image = ((System.Drawing.Image)(resources.GetObject("mesas19.Image")));
+            this.mesas19.ImageLocation = "";
+            this.mesas19.Location = new System.Drawing.Point(358, 295);
+            this.mesas19.Name = "mesas19";
+            this.mesas19.Size = new System.Drawing.Size(92, 79);
+            this.mesas19.TabIndex = 134;
+            this.mesas19.TabStop = false;
+            this.mesas19.Tag = "Mesa";
+            // 
+            // mesas18
+            // 
+            this.mesas18.Image = ((System.Drawing.Image)(resources.GetObject("mesas18.Image")));
+            this.mesas18.ImageLocation = "";
+            this.mesas18.Location = new System.Drawing.Point(253, 295);
+            this.mesas18.Name = "mesas18";
+            this.mesas18.Size = new System.Drawing.Size(92, 79);
+            this.mesas18.TabIndex = 132;
+            this.mesas18.TabStop = false;
+            this.mesas18.Tag = "Mesa";
+            // 
+            // mesas17
+            // 
+            this.mesas17.Image = ((System.Drawing.Image)(resources.GetObject("mesas17.Image")));
+            this.mesas17.ImageLocation = "";
+            this.mesas17.Location = new System.Drawing.Point(147, 295);
+            this.mesas17.Name = "mesas17";
+            this.mesas17.Size = new System.Drawing.Size(92, 79);
+            this.mesas17.TabIndex = 130;
+            this.mesas17.TabStop = false;
+            this.mesas17.Tag = "Mesa";
+            // 
+            // mesas16
+            // 
+            this.mesas16.Image = ((System.Drawing.Image)(resources.GetObject("mesas16.Image")));
+            this.mesas16.ImageLocation = "";
+            this.mesas16.Location = new System.Drawing.Point(43, 295);
+            this.mesas16.Name = "mesas16";
+            this.mesas16.Size = new System.Drawing.Size(92, 79);
+            this.mesas16.TabIndex = 128;
+            this.mesas16.TabStop = false;
+            this.mesas16.Tag = "Mesa";
+            // 
+            // mesas15
+            // 
+            this.mesas15.Image = ((System.Drawing.Image)(resources.GetObject("mesas15.Image")));
+            this.mesas15.ImageLocation = "";
+            this.mesas15.Location = new System.Drawing.Point(462, 203);
+            this.mesas15.Name = "mesas15";
+            this.mesas15.Size = new System.Drawing.Size(92, 79);
+            this.mesas15.TabIndex = 126;
+            this.mesas15.TabStop = false;
+            this.mesas15.Tag = "Mesa";
+            // 
+            // mesas14
+            // 
+            this.mesas14.Image = ((System.Drawing.Image)(resources.GetObject("mesas14.Image")));
+            this.mesas14.ImageLocation = "";
+            this.mesas14.Location = new System.Drawing.Point(358, 203);
+            this.mesas14.Name = "mesas14";
+            this.mesas14.Size = new System.Drawing.Size(92, 79);
+            this.mesas14.TabIndex = 124;
+            this.mesas14.TabStop = false;
+            this.mesas14.Tag = "Mesa";
+            // 
+            // mesas13
+            // 
+            this.mesas13.Image = ((System.Drawing.Image)(resources.GetObject("mesas13.Image")));
+            this.mesas13.ImageLocation = "";
+            this.mesas13.Location = new System.Drawing.Point(252, 203);
+            this.mesas13.Name = "mesas13";
+            this.mesas13.Size = new System.Drawing.Size(92, 79);
+            this.mesas13.TabIndex = 122;
+            this.mesas13.TabStop = false;
+            this.mesas13.Tag = "Mesa";
+            // 
+            // mesas12
+            // 
+            this.mesas12.Image = ((System.Drawing.Image)(resources.GetObject("mesas12.Image")));
+            this.mesas12.ImageLocation = "";
+            this.mesas12.Location = new System.Drawing.Point(147, 203);
+            this.mesas12.Name = "mesas12";
+            this.mesas12.Size = new System.Drawing.Size(92, 79);
+            this.mesas12.TabIndex = 120;
+            this.mesas12.TabStop = false;
+            this.mesas12.Tag = "Mesa";
+            // 
+            // mesas11
+            // 
+            this.mesas11.Image = ((System.Drawing.Image)(resources.GetObject("mesas11.Image")));
+            this.mesas11.ImageLocation = "";
+            this.mesas11.Location = new System.Drawing.Point(43, 203);
+            this.mesas11.Name = "mesas11";
+            this.mesas11.Size = new System.Drawing.Size(92, 79);
+            this.mesas11.TabIndex = 118;
+            this.mesas11.TabStop = false;
+            this.mesas11.Tag = "Mesa";
+            // 
+            // mesas10
+            // 
+            this.mesas10.BackColor = System.Drawing.Color.Transparent;
+            this.mesas10.Image = ((System.Drawing.Image)(resources.GetObject("mesas10.Image")));
+            this.mesas10.ImageLocation = "";
+            this.mesas10.Location = new System.Drawing.Point(462, 110);
+            this.mesas10.Name = "mesas10";
+            this.mesas10.Size = new System.Drawing.Size(92, 79);
+            this.mesas10.TabIndex = 116;
+            this.mesas10.TabStop = false;
+            this.mesas10.Tag = "Mesa";
+            // 
+            // mesas9
+            // 
+            this.mesas9.Image = ((System.Drawing.Image)(resources.GetObject("mesas9.Image")));
+            this.mesas9.ImageLocation = "";
+            this.mesas9.Location = new System.Drawing.Point(357, 110);
+            this.mesas9.Name = "mesas9";
+            this.mesas9.Size = new System.Drawing.Size(92, 79);
+            this.mesas9.TabIndex = 114;
+            this.mesas9.TabStop = false;
+            this.mesas9.Tag = "Mesa";
+            // 
+            // mesas8
+            // 
+            this.mesas8.Image = ((System.Drawing.Image)(resources.GetObject("mesas8.Image")));
+            this.mesas8.ImageLocation = "";
+            this.mesas8.Location = new System.Drawing.Point(252, 110);
+            this.mesas8.Name = "mesas8";
+            this.mesas8.Size = new System.Drawing.Size(92, 79);
+            this.mesas8.TabIndex = 112;
+            this.mesas8.TabStop = false;
+            this.mesas8.Tag = "Mesa";
+            // 
+            // mesas7
+            // 
+            this.mesas7.Image = ((System.Drawing.Image)(resources.GetObject("mesas7.Image")));
+            this.mesas7.ImageLocation = "";
+            this.mesas7.Location = new System.Drawing.Point(148, 110);
+            this.mesas7.Name = "mesas7";
+            this.mesas7.Size = new System.Drawing.Size(92, 79);
+            this.mesas7.TabIndex = 110;
+            this.mesas7.TabStop = false;
+            this.mesas7.Tag = "Mesa";
+            // 
+            // mesas6
+            // 
+            this.mesas6.Image = ((System.Drawing.Image)(resources.GetObject("mesas6.Image")));
+            this.mesas6.ImageLocation = "";
+            this.mesas6.Location = new System.Drawing.Point(43, 110);
+            this.mesas6.Name = "mesas6";
+            this.mesas6.Size = new System.Drawing.Size(92, 79);
+            this.mesas6.TabIndex = 108;
+            this.mesas6.TabStop = false;
+            this.mesas6.Tag = "Mesa";
+            // 
+            // mesas5
+            // 
+            this.mesas5.BackColor = System.Drawing.Color.Transparent;
+            this.mesas5.Image = ((System.Drawing.Image)(resources.GetObject("mesas5.Image")));
+            this.mesas5.ImageLocation = "";
+            this.mesas5.Location = new System.Drawing.Point(462, 18);
+            this.mesas5.Name = "mesas5";
+            this.mesas5.Size = new System.Drawing.Size(92, 79);
+            this.mesas5.TabIndex = 106;
+            this.mesas5.TabStop = false;
+            this.mesas5.Tag = "Mesa";
+            // 
+            // mesas4
+            // 
+            this.mesas4.Image = ((System.Drawing.Image)(resources.GetObject("mesas4.Image")));
+            this.mesas4.ImageLocation = "";
+            this.mesas4.Location = new System.Drawing.Point(358, 18);
+            this.mesas4.Name = "mesas4";
+            this.mesas4.Size = new System.Drawing.Size(92, 79);
+            this.mesas4.TabIndex = 104;
+            this.mesas4.TabStop = false;
+            this.mesas4.Tag = "Mesa";
+            // 
+            // mesas3
+            // 
+            this.mesas3.Image = ((System.Drawing.Image)(resources.GetObject("mesas3.Image")));
+            this.mesas3.ImageLocation = "";
+            this.mesas3.Location = new System.Drawing.Point(253, 18);
+            this.mesas3.Name = "mesas3";
+            this.mesas3.Size = new System.Drawing.Size(92, 79);
+            this.mesas3.TabIndex = 102;
+            this.mesas3.TabStop = false;
+            this.mesas3.Tag = "Mesa";
+            // 
+            // mesas2
+            // 
+            this.mesas2.Image = ((System.Drawing.Image)(resources.GetObject("mesas2.Image")));
+            this.mesas2.ImageLocation = "";
+            this.mesas2.Location = new System.Drawing.Point(148, 18);
+            this.mesas2.Name = "mesas2";
+            this.mesas2.Size = new System.Drawing.Size(92, 79);
+            this.mesas2.TabIndex = 100;
+            this.mesas2.TabStop = false;
+            this.mesas2.Tag = "Mesa";
+            // 
+            // mesas1
+            // 
+            this.mesas1.Image = ((System.Drawing.Image)(resources.GetObject("mesas1.Image")));
+            this.mesas1.Location = new System.Drawing.Point(43, 18);
+            this.mesas1.Name = "mesas1";
+            this.mesas1.Size = new System.Drawing.Size(92, 79);
+            this.mesas1.TabIndex = 146;
+            this.mesas1.TabStop = false;
+            // 
+            // mesas50
+            // 
+            this.mesas50.Image = ((System.Drawing.Image)(resources.GetObject("mesas50.Image")));
+            this.mesas50.ImageLocation = "";
+            this.mesas50.Location = new System.Drawing.Point(461, 388);
+            this.mesas50.Name = "mesas50";
+            this.mesas50.Size = new System.Drawing.Size(92, 79);
+            this.mesas50.TabIndex = 97;
+            this.mesas50.TabStop = false;
+            this.mesas50.Tag = "Mesa";
+            // 
             // mesas49
             // 
             this.mesas49.Image = ((System.Drawing.Image)(resources.GetObject("mesas49.Image")));
@@ -1566,84 +1648,6 @@
             this.mesas26.TabIndex = 96;
             this.mesas26.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-8, 548);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1038, 96);
-            this.pictureBox1.TabIndex = 69;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-9, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1044, 34);
-            this.label1.TabIndex = 70;
-            this.label1.Text = "-Control de Mesas-";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Location = new System.Drawing.Point(634, 62);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(361, 480);
-            this.panel1.TabIndex = 71;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox3.Image = global::Restaurante.Properties.Resources.pez1;
-            this.pictureBox3.Location = new System.Drawing.Point(130, 18);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 84);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 70;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(13, 41);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(334, 60);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 69;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Britannic Bold", 25F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(125)))));
-            this.label2.Location = new System.Drawing.Point(65, 160);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(236, 37);
-            this.label2.TabIndex = 68;
-            this.label2.Text = "Las Marias #3";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Britannic Bold", 28F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(125)))));
-            this.label3.Location = new System.Drawing.Point(36, 118);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(301, 42);
-            this.label3.TabIndex = 67;
-            this.label3.Text = "ESPECIALIDADES";
-            // 
             // frmControlMesas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1662,6 +1666,13 @@
             this.mesas.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas23)).EndInit();
@@ -1687,8 +1698,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mesas3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas1)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mesas50)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas49)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas48)).EndInit();
@@ -1714,11 +1723,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mesas28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas27)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mesas26)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
