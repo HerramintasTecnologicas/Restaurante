@@ -85,5 +85,40 @@ namespace Restaurante
 
             } while (timer1.Interval >= -1);
         }
+
+        private void ribbonControl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void barButtonItem6_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmUsuarios usuarios = new frmUsuarios();
+            usuarios.ShowDialog();
+        }
+
+        private void barButtonItem4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmInventario inventario = new frmInventario();
+            inventario.ShowDialog();
+        }
+
+        private void barButtonItem5_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmInsumos insumos = new frmInsumos();
+            insumos.ShowDialog();
+        }
+
+        private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmTipoUnidad unidad = new frmTipoUnidad();
+            unidad.ShowDialog();
+        }
+
+        private void barButtonItem9_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Mesero mesero = new Mesero();
+            mesero.ShowDialog();
+        }
     }
 }

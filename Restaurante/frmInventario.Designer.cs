@@ -108,7 +108,7 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.panel1.Location = new System.Drawing.Point(458, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(342, 389);
+            this.panel1.Size = new System.Drawing.Size(342, 409);
             this.panel1.TabIndex = 46;
             this.panel1.Visible = false;
             // 
@@ -136,7 +136,7 @@
             this.dgvBuscarInsumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBuscarInsumo.Location = new System.Drawing.Point(18, 262);
             this.dgvBuscarInsumo.Name = "dgvBuscarInsumo";
-            this.dgvBuscarInsumo.Size = new System.Drawing.Size(302, 116);
+            this.dgvBuscarInsumo.Size = new System.Drawing.Size(302, 129);
             this.dgvBuscarInsumo.TabIndex = 18;
             this.dgvBuscarInsumo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBuscarInsumo_CellClick);
             // 
