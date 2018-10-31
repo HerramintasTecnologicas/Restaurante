@@ -105,7 +105,6 @@ namespace Restaurante
             DialogResult respuesta = MessageBox.Show("Está seguro de modificar el Insumo", "Modificar Insumo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (respuesta.ToString() == "Yes")
             {
-
                 try
                 {
                     Clases.Proveedores proveedor = new Clases.Proveedores();

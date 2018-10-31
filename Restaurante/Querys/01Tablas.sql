@@ -70,6 +70,7 @@ ELSE
 			anularFactura BIT,
 			aperturaCaja BIT,
 			cierreCaja BIT
+			
 
 			/*
 				falta colorcar los campos de los modulos a los cuales tendra acceso
@@ -96,33 +97,9 @@ ELSE
 	END
 GO
 
-IF OBJECT_ID('Restaurante.MesasReservadas')	IS NOT NULL
-	DROP TABLE Restaurante.MesasReservadas
-ELSE
-	BEGIN
-		CREATE TABLE Restaurante.MesasReservadas(
-			idMesaReservada INT IDENTITY(1,1) NOT NULL,
-			idMesa INT,
-			idReservacion INT
-		)
-	END
-GO
 
 
 
-IF OBJECT_ID('Restaurante.Reservacion')	IS NOT NULL
-	DROP TABLE Restaurante.Reservacion
-ELSE
-	BEGIN
-		CREATE TABLE Restaurante.Reservacion(
-			idReservacion INT IDENTITY(1,1) NOT NULL, --Numero que se concede automaticamente para reservacion 
-			idUsuario INT NOT NULL, --id del empleado que realiza la reservacion 
-			nombre NVARCHAR(50) NOT NULL, -- nombre de la persona que hace la reservacion
-			fechaReservacion date, --fecha que se realiza la reservacion 
-			fechaAgendada date, --fecha solicitada
-		)
-	END
-GO
 
 /*
 	contiene la informacion de las personas que serviran la comida

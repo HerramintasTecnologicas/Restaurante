@@ -28,20 +28,13 @@ ALTER TABLE Restaurante.Meseros
 		PRIMARY KEY NONCLUSTERED (id)
 GO
 
-ALTER TABLE Restaurante.MesasReservadas
-	ADD CONSTRAINT PK_Restaurante_MesasReservadas_idMesaReservada
-		PRIMARY KEY NONCLUSTERED (idMesaReservada)
-GO 
+
 
 ALTER TABLE Restaurante.Pedidos
 	ADD CONSTRAINT PK_Restaurante_Pedidos_id
 		PRIMARY KEY CLUSTERED (id)
 GO 
 
-ALTER TABLE Restaurante.Reservacion
-	ADD CONSTRAINT PK_Restaurante_Reservacion_idReservacion
-		PRIMARY KEY CLUSTERED (idReservacion)
-GO
 
 ALTER TABLE Restaurante.DetallePedidos
 	ADD CONSTRAINT PK_Restaurante_DetallePedidos_idDetallePedidos
@@ -101,22 +94,12 @@ ALTER TABLE Restaurante.Mesas
 		FOREIGN KEY (idArea)
 			REFERENCES Restaurante.Areas(id);
 GO*/
-ALTER TABLE Restaurante.MesasReservadas
-	ADD CONSTRAINT FK_Restaurante_MesasReservadas_id$TieneUna$Restaurante_Mesas_idMesa
-		FOREIGN KEY (idMesa)
-			REFERENCES Restaurante.Mesas(id);
-GO
+
 
 ALTER TABLE Restaurante.Pedidos
 	ADD CONSTRAINT FK_Restaurante_Pedido_idMesa$TieneUna$Restaurante_Mesas_id
 		FOREIGN KEY	(idMesa)
 			REFERENCES Restaurante.Mesas(id);
-GO
-
-ALTER TABLE Restaurante.MesasReservadas
-	ADD CONSTRAINT FK_Restaurante_Reservacion_idReservacion$PuedeTener$MesasReservadas_idReservacion
-		FOREIGN KEY (idReservacion)
-			REFERENCES Restaurante.Reservacion(idReservacion)
 GO
 
 ALTER TABLE Restaurante.Pedidos

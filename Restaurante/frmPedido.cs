@@ -16,5 +16,10 @@ namespace Restaurante
         {
             InitializeComponent();
         }
+
+        private void dgvInventario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
