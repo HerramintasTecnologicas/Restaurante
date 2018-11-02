@@ -10,16 +10,15 @@ using System.Windows.Forms;
 
 namespace Restaurante
 {
-    public partial class frmTipoProducto : Form
+    public partial class frmCategoriaProducto : Form
     {
-        public frmTipoProducto()
+        public frmCategoriaProducto()
         {
             InitializeComponent();
         }
 
         private void frmTipoProducto_Load(object sender, EventArgs e)
         {
-
             CargarDGWTipoProducto();
             ResetFormulario();
         }
@@ -28,7 +27,7 @@ namespace Restaurante
         {
             try
             {
-                dgvTipoProducto.DataSource = Clases.TipoProducto.GetDataView();
+                dgvCategoriaProducto.DataSource = Clases.CategoriaProducto.GetDataView();
             }
             catch (Exception ex)
             {
@@ -49,7 +48,7 @@ namespace Restaurante
         {
             try
             {
-                Clases.Restaurante.AgregarTipoProducto
+                Clases.Restaurante.AgregarCategoriaProducto
                     (
                         txtDescripcion.Text
                     );
@@ -65,12 +64,12 @@ namespace Restaurante
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show("Está seguro de modificar el tipo de producto", "Modificar Tipo Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult respuesta = MessageBox.Show("Está seguro de modificar la categoria del producto", "Modificar Categoria Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (respuesta.ToString() == "Yes")
             {
                 try
                 {
-                    Clases.Restaurante.ModificarTipoProducto
+                    Clases.Restaurante.ModificarCategoriaProducto
                         (
                             this.id,
                             txtDescripcion.Text
@@ -88,17 +87,17 @@ namespace Restaurante
 
         private void dgvTipoProducto_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Clases.TipoProducto tipoproducto = new Clases.TipoProducto();
-            tipoproducto.ObtenerTipoProducto(
+            Clases.CategoriaProducto categoriaproducto = new Clases.CategoriaProducto();
+            categoriaproducto.ObtenerCategoriaProducto(
                 Convert.ToInt32(
-                    dgvTipoProducto.Rows[e.RowIndex].Cells["Código"].Value.ToString()
+                    dgvCategoriaProducto.Rows[e.RowIndex].Cells["Código"].Value.ToString()
                     )
                 );
-            dgvTipoProducto.Select();
-            this.id = tipoproducto.Id;
+            dgvCategoriaProducto.Select();
+            this.id = categoriaproducto.Id;
 
-            txtId.Text = tipoproducto.Id.ToString();
-            txtDescripcion.Text = tipoproducto.Nombre;
+            txtId.Text = categoriaproducto.Id.ToString();
+            txtDescripcion.Text = categoriaproducto.Descripcion;
 
             btnNuevo.Enabled = true;
             btnAgregar.Enabled = false;
@@ -111,7 +110,7 @@ namespace Restaurante
             txtId.Text = "";
             txtDescripcion.Text = "";
             CargarDGWTipoProducto();
-            dgwTipoUnidadEstilo(dgvTipoProducto);
+            dgwTipoUnidadEstilo(dgvCategoriaProducto);
 
             btnNuevo.Enabled = true;
             btnAgregar.Enabled = true;
@@ -130,12 +129,12 @@ namespace Restaurante
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DialogResult respuesta = MessageBox.Show("Está seguro de eliminar el tipo de Producto" + txtDescripcion.Text, "Eliminar Tipo Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult respuesta = MessageBox.Show("Está seguro de eliminar la categoria del Producto" + txtDescripcion.Text, "Eliminar la categoria Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (respuesta.ToString() == "Yes")
             {
                 try
                 {
-                    Clases.Restaurante.EliminarTipoProducto(this.id);
+                    Clases.Restaurante.EliminarCategoriaProducto(this.id);
                 }
                 catch (Exception ex)
                 {

@@ -127,6 +127,9 @@
   <data name="mod" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mod.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="descarga (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\descarga (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Ventas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ventas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,8 +142,8 @@
   <data name="inventario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\inventario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogoTenedor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogoTenedor.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LogoTenedor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogoTenedor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="verde2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\verde2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,8 +160,8 @@
   <data name="Listar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Listar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogoTenedor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogoTenedor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LogoTenedor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogoTenedor.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pez1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pez1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,7 +169,10 @@
   <data name="business_inventory_maintenance_product_box_boxes_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\business_inventory_maintenance_product_box_boxes_2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="descarga (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\descarga (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1486504314-check-list-item-item-list-to-do-ui-shopping_81331" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1486504314-check-list-item-item-list-to-do-ui-shopping_81331.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dinero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dinero.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

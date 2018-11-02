@@ -3,6 +3,7 @@ GO
 
 
 --sin terminar
+--Modulo Usuarios
 CREATE PROCEDURE SP_BuscarUsuario
 (
     @usuario NVARCHAR(25)
@@ -121,90 +122,8 @@ BEGIN
                 END
 END
 GO
-        
-
-CREATE PROCEDURE SP_InsertarTipoAcceso
-(
-	@departamento NVARCHAR(20)
-	--pendientes los parametros de los modulos 
-	--que contendra el sistema
-)
-AS
-BEGIN
-	DECLARE @existe int;
-	SET @existe = 0;
-
-	SELECT @existe = COUNT(Acceso.TipoAcceso.departamento) FROM Acceso.TipoAcceso WHERE departamento = @departamento;
-	IF (@existe > 0)
-		BEGIN
-			RAISERROR(N'Ya existe un departamento con el nombre  "%s"', 16, 1, @departamento);
-			RETURN 0
-			
-		END
-	ELSE
-		BEGIN
-			INSERT INTO Acceso.TipoAcceso(departamento)
-				VALUES(	@departamento)
-			RETURN 1
-		END
-END
-GO
-
-
-CREATE PROCEDURE SP_ModificarTipoAcceso
-(
-	@id INT,
-	@departamento VARCHAR(20)
-	--pendientes los parametros de los modulos 
-	--que contendra el sistema
-	
-)
-AS
-BEGIN
-	DECLARE @existe int;
-	SET @existe = 0;
-
-	SELECT @existe = COUNT(Acceso.TipoAcceso.id) FROM Acceso.TipoAcceso WHERE id=@id;
-
-	IF (@existe = 0)
-		BEGIN
-			RAISERROR(N'No existe el departamento con el id %d', 16, 1, @id);
-			RETURN 0
-		END 	
-	ELSE
-		BEGIN
-			--ANTES DE REALIZAR LA INSERCION VERIFICAR QUE EL NOMBRE NUEVO DEL
-			--DEPARTAMENTO A MODIFICAR NO ESTE EN EL SISTEMA
-			UPDATE Acceso.TipoAcceso
-				SET 	departamento=@departamento
-					WHERE id=@id;
-			RETURN 1
-		END
-END
-GO
-
-
-CREATE PROCEDURE SP_EliminarTipoAcceso
-(
-	@id INT
-)
-AS 
-BEGIN
-	DECLARE @existe int;
-	SET @existe = 0;
-		SELECT @existe = COUNT(Acceso.TipoAcceso.id) FROM Acceso.TipoAcceso WHERE id=@id;
-		IF (@existe = 0)
-			BEGIN
-				RAISERROR(N'No existe el departamento con el id %d"', 16, 1, @id);
-				RETURN 0
-			END 	
-		ELSE
-			BEGIN
-				DELETE FROM Acceso.TipoAcceso WHERE id=@id;
-				RETURN 1
-			END
-END
-GO
+----------------------------------------------------------
+--Modulo Proveedor
 
 CREATE PROCEDURE SP_AgregarProveedor
 (
@@ -283,7 +202,8 @@ BEGIN
 			END
 END
 GO
-
+----------------------------------------------------------------------------------------
+--Modulo Mesero
 CREATE PROCEDURE SP_AgregarMesero
 (
 	@identidad NVARCHAR(15),
@@ -309,7 +229,6 @@ BEGIN
 		END
 END
 GO
-
 
 Create PROCEDURE SP_ModificarMesero
 (	
@@ -361,11 +280,16 @@ BEGIN
 			END
 END
 GO
-
-CREATE PROCEDURE SP_AgregarInsumo
+-----------------------------------------------------------------------------------
+--Modulo Insumos
+USE DBRestauranteMarias
+GO
+ALTER PROCEDURE SP_AgregarInsumo
 (
     @nombre NVARCHAR(100),
     @costo DECIMAL(4,2),
+	@cantidad INT,
+	@cantidadMinima INT,
     @idTipoUnidad INT,
     @descripcion NVARCHAR(200),
     @idProveedor INT
@@ -384,18 +308,20 @@ BEGIN
         END
     ELSE
         BEGIN
-            INSERT INTO Restaurante.Insumos(nombre, costo, idTipoUnidad, descripcion, idProveedor)
-                VALUES(@nombre, @costo, @idTipoUnidad, @descripcion, @idProveedor)
+            INSERT INTO Restaurante.Insumos(nombre, costo, cantidad,cantidadMinima,idTipoUnidad, descripcion, idProveedor)
+                VALUES(@nombre, @costo, @cantidad,@cantidadMinima,@idTipoUnidad, @descripcion, @idProveedor)
             RETURN 1
         END
 END
 GO
 
-CREATE PROCEDURE SP_ModificarInsumo
+ALTER PROCEDURE SP_ModificarInsumo
 (
     @idInsumo INT,
     @nombre NVARCHAR(100),
     @costo DECIMAL(4,2),
+	@cantidad INT,
+	@cantidadMinima INT,
     @idTipoUnidad INT,
     @descripcion NVARCHAR(200),
     @idProveedor INT
@@ -417,6 +343,8 @@ BEGIN
             UPDATE Restaurante.Insumos
                 SET     nombre = @nombre,
                         costo = @costo,
+						cantidad=@cantidad,
+						cantidadMinima=@cantidadMinima ,
                         idTipoUnidad = @idTipoUnidad,
                         descripcion = @descripcion,
                         idProveedor = @idProveedor
@@ -447,7 +375,8 @@ BEGIN
             END
 END
 GO
-
+--------------------------------------------------------------------------------------------
+--Modulo Tipo de Unidad
 CREATE PROCEDURE SP_InsertarTipoUnidad
 (
     @descripcion NVARCHAR(100)
@@ -518,28 +447,27 @@ BEGIN
         END
 END
 GO
+---------------------------------------------------------------------------------
+--Modulo mesas
 
 CREATE PROCEDURE SP_AgregarMesa
 (
-@idArea INT,
 @estado NVARCHAR(21)
 )
 AS
 BEGIN
 	DECLARE @existe int;
 	SET @existe = 0;
-
 	SELECT @existe = COUNT(Restaurante.Mesas.estado) FROM Restaurante.Mesas WHERE estado=@estado;
 	IF (@existe > 0)
 		BEGIN
 			RAISERROR(N'Ya existe una area con el nombre "%s"', 16, 1,@estado);
 			RETURN 0
-			
 		END
 	ELSE
 		BEGIN
-			INSERT INTO Restaurante.Mesas(idArea,estado)
-				VALUES(@idArea, @estado)
+			INSERT INTO Restaurante.Mesas(estado)
+				VALUES(@estado)
 			RETURN 1
 		END
 END
@@ -548,7 +476,6 @@ GO
 CREATE PROCEDURE SP_ModificarMesa
 (
 @id INT,
-@idArea INT,
 @estado NVARCHAR(21)
 )
 AS
@@ -564,8 +491,7 @@ BEGIN
 	ELSE
 		BEGIN
 			UPDATE Restaurante.Mesas
-				SET idArea = @idArea, 
-					estado = @estado
+				SET estado = @estado
 					WHERE id = @id;
 			RETURN 1
 		END
@@ -593,6 +519,8 @@ BEGIN
 			END
 END
 GO
+----------------------------------------------------------------------------------
+--Modulo Pedidos de Comida
 /*
 CREATE PROCEDURE SP_AgregarPedido
 (
@@ -665,7 +593,8 @@ BEGIN
 			END
 END
 GO
-
+--------------------------------------------------------------------------------------
+--Modulo Factura
 CREATE PROCEDURE SP_AgregarFactura
 (
 )
@@ -688,67 +617,322 @@ BEGIN
 			RETURN 1
 		END
 END
-GO
-
+GO*/
+-------------------------------------------------------------------------------------------------------------------
+--Modulo Inventario 
 CREATE PROCEDURE SP_AgregarInventario
 (
+	@descripcion NVARCHAR(100),
+	@costo DECIMAL(4,2),
+	@precioVenta DECIMAL(4,2),
+	@cantidad DECIMAL(4,2),
+	@idTipoProducto INT,
+	@idProveedor INT
 )
 AS
 BEGIN
-
+	DECLARE @existe int;
+	SET @existe = 0;
+	SELECT @existe = COUNT(Restaurante.Inventario.idInventario) FROM Restaurante.Inventario WHERE descripcion = @descripcion;
+	IF (@existe > 0)
+		BEGIN
+			RAISERROR(N'Ya existe un Insumo con el nombre %s"', 16, 1,@descripcion);
+			RETURN 0
+		END
+	ELSE
+		BEGIN
+			INSERT INTO Restaurante.Inventario(descripcion, costo, precioVenta, cantidad, idTipoProducto, idProveedor)
+				VALUES(@descripcion, @costo, @precioVenta, @cantidad, @idTipoProducto, @idProveedor)
+			RETURN 1
+		END
 END
 GO
 
 CREATE PROCEDURE SP_ModificarInventario
 (
-)
-AS 
-BEGIN
-	DECLARE @existe int;
-	SET @existe = 0;
-
-	SELECT @existe = COUNT(<esquema.tabla.campo>) FROM <Esquema.tabla> WHERE <condicion>;
-
-	IF (@existe = 0)
-		BEGIN
-			RAISERROR(N'Aqui va el mensaje de error"', 16, 1);
-			RETURN 0
-		END 	
-	ELSE
-		BEGIN
-			UPDATE <esquema.tabla>
-				SET 	<campos=variables>
-					WHERE <condicion>;
-			RETURN 1
-		END
-	
-	END
-END
-GO
-
-CREATE PROCEDURE SP_EliminarInventario
-(
+	@idInventario INT,
+	@descripcion NVARCHAR(100),
+	@costo DECIMAL(4,2),
+	@precioVenta DECIMAL(4,2),
+	@cantidad DECIMAL(4,2),
+	@idTipoProducto INT,
+	@idProveedor INT
 )
 AS
 BEGIN
 	DECLARE @existe int;
 	SET @existe = 0;
-		SELECT @existe = COUNT(<esquema.tabla.campo>) FROM <Esquema.tabla> WHERE <condicion>;
+
+	SELECT @existe = COUNT(Restaurante.Inventario.idInventario) FROM Restaurante.Inventario WHERE idInventario = @idInventario;
+
+	IF (@existe = 0)
+		BEGIN
+			RAISERROR(N'No existe el Producto con el id %d"', 16, 1, @idInventario);
+			RETURN 0
+		END 	
+	ELSE
+		BEGIN
+			UPDATE Restaurante.Inventario
+				SET 	descripcion = @descripcion,
+						costo = @costo,
+						precioVenta = @precioVenta,
+						cantidad = @cantidad,
+						idTipoProducto = @idTipoProducto,
+						idProveedor = @idProveedor
+					WHERE idInventario = @idInventario;
+			RETURN 1
+		END
+END
+GO
+
+CREATE PROCEDURE SP_EliminarInventario
+(
+	@idInventario INT
+)
+AS
+BEGIN
+	DECLARE @existe int;
+	SET @existe = 0;
+		SELECT @existe = COUNT(Restaurante.Inventario.idInventario) FROM Restaurante.Inventario WHERE idInventario = @idInventario;
 		IF (@existe = 0)
 			BEGIN
-				RAISERROR(N'aqui va el mensaje de error "', 16, 1);
+				RAISERROR(N'No existe el Producto con el id %d"', 16, 1, @idInventario);
 				RETURN 0
 			END 	
 		ELSE
 			BEGIN
-				DELETE FROM <Esquema.tabla>	WHERE <condicion>;
+				DELETE FROM Restaurante.Inventario WHERE idInventario = @idInventario;
 				RETURN 1
 			END
 END
 GO
+--------------------------------------------------------------------------------------------------------
+-- Modulo insumo Producto
 
-*/
 
+CREATE PROCEDURE SP_AgregarInsumosProductos
+(
+	@idInsumo INT,
+	@idInventario INT
+)
+AS
+BEGIN
+	DECLARE @existe int;
+	SET @existe = 0;
+
+	SELECT @existe = COUNT(Restaurante.InsumosProductos.idInsumoProducto) FROM Restaurante.InsumosProductos WHERE idInsumo = @idInsumo AND idInventario = @idInventario;
+	IF (@existe > 0)
+		BEGIN
+			RAISERROR(N'Ya existe ese Insumo', 16, 1);
+			RETURN 0
+			
+		END
+	ELSE
+		BEGIN
+			INSERT INTO Restaurante.InsumosProductos(idInsumo, idInventario)
+				VALUES(@idInsumo, @idInventario)
+			RETURN 1
+		END
+END
+GO
+
+CREATE PROCEDURE SP_ModificarInsumosProductos
+(
+	@idInsumoProducto INT,
+	@idInsumo INT,
+	@idInventario INT
+)
+AS
+BEGIN
+	DECLARE @existe int;
+	SET @existe = 0;
+
+	SELECT @existe = COUNT(Restaurante.InsumosProductos.idInsumoProducto) FROM Restaurante.InsumosProductos WHERE idInsumoProducto = @idInsumoProducto;
+
+	IF (@existe = 0)
+		BEGIN
+			RAISERROR(N'No existe el insumo en el producto con el id %d"', 16, 1, @idInsumoProducto);
+			RETURN 0
+		END 	
+	ELSE
+		BEGIN
+			UPDATE Restaurante.InsumosProductos
+				SET 	idInsumo = @idInsumo,
+						idInventario = @idInventario
+					WHERE idInsumoProducto = @idInsumoProducto;
+			RETURN 1
+		END
+END
+GO
+
+CREATE PROCEDURE SP_EliminarInsumosProductos
+(
+	@idInsumoProducto INT
+)
+AS
+BEGIN
+	DECLARE @existe int;
+	SET @existe = 0;
+		SELECT @existe = COUNT(Restaurante.InsumosProductos.idInsumoProducto) FROM Restaurante.InsumosProductos WHERE idInsumoProducto = @idInsumoProducto;
+		IF (@existe = 0)
+			BEGIN
+				RAISERROR(N'No existe el insumo con el id %d"', 16, 1, @idInsumoProducto);
+				RETURN 0
+			END 	
+		ELSE
+			BEGIN
+				DELETE FROM Restaurante.InsumosProductos WHERE idInsumoProducto = @idInsumoProducto;
+				RETURN 1
+			END
+END
+GO
+-------------------------------------------------
+--Modulo Categoria de Producto
+CREATE PROCEDURE SP_AgregarCategoriaProducto
+(
+	@descripcion NVARCHAR(100)
+)
+AS
+BEGIN
+	DECLARE @existe int;
+	SET @existe = 0;
+
+	SELECT @existe = COUNT(Restaurante.CategoriaProducto.idCategoria) FROM Restaurante.CategoriaProducto WHERE descripcion=@descripcion;
+	IF (@existe > 0)
+		BEGIN
+			RAISERROR(N'Ya existe un Tipo de Unidad con el nombre "%s"', 16, 1,@descripcion);
+			RETURN 0
+			
+		END
+	ELSE
+		BEGIN
+			INSERT INTO Restaurante.CategoriaProducto(descripcion)
+				VALUES(@descripcion)
+			RETURN 1
+		END
+END
+GO
+
+CREATE PROCEDURE SP_ModificarCategoriaProducto
+(
+	@idCategoriaProducto INT,
+	@descripcion NVARCHAR(100)
+)
+AS
+BEGIN
+	DECLARE @existe int;
+	SET @existe = 0;
+	SELECT @existe = COUNT(Restaurante.CategoriaProducto.idCategoria) FROM Restaurante.CategoriaProducto WHERE idCategoria=@idCategoriaProducto;
+	IF (@existe = 0)
+		BEGIN
+			RAISERROR(N'No existe ningún Tipo de Unidad con el id "%d"', 16, 1, @idCategoriaProducto);
+			RETURN 0
+		END 	
+	ELSE
+		BEGIN
+			UPDATE Restaurante.CategoriaProducto
+				SET 	descripcion = @descripcion
+					WHERE idCategoria = @idCategoriaProducto;
+			RETURN 1
+		END
+END
+GO
+
+CREATE PROCEDURE SP_EliminarCategoriaProducto
+(
+	@idCategoriaProducto INT
+)
+AS
+BEGIN
+	DECLARE @existe int;
+	SET @existe = 0;
+	SELECT @existe = COUNT(Restaurante.CategoriaProducto.idCategoria) FROM Restaurante.CategoriaProducto WHERE idCategoria=@idCategoriaProducto;
+	IF (@existe = 0)
+		BEGIN
+			RAISERROR(N'No existe ningún Tipo de Unidad con el id "%d"', 16, 1, @idCategoriaProducto);
+			RETURN 0
+		END 	
+	ELSE
+		BEGIN
+			DELETE FROM Restaurante.CategoriaProducto	WHERE idCategoria = @idCategoriaProducto;
+			RETURN 1
+		END
+END
+GO
+---------------------------------------------------------
+--Modulo Tipo de Producto
+CREATE PROCEDURE SP_InsertarTipoProducto
+(
+    @nombre NVARCHAR(100)
+)
+AS
+BEGIN
+    DECLARE @existe int;
+    SET @existe = 0;
+
+    SELECT @existe = COUNT(Restaurante.TipoProducto.idTipoProducto) FROM Restaurante.TipoProducto WHERE nombre=@nombre;
+    IF (@existe > 0)
+        BEGIN
+            RAISERROR(N'Ya existe un Tipo de Unidad con el nombre "%s"', 16, 1,@nombre);
+            RETURN 0          
+        END
+    ELSE
+        BEGIN
+            INSERT INTO Restaurante.TipoProducto(nombre)
+                VALUES(@nombre)
+            RETURN 1
+        END
+END
+GO
+
+CREATE PROCEDURE SP_ModificarTipoProducto
+(
+    @idTipoProducto INT,
+    @nombre NVARCHAR(100)
+)
+AS
+BEGIN
+    DECLARE @existe int;
+    SET @existe = 0;
+    SELECT @existe = COUNT(Restaurante.TipoProducto.idTipoProducto) FROM Restaurante.TipoProducto WHERE idTipoProducto=@idTipoProducto;
+    IF (@existe = 0)
+        BEGIN
+            RAISERROR(N'No existe ningún Tipo de Unidad con el id "%d"', 16, 1, @idTipoProducto);
+            RETURN 0
+        END     
+    ELSE
+        BEGIN
+            UPDATE Restaurante.TipoProducto
+                SET     nombre = @nombre
+                    WHERE idTipoProducto = @idTipoProducto;
+            RETURN 1
+        END
+END
+GO
+
+CREATE PROCEDURE SP_EliminarTipoProducto
+(
+    @idTipoProducto INT
+)
+AS
+BEGIN
+    DECLARE @existe int;
+    SET @existe = 0;
+    SELECT @existe = COUNT(Restaurante.TipoProducto.idTipoProducto) FROM Restaurante.TipoProducto WHERE idTipoProducto=@idTipoProducto;
+    IF (@existe = 0)
+        BEGIN
+            RAISERROR(N'No existe ningún Tipo de Producto con el id "%d"', 16, 1, @idTipoProducto);
+            RETURN 0
+        END     
+    ELSE
+        BEGIN
+            DELETE FROM Restaurante.TipoProducto  WHERE idTipoProducto = @idTipoProducto;
+            RETURN 1
+        END
+END
+GO
+/*
+----------------------------------------------------------------------------------------------------------------
 --SP para actualizar el stock dela Tabla Inventario.Articulos 
 CREATE PROCEDURE Inventario.SPActualizarArticulos(
 	@CodigoArticulo VARCHAR(15),
@@ -883,3 +1067,4 @@ BEGIN
 		WHERE Numero= @NumeroFactura
 END
 GO
+*/

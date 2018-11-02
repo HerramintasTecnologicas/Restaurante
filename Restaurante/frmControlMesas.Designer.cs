@@ -32,7 +32,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -100,6 +99,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mesas25 = new System.Windows.Forms.PictureBox();
             this.mesas24 = new System.Windows.Forms.PictureBox();
@@ -213,23 +213,27 @@
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button4.Location = new System.Drawing.Point(204, 397);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 43);
             this.button4.TabIndex = 66;
             this.button4.Text = "Unir Mesas";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button3.Location = new System.Drawing.Point(47, 397);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(134, 43);
             this.button3.TabIndex = 65;
             this.button3.Text = "Cambio de Mesa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
@@ -249,20 +253,6 @@
             this.groupBox1.TabIndex = 64;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Leyenda";
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Image = global::Restaurante.Properties.Resources.Exit;
-            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(18, 132);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(83, 43);
-            this.btnSalir.TabIndex = 8;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // label33
             // 
@@ -323,23 +313,27 @@
             // 
             // btnsiguiente
             // 
+            this.btnsiguiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnsiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsiguiente.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnsiguiente.Location = new System.Drawing.Point(18, 81);
             this.btnsiguiente.Name = "btnsiguiente";
             this.btnsiguiente.Size = new System.Drawing.Size(83, 43);
             this.btnsiguiente.TabIndex = 1;
             this.btnsiguiente.Text = "Siguiente";
-            this.btnsiguiente.UseVisualStyleBackColor = true;
+            this.btnsiguiente.UseVisualStyleBackColor = false;
             // 
             // btnAnterior
             // 
+            this.btnAnterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnAnterior.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnterior.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnAnterior.Location = new System.Drawing.Point(18, 30);
             this.btnAnterior.Name = "btnAnterior";
             this.btnAnterior.Size = new System.Drawing.Size(83, 43);
             this.btnAnterior.TabIndex = 0;
             this.btnAnterior.Text = "Anterior";
-            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.UseVisualStyleBackColor = false;
             // 
             // mesas
             // 
@@ -1089,6 +1083,22 @@
             this.pictureBox4.TabIndex = 69;
             this.pictureBox4.TabStop = false;
             // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnSalir.Image = global::Restaurante.Properties.Resources.Exit;
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.Location = new System.Drawing.Point(18, 132);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(83, 43);
+            this.btnSalir.TabIndex = 8;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -1207,6 +1217,7 @@
             this.mesas16.TabIndex = 128;
             this.mesas16.TabStop = false;
             this.mesas16.Tag = "Mesa";
+            this.mesas16.Click += new System.EventHandler(this.mesas16_Click);
             // 
             // mesas15
             // 
@@ -1218,6 +1229,7 @@
             this.mesas15.TabIndex = 126;
             this.mesas15.TabStop = false;
             this.mesas15.Tag = "Mesa";
+            this.mesas15.Click += new System.EventHandler(this.mesas15_Click);
             // 
             // mesas14
             // 
@@ -1229,6 +1241,7 @@
             this.mesas14.TabIndex = 124;
             this.mesas14.TabStop = false;
             this.mesas14.Tag = "Mesa";
+            this.mesas14.Click += new System.EventHandler(this.mesas14_Click);
             // 
             // mesas13
             // 
@@ -1240,6 +1253,7 @@
             this.mesas13.TabIndex = 122;
             this.mesas13.TabStop = false;
             this.mesas13.Tag = "Mesa";
+            this.mesas13.Click += new System.EventHandler(this.mesas13_Click);
             // 
             // mesas12
             // 
@@ -1251,6 +1265,7 @@
             this.mesas12.TabIndex = 120;
             this.mesas12.TabStop = false;
             this.mesas12.Tag = "Mesa";
+            this.mesas12.Click += new System.EventHandler(this.mesas12_Click);
             // 
             // mesas11
             // 
@@ -1262,6 +1277,7 @@
             this.mesas11.TabIndex = 118;
             this.mesas11.TabStop = false;
             this.mesas11.Tag = "Mesa";
+            this.mesas11.Click += new System.EventHandler(this.mesas11_Click);
             // 
             // mesas10
             // 
@@ -1274,6 +1290,7 @@
             this.mesas10.TabIndex = 116;
             this.mesas10.TabStop = false;
             this.mesas10.Tag = "Mesa";
+            this.mesas10.Click += new System.EventHandler(this.mesas10_Click);
             // 
             // mesas9
             // 
@@ -1285,6 +1302,7 @@
             this.mesas9.TabIndex = 114;
             this.mesas9.TabStop = false;
             this.mesas9.Tag = "Mesa";
+            this.mesas9.Click += new System.EventHandler(this.mesas9_Click);
             // 
             // mesas8
             // 
@@ -1296,6 +1314,7 @@
             this.mesas8.TabIndex = 112;
             this.mesas8.TabStop = false;
             this.mesas8.Tag = "Mesa";
+            this.mesas8.Click += new System.EventHandler(this.mesas8_Click);
             // 
             // mesas7
             // 
@@ -1307,6 +1326,7 @@
             this.mesas7.TabIndex = 110;
             this.mesas7.TabStop = false;
             this.mesas7.Tag = "Mesa";
+            this.mesas7.Click += new System.EventHandler(this.mesas7_Click);
             // 
             // mesas6
             // 
@@ -1318,6 +1338,7 @@
             this.mesas6.TabIndex = 108;
             this.mesas6.TabStop = false;
             this.mesas6.Tag = "Mesa";
+            this.mesas6.Click += new System.EventHandler(this.mesas6_Click);
             // 
             // mesas5
             // 
@@ -1330,6 +1351,7 @@
             this.mesas5.TabIndex = 106;
             this.mesas5.TabStop = false;
             this.mesas5.Tag = "Mesa";
+            this.mesas5.Click += new System.EventHandler(this.mesas5_Click);
             // 
             // mesas4
             // 
@@ -1341,6 +1363,7 @@
             this.mesas4.TabIndex = 104;
             this.mesas4.TabStop = false;
             this.mesas4.Tag = "Mesa";
+            this.mesas4.Click += new System.EventHandler(this.mesas4_Click);
             // 
             // mesas3
             // 
@@ -1352,6 +1375,7 @@
             this.mesas3.TabIndex = 102;
             this.mesas3.TabStop = false;
             this.mesas3.Tag = "Mesa";
+            this.mesas3.Click += new System.EventHandler(this.mesas3_Click);
             // 
             // mesas2
             // 
@@ -1363,6 +1387,7 @@
             this.mesas2.TabIndex = 100;
             this.mesas2.TabStop = false;
             this.mesas2.Tag = "Mesa";
+            this.mesas2.Click += new System.EventHandler(this.mesas2_Click);
             // 
             // mesas1
             // 
@@ -1372,6 +1397,7 @@
             this.mesas1.Size = new System.Drawing.Size(92, 79);
             this.mesas1.TabIndex = 146;
             this.mesas1.TabStop = false;
+            this.mesas1.Click += new System.EventHandler(this.mesas1_Click);
             // 
             // mesas50
             // 

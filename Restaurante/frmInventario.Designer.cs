@@ -139,6 +139,7 @@
             this.dgvBuscarInsumo.Size = new System.Drawing.Size(302, 129);
             this.dgvBuscarInsumo.TabIndex = 18;
             this.dgvBuscarInsumo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBuscarInsumo_CellClick);
+           // this.dgvBuscarInsumo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBuscarInsumo_CellContentClick);
             // 
             // groupBox1
             // 

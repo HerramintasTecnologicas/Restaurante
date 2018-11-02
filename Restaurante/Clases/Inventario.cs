@@ -76,7 +76,7 @@ namespace Restaurante.Clases
                 cmd.Parameters["idTipoProducto"].Value = IdTipoProducto;
                 cmd.Parameters.Add(new SqlParameter("idProveedor", SqlDbType.Int));
                 cmd.Parameters["idProveedor"].Value = IdProveedor;
-                
+
                 cmd.ExecuteNonQuery();
 
             }
@@ -150,7 +150,7 @@ namespace Restaurante.Clases
                 conexion.Cerrar();
             }
         }
-
+        //Obtiene todos los datos del inventario
         public void ObtenerInventario(int id)
         {
             Conexión conexion = new Conexión();
@@ -185,7 +185,38 @@ namespace Restaurante.Clases
             }
 
         }
+        //---------------------------------------------
+        public void ObtenerInventario1(int id)
+        {
+            Conexión conexion = new Conexión();
+            string sql = @"SELECT idInventario, descripcion, precioVenta, idCategoria, idTipoProducto FROM Restaurante.Inventario WHERE idInventario = '" + id + "';";
+            SqlCommand cmd = new SqlCommand(sql, conexion.conexion);
+            try
+            {
+                conexion.Abrir();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    IdInventario = dr.GetInt32(0);
+                    Descripcion = dr.GetString(1);
+                    PrecioVenta = dr.GetDecimal(3);
+                    IdCategoria = dr.GetInt32(6);
+                    IdTipoProducto = dr.GetInt32(7);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Clases.Excepcion(
+                   String.Format("{0} \n\n{1}",
+                   "No podemos obtener la informacion del Producto", ex.Message), ex, "Clase_Inventario"); ;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
 
+        }
+        //______________________________________________
         public void ObtenerIdInventario(string descripcion)
         {
             Conexión conexion = new Conexión();
@@ -256,6 +287,46 @@ namespace Restaurante.Clases
                 conexion.Cerrar();
             }
 
+        }
+
+        //________________________
+        public static DataView GetDataView1(int categoria)
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            string sql = @"SELECT   Restaurante.Inventario.idInventario         as Código,
+                                    Restaurante.Inventario.descripcion          as Nombre,
+                                    Restaurante.Inventario.precioVenta          as PrecioVenta,
+                                    Restaurante.CategoriaProducto.descripcion   as Categoría,
+                                    Restaurante.TipoProducto.nombre             as TipoProducto
+                                 
+                            FROM Restaurante.TipoProducto
+                            INNER JOIN Restaurante.Inventario
+                            ON Restaurante.Inventario.idTipoProducto = Restaurante.TipoProducto.idTipoProducto 
+                            INNER JOIN Restaurante.CategoriaProducto
+                            ON Restaurante.CategoriaProducto.idCategoria = Restaurante.Inventario.idCategoria
+                            WHERE idCategoria =" + categoria;
+
+            try
+            {
+                SqlDataAdapter data = new SqlDataAdapter();
+                data.SelectCommand = new SqlCommand(sql, conexion.conexion);
+                DataSet ds = new DataSet();
+                data.Fill(ds, "Restaurante.Inventario");
+                DataTable dt = ds.Tables["Restaurante.Inventario"];
+                DataView dv = new DataView(dt,
+                    "",
+                    "Código",
+                    DataViewRowState.Unchanged);
+                return dv;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
         }
     }
 }

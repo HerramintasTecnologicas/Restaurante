@@ -120,5 +120,16 @@ namespace Restaurante
             Mesero mesero = new Mesero();
             mesero.ShowDialog();
         }
+
+        private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmCategoriaProducto producto = new frmCategoriaProducto();
+            producto.ShowDialog();
+        }
     }
 }

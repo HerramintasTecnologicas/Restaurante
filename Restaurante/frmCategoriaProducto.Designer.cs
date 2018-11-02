@@ -1,6 +1,6 @@
 ﻿namespace Restaurante
 {
-    partial class frmTipoProducto
+    partial class frmCategoriaProducto
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTipoProducto));
-            this.dgvTipoProducto = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCategoriaProducto));
+            this.dgvCategoriaProducto = new System.Windows.Forms.DataGridView();
             this.pnlBotones = new System.Windows.Forms.Panel();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -41,29 +41,29 @@
             this.lblId = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.pnlTitulo = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnSalir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTipoProducto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategoriaProducto)).BeginInit();
             this.pnlBotones.SuspendLayout();
             this.grpTipoUnidad.SuspendLayout();
             this.pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvTipoProducto
+            // dgvCategoriaProducto
             // 
-            this.dgvTipoProducto.AllowUserToAddRows = false;
-            this.dgvTipoProducto.AllowUserToDeleteRows = false;
-            this.dgvTipoProducto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvTipoProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTipoProducto.Location = new System.Drawing.Point(75, 225);
-            this.dgvTipoProducto.Name = "dgvTipoProducto";
-            this.dgvTipoProducto.ReadOnly = true;
-            this.dgvTipoProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTipoProducto.Size = new System.Drawing.Size(315, 123);
-            this.dgvTipoProducto.TabIndex = 39;
-            this.dgvTipoProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipoProducto_CellClick);
+            this.dgvCategoriaProducto.AllowUserToAddRows = false;
+            this.dgvCategoriaProducto.AllowUserToDeleteRows = false;
+            this.dgvCategoriaProducto.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvCategoriaProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategoriaProducto.Location = new System.Drawing.Point(75, 225);
+            this.dgvCategoriaProducto.Name = "dgvCategoriaProducto";
+            this.dgvCategoriaProducto.ReadOnly = true;
+            this.dgvCategoriaProducto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCategoriaProducto.Size = new System.Drawing.Size(336, 123);
+            this.dgvCategoriaProducto.TabIndex = 39;
+            this.dgvCategoriaProducto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTipoProducto_CellClick);
             // 
             // pnlBotones
             // 
@@ -81,7 +81,7 @@
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnModificar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnModificar.Location = new System.Drawing.Point(13, 69);
+            this.btnModificar.Location = new System.Drawing.Point(13, 68);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 25);
             this.btnModificar.TabIndex = 6;
@@ -94,7 +94,7 @@
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnAgregar.Location = new System.Drawing.Point(13, 40);
+            this.btnAgregar.Location = new System.Drawing.Point(13, 39);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 25);
             this.btnAgregar.TabIndex = 5;
@@ -107,7 +107,7 @@
             this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnEliminar.Location = new System.Drawing.Point(13, 98);
+            this.btnEliminar.Location = new System.Drawing.Point(13, 97);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 25);
             this.btnEliminar.TabIndex = 7;
@@ -120,7 +120,7 @@
             this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnNuevo.Location = new System.Drawing.Point(13, 11);
+            this.btnNuevo.Location = new System.Drawing.Point(13, 10);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 25);
             this.btnNuevo.TabIndex = 4;
@@ -183,26 +183,6 @@
             this.pnlTitulo.Size = new System.Drawing.Size(479, 79);
             this.pnlTitulo.TabIndex = 38;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Britannic Bold", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(125)))));
-            this.label1.Location = new System.Drawing.Point(3, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(454, 37);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Información Tipo de Producto";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-26, 365);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(527, 92);
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnSalir
             // 
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -215,22 +195,42 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // frmTipoProducto
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Britannic Bold", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(125)))));
+            this.label1.Location = new System.Drawing.Point(60, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(345, 37);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Categoria de Producto";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(-26, 365);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(527, 92);
+            this.pictureBox1.TabIndex = 37;
+            this.pictureBox1.TabStop = false;
+            // 
+            // frmCategoriaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 454);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.dgvTipoProducto);
+            this.Controls.Add(this.dgvCategoriaProducto);
             this.Controls.Add(this.pnlBotones);
             this.Controls.Add(this.grpTipoUnidad);
             this.Controls.Add(this.pnlTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmTipoProducto";
+            this.Name = "frmCategoriaProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmTipoProducto";
             this.Load += new System.EventHandler(this.frmTipoProducto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTipoProducto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategoriaProducto)).EndInit();
             this.pnlBotones.ResumeLayout(false);
             this.grpTipoUnidad.ResumeLayout(false);
             this.grpTipoUnidad.PerformLayout();
@@ -244,7 +244,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dgvTipoProducto;
+        private System.Windows.Forms.DataGridView dgvCategoriaProducto;
         private System.Windows.Forms.Panel pnlBotones;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;

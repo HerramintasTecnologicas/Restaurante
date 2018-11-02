@@ -113,11 +113,11 @@
     <Compile Include="frmProveedores.Designer.cs">
       <DependentUpon>frmProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTipoProducto.cs">
+    <Compile Include="frmCategoriaProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTipoProducto.Designer.cs">
-      <DependentUpon>frmTipoProducto.cs</DependentUpon>
+    <Compile Include="frmCategoriaProducto.Designer.cs">
+      <DependentUpon>frmCategoriaProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTipoUnidad.cs">
       <SubType>Form</SubType>
@@ -163,8 +163,8 @@
     <EmbeddedResource Include="frmProveedores.resx">
       <DependentUpon>frmProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTipoProducto.resx">
-      <DependentUpon>frmTipoProducto.cs</DependentUpon>
+    <EmbeddedResource Include="frmCategoriaProducto.resx">
+      <DependentUpon>frmCategoriaProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTipoUnidad.resx">
       <DependentUpon>frmTipoUnidad.cs</DependentUpon>
@@ -252,6 +252,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\descarga %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1486504314-check-list-item-item-list-to-do-ui-shopping_81331.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dinero.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

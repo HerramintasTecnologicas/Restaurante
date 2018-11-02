@@ -63,6 +63,16 @@ namespace Restaurante.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1486504314_check_list_item_item_list_to_do_ui_shopping_81331 {
+            get {
+                object obj = ResourceManager.GetObject("1486504314-check-list-item-item-list-to-do-ui-shopping_81331", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _1486505266_dish_food_dome_dish_kitchen_restaurant_81412 {
             get {
                 object obj = ResourceManager.GetObject("1486505266-dish-food-dome-dish-kitchen-restaurant_81412", resourceCulture);
@@ -86,6 +96,16 @@ namespace Restaurante.Properties {
         internal static System.Drawing.Bitmap descarga__2_ {
             get {
                 object obj = ResourceManager.GetObject("descarga (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dinero {
+            get {
+                object obj = ResourceManager.GetObject("Dinero", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
