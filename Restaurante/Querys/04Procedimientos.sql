@@ -623,9 +623,11 @@ GO*/
 CREATE PROCEDURE SP_AgregarInventario
 (
 	@descripcion NVARCHAR(100),
-	@costo DECIMAL(4,2),
-	@precioVenta DECIMAL(4,2),
-	@cantidad DECIMAL(4,2),
+	@costo DECIMAL(8,2),
+	@precioVenta DECIMAL(8,2),
+	@cantidad DECIMAL(8,2),
+	@cantidadMinima DECIMAL(8,2),
+	@idCategoria INT,
 	@idTipoProducto INT,
 	@idProveedor INT
 )
@@ -641,8 +643,8 @@ BEGIN
 		END
 	ELSE
 		BEGIN
-			INSERT INTO Restaurante.Inventario(descripcion, costo, precioVenta, cantidad, idTipoProducto, idProveedor)
-				VALUES(@descripcion, @costo, @precioVenta, @cantidad, @idTipoProducto, @idProveedor)
+			INSERT INTO Restaurante.Inventario(descripcion, costo, precioVenta, cantidad,cantidadMinima,idCategoria, idTipoProducto, idProveedor)
+				VALUES(@descripcion, @costo, @precioVenta, @cantidad,@cantidadMinima,@idCategoria, @idTipoProducto, @idProveedor)
 			RETURN 1
 		END
 END
@@ -655,6 +657,8 @@ CREATE PROCEDURE SP_ModificarInventario
 	@costo DECIMAL(4,2),
 	@precioVenta DECIMAL(4,2),
 	@cantidad DECIMAL(4,2),
+	@cantidadMinima DECIMAL(4,2),
+	@idCategoria INT,
 	@idTipoProducto INT,
 	@idProveedor INT
 )
@@ -677,6 +681,8 @@ BEGIN
 						costo = @costo,
 						precioVenta = @precioVenta,
 						cantidad = @cantidad,
+						cantidadMinima = @cantidadMinima,
+						idCategoria = @idCategoria,
 						idTipoProducto = @idTipoProducto,
 						idProveedor = @idProveedor
 					WHERE idInventario = @idInventario;
@@ -713,7 +719,8 @@ GO
 CREATE PROCEDURE SP_AgregarInsumosProductos
 (
 	@idInsumo INT,
-	@idInventario INT
+	@idInventario INT,
+	@cantidad DECIMAL(8,2)
 )
 AS
 BEGIN
@@ -729,8 +736,8 @@ BEGIN
 		END
 	ELSE
 		BEGIN
-			INSERT INTO Restaurante.InsumosProductos(idInsumo, idInventario)
-				VALUES(@idInsumo, @idInventario)
+			INSERT INTO Restaurante.InsumosProductos(idInsumo, idInventario,cantidad)
+				VALUES(@idInsumo, @idInventario,@cantidad)
 			RETURN 1
 		END
 END
@@ -740,7 +747,8 @@ CREATE PROCEDURE SP_ModificarInsumosProductos
 (
 	@idInsumoProducto INT,
 	@idInsumo INT,
-	@idInventario INT
+	@idInventario INT,
+	@cantidad DECIMAL(8,2)
 )
 AS
 BEGIN
@@ -758,7 +766,8 @@ BEGIN
 		BEGIN
 			UPDATE Restaurante.InsumosProductos
 				SET 	idInsumo = @idInsumo,
-						idInventario = @idInventario
+						idInventario = @idInventario,
+						cantidad = @cantidad
 					WHERE idInsumoProducto = @idInsumoProducto;
 			RETURN 1
 		END

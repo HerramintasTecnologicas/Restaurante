@@ -78,7 +78,6 @@ namespace Restaurante.Clases
                 cmd.Parameters["idProveedor"].Value = IdProveedor;
 
                 cmd.ExecuteNonQuery();
-
             }
             catch (SqlException ex)
             {
@@ -297,15 +296,13 @@ namespace Restaurante.Clases
                                     Restaurante.Inventario.descripcion          as Nombre,
                                     Restaurante.Inventario.precioVenta          as PrecioVenta,
                                     Restaurante.CategoriaProducto.descripcion   as Categoría,
-                                    Restaurante.TipoProducto.nombre             as TipoProducto
-                                 
-                            FROM Restaurante.TipoProducto
-                            INNER JOIN Restaurante.Inventario
-                            ON Restaurante.Inventario.idTipoProducto = Restaurante.TipoProducto.idTipoProducto 
-                            INNER JOIN Restaurante.CategoriaProducto
-                            ON Restaurante.CategoriaProducto.idCategoria = Restaurante.Inventario.idCategoria
-                            WHERE idCategoria =" + categoria;
-
+                                    Restaurante.TipoProducto.nombre             as TipoProducto  
+                                    FROM Restaurante.TipoProducto
+                                    INNER JOIN Restaurante.Inventario
+                                    ON Restaurante.Inventario.idTipoProducto = Restaurante.TipoProducto.idTipoProducto 
+                                    INNER JOIN Restaurante.CategoriaProducto
+                                    ON Restaurante.CategoriaProducto.idCategoria = Restaurante.Inventario.idCategoria
+                                    WHERE Restaurante.Inventario.idCategoria = " + categoria+";";
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();

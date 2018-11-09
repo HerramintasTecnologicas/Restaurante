@@ -139,7 +139,6 @@
             this.dgvBuscarInsumo.Size = new System.Drawing.Size(302, 129);
             this.dgvBuscarInsumo.TabIndex = 18;
             this.dgvBuscarInsumo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBuscarInsumo_CellClick);
-           // this.dgvBuscarInsumo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBuscarInsumo_CellContentClick);
             // 
             // groupBox1
             // 
@@ -402,6 +401,7 @@
             this.cmbCategoriaProducto.Name = "cmbCategoriaProducto";
             this.cmbCategoriaProducto.Size = new System.Drawing.Size(213, 24);
             this.cmbCategoriaProducto.TabIndex = 7;
+            this.cmbCategoriaProducto.SelectedIndexChanged += new System.EventHandler(this.cmbCategoriaProducto_SelectedIndexChanged);
             // 
             // lblCategoria
             // 
@@ -420,6 +420,7 @@
             this.cmbTipoProducto.Name = "cmbTipoProducto";
             this.cmbTipoProducto.Size = new System.Drawing.Size(213, 24);
             this.cmbTipoProducto.TabIndex = 8;
+            this.cmbTipoProducto.SelectedIndexChanged += new System.EventHandler(this.cmbTipoProducto_SelectedIndexChanged_1);
             // 
             // lblTipoProducto
             // 

@@ -336,20 +336,7 @@ namespace Restaurante
 
         private void cmbTipoProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbTipoProducto.Text == "Elaborado")
-            {
-                panel1.Visible = true;
-                dgvInsumosInv.Visible = true;
-                cmbProveedor.Visible = false;
-                lblProveedor.Visible = false;
-            }
-            else
-            {
-                panel1.Visible = false;
-                dgvInsumosInv.Visible = false;
-                cmbProveedor.Visible = true;
-                lblProveedor.Visible = true;
-            }
+      
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -526,6 +513,27 @@ namespace Restaurante
             txtCantidadInsumo.Text = "";
         }
 
+        private void cmbTipoProducto_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (cmbTipoProducto.Text == "Elaborado")
+            {
+                panel1.Visible = true;
+                dgvInsumosInv.Visible = true;
+                cmbProveedor.Visible = false;
+                lblProveedor.Visible = false;
+            }
+            else
+            {
+                panel1.Visible = false;
+                dgvInsumosInv.Visible = false;
+                cmbProveedor.Visible = true;
+                lblProveedor.Visible = true;
+            }
+        }
 
+        private void cmbCategoriaProducto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

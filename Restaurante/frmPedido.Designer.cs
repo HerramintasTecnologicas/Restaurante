@@ -32,7 +32,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.updo = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblMesa = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblProveedor = new System.Windows.Forms.Label();
             this.cmbMesero = new System.Windows.Forms.ComboBox();
@@ -44,20 +43,22 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
+            this.btnPreFac = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.txtCantidadInsumo = new System.Windows.Forms.TextBox();
+            this.txtCantidadInventario = new System.Windows.Forms.TextBox();
             this.lblProducto = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDisminuirCantidad = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
             this.btnAumentarCantidad = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lswCategoria = new System.Windows.Forms.ListView();
             this.button8 = new System.Windows.Forms.Button();
-            this.btnPreFac = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.lswCategoria = new System.Windows.Forms.ListView();
+            this.lblMesa = new System.Windows.Forms.ListView();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.updo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.panel1.SuspendLayout();
@@ -81,7 +82,7 @@
             // 
             // updo
             // 
-            this.updo.Location = new System.Drawing.Point(660, 50);
+            this.updo.Location = new System.Drawing.Point(723, 50);
             this.updo.Name = "updo";
             this.updo.Size = new System.Drawing.Size(55, 20);
             this.updo.TabIndex = 77;
@@ -89,24 +90,16 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(590, 53);
+            this.label3.Location = new System.Drawing.Point(653, 53);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 13);
             this.label3.TabIndex = 76;
             this.label3.Text = "Comenzales";
             // 
-            // lblMesa
-            // 
-            this.lblMesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMesa.Location = new System.Drawing.Point(498, 48);
-            this.lblMesa.Name = "lblMesa";
-            this.lblMesa.Size = new System.Drawing.Size(52, 28);
-            this.lblMesa.TabIndex = 75;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(405, 53);
+            this.label2.Location = new System.Drawing.Point(468, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 74;
@@ -149,6 +142,7 @@
             this.btnSalir.TabIndex = 69;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // label1
             // 
@@ -198,7 +192,7 @@
             this.panel2.Controls.Add(this.btnPreFac);
             this.panel2.Controls.Add(this.lblTotal);
             this.panel2.Controls.Add(this.txtTotal);
-            this.panel2.Controls.Add(this.txtCantidadInsumo);
+            this.panel2.Controls.Add(this.txtCantidadInventario);
             this.panel2.Controls.Add(this.lblProducto);
             this.panel2.Controls.Add(this.dgvInventario);
             this.panel2.Location = new System.Drawing.Point(522, 97);
@@ -219,6 +213,17 @@
             this.button9.Text = "Limpiar";
             this.button9.UseVisualStyleBackColor = false;
             // 
+            // btnPreFac
+            // 
+            this.btnPreFac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
+            this.btnPreFac.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPreFac.Location = new System.Drawing.Point(37, 339);
+            this.btnPreFac.Name = "btnPreFac";
+            this.btnPreFac.Size = new System.Drawing.Size(101, 47);
+            this.btnPreFac.TabIndex = 87;
+            this.btnPreFac.Text = "Pre-Factura";
+            this.btnPreFac.UseVisualStyleBackColor = false;
+            // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
@@ -238,12 +243,12 @@
             this.txtTotal.Size = new System.Drawing.Size(135, 31);
             this.txtTotal.TabIndex = 85;
             // 
-            // txtCantidadInsumo
+            // txtCantidadInventario
             // 
-            this.txtCantidadInsumo.Location = new System.Drawing.Point(138, 21);
-            this.txtCantidadInsumo.Name = "txtCantidadInsumo";
-            this.txtCantidadInsumo.Size = new System.Drawing.Size(156, 20);
-            this.txtCantidadInsumo.TabIndex = 83;
+            this.txtCantidadInventario.Location = new System.Drawing.Point(138, 21);
+            this.txtCantidadInventario.Name = "txtCantidadInventario";
+            this.txtCantidadInventario.Size = new System.Drawing.Size(156, 20);
+            this.txtCantidadInventario.TabIndex = 83;
             // 
             // lblProducto
             // 
@@ -318,6 +323,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Categorias de Productos";
             // 
+            // lswCategoria
+            // 
+            this.lswCategoria.Location = new System.Drawing.Point(17, 28);
+            this.lswCategoria.Name = "lswCategoria";
+            this.lswCategoria.Size = new System.Drawing.Size(183, 91);
+            this.lswCategoria.TabIndex = 89;
+            this.lswCategoria.UseCompatibleStateImageBehavior = false;
+            // 
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
@@ -328,17 +341,6 @@
             this.button8.TabIndex = 88;
             this.button8.Text = "Enviar Pedidos";
             this.button8.UseVisualStyleBackColor = false;
-            // 
-            // btnPreFac
-            // 
-            this.btnPreFac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
-            this.btnPreFac.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnPreFac.Location = new System.Drawing.Point(37, 339);
-            this.btnPreFac.Name = "btnPreFac";
-            this.btnPreFac.Size = new System.Drawing.Size(101, 47);
-            this.btnPreFac.TabIndex = 87;
-            this.btnPreFac.Text = "Pre-Factura";
-            this.btnPreFac.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
@@ -364,19 +366,31 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // lswCategoria
+            // lblMesa
             // 
-            this.lswCategoria.Location = new System.Drawing.Point(17, 28);
-            this.lswCategoria.Name = "lswCategoria";
-            this.lswCategoria.Size = new System.Drawing.Size(183, 91);
-            this.lswCategoria.TabIndex = 89;
-            this.lswCategoria.UseCompatibleStateImageBehavior = false;
+            this.lblMesa.Location = new System.Drawing.Point(564, 48);
+            this.lblMesa.Name = "lblMesa";
+            this.lblMesa.Size = new System.Drawing.Size(83, 27);
+            this.lblMesa.TabIndex = 91;
+            this.lblMesa.UseCompatibleStateImageBehavior = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(358, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 20);
+            this.label4.TabIndex = 92;
+            this.label4.Text = "caja 1";
             // 
             // frmPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 620);
+            this.ClientSize = new System.Drawing.Size(999, 512);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblMesa);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.btnDisminuirCantidad);
@@ -386,7 +400,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.updo);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.lblMesa);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblProveedor);
             this.Controls.Add(this.cmbMesero);
@@ -414,7 +427,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NumericUpDown updo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblMesa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblProveedor;
         private System.Windows.Forms.ComboBox cmbMesero;
@@ -429,7 +441,7 @@
         private System.Windows.Forms.Button btnDisminuirCantidad;
         private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button btnAumentarCantidad;
-        private System.Windows.Forms.TextBox txtCantidadInsumo;
+        private System.Windows.Forms.TextBox txtCantidadInventario;
         private System.Windows.Forms.Label lblProducto;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button8;
@@ -440,5 +452,7 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.ListView lswCategoria;
+        private System.Windows.Forms.ListView lblMesa;
+        private System.Windows.Forms.Label label4;
     }
 }

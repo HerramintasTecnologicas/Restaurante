@@ -12,8 +12,10 @@ namespace Restaurante
 {
     public partial class frmPedido : Form
     {
+        public int id2;
         public frmPedido(int mesa)
         {
+            this.id2 = mesa;
             InitializeComponent();
         }
 
@@ -30,13 +32,32 @@ namespace Restaurante
         }
         private void CargarCMBMesa()
         {
-            DataTable dt = new DataTable();
+          
             Clases.Conexión conexion = new Clases.Conexión();
-            string sql = "SELECT estado FROM Restaurante.Mesas WHERE "+ id+" =id ";
+            string sql = "SELECT * FROM Restaurante.Mesas WHERE id= "+id2+";";
             SqlCommand cmd = new SqlCommand(sql, conexion.conexion);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            lblMesa.Text = Convert.ToString(dt);
+            try
+            {
+                // Establecer la conexión
+                conexion.Abrir();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                //MessageBox.Show(Convert.ToString(rdr[0]));
+                while (rdr.Read())
+                 {
+                lblMesa.Items.Add(Convert.ToString(rdr[1]));
+                 }
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace, "¡Detalles de la excepción!");
+            }
+            finally
+            {
+                // Cerrar la conexión
+                conexion.Cerrar();
+            }
+            //lblMesa.Text = Convert.ToString(cmd);
         }
         private void dgwPedidoEstilo(DataGridView dgw)
         {
@@ -84,6 +105,7 @@ namespace Restaurante
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //Comidas
             try
             {
                 dgvInventario.DataSource = Clases.Inventario.GetDataView1(1);
@@ -96,6 +118,7 @@ namespace Restaurante
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Bebidas
             try
             {
                 dgvInventario.DataSource = Clases.Inventario.GetDataView1(2);
@@ -108,6 +131,7 @@ namespace Restaurante
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //licores
             try
             {
                 dgvInventario.DataSource = Clases.Inventario.GetDataView1(3);
@@ -116,6 +140,11 @@ namespace Restaurante
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
