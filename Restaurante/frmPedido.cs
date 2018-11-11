@@ -146,5 +146,17 @@ namespace Restaurante
         {
             this.Close();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            int m = 1;
+            MessageBox.Show("Comanda enviada");
+            //return m;
+        }
+
+        private void btnPreFac_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Comanda enviada");
+        }
     }
 }

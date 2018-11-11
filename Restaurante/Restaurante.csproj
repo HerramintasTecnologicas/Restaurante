@@ -259,5 +259,8 @@
   <ItemGroup>
     <None Include="Resources\Dinero.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo Especialidades Las Marías #3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

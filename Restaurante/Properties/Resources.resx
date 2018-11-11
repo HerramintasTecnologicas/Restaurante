@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Dinero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dinero.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pez" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pez.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,6 +136,9 @@
   <data name="Ventas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ventas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pez1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pez1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="1486505266-dish-food-dome-dish-kitchen-restaurant_81412" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1486505266-dish-food-dome-dish-kitchen-restaurant_81412.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,8 +148,8 @@
   <data name="inventario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\inventario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogoTenedor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogoTenedor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1486504314-check-list-item-item-list-to-do-ui-shopping_81331" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1486504314-check-list-item-item-list-to-do-ui-shopping_81331.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="verde2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\verde2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,19 +166,16 @@
   <data name="Listar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Listar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LogoTenedor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogoTenedor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LogoTenedor1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LogoTenedor.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pez1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pez1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="business_inventory_maintenance_product_box_boxes_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\business_inventory_maintenance_product_box_boxes_2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="1486504314-check-list-item-item-list-to-do-ui-shopping_81331" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1486504314-check-list-item-item-list-to-do-ui-shopping_81331.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Dinero" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Dinero.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Logo Especialidades Las Marías #3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo Especialidades Las Marías #3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

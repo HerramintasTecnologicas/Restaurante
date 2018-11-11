@@ -223,6 +223,7 @@
             this.btnPreFac.TabIndex = 87;
             this.btnPreFac.Text = "Pre-Factura";
             this.btnPreFac.UseVisualStyleBackColor = false;
+            this.btnPreFac.Click += new System.EventHandler(this.btnPreFac_Click);
             // 
             // lblTotal
             // 
@@ -341,6 +342,7 @@
             this.button8.TabIndex = 88;
             this.button8.Text = "Enviar Pedidos";
             this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button2
             // 
@@ -388,7 +390,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 512);
+            this.ClientSize = new System.Drawing.Size(999, 612);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblMesa);
             this.Controls.Add(this.groupBox1);
@@ -408,6 +410,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPedido";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPedido";
             this.Load += new System.EventHandler(this.frmPedido_Load);
             ((System.ComponentModel.ISupportInitialize)(this.updo)).EndInit();

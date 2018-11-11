@@ -22,6 +22,7 @@ namespace Restaurante
             BindingList<Customer> dataSource = GetDataSource();
             //gridControl.DataSource = dataSource;
             bsiRecordsCount.Caption = "RECORDS : " + dataSource.Count;
+            timer1.Enabled = true;
         }
         void bbiPrintPreview_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -79,11 +80,10 @@ namespace Restaurante
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            do
-            {
-                lbFecha.Caption = Convert.ToString(DateTime.Now);
+          
+                lbFecha.Caption = DateTime.Now.ToString();
 
-            } while (timer1.Interval >= -1);
+     
         }
 
         private void ribbonControl_Click(object sender, EventArgs e)
@@ -130,6 +130,12 @@ namespace Restaurante
         {
             frmCategoriaProducto producto = new frmCategoriaProducto();
             producto.ShowDialog();
+        }
+
+        private void bbiNew_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmPedido pedido = new frmPedido(51);
+            pedido.ShowDialog();
         }
     }
 }
