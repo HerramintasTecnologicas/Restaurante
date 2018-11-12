@@ -21,7 +21,7 @@ namespace Restaurante.Clases
         }
         public Conexión()
         {
-            this.con = new SqlConnection(@"server = (local);
+            this.con = new SqlConnection(@"server = (local)\chrisfiallos;
             integrated security = true; database = DBRestauranteMarias; ");
 
         }
