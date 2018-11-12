@@ -317,9 +317,9 @@
             // 
             this.gbPagoEnDolares.Controls.Add(this.button2);
             this.gbPagoEnDolares.Controls.Add(this.button3);
-            this.gbPagoEnDolares.Location = new System.Drawing.Point(226, 426);
+            this.gbPagoEnDolares.Location = new System.Drawing.Point(28, 426);
             this.gbPagoEnDolares.Name = "gbPagoEnDolares";
-            this.gbPagoEnDolares.Size = new System.Drawing.Size(116, 150);
+            this.gbPagoEnDolares.Size = new System.Drawing.Size(314, 150);
             this.gbPagoEnDolares.TabIndex = 6;
             this.gbPagoEnDolares.TabStop = false;
             // 
@@ -330,7 +330,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.button2.Location = new System.Drawing.Point(21, 35);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 40);
+            this.button2.Size = new System.Drawing.Size(126, 40);
             this.button2.TabIndex = 57;
             this.button2.Text = "Pago en Dolares";
             this.button2.UseVisualStyleBackColor = false;
@@ -340,12 +340,13 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button3.Location = new System.Drawing.Point(21, 90);
+            this.button3.Location = new System.Drawing.Point(167, 35);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 42);
+            this.button3.Size = new System.Drawing.Size(125, 40);
             this.button3.TabIndex = 56;
             this.button3.Text = "Pago en Lempiras";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox1
             // 

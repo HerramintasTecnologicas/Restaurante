@@ -92,7 +92,7 @@
             this.gbDatosGeneralesCierreCaja.Controls.Add(this.lblUsuarioCierreCaja);
             this.gbDatosGeneralesCierreCaja.Location = new System.Drawing.Point(422, 125);
             this.gbDatosGeneralesCierreCaja.Name = "gbDatosGeneralesCierreCaja";
-            this.gbDatosGeneralesCierreCaja.Size = new System.Drawing.Size(340, 191);
+            this.gbDatosGeneralesCierreCaja.Size = new System.Drawing.Size(288, 191);
             this.gbDatosGeneralesCierreCaja.TabIndex = 0;
             this.gbDatosGeneralesCierreCaja.TabStop = false;
             this.gbDatosGeneralesCierreCaja.Text = "Datos Generales";
@@ -102,7 +102,7 @@
             this.txtSalidasCajaCierreCaja.Enabled = false;
             this.txtSalidasCajaCierreCaja.Location = new System.Drawing.Point(152, 158);
             this.txtSalidasCajaCierreCaja.Name = "txtSalidasCajaCierreCaja";
-            this.txtSalidasCajaCierreCaja.Size = new System.Drawing.Size(157, 20);
+            this.txtSalidasCajaCierreCaja.Size = new System.Drawing.Size(120, 20);
             this.txtSalidasCajaCierreCaja.TabIndex = 9;
             // 
             // lblSalidasCajaCierreCaja
@@ -119,7 +119,7 @@
             this.txtUtilidadPerdidaCierreCaja.Enabled = false;
             this.txtUtilidadPerdidaCierreCaja.Location = new System.Drawing.Point(152, 125);
             this.txtUtilidadPerdidaCierreCaja.Name = "txtUtilidadPerdidaCierreCaja";
-            this.txtUtilidadPerdidaCierreCaja.Size = new System.Drawing.Size(157, 20);
+            this.txtUtilidadPerdidaCierreCaja.Size = new System.Drawing.Size(120, 20);
             this.txtUtilidadPerdidaCierreCaja.TabIndex = 7;
             // 
             // txtSaldoFinalDiaCierreCaja
@@ -127,7 +127,7 @@
             this.txtSaldoFinalDiaCierreCaja.Enabled = false;
             this.txtSaldoFinalDiaCierreCaja.Location = new System.Drawing.Point(152, 92);
             this.txtSaldoFinalDiaCierreCaja.Name = "txtSaldoFinalDiaCierreCaja";
-            this.txtSaldoFinalDiaCierreCaja.Size = new System.Drawing.Size(157, 20);
+            this.txtSaldoFinalDiaCierreCaja.Size = new System.Drawing.Size(120, 20);
             this.txtSaldoFinalDiaCierreCaja.TabIndex = 6;
             // 
             // txtSaldoInicialDiaCierreCaja
@@ -135,7 +135,7 @@
             this.txtSaldoInicialDiaCierreCaja.Enabled = false;
             this.txtSaldoInicialDiaCierreCaja.Location = new System.Drawing.Point(152, 61);
             this.txtSaldoInicialDiaCierreCaja.Name = "txtSaldoInicialDiaCierreCaja";
-            this.txtSaldoInicialDiaCierreCaja.Size = new System.Drawing.Size(157, 20);
+            this.txtSaldoInicialDiaCierreCaja.Size = new System.Drawing.Size(120, 20);
             this.txtSaldoInicialDiaCierreCaja.TabIndex = 5;
             // 
             // txtUsuarioCierreCaja
@@ -143,7 +143,7 @@
             this.txtUsuarioCierreCaja.Enabled = false;
             this.txtUsuarioCierreCaja.Location = new System.Drawing.Point(152, 30);
             this.txtUsuarioCierreCaja.Name = "txtUsuarioCierreCaja";
-            this.txtUsuarioCierreCaja.Size = new System.Drawing.Size(157, 20);
+            this.txtUsuarioCierreCaja.Size = new System.Drawing.Size(120, 20);
             this.txtUsuarioCierreCaja.TabIndex = 4;
             // 
             // lblSaldoInicialDiaCierreCaja
@@ -208,7 +208,7 @@
             this.gbNumeroBilletesLempiras.Controls.Add(this.lblBillete500CierreCaja);
             this.gbNumeroBilletesLempiras.Location = new System.Drawing.Point(13, 92);
             this.gbNumeroBilletesLempiras.Name = "gbNumeroBilletesLempiras";
-            this.gbNumeroBilletesLempiras.Size = new System.Drawing.Size(392, 341);
+            this.gbNumeroBilletesLempiras.Size = new System.Drawing.Size(392, 305);
             this.gbNumeroBilletesLempiras.TabIndex = 1;
             this.gbNumeroBilletesLempiras.TabStop = false;
             this.gbNumeroBilletesLempiras.Text = "Numero de Billetes (Lempiras)";
@@ -247,17 +247,19 @@
             // 
             // txtCantidadTotalCierreCaja
             // 
-            this.txtCantidadTotalCierreCaja.Location = new System.Drawing.Point(61, 305);
+            this.txtCantidadTotalCierreCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidadTotalCierreCaja.Location = new System.Drawing.Point(261, 230);
             this.txtCantidadTotalCierreCaja.Name = "txtCantidadTotalCierreCaja";
-            this.txtCantidadTotalCierreCaja.Size = new System.Drawing.Size(86, 20);
+            this.txtCantidadTotalCierreCaja.Size = new System.Drawing.Size(86, 26);
             this.txtCantidadTotalCierreCaja.TabIndex = 18;
             // 
             // lblCantidadTotalCierreCaja
             // 
             this.lblCantidadTotalCierreCaja.AutoSize = true;
-            this.lblCantidadTotalCierreCaja.Location = new System.Drawing.Point(6, 308);
+            this.lblCantidadTotalCierreCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadTotalCierreCaja.Location = new System.Drawing.Point(206, 228);
             this.lblCantidadTotalCierreCaja.Name = "lblCantidadTotalCierreCaja";
-            this.lblCantidadTotalCierreCaja.Size = new System.Drawing.Size(31, 13);
+            this.lblCantidadTotalCierreCaja.Size = new System.Drawing.Size(49, 20);
             this.lblCantidadTotalCierreCaja.TabIndex = 17;
             this.lblCantidadTotalCierreCaja.Text = "Total";
             // 
@@ -393,7 +395,7 @@
             // dtpCierreCaja
             // 
             this.dtpCierreCaja.Enabled = false;
-            this.dtpCierreCaja.Location = new System.Drawing.Point(562, 92);
+            this.dtpCierreCaja.Location = new System.Drawing.Point(510, 92);
             this.dtpCierreCaja.Name = "dtpCierreCaja";
             this.dtpCierreCaja.Size = new System.Drawing.Size(200, 20);
             this.dtpCierreCaja.TabIndex = 2;
@@ -404,7 +406,7 @@
             this.gbBotonesCierreCaja.Controls.Add(this.btnCerrarCaja);
             this.gbBotonesCierreCaja.Location = new System.Drawing.Point(422, 333);
             this.gbBotonesCierreCaja.Name = "gbBotonesCierreCaja";
-            this.gbBotonesCierreCaja.Size = new System.Drawing.Size(340, 100);
+            this.gbBotonesCierreCaja.Size = new System.Drawing.Size(288, 64);
             this.gbBotonesCierreCaja.TabIndex = 3;
             this.gbBotonesCierreCaja.TabStop = false;
             // 
@@ -413,7 +415,7 @@
             this.btnCancelarCerrarCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnCancelarCerrarCaja.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelarCerrarCaja.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnCancelarCerrarCaja.Location = new System.Drawing.Point(128, 61);
+            this.btnCancelarCerrarCaja.Location = new System.Drawing.Point(169, 19);
             this.btnCancelarCerrarCaja.Name = "btnCancelarCerrarCaja";
             this.btnCancelarCerrarCaja.Size = new System.Drawing.Size(75, 25);
             this.btnCancelarCerrarCaja.TabIndex = 52;
@@ -426,7 +428,7 @@
             this.btnCerrarCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnCerrarCaja.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCerrarCaja.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnCerrarCaja.Location = new System.Drawing.Point(128, 19);
+            this.btnCerrarCaja.Location = new System.Drawing.Point(56, 19);
             this.btnCerrarCaja.Name = "btnCerrarCaja";
             this.btnCerrarCaja.Size = new System.Drawing.Size(75, 25);
             this.btnCerrarCaja.TabIndex = 51;
@@ -436,7 +438,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-3, 439);
+            this.pictureBox1.Location = new System.Drawing.Point(2, 403);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(789, 79);
             this.pictureBox1.TabIndex = 49;
@@ -465,7 +467,7 @@
             // 
             this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSalir.Location = new System.Drawing.Point(746, -1);
+            this.btnSalir.Location = new System.Drawing.Point(687, 12);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(29, 29);
             this.btnSalir.TabIndex = 51;
@@ -477,7 +479,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 518);
+            this.ClientSize = new System.Drawing.Size(724, 471);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pnlTitulo);
             this.Controls.Add(this.pictureBox1);

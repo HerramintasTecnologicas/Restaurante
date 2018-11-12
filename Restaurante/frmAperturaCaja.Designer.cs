@@ -205,6 +205,7 @@
             this.Controls.Add(this.dtpFechaHoraAperturaCaja);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAperturaCaja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAperturaCaja";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlTituloAperturaCaja.ResumeLayout(false);

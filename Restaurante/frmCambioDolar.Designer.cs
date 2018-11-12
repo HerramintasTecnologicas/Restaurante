@@ -116,6 +116,7 @@
             this.Controls.Add(this.pnlTituloCambioDolar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCambioDolar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCambioDolar";
             this.pnlTituloCambioDolar.ResumeLayout(false);
             this.pnlTituloCambioDolar.PerformLayout();
