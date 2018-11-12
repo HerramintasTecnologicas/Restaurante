@@ -54,7 +54,7 @@ namespace Restaurante
                     }
                     else
                     {
-                        MessageBox.Show("Bienvenidos");
+                        MessageBox.Show("Bienvenido");
                         /* MenuPrincipal menuPrincipal = new MenuPrincipal();
                          menuPrincipal.rol = 1;*/
                         rfMenu menu = new rfMenu();

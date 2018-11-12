@@ -442,6 +442,7 @@
             this.Controls.Add(this.dtpCancelarCuentaCaja);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCancelarCuentaCaja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cancelar Cuenta";
             ((System.ComponentModel.ISupportInitialize)(this.gvPedidosCobrarCancelarCuenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetallesPedidoCancelarCuentaCaja)).EndInit();

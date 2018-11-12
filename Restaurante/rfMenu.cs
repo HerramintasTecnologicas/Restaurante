@@ -26,7 +26,8 @@ namespace Restaurante
         }
         void bbiPrintPreview_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //gridControl.ShowRibbonPrintPreview();
+            frmCierreCaja cierreCaja = new frmCierreCaja();
+            cierreCaja.ShowDialog();
         }
         public BindingList<Customer> GetDataSource()
         {
@@ -81,7 +82,7 @@ namespace Restaurante
         private void timer1_Tick(object sender, EventArgs e)
         {
           
-                lbFecha.Caption = DateTime.Now.ToString();
+                lblFecha.Caption = DateTime.Now.ToString();
 
      
         }
@@ -123,7 +124,8 @@ namespace Restaurante
 
         private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            frmSalidasCaja salidasCaja = new frmSalidasCaja();
+            salidasCaja.ShowDialog();
         }
 
         private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
@@ -136,6 +138,36 @@ namespace Restaurante
         {
             frmPedido pedido = new frmPedido(51);
             pedido.ShowDialog();
+        }
+
+        private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmCancelarCuentaCaja cuentaCaja = new frmCancelarCuentaCaja();
+            cuentaCaja.ShowDialog();
+        }
+
+        private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmAperturaCaja frmAperturaCaja = new frmAperturaCaja();
+            frmAperturaCaja.ShowDialog();
+        }
+
+        private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmPagosCaja pagosCaja = new frmPagosCaja();
+            pagosCaja.ShowDialog();
+        }
+
+        private void barButtonItem15_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmResumenCaja resumenCaja = new frmResumenCaja();
+            resumenCaja.ShowDialog();
+        }
+
+        private void barButtonItem16_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmCambioDolar cambioDolar = new frmCambioDolar();
+            cambioDolar.ShowDialog();
         }
     }
 }

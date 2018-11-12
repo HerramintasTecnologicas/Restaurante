@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmResumenCaja));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dtpHoraInicialResumenCaja = new System.Windows.Forms.DateTimePicker();
             this.lblHoraInicial = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
             this.gbResuemnCaja = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -222,6 +221,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(100, 0);
             this.Name = "frmResumenCaja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Resumen de Caja";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.gbResuemnCaja.ResumeLayout(false);

@@ -156,7 +156,7 @@ namespace Restaurante
 
         private void btnPreFac_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Comanda enviada");
+            MessageBox.Show("Prefactura imprimiendo");
         }
     }
 }

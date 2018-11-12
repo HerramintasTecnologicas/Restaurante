@@ -489,6 +489,7 @@
             this.Controls.Add(this.gbDatosGeneralesCierreCaja);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCierreCaja";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cierre de Caja";
             this.gbDatosGeneralesCierreCaja.ResumeLayout(false);
             this.gbDatosGeneralesCierreCaja.PerformLayout();
