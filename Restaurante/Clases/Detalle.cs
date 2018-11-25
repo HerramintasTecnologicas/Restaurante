@@ -1,0 +1,97 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace Restaurante.Clases
+{
+    class Detalle
+    {
+        public int IdDetallePedido { set; get; }
+        public int IdPedido { set; get; }
+        public int IdInventario { set; get; }
+        public int Cantidad { set; get; }
+        
+
+        public Detalle() { }
+        ~Detalle() { }
+        public Detalle(int idPedido, int idInventario, int cantidad)
+        {
+            IdPedido = idPedido;
+            IdInventario = idInventario;
+            Cantidad = cantidad;
+        }
+        public Detalle(int idDetallePedido, int idPedido, int idInventario, int cantidad)
+        {
+            IdDetallePedido = idDetallePedido;
+            IdPedido = idPedido;           
+            IdInventario = idInventario;
+            Cantidad = cantidad;
+        }
+        public Detalle(int idDetallePedido) { IdDetallePedido = idDetallePedido; }
+        public void Agregar()
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            SqlCommand cmd = new SqlCommand("SP_AgregarDetallePedido", conexion.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conexion.Abrir();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Clases.Excepcion(ex.Message, ex, "Clase_DetallePedido");
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
+
+        public void Modificar()
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            SqlCommand cmd = new SqlCommand("SP_ModificarDetallePedido", conexion.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conexion.Abrir();
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (SqlException ex)
+            {
+                throw new Clases.Excepcion(ex.Message, ex, "Clase_DetallePedido");
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
+
+        public void Eliminar()
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            SqlCommand cmd = new SqlCommand("SP_EliminarDetallePedido", conexion.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conexion.Abrir();
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Clases.Excepcion(ex.Message, ex, "Clase_DetallePedido");
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
+    }
+}

@@ -136,7 +136,7 @@
             this.dgvBuscarInsumo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBuscarInsumo.Location = new System.Drawing.Point(18, 262);
             this.dgvBuscarInsumo.Name = "dgvBuscarInsumo";
-            this.dgvBuscarInsumo.Size = new System.Drawing.Size(302, 129);
+            this.dgvBuscarInsumo.Size = new System.Drawing.Size(309, 129);
             this.dgvBuscarInsumo.TabIndex = 18;
             this.dgvBuscarInsumo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBuscarInsumo_CellClick);
             // 
@@ -348,6 +348,7 @@
             this.dgvInventario.Size = new System.Drawing.Size(439, 148);
             this.dgvInventario.TabIndex = 44;
             this.dgvInventario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellClick);
+            this.dgvInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellContentClick);
             // 
             // grpInventario
             // 
@@ -566,9 +567,9 @@
             // 
             this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSalir.Location = new System.Drawing.Point(806, 6);
+            this.btnSalir.Location = new System.Drawing.Point(801, 6);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(29, 29);
+            this.btnSalir.Size = new System.Drawing.Size(29, 34);
             this.btnSalir.TabIndex = 41;
             this.btnSalir.TabStop = false;
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -578,7 +579,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 670);
+            this.ClientSize = new System.Drawing.Size(833, 670);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dgvInsumosInv);
             this.Controls.Add(this.btnSalir);

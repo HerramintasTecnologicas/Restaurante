@@ -59,12 +59,15 @@
   <ItemGroup>
     <Compile Include="Clases\CategoriaProducto.cs" />
     <Compile Include="Clases\Conexión.cs" />
+    <Compile Include="Clases\Detalle.cs" />
     <Compile Include="Clases\Excepcion.cs" />
+    <Compile Include="Clases\Factura.cs" />
     <Compile Include="Clases\InsumoProductos.cs" />
     <Compile Include="Clases\Insumos.cs" />
     <Compile Include="Clases\Inventario.cs" />
     <Compile Include="Clases\Mensaje.cs" />
     <Compile Include="Clases\Mesero.cs" />
+    <Compile Include="Clases\Pedidos.cs" />
     <Compile Include="Clases\Proveedores.cs" />
     <Compile Include="Clases\Restaurante.cs" />
     <Compile Include="Clases\Rol.cs" />

@@ -145,12 +145,12 @@ ELSE
 			idFactura INT IDENTITY(1,1) NOT NULL,
 			idPedido INT NOT NULL,
 			idUsuario INT NOT NULL,
-			subTotal DECIMAL (6,4),
-			descuento DECIMAL(4,4),
-			exento DECIMAL(4,4),
-			iva15 DECIMAL(4,4),
-			iva18 DECIMAL(4,4),
-			total DECIMAL NOT NULL
+			subTotal DECIMAL (8,4),
+			descuento DECIMAL(6,4),
+			exento DECIMAL(6,4),
+			iva15 DECIMAL(6,4),
+			iva18 DECIMAL(6,4),
+			total DECIMAL (8,4)NOT NULL
 		);
 	END
 GO

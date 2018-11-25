@@ -19,16 +19,15 @@ namespace Restaurante
             InitializeComponent();
         }
 
-        private void dgvInventario_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+   
 
 
         private void frmPedido_Load(object sender, EventArgs e)
         {
             CargarCMBMeseros();
             CargarCMBMesa();
+            foreach (DataGridViewColumn c in dgvPedido.Columns)
+                if (c.Name != "Cantidads") c.ReadOnly = true;
         }
         private void CargarCMBMesa()
         {
@@ -89,18 +88,55 @@ namespace Restaurante
                 MessageBox.Show(ex.Message);
             }
         }
+        //public static int cantidad=1;
         private void dgvInventario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Clases.Inventario inventario = new Clases.Inventario();
-            inventario.ObtenerInventario1(
-                Convert.ToInt32(
-                    dgvInventario.Rows[e.RowIndex].Cells["Código"].Value.ToString()
-                    )
-                );
-            dgvInventario.Select();
-            this.id = inventario.IdInventario;
+            if (dgvInventario != null)
+            {
+                int cantidad = 1;
+                Clases.Inventario inventario = new Clases.Inventario();
+                inventario.ObtenerInventario2(
+                    Convert.ToInt32(
+                        dgvInventario.Rows[e.RowIndex].Cells["Código"].Value.ToString()
+                        )
+                    );
+                dgvInventario.Select();
+                this.id = inventario.IdInventario;
+                decimal importe = inventario.PrecioVenta * cantidad;
+               // MessageBox.Show(Convert.ToString(id));
+                producto(inventario.IdInventario, inventario.Descripcion, cantidad, inventario.PrecioVenta, importe);
+            }
+   
+        }
+        public void Total()
+        {
+            decimal total = 0;
+            for (int i = 0; i < dgvPedido.Rows.Count ; i++)
+            {
+                total +=  Convert.ToDecimal(dgvPedido.Rows[i].Cells["PrecioI"].Value);
 
-
+            }
+            txtTotal.Text = Convert.ToString(total);
+        }
+        public void producto(int id, string nombre, int cantidad, decimal precio, decimal importe)
+        {
+            int igual = 0;
+            for (int i = 0; i < dgvPedido.Rows.Count; i++)
+            {
+                if (Convert.ToInt16(dgvPedido.Rows[i].Cells["Código"].Value)==id)
+                {
+                    igual = 1;
+                   int codigo = Convert.ToInt16(dgvPedido.Rows[i].Cells["Código"].Value);
+                    suma(codigo, 1);
+                   
+                }
+            }
+            if (igual == 0)
+            {
+                        
+                dgvPedido.Rows.Add(id.ToString(), nombre, cantidad.ToString(), precio.ToString(), importe.ToString());
+                Total();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -121,7 +157,7 @@ namespace Restaurante
             //Bebidas
             try
             {
-                dgvInventario.DataSource = Clases.Inventario.GetDataView1(2);
+                dgvInventario.DataSource = Clases.Inventario.GetDataView1(3);
             }
             catch (Exception ex)
             {
@@ -134,7 +170,7 @@ namespace Restaurante
             //licores
             try
             {
-                dgvInventario.DataSource = Clases.Inventario.GetDataView1(3);
+                dgvInventario.DataSource = Clases.Inventario.GetDataView1(2);
             }
             catch (Exception ex)
             {
@@ -149,6 +185,30 @@ namespace Restaurante
 
         private void button8_Click(object sender, EventArgs e)
         {
+
+            try
+            {
+                Clases. proveedor = new Clases.Proveedores();
+                proveedor.ObtenerProveedorPorNombre(cmbProveedor.SelectedValue.ToString());
+                Clases.TipoUnidad tipounidad = new Clases.TipoUnidad();
+                tipounidad.ObtenerTipoUnidadPorNombre(cmbUnidad.SelectedValue.ToString());
+
+                Clases.Restaurante.AgregarInsumo
+                    (
+                        txtNombre.Text,
+                        Convert.ToDecimal(txtCosto.Text),
+                        Convert.ToDecimal(txtCantidad.Text),
+                        Convert.ToDecimal(txtCantMinima.Text),
+                        tipounidad.Id,
+                        txtDescripcion.Text,
+                        proveedor.Id
+                    );
+                CargarDGWInsumos();
+            }
+            catch (Exception ex)
+            {
+                Clases.Mensaje.Advertencia(ex);
+            }
             int m = 1;
             MessageBox.Show("Comanda enviada");
             //return m;
@@ -158,5 +218,81 @@ namespace Restaurante
         {
             MessageBox.Show("Prefactura imprimiendo");
         }
+
+        private void btnAumentarCantidad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                suma(id3,1);
+            }
+            catch (Exception ex)
+            {
+
+                Clases.Mensaje.Advertencia(ex);
+            }
+        }
+        public int id3=0;
+        //Selección fila completa.
+  
+
+        private void dgvPedido_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (dgvPedido != null)
+            {
+                //DataGridViewRow fila = dgvPedido.Rows[e.RowIndex];
+                id3 = e.RowIndex;
+            }
+        }
+
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblFecha.Text = DateTime.Now.ToString();
+        }
+
+        public void suma(int id,int op)
+        {
+
+            if (Convert.ToInt16(dgvPedido.Rows[id].Cells["Cantidads"].Value) == 1 && op==-1)
+            {
+                MessageBox.Show("No se puede disminuir más la cantidad");
+            }
+            else
+            {
+                dgvPedido.Rows[id].Cells["Cantidads"].Value = Convert.ToInt16(dgvPedido.Rows[id].Cells["Cantidads"].Value.ToString()) + op;
+                decimal cantidad = Convert.ToDecimal(dgvPedido.Rows[id].Cells["Cantidads"].Value.ToString());
+                decimal importe = Convert.ToDecimal(dgvPedido.Rows[id].Cells["PrecioU"].Value.ToString());
+                dgvPedido.Rows[id].Cells["PrecioI"].Value = importe * cantidad;
+                Total();
+            }
+        }
+  
+
+        private void btnDisminuirCantidad_Click(object sender, EventArgs e)
+        {
+            suma(id3,-1);
+        }
+
+        private void btnQuitar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvPedido != null)
+                {
+                    dgvPedido.Rows.RemoveAt(id3);
+                    Total();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se puede disminuir más la cantidad");
+                throw ex;
+            }
+        }
+
+
     }
 }

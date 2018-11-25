@@ -325,5 +325,36 @@ namespace Restaurante.Clases
                 conexion.Cerrar();
             }
         }
+
+
+        //---------------------------------------------
+        public void ObtenerInventario2(int id)
+        {
+            Conexión conexion = new Conexión();
+            string sql = @"SELECT idInventario, descripcion, precioVenta FROM Restaurante.Inventario WHERE idInventario = '" + id + "';";
+            SqlCommand cmd = new SqlCommand(sql, conexion.conexion);
+            try
+            {
+                conexion.Abrir();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    IdInventario = dr.GetInt32(0);
+                    Descripcion = dr.GetString(1);
+                    PrecioVenta = dr.GetDecimal(2);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Clases.Excepcion(
+                   String.Format("{0} \n\n{1}",
+                   "No podemos obtener la informacion del Producto", ex.Message), ex, "Clase_Inventario"); ;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+
+        }
     }
 }

@@ -169,5 +169,10 @@ namespace Restaurante
             frmCambioDolar cambioDolar = new frmCambioDolar();
             cambioDolar.ShowDialog();
         }
+
+        private void rfMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -535,5 +535,10 @@ namespace Restaurante
         {
 
         }
+
+        private void dgvInventario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

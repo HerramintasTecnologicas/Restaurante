@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPedido));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBebidas = new System.Windows.Forms.Button();
             this.updo = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,7 +41,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvPedido = new System.Windows.Forms.DataGridView();
+            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidads = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.btnPreFac = new System.Windows.Forms.Button();
@@ -55,30 +61,33 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lswCategoria = new System.Windows.Forms.ListView();
             this.button8 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnComidas = new System.Windows.Forms.Button();
+            this.btnLicores = new System.Windows.Forms.Button();
             this.lblMesa = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.btnFactura = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.updo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnBebidas
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(327, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 47);
-            this.button1.TabIndex = 80;
-            this.button1.Text = "Bebidas";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBebidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
+            this.btnBebidas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnBebidas.Location = new System.Drawing.Point(327, 19);
+            this.btnBebidas.Name = "btnBebidas";
+            this.btnBebidas.Size = new System.Drawing.Size(101, 47);
+            this.btnBebidas.TabIndex = 80;
+            this.btnBebidas.Text = "Bebidas";
+            this.btnBebidas.UseVisualStyleBackColor = false;
+            this.btnBebidas.Click += new System.EventHandler(this.button1_Click);
             // 
             // updo
             // 
@@ -168,26 +177,71 @@
             this.dgvInventario.Size = new System.Drawing.Size(419, 228);
             this.dgvInventario.TabIndex = 82;
             this.dgvInventario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellClick);
-            this.dgvInventario.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellContentClick);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dgvPedido);
             this.panel1.Location = new System.Drawing.Point(12, 97);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(443, 272);
             this.panel1.TabIndex = 83;
             // 
-            // dataGridView1
+            // dgvPedido
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(14, 24);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(413, 227);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvPedido.AllowUserToAddRows = false;
+            this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedido.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Código,
+            this.Nombre,
+            this.Cantidads,
+            this.PrecioU,
+            this.PrecioI});
+            this.dgvPedido.Location = new System.Drawing.Point(14, 24);
+            this.dgvPedido.Name = "dgvPedido";
+            this.dgvPedido.ReadOnly = true;
+            this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPedido.Size = new System.Drawing.Size(413, 227);
+            this.dgvPedido.TabIndex = 0;
+            this.dgvPedido.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellClick);
+            // 
+            // Código
+            // 
+            this.Código.HeaderText = "Código";
+            this.Código.Name = "Código";
+            this.Código.ReadOnly = true;
+            this.Código.Width = 50;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 150;
+            // 
+            // Cantidads
+            // 
+            this.Cantidads.HeaderText = "Cantidad";
+            this.Cantidads.Name = "Cantidads";
+            this.Cantidads.ReadOnly = true;
+            this.Cantidads.Width = 50;
+            // 
+            // PrecioU
+            // 
+            this.PrecioU.HeaderText = "Precio Unitario";
+            this.PrecioU.Name = "PrecioU";
+            this.PrecioU.ReadOnly = true;
+            this.PrecioU.Width = 60;
+            // 
+            // PrecioI
+            // 
+            this.PrecioI.HeaderText = "Importe";
+            this.PrecioI.Name = "PrecioI";
+            this.PrecioI.ReadOnly = true;
+            this.PrecioI.Width = 60;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnFactura);
             this.panel2.Controls.Add(this.button9);
             this.panel2.Controls.Add(this.btnPreFac);
             this.panel2.Controls.Add(this.lblTotal);
@@ -217,7 +271,7 @@
             // 
             this.btnPreFac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnPreFac.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnPreFac.Location = new System.Drawing.Point(37, 339);
+            this.btnPreFac.Location = new System.Drawing.Point(18, 339);
             this.btnPreFac.Name = "btnPreFac";
             this.btnPreFac.Size = new System.Drawing.Size(101, 47);
             this.btnPreFac.TabIndex = 87;
@@ -282,6 +336,7 @@
             this.btnDisminuirCantidad.TabIndex = 88;
             this.btnDisminuirCantidad.Text = "-";
             this.btnDisminuirCantidad.UseVisualStyleBackColor = false;
+            this.btnDisminuirCantidad.Click += new System.EventHandler(this.btnDisminuirCantidad_Click);
             // 
             // btnQuitar
             // 
@@ -295,6 +350,7 @@
             this.btnQuitar.TabIndex = 89;
             this.btnQuitar.Text = "Quitar";
             this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
             // btnAumentarCantidad
             // 
@@ -309,14 +365,15 @@
             this.btnAumentarCantidad.TabIndex = 87;
             this.btnAumentarCantidad.Text = "+";
             this.btnAumentarCantidad.UseVisualStyleBackColor = false;
+            this.btnAumentarCantidad.Click += new System.EventHandler(this.btnAumentarCantidad_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lswCategoria);
             this.groupBox1.Controls.Add(this.button8);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnComidas);
+            this.groupBox1.Controls.Add(this.btnLicores);
+            this.groupBox1.Controls.Add(this.btnBebidas);
             this.groupBox1.Location = new System.Drawing.Point(26, 392);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(469, 130);
@@ -344,29 +401,29 @@
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button2
+            // btnComidas
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(220, 72);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(101, 47);
-            this.button2.TabIndex = 85;
-            this.button2.Text = "Comidas Solidas";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnComidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
+            this.btnComidas.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnComidas.Location = new System.Drawing.Point(220, 72);
+            this.btnComidas.Name = "btnComidas";
+            this.btnComidas.Size = new System.Drawing.Size(101, 47);
+            this.btnComidas.TabIndex = 85;
+            this.btnComidas.Text = "Comidas Solidas";
+            this.btnComidas.UseVisualStyleBackColor = false;
+            this.btnComidas.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btnLicores
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(220, 19);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(101, 47);
-            this.button3.TabIndex = 82;
-            this.button3.Text = "Licores";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnLicores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
+            this.btnLicores.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnLicores.Location = new System.Drawing.Point(220, 19);
+            this.btnLicores.Name = "btnLicores";
+            this.btnLicores.Size = new System.Drawing.Size(101, 47);
+            this.btnLicores.TabIndex = 82;
+            this.btnLicores.Text = "Licores";
+            this.btnLicores.UseVisualStyleBackColor = false;
+            this.btnLicores.Click += new System.EventHandler(this.button3_Click);
             // 
             // lblMesa
             // 
@@ -386,11 +443,38 @@
             this.label4.TabIndex = 92;
             this.label4.Text = "caja 1";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Location = new System.Drawing.Point(723, 3);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(252, 29);
+            this.lblFecha.TabIndex = 93;
+            // 
+            // btnFactura
+            // 
+            this.btnFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
+            this.btnFactura.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnFactura.Location = new System.Drawing.Point(122, 339);
+            this.btnFactura.Name = "btnFactura";
+            this.btnFactura.Size = new System.Drawing.Size(101, 47);
+            this.btnFactura.TabIndex = 92;
+            this.btnFactura.Text = "Factura";
+            this.btnFactura.UseVisualStyleBackColor = false;
+            // 
             // frmPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 612);
+            this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblMesa);
             this.Controls.Add(this.groupBox1);
@@ -416,7 +500,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.updo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -427,7 +511,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBebidas;
         private System.Windows.Forms.NumericUpDown updo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -438,7 +522,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvInventario;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvPedido;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnDisminuirCantidad;
@@ -449,13 +533,21 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button btnPreFac;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnComidas;
+        private System.Windows.Forms.Button btnLicores;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.ListView lswCategoria;
         private System.Windows.Forms.ListView lblMesa;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidads;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioI;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblFecha;
+        private System.Windows.Forms.Button btnFactura;
     }
 }

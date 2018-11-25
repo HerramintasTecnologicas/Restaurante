@@ -284,7 +284,7 @@ GO
 --Modulo Insumos
 USE DBRestauranteMarias
 GO
-ALTER PROCEDURE SP_AgregarInsumo
+CREATE PROCEDURE SP_AgregarInsumo
 (
     @nombre NVARCHAR(100),
     @costo DECIMAL(4,2),
@@ -315,7 +315,7 @@ BEGIN
 END
 GO
 
-ALTER PROCEDURE SP_ModificarInsumo
+CREATE PROCEDURE SP_ModificarInsumo
 (
     @idInsumo INT,
     @nombre NVARCHAR(100),
@@ -521,103 +521,228 @@ END
 GO
 ----------------------------------------------------------------------------------
 --Modulo Pedidos de Comida
-/*
+
 CREATE PROCEDURE SP_AgregarPedido
 (
+@fecha DATETIME,
+@idMesa INT,
+@nombre NVARCHAR(50),
+@IdMesero INT
 )
 AS
 BEGIN
 	DECLARE @existe int;
 	SET @existe = 0;
 
-	SELECT @existe = COUNT(<esquema.tabla.campo>) FROM <Esquema.tabla> WHERE <condicion>;
+	SELECT @existe = COUNT(Restaurante.Pedidos.id) FROM Restaurante.Pedidos WHERE idMesa=@idMesa;
 	IF (@existe > 0)
 		BEGIN
-			RAISERROR(N'Aqui va el mensaje de error"', 16, 1);
+			RAISERROR(N'No existe ninguna Mesa con el id "%d"', 16, 1,@idMesa);
 			RETURN 0
 			
 		END
 	ELSE
 		BEGIN
-			INSERT INTO Acceso.TipoAcceso(<campo1>, <campo2>,.... ,<campoN>)
-				VALUES(	<variable1>, <variable2>,...,<Variable3>)
+			INSERT INTO Restaurante.Pedidos(Fecha,idMesa,NombreCliente,idMesero)
+				VALUES(@fecha,@idMesa,@nombre,@IdMesero)
+
+			
 			RETURN 1
+
 		END
 END
 GO
 
 CREATE PROCEDURE SP_ModificarPedido
 (
+@id INT,
+@fecha DATETIME,
+@idMesa INT,
+@nombre NVARCHAR(50),
+@IdMesero INT
 )
 AS
 BEGIN
 	DECLARE @existe int;
 	SET @existe = 0;
 
-	SELECT @existe = COUNT(<esquema.tabla.campo>) FROM <Esquema.tabla> WHERE <condicion>;
+	SELECT @existe = COUNT(Restaurante.Pedidos.id) FROM Restaurante.Pedidos WHERE id=@id;
 
 	IF (@existe = 0)
 		BEGIN
-			RAISERROR(N'Aqui va el mensaje de error"', 16, 1);
+			RAISERROR(N'No existe ningun pedido con el id "%d"', 16, 1,@id);
 			RETURN 0
 		END 	
 	ELSE
 		BEGIN
-			UPDATE <esquema.tabla>
-				SET 	<campos=variables>
-					WHERE <condicion>;
+			UPDATE Restaurante.Pedidos
+				SET 	Fecha=@fecha,
+						idMesa=@idMesa,
+						NombreCliente=@nombre,
+						idMesero=@IdMesero
+						
+					WHERE id=@id;
 			RETURN 1
-		END
-	
-	END
+		END	
 END
 GO
 
 CREATE PROCEDURE SP_EliminarPedido
 (
+@id INT
 )
 AS
 BEGIN
 	DECLARE @existe int;
 	SET @existe = 0;
-		SELECT @existe = COUNT(<esquema.tabla.campo>) FROM <Esquema.tabla> WHERE <condicion>;
+		SELECT @existe = COUNT(Restaurante.Pedidos.id) FROM Restaurante.Pedidos WHERE id=@id;
 		IF (@existe = 0)
 			BEGIN
-				RAISERROR(N'aqui va el mensaje de error "', 16, 1);
+				RAISERROR(N'No se encuentra el pedido "%d"', 16, 1,@id);
 				RETURN 0
 			END 	
 		ELSE
 			BEGIN
-				DELETE FROM <Esquema.tabla>	WHERE <condicion>;
+				DELETE FROM Restaurante.Pedidos	WHERE id=@id;
 				RETURN 1
 			END
+END
+GO
+-----------------------------------------------------------------------------------
+--Modulo DetallePedido
+
+CREATE PROCEDURE SP_AgregarDetallePedido
+(
+	@idPedido INT,
+    @idInventario INT,
+    @cantidad INT
+)
+AS
+BEGIN
+    DECLARE @existe int;
+    SET @existe = 0;
+
+    SELECT @existe = COUNT(Restaurante.DetallePedidos.idDetallePedido) FROM Restaurante.DetallePedidos WHERE idPedido = @idPedido;
+    IF (@existe > 0)
+        BEGIN
+            RAISERROR(N'Ya existe un detalle con ese  %d"', 16, 1,@idPedido);
+            RETURN 0
+            
+        END
+    ELSE
+        BEGIN
+            INSERT INTO Restaurante.DetallePedidos
+            (
+                idPedido,
+                idInventario,
+                cantidad
+            )
+            VALUES
+            ( @idPedido,@idInventario,@cantidad)
+                
+            RETURN 1
+        END
+END
+GO
+
+CREATE PROCEDURE SP_ModificarDetallePedido
+(
+	@idDetalle INT,
+	@idPedido INT,
+    @idInventario INT,
+    @cantidad INT
+)
+AS
+BEGIN
+    DECLARE @existe int;
+    SET @existe = 0;
+
+    SELECT @existe = COUNT(Restaurante.DetallePedidos.idDetallePedido) FROM Restaurante.DetallePedidos WHERE idDetallePedido=@idDetalle;
+
+    IF (@existe = 0)
+        BEGIN
+            RAISERROR(N'No existe un pedido con el id "%d"', 16, 1, @idDetalle);
+            RETURN 0
+        END     
+    ELSE
+        BEGIN
+            UPDATE Restaurante.DetallePedidos
+					SET idPedido=@idPedido,
+						idInventario=@idInventario,
+						cantidad=@cantidad
+                    WHERE idDetallePedido=@idDetalle;
+            RETURN 1
+        END
+END
+GO
+
+CREATE PROCEDURE SP_EliminarDetallePedido
+(
+    @idDetalle INT
+)
+AS
+BEGIN
+    DECLARE @existe int;
+    SET @existe = 0;
+        SELECT @existe = COUNT(Restaurante.DetallePedidos.idDetallePedido) FROM Restaurante.DetallePedidos WHERE idDetallePedido=@idDetalle;
+        IF (@existe = 0)
+            BEGIN
+                RAISERROR(N'No existe el Detalle Pedido con el id %d"', 16, 1, @idDetalle);
+                RETURN 0
+            END     
+        ELSE
+            BEGIN
+                DELETE FROM Restaurante.DetallePedidos WHERE idDetallePedido=@idDetalle;
+                RETURN 1
+            END
 END
 GO
 --------------------------------------------------------------------------------------
 --Modulo Factura
 CREATE PROCEDURE SP_AgregarFactura
 (
+@idFactura INT,
+@idPedido INT,
+@idUsuario INT,
+@subTotal DECIMAL(8,4),
+@descuento DECIMAL(6,4),
+@exento DECIMAL(6,4),
+@isv15 DECIMAL(6,4),
+@isv18 DECIMAL(6,4),
+@total DECIMAL(8,4)
 )
 AS
 BEGIN
 	DECLARE @existe int;
 	SET @existe = 0;
 
-	SELECT @existe = COUNT(<esquema.tabla.campo>) FROM <Esquema.tabla> WHERE <condicion>;
+	SELECT @existe = COUNT(Restaurante.Facturas.idFactura) FROM Restaurante.Facturas WHERE idFactura=@idFactura;
 	IF (@existe > 0)
 		BEGIN
-			RAISERROR(N'Aqui va el mensaje de error"', 16, 1);
+			RAISERROR(N'Ya existe una factura con el id "%d"', 16, 1,@idFactura);
 			RETURN 0
 			
 		END
 	ELSE
 		BEGIN
-			INSERT INTO Acceso.TipoAcceso(<campo1>, <campo2>,.... ,<campoN>)
-				VALUES(	<variable1>, <variable2>,...,<Variable3>)
+			INSERT INTO Restaurante.Facturas
+			(
+			    idPedido,
+			    idUsuario,
+			    subTotal,
+			    descuento,
+			    exento,
+			    iva15,
+			    iva18,
+			    total
+			)
+			VALUES
+			(  @idPedido,@idUsuario,@subTotal,@descuento,@exento,@isv15,@isv18,@total
+			    )
 			RETURN 1
 		END
 END
-GO*/
+GO
 -------------------------------------------------------------------------------------------------------------------
 --Modulo Inventario 
 CREATE PROCEDURE SP_AgregarInventario
