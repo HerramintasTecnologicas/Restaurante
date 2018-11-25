@@ -40,6 +40,12 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
+                cmd.Parameters.Add(new SqlParameter("idPedido", SqlDbType.Int));
+                cmd.Parameters["idPedido"].Value = IdPedido;
+                cmd.Parameters.Add(new SqlParameter("idInventario", SqlDbType.Int));
+                cmd.Parameters["idInventario"].Value = IdInventario;
+                cmd.Parameters.Add(new SqlParameter("Cantidad", SqlDbType.Int));
+                cmd.Parameters["Cantidad"].Value = Cantidad;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -60,8 +66,15 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
+                cmd.Parameters.Add(new SqlParameter("idDetallePedido", SqlDbType.Int));
+                cmd.Parameters["idDetallePedido"].Value = IdDetallePedido;
+                cmd.Parameters.Add(new SqlParameter("idPedido", SqlDbType.Int));
+                cmd.Parameters["idPedido"].Value = IdPedido;
+                cmd.Parameters.Add(new SqlParameter("idInventario", SqlDbType.Int));
+                cmd.Parameters["idInventario"].Value = IdInventario;
+                cmd.Parameters.Add(new SqlParameter("Cantidad", SqlDbType.Int));
+                cmd.Parameters["Cantidad"].Value = Cantidad;
                 cmd.ExecuteNonQuery();
-
             }
             catch (SqlException ex)
             {
@@ -81,7 +94,8 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
-
+                cmd.Parameters.Add(new SqlParameter("idDetallePedido", SqlDbType.Int));
+                cmd.Parameters["idDetallePedido"].Value = IdDetallePedido;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)

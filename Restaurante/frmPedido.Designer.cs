@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPedido));
             this.btnBebidas = new System.Windows.Forms.Button();
-            this.updo = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblProveedor = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@
             this.PrecioU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnFactura = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.btnPreFac = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -67,8 +67,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblFecha = new System.Windows.Forms.Label();
-            this.btnFactura = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.updo)).BeginInit();
+            this.txtRTN = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.lblCliente = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
@@ -89,21 +90,14 @@
             this.btnBebidas.UseVisualStyleBackColor = false;
             this.btnBebidas.Click += new System.EventHandler(this.button1_Click);
             // 
-            // updo
-            // 
-            this.updo.Location = new System.Drawing.Point(723, 50);
-            this.updo.Name = "updo";
-            this.updo.Size = new System.Drawing.Size(55, 20);
-            this.updo.TabIndex = 77;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(653, 53);
+            this.label3.Location = new System.Drawing.Point(653, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 76;
-            this.label3.Text = "Comenzales";
+            this.label3.Text = "RTN";
             // 
             // label2
             // 
@@ -170,7 +164,7 @@
             this.dgvInventario.AllowUserToDeleteRows = false;
             this.dgvInventario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInventario.Location = new System.Drawing.Point(18, 78);
+            this.dgvInventario.Location = new System.Drawing.Point(18, 62);
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.ReadOnly = true;
             this.dgvInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -249,10 +243,21 @@
             this.panel2.Controls.Add(this.txtCantidadInventario);
             this.panel2.Controls.Add(this.lblProducto);
             this.panel2.Controls.Add(this.dgvInventario);
-            this.panel2.Location = new System.Drawing.Point(522, 97);
+            this.panel2.Location = new System.Drawing.Point(522, 121);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(456, 402);
+            this.panel2.Size = new System.Drawing.Size(456, 378);
             this.panel2.TabIndex = 84;
+            // 
+            // btnFactura
+            // 
+            this.btnFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
+            this.btnFactura.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnFactura.Location = new System.Drawing.Point(122, 314);
+            this.btnFactura.Name = "btnFactura";
+            this.btnFactura.Size = new System.Drawing.Size(101, 47);
+            this.btnFactura.TabIndex = 92;
+            this.btnFactura.Text = "Factura";
+            this.btnFactura.UseVisualStyleBackColor = false;
             // 
             // button9
             // 
@@ -271,7 +276,7 @@
             // 
             this.btnPreFac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnPreFac.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnPreFac.Location = new System.Drawing.Point(18, 339);
+            this.btnPreFac.Location = new System.Drawing.Point(18, 314);
             this.btnPreFac.Name = "btnPreFac";
             this.btnPreFac.Size = new System.Drawing.Size(101, 47);
             this.btnPreFac.TabIndex = 87;
@@ -283,7 +288,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(229, 358);
+            this.lblTotal.Location = new System.Drawing.Point(229, 333);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(65, 25);
             this.lblTotal.TabIndex = 86;
@@ -293,7 +298,7 @@
             // 
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.txtTotal.Location = new System.Drawing.Point(302, 355);
+            this.txtTotal.Location = new System.Drawing.Point(302, 330);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(135, 31);
             this.txtTotal.TabIndex = 85;
@@ -458,22 +463,37 @@
             this.lblFecha.Size = new System.Drawing.Size(252, 29);
             this.lblFecha.TabIndex = 93;
             // 
-            // btnFactura
+            // txtRTN
             // 
-            this.btnFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
-            this.btnFactura.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnFactura.Location = new System.Drawing.Point(122, 339);
-            this.btnFactura.Name = "btnFactura";
-            this.btnFactura.Size = new System.Drawing.Size(101, 47);
-            this.btnFactura.TabIndex = 92;
-            this.btnFactura.Text = "Factura";
-            this.btnFactura.UseVisualStyleBackColor = false;
+            this.txtRTN.Location = new System.Drawing.Point(689, 44);
+            this.txtRTN.Name = "txtRTN";
+            this.txtRTN.Size = new System.Drawing.Size(156, 20);
+            this.txtRTN.TabIndex = 94;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(734, 75);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(156, 20);
+            this.txtNombre.TabIndex = 96;
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Location = new System.Drawing.Point(653, 78);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(79, 13);
+            this.lblCliente.TabIndex = 95;
+            this.lblCliente.Text = "Nombre Cliente";
             // 
             // frmPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 612);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.lblCliente);
+            this.Controls.Add(this.txtRTN);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblMesa);
@@ -484,7 +504,6 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnAumentarCantidad);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.updo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblProveedor);
@@ -497,7 +516,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPedido";
             this.Load += new System.EventHandler(this.frmPedido_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.updo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
@@ -512,7 +530,6 @@
 
         #endregion
         private System.Windows.Forms.Button btnBebidas;
-        private System.Windows.Forms.NumericUpDown updo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblProveedor;
@@ -549,5 +566,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Button btnFactura;
+        private System.Windows.Forms.TextBox txtRTN;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label lblCliente;
     }
 }

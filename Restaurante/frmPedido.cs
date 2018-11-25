@@ -29,6 +29,7 @@ namespace Restaurante
             foreach (DataGridViewColumn c in dgvPedido.Columns)
                 if (c.Name != "Cantidads") c.ReadOnly = true;
         }
+        public static int mesa;
         private void CargarCMBMesa()
         {
           
@@ -45,6 +46,7 @@ namespace Restaurante
                 while (rdr.Read())
                  {
                 lblMesa.Items.Add(Convert.ToString(rdr[1]));
+                     mesa = Convert.ToInt16(rdr[0]);
                  }
             }
             catch (SqlException ex)
@@ -188,29 +190,26 @@ namespace Restaurante
 
             try
             {
-                Clases. proveedor = new Clases.Proveedores();
-                proveedor.ObtenerProveedorPorNombre(cmbProveedor.SelectedValue.ToString());
-                Clases.TipoUnidad tipounidad = new Clases.TipoUnidad();
-                tipounidad.ObtenerTipoUnidadPorNombre(cmbUnidad.SelectedValue.ToString());
+                Clases.Mesero mesero = new Clases.Mesero();
+                mesero.ObteneMeseroPorNombre(cmbMesero.SelectedValue.ToString());
+  
 
-                Clases.Restaurante.AgregarInsumo
+                Clases.Restaurante.AgregarPedido
                     (
+                        lblFecha.Text,
+                        Convert.ToInt32(mesa),
                         txtNombre.Text,
-                        Convert.ToDecimal(txtCosto.Text),
-                        Convert.ToDecimal(txtCantidad.Text),
-                        Convert.ToDecimal(txtCantMinima.Text),
-                        tipounidad.Id,
-                        txtDescripcion.Text,
-                        proveedor.Id
+                        txtRTN.Text,
+                        mesero.Id
                     );
-                CargarDGWInsumos();
+                MessageBox.Show("Comanda enviada");
             }
             catch (Exception ex)
             {
                 Clases.Mensaje.Advertencia(ex);
             }
             int m = 1;
-            MessageBox.Show("Comanda enviada");
+            
             //return m;
         }
 

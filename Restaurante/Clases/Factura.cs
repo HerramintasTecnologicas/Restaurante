@@ -20,8 +20,9 @@ namespace Restaurante.Clases
         public decimal Sub18 { set; get; }
         public decimal Total { set; get; }
 
-        public Factura(int idPedido, int idUsuario, decimal subTotal, decimal descuento, decimal exento, decimal sub15, decimal sub18, decimal total)
+        public Factura(int idFactura,int idPedido, int idUsuario, decimal subTotal, decimal descuento, decimal exento, decimal sub15, decimal sub18, decimal total)
         {
+            IdFactura = idFactura;
             IdPedido = idPedido;
             IdUsuario = idUsuario;
             SubTotal = subTotal;
@@ -42,6 +43,24 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
+                cmd.Parameters.Add(new SqlParameter("idFactura", SqlDbType.Int));
+                cmd.Parameters["idFactura"].Value = IdFactura;
+                cmd.Parameters.Add(new SqlParameter("idPedido", SqlDbType.Int));
+                cmd.Parameters["idPedido"].Value = IdPedido;
+                cmd.Parameters.Add(new SqlParameter("idUsuario", SqlDbType.Int));
+                cmd.Parameters["idUsuario"].Value = IdUsuario;
+                cmd.Parameters.Add(new SqlParameter("subTotal", SqlDbType.Decimal));
+                cmd.Parameters["subTotal"].Value = SubTotal;
+                cmd.Parameters.Add(new SqlParameter("descuento", SqlDbType.Decimal));
+                cmd.Parameters["descuento"].Value = Descuento;
+                cmd.Parameters.Add(new SqlParameter("exento", SqlDbType.Decimal));
+                cmd.Parameters["exento"].Value = Exento;
+                cmd.Parameters.Add(new SqlParameter("sub15", SqlDbType.Decimal));
+                cmd.Parameters["sub15"].Value = Sub15;
+                cmd.Parameters.Add(new SqlParameter("sub18", SqlDbType.Decimal));
+                cmd.Parameters["sub18"].Value = Sub18;
+                cmd.Parameters.Add(new SqlParameter("total", SqlDbType.Decimal));
+                cmd.Parameters["total"].Value = Total;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)

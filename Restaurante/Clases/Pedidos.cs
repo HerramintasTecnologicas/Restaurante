@@ -44,7 +44,14 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
-
+                cmd.Parameters.Add(new SqlParameter("Fecha", SqlDbType.NVarChar));
+                cmd.Parameters["Fecha"].Value = Fecha;
+                cmd.Parameters.Add(new SqlParameter("idMesa", SqlDbType.Int));
+                cmd.Parameters["idMesa"].Value = IdMesa;
+                cmd.Parameters.Add(new SqlParameter("NombreCliente", SqlDbType.NVarChar));
+                cmd.Parameters["NombreCliente"].Value = Nombre;
+                cmd.Parameters.Add(new SqlParameter("idMesero", SqlDbType.Int));
+                cmd.Parameters["idMesero"].Value = IdMesero;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -65,7 +72,16 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
-
+                cmd.Parameters.Add(new SqlParameter("id", SqlDbType.Int));
+                cmd.Parameters["id"].Value = IdPedido;
+                cmd.Parameters.Add(new SqlParameter("Fecha", SqlDbType.NVarChar));
+                cmd.Parameters["Fecha"].Value = Fecha;
+                cmd.Parameters.Add(new SqlParameter("idMesa", SqlDbType.Int));
+                cmd.Parameters["idMesa"].Value = IdMesa;
+                cmd.Parameters.Add(new SqlParameter("NombreCliente", SqlDbType.NVarChar));
+                cmd.Parameters["NombreCliente"].Value = Nombre;
+                cmd.Parameters.Add(new SqlParameter("idMesero", SqlDbType.Int));
+                cmd.Parameters["idMesero"].Value = IdMesero;
                 cmd.ExecuteNonQuery();
 
             }
@@ -87,7 +103,8 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
-
+                cmd.Parameters.Add(new SqlParameter("id", SqlDbType.Int));
+                cmd.Parameters["id"].Value = IdPedido;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -99,5 +116,48 @@ namespace Restaurante.Clases
                 conexion.Cerrar();
             }
         }
+        public static DataView GetDataView()
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            string sql = @"SELECT   Restaurante.Pedidos.id                      as Código,
+                                    Restaurante.Inventario.descripcion          as Nombre,
+                                    Restaurante.Inventario.costo                as Costo,
+                                    Restaurante.Inventario.precioVenta          as PrecioVenta,
+                                    Restaurante.Inventario.cantidad             as Cantidad,
+                                    Restaurante.Inventario.cantidadMinima       as CantidadMin,
+                                    Restaurante.CategoriaProducto.descripcion   as Categoría,
+                                    Restaurante.TipoProducto.nombre             as TipoProducto,
+                                    Restaurante.Proveedores.nombre              as Proveedor
+                            FROM Restaurante.Pedidos
+                            INNER JOIN Restaurante.Inventario
+                            ON Restaurante.Proveedores.idProveedor = Restaurante.Inventario.idProveedor
+                            INNER JOIN Restaurante.TipoProducto
+                            ON Restaurante.TipoProducto.idTipoProducto = Restaurante.Inventario.idTipoProducto
+                            INNER JOIN Restaurante.CategoriaProducto
+                            ON Restaurante.CategoriaProducto.idCategoria = Restaurante.Inventario.idCategoria";
+
+            try
+            {
+                SqlDataAdapter data = new SqlDataAdapter();
+                data.SelectCommand = new SqlCommand(sql, conexion.conexion);
+                DataSet ds = new DataSet();
+                data.Fill(ds, "Restaurante.Pedidos");
+                DataTable dt = ds.Tables["Restaurante.Pedidos"];
+                DataView dv = new DataView(dt,
+                    "",
+                    "Código",
+                    DataViewRowState.Unchanged);
+                return dv;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+
+        }
     }
-    }
+}

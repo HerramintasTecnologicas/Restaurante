@@ -184,5 +184,34 @@ namespace Restaurante.Clases
             }
 
         }
+
+        public void ObteneMeseroPorNombre(string nombre)
+        {
+            Conexión conexion = new Conexión();
+            string sql = @"SELECT id, nombre FROM Restaurante.Meseros WHERE nombre = '" + nombre + "';";
+            SqlCommand cmd = new SqlCommand(sql, conexion.conexion);
+            try
+            {
+                conexion.Abrir();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Id = dr.GetInt32(0);
+                    Nombre = dr.GetString(2);
+                }
+            }
+            catch (SqlException excepcion)
+            {
+                Exception ex = new Exception(
+                   String.Format("{0} \n\n{1}",
+                   "no podemos obtener la informacion del mesero", excepcion.Message));
+                ex.Source = "Clase_Mesero";
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
     }
 }

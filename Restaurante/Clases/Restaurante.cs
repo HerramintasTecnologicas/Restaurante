@@ -788,5 +788,100 @@ namespace Restaurante.Clases
                 throw ex;
             }
         }
+
+        ///
+
+        private static void ValidarPedido
+                (
+                string Fecha,
+                int idMesa,
+                string nombre,
+                int idMesero
+                )
+        {
+            if (Fecha == "" || idMesa <= 0 || nombre ==""||idMesero<=0)
+            {
+                throw new Clases.Excepcion
+                    (
+                    "Error al insertar el pedido del Producto. \n\n" +
+                    "Existen datos obligatorios que se necesitan para poder agregar el pedodo del Producto\n" +
+                    "Fecha  : 14/12/2018\n" +
+                    "Mesa   : Mesa 1\n" +
+                    "Mesero : Pedro Marmol",
+                    new Exception(),
+                    "Clase_Pedido"
+                    );
+            }
+        }
+        public static void AgregarPedido
+            (
+              string Fecha,
+                int idMesa,
+                string nombre,
+                int idMesero
+            )
+        {
+            try
+            {
+                ValidarPedido(Fecha, idMesa, nombre, idMesero);
+                Clases.Pedidos insumoproducto = new Clases.Pedidos(
+                 Fecha,
+                 idMesa,
+                 nombre,
+                 idMesero
+                    );
+                insumoproducto.Agregar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void ModificarInsumoProducto
+            (
+            int id,
+                string Fecha,
+                int idMesa,
+                string nombre,
+                int idMesero         
+
+            )
+        {
+            try
+            {
+                ValidarPedido(Fecha,idMesa, nombre, idMesero);
+                Clases.Pedidos insumoproducto = new Clases.Pedidos(
+                  id,
+                 Fecha,
+                 idMesa,
+                 nombre,
+                 idMesero
+                    );
+                insumoproducto.Modificar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void EliminarPedido
+            (
+            int id
+            )
+        {
+            try
+            {
+                Clases.Pedidos insumoproducto = new Clases.Pedidos(
+                    id
+                    );
+                insumoproducto.Eliminar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
