@@ -77,6 +77,7 @@ namespace Restaurante
             cmbMesero.ValueMember = "nombre";
             cmbMesero.DataSource = dt;
         }
+
         private int id = 0;
         private void CargarDGWinventario()
         {
@@ -129,7 +130,7 @@ namespace Restaurante
                 {
                     igual = 1;
                    int codigo = Convert.ToInt16(dgvPedido.Rows[i].Cells["Código"].Value);
-                    suma(codigo, 1);
+                    suma(i, 1);
                    
                 }
             }
@@ -187,7 +188,7 @@ namespace Restaurante
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            /*
             try
             {
                 Clases.Mesero mesero = new Clases.Mesero();
@@ -209,7 +210,7 @@ namespace Restaurante
                 Clases.Mensaje.Advertencia(ex);
             }
             int m = 1;
-            
+            */
             //return m;
         }
 
@@ -222,7 +223,6 @@ namespace Restaurante
         {
             try
             {
-
                 suma(id3,1);
             }
             catch (Exception ex)

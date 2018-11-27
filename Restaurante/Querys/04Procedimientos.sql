@@ -28,7 +28,7 @@ BEGIN
     DECLARE @existe int;
     DECLARE @Usuario nVarchar(26);
     SET @existe = 0;
-    IF (@nombre = '' OR @apellido = '')
+    IF (@nombre = '' OR @apellido = '' )
         BEGIN
             RAISERROR(N'Hay campos abligatorios sin llenar', 16, 1, @nombre, @apellido);
             RETURN 0
@@ -117,7 +117,7 @@ BEGIN
                 END     
             ELSE
                 BEGIN
-                    DELETE FROM Acceso.Usuarios WHERE usuario = @usuario;
+                    UPDATE Acceso.Usuarios SET estado=0 WHERE usuario = @usuario;
                     RETURN 1
                 END
 END
@@ -197,7 +197,7 @@ BEGIN
 			END 	
 		ELSE
 			BEGIN
-				DELETE FROM Restaurante.Proveedores	WHERE idProveedor = @idProveedor;
+				UPDATE Restaurante.Proveedores SET estado=0	WHERE idProveedor = @idProveedor;
 				RETURN 1
 			END
 END
@@ -275,7 +275,7 @@ BEGIN
 			END 	
 		ELSE
 			BEGIN
-				DELETE FROM Restaurante.Meseros	WHERE id=@id;
+				UPDATE Restaurante.Meseros SET estado=0	WHERE id=@id;
 				RETURN 1
 			END
 END
@@ -370,7 +370,7 @@ BEGIN
             END     
         ELSE
             BEGIN
-                DELETE FROM Restaurante.Insumos WHERE idInsumo = @idInsumo;
+                UPDATE Restaurante.Insumos SET estado=0 WHERE idInsumo = @idInsumo;
                 RETURN 1
             END
 END
@@ -442,7 +442,7 @@ BEGIN
         END     
     ELSE
         BEGIN
-            DELETE FROM Restaurante.TipoUnidad  WHERE idTipoUnidad = @idTipoUnidad;
+            UPDATE Restaurante.TipoUnidad SET estado=0 WHERE idTipoUnidad = @idTipoUnidad;
             RETURN 1
         END
 END
@@ -514,7 +514,7 @@ BEGIN
 			END 	
 		ELSE
 			BEGIN
-				DELETE FROM Restaurante.Mesas WHERE id=@id;
+				UPDATE Restaurante.Mesas SET estado=0 WHERE id=@id;
 				RETURN 1
 			END
 END
@@ -524,8 +524,9 @@ GO
 
 CREATE PROCEDURE SP_AgregarPedido
 (
-@fecha DATETIME,
+@fecha NVARCHAR(16),
 @idMesa INT,
+@RTN NVARCHAR(16),
 @nombre NVARCHAR(50),
 @IdMesero INT
 )
@@ -543,8 +544,8 @@ BEGIN
 		END
 	ELSE
 		BEGIN
-			INSERT INTO Restaurante.Pedidos(Fecha,idMesa,NombreCliente,idMesero)
-				VALUES(@fecha,@idMesa,@nombre,@IdMesero)
+			INSERT INTO Restaurante.Pedidos(Fecha,idMesa,RTN,NombreCliente,idMesero)
+				VALUES(@fecha,@idMesa,@RTN,@nombre,@IdMesero)
 
 			
 			RETURN 1
@@ -558,6 +559,7 @@ CREATE PROCEDURE SP_ModificarPedido
 @id INT,
 @fecha DATETIME,
 @idMesa INT,
+@RTN NVARCHAR(16),
 @nombre NVARCHAR(50),
 @IdMesero INT
 )
@@ -578,6 +580,7 @@ BEGIN
 			UPDATE Restaurante.Pedidos
 				SET 	Fecha=@fecha,
 						idMesa=@idMesa,
+						RTN=@RTN,
 						NombreCliente=@nombre,
 						idMesero=@IdMesero
 						
@@ -603,7 +606,7 @@ BEGIN
 			END 	
 		ELSE
 			BEGIN
-				DELETE FROM Restaurante.Pedidos	WHERE id=@id;
+				UPDATE Restaurante.Pedidos SET estado=0	WHERE id=@id;
 				RETURN 1
 			END
 END
@@ -692,7 +695,7 @@ BEGIN
             END     
         ELSE
             BEGIN
-                DELETE FROM Restaurante.DetallePedidos WHERE idDetallePedido=@idDetalle;
+                UPDATE Restaurante.DetallePedidos SET estado=0 WHERE idDetallePedido=@idDetalle;
                 RETURN 1
             END
 END
@@ -832,7 +835,7 @@ BEGIN
 			END 	
 		ELSE
 			BEGIN
-				DELETE FROM Restaurante.Inventario WHERE idInventario = @idInventario;
+				UPDATE Restaurante.Inventario SET estado=0 WHERE idInventario = @idInventario;
 				RETURN 1
 			END
 END
@@ -915,7 +918,7 @@ BEGIN
 			END 	
 		ELSE
 			BEGIN
-				DELETE FROM Restaurante.InsumosProductos WHERE idInsumoProducto = @idInsumoProducto;
+				UPDATE Restaurante.InsumosProductos SET estado=0 WHERE idInsumoProducto = @idInsumoProducto;
 				RETURN 1
 			END
 END
@@ -988,7 +991,7 @@ BEGIN
 		END 	
 	ELSE
 		BEGIN
-			DELETE FROM Restaurante.CategoriaProducto	WHERE idCategoria = @idCategoriaProducto;
+			UPDATE Restaurante.CategoriaProducto SET estado=0 WHERE idCategoria = @idCategoriaProducto;
 			RETURN 1
 		END
 END
@@ -1060,7 +1063,7 @@ BEGIN
         END     
     ELSE
         BEGIN
-            DELETE FROM Restaurante.TipoProducto  WHERE idTipoProducto = @idTipoProducto;
+            UPDATE Restaurante.TipoProducto SET estado=0 WHERE idTipoProducto = @idTipoProducto;
             RETURN 1
         END
 END

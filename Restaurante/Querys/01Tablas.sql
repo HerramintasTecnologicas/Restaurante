@@ -40,7 +40,8 @@ ELSE
 			usuario NVARCHAR(26) NOT NULL,	--Primera letra del nombre en mayusculas más el apellido
 									--eje: Pedro Picapiedra (PPicapiedra)
 			clave NVARCHAR(20) NOT NULL, --clave de acceso
-			idRol INT  NOT NULL--codigo del area de trabajo a la cual pertenece
+			idRol INT  NOT NULL,--codigo del area de trabajo a la cual pertenece
+			estado BIT DEFAULT 1
 		);
 	END
 GO
@@ -112,7 +113,8 @@ ELSE
 			id INT IDENTITY(1,10) NOT NULL,		--index del mesero
 			identidad NVARCHAR(15) NOT NULL,	--identidad del mesero con formato (9999-9999-99999)	
 			nombre NVARCHAR (25) NOT NULL,			--primer nombre
-			apellido NVARCHAR (25) NOT NULL			--primer apellido
+			apellido NVARCHAR (25) NOT NULL,			--primer apellido
+			estado BIT DEFAULT 1
 		);
 	END
 GO
@@ -130,9 +132,10 @@ ELSE
 			id INT IDENTITY (1, 100) NOT NULL,			--index del pedido
 			Fecha DATETIME NOT NULL,						--fecha y hora en la que se realizo el pedido 
 			idMesa INT NOT NULL,							--identificador de la mesa donde se entregara el pedido
+			RTN NVARCHAR(16),							--RTN del cliente
 			NombreCliente NVARCHAR (50),					--nombre de la persona que realizo el pedido
 			idMesero INT NOT NULL,							--identificador del mesero que atendera la mesa
-		
+			estado BIT DEFAULT 1
 		);
 	END
 GO
@@ -150,7 +153,8 @@ ELSE
 			exento DECIMAL(6,4),
 			iva15 DECIMAL(6,4),
 			iva18 DECIMAL(6,4),
-			total DECIMAL (8,4)NOT NULL
+			total DECIMAL (8,4)NOT NULL,
+			estado BIT DEFAULT 1
 		);
 	END
 GO
@@ -163,7 +167,8 @@ ELSE
 			idDetallePedido INT IDENTITY (1,1) NOT NULL,
 			idPedido INT NOT NULL,
 			idInventario INT NOT NULL,
-			cantidad INT NOT NULL
+			cantidad INT NOT NULL,
+			estado BIT DEFAULT 1
 
 		);
 	END
@@ -182,7 +187,8 @@ ELSE
 			cantidadMinima DECIMAL(8,2) NOT NULL,
 			idCategoria INT NOT NULL,
 			idTipoProducto INT NOT NULL,
-			idProveedor INT NULL
+			idProveedor INT NULL,
+			estado BIT DEFAULT 1
 		);
 	END
 GO
@@ -199,7 +205,8 @@ ELSE
 			cantidadMinima DECIMAL(8,2) NOT NULL,
 			idTipoUnidad INT NOT NULL,
 			descripcion NVARCHAR(200) NOT NULL,
-			idProveedor INT
+			idProveedor INT,
+			estado BIT DEFAULT 1
 		);
 	END
 GO
@@ -212,7 +219,8 @@ ELSE
 			idProveedor INT IDENTITY NOT NULL,
 			nombre NVARCHAR(100) NOT NULL,
 			telefono NVARCHAR(9) NOT NULL,
-			direccion NVARCHAR(300)
+			direccion NVARCHAR(300),
+			estado BIT DEFAULT 1
 		);
 	END
 GO
@@ -223,7 +231,8 @@ ELSE
 	BEGIN
 		CREATE TABLE Restaurante.TipoUnidad(
 			idTipoUnidad INT IDENTITY NOT NULL,
-			descripcion NVARCHAR(100)
+			descripcion NVARCHAR(100),
+			estado BIT DEFAULT 1
 		);
 	END
 GO
@@ -234,7 +243,8 @@ ELSE
 	BEGIN
 		CREATE TABLE Restaurante.TipoProducto(
 			idTipoProducto INT IDENTITY NOT NULL,
-			nombre NVARCHAR(100)
+			nombre NVARCHAR(100),
+			estado BIT DEFAULT 1
 		);
 	END
 GO
@@ -247,7 +257,8 @@ ELSE
 			idInsumoProducto INT IDENTITY(1,1) NOT NULL,
 			idInsumo INT NOT NULL,
 			idInventario INT NOT NULL,
-			cantidad DECIMAL(8,2) NOT NULL
+			cantidad DECIMAL(8,2) NOT NULL,
+			estado BIT DEFAULT 1
 		);
 	END
 GO
@@ -258,7 +269,9 @@ ELSE
 	BEGIN
 		CREATE TABLE Restaurante.CategoriaProducto(
 			idCategoria INT IDENTITY NOT NULL,
-			descripcion NVARCHAR(100)
+			descripcion NVARCHAR(100),
+			estado BIT DEFAULT 1
+
 		);
 	END
 GO
