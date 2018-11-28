@@ -43,7 +43,7 @@ namespace Restaurante
             txtNombre.Enabled = true;
             txtApellido.Enabled = true;
             txtClave.Enabled = true;
-            picFoto.Image = Image.FromFile(@"Fotos2\Empleado.png");
+            picFoto.Image = Image.FromFile(@"Fotos2\Empleado.jpg");
             txtNombre.Focus();
 
         }

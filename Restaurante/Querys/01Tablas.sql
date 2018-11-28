@@ -308,3 +308,25 @@ ELSE
 		);
 	END
 GO
+
+IF OBJECT_ID('Restaurante.Caja')	IS NOT NULL
+	DROP TABLE Restaurante.Caja
+ELSE
+	BEGIN
+		CREATE TABLE Restaurante.DetalleCaja
+		(
+			id int identity(1,1)
+			CONSTRAINT PK_RestauranteDetalleCaja
+			PRIMARY KEY NONCLUSTERED (id),
+			detalle varchar(9) NOT NULL
+		)
+	END
+
+--Se agrega campo adicional a la tabla de Caja
+Alter table Restaurante.Caja
+	Add idDetalleCaja int not null
+
+--Se insertan los tipos de estados en la caja
+INSERT INTO Restaurante.DetalleCaja (Descripcion)
+	Values ('Apertura'),
+		   ('Cierre')

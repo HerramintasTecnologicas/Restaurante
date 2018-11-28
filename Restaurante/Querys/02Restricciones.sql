@@ -190,3 +190,8 @@ ALTER TABLE Restaurante.Facturas
 		FOREIGN KEY (idUsuario)
 			REFERENCES Acceso.Usuarios(id)
 GO
+
+ALTER TABLE Restaurante.Caja
+	ADD CONSTRAINT FK_Caja$TieneUn$DetalleCaja
+		FOREIGN KEY (idDetalleCaja)
+		REFERENCES Restaurante.DetalleCaja (id)
