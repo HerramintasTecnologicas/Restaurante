@@ -996,6 +996,44 @@ BEGIN
 		END
 END
 GO
+-- Modulo caja
+-- INSERTAR datos en la APERTURA de CAJA
+CREATE PROCEDURE SP_Agregar_AperturaCaja
+(
+	@Apertura decimal(18,0),
+	@idDetalleCaja int
+)
+AS
+BEGIN
+	INSERT INTO Restaurante.Caja (apertura, idDetalleCaja, fecha)
+		VALUES (@Apertura, @idDetalleCaja, GETDATE())
+END
+GO
+
+-- INSERTAR datos en el CIERRE de CAJA
+CREATE PROCEDURE SP_Agregar_CierreCaja
+(
+	@Cierre decimal(18,0),
+	@idDetalleCaja int,
+	@Dolares decimal(18,0),
+	@POS decimal(18,0),
+	@Fiveh int,
+	@Hundred int,
+	@Fifty int,
+	@Twenty int,
+	@Ten int,
+	@Five int,
+	@Two int,
+	@One int
+)
+AS
+BEGIN
+	INSERT INTO Restaurante.Caja (cierre, dolares, POS, quinientos, cien, cincuenta,
+								  veinte, diez, cinco, dos, uno, fecha, idDetalleCaja)
+		VALUES (@Cierre, @Dolares, @POS, @Fiveh, @Hundred, @Fifty, @Twenty, @Ten, 
+				@Five, @Two, @One, GETDATE(), @idDetalleCaja)
+END
+GO
 ---------------------------------------------------------
 --Modulo Tipo de Producto
 CREATE PROCEDURE SP_InsertarTipoProducto
