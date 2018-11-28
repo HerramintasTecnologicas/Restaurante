@@ -53,6 +53,7 @@
             this.lblFecha = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -90,9 +91,6 @@
             // 
             this.ribbonControl.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ribbonControl.Cursor = System.Windows.Forms.Cursors.Default;
-            // 
-            // 
-            // 
             this.ribbonControl.ExpandCollapseItem.Id = 0;
             this.ribbonControl.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl.ExpandCollapseItem,
@@ -115,9 +113,10 @@
             this.barButtonItem14,
             this.barButtonItem15,
             this.lblFecha,
-            this.barButtonItem16});
+            this.barButtonItem16,
+            this.barButtonItem17});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 25;
+            this.ribbonControl.MaxItemId = 26;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -226,7 +225,7 @@
             // 
             // barButtonItem9
             // 
-            this.barButtonItem9.Caption = "Meseros";
+            this.barButtonItem9.Caption = "Control Meseros";
             this.barButtonItem9.Id = 16;
             this.barButtonItem9.ImageOptions.LargeImage = global::Restaurante.Properties.Resources.descarga__2_;
             this.barButtonItem9.Name = "barButtonItem9";
@@ -303,6 +302,14 @@
             this.barButtonItem16.Name = "barButtonItem16";
             this.barButtonItem16.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem16_ItemClick);
             // 
+            // barButtonItem17
+            // 
+            this.barButtonItem17.Caption = "Control de Mesas";
+            this.barButtonItem17.Id = 25;
+            this.barButtonItem17.ImageOptions.LargeImage = global::Restaurante.Properties.Resources.verde2;
+            this.barButtonItem17.Name = "barButtonItem17";
+            this.barButtonItem17.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem17_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -316,6 +323,7 @@
             // 
             // ribbonPageGroup7
             // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem17);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.Text = "restaurante";
             // 
@@ -528,7 +536,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
@@ -558,5 +565,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem16;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem17;
+        public DevExpress.XtraBars.BarButtonItem barButtonItem3;
     }
 }

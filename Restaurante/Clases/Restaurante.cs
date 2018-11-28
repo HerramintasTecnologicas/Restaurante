@@ -817,6 +817,7 @@ namespace Restaurante.Clases
             (
               string Fecha,
                 int idMesa,
+                string rtn,
                 string nombre,
                 int idMesero
             )
@@ -827,6 +828,7 @@ namespace Restaurante.Clases
                 Clases.Pedidos insumoproducto = new Clases.Pedidos(
                  Fecha,
                  idMesa,
+                 rtn,
                  nombre,
                  idMesero
                     );
@@ -843,6 +845,7 @@ namespace Restaurante.Clases
             int id,
                 string Fecha,
                 int idMesa,
+                string rtn,
                 string nombre,
                 int idMesero         
 
@@ -855,6 +858,7 @@ namespace Restaurante.Clases
                   id,
                  Fecha,
                  idMesa,
+                 rtn,
                  nombre,
                  idMesero
                     );

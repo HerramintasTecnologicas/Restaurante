@@ -94,7 +94,7 @@ namespace Restaurante
         //public static int cantidad=1;
         private void dgvInventario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvInventario != null)
+            if (e.RowIndex != -1)
             {
                 int cantidad = 1;
                 Clases.Inventario inventario = new Clases.Inventario();
@@ -188,13 +188,12 @@ namespace Restaurante
 
         private void button8_Click(object sender, EventArgs e)
         {
-            /*
+            
             try
             {
                 Clases.Mesero mesero = new Clases.Mesero();
                 mesero.ObteneMeseroPorNombre(cmbMesero.SelectedValue.ToString());
   
-
                 Clases.Restaurante.AgregarPedido
                     (
                         lblFecha.Text,
@@ -209,8 +208,8 @@ namespace Restaurante
             {
                 Clases.Mensaje.Advertencia(ex);
             }
-            int m = 1;
-            */
+            //int m = 1;
+            
             //return m;
         }
 
