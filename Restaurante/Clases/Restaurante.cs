@@ -795,11 +795,12 @@ namespace Restaurante.Clases
                 (
                 string Fecha,
                 int idMesa,
+                string rtn,
                 string nombre,
                 int idMesero
                 )
         {
-            if (Fecha == "" || idMesa <= 0 || nombre ==""||idMesero<=0)
+            if (Fecha == "" || idMesa <= 0 || rtn == "" || nombre ==""||idMesero<=0 )
             {
                 throw new Clases.Excepcion
                     (
@@ -824,15 +825,15 @@ namespace Restaurante.Clases
         {
             try
             {
-                ValidarPedido(Fecha, idMesa, nombre, idMesero);
-                Clases.Pedidos insumoproducto = new Clases.Pedidos(
+                ValidarPedido(Fecha, idMesa, rtn , nombre, idMesero);
+                Clases.Pedidos pedidos = new Clases.Pedidos(
                  Fecha,
                  idMesa,
                  rtn,
                  nombre,
                  idMesero
                     );
-                insumoproducto.Agregar();
+                pedidos.Agregar();
             }
             catch (Exception ex)
             {
@@ -840,9 +841,9 @@ namespace Restaurante.Clases
             }
         }
 
-        public static void ModificarInsumoProducto
+        public static void ModificarPedido
             (
-            int id,
+                int id,
                 string Fecha,
                 int idMesa,
                 string rtn,
@@ -853,8 +854,8 @@ namespace Restaurante.Clases
         {
             try
             {
-                ValidarPedido(Fecha,idMesa, nombre, idMesero);
-                Clases.Pedidos insumoproducto = new Clases.Pedidos(
+                ValidarPedido(Fecha,idMesa,rtn, nombre, idMesero);
+                Clases.Pedidos pedidos = new Clases.Pedidos(
                   id,
                  Fecha,
                  idMesa,
@@ -862,7 +863,7 @@ namespace Restaurante.Clases
                  nombre,
                  idMesero
                     );
-                insumoproducto.Modificar();
+                pedidos.Modificar();
             }
             catch (Exception ex)
             {
@@ -876,10 +877,10 @@ namespace Restaurante.Clases
         {
             try
             {
-                Clases.Pedidos insumoproducto = new Clases.Pedidos(
+                Clases.Pedidos pedidos = new Clases.Pedidos(
                     id
                     );
-                insumoproducto.Eliminar();
+                pedidos.Eliminar();
             }
             catch (Exception ex)
             {

@@ -524,9 +524,9 @@ GO
 
 CREATE PROCEDURE SP_AgregarPedido
 (
-@fecha NVARCHAR(16),
+@fecha NVARCHAR(19),
 @idMesa INT,
-@RTN NVARCHAR(16),
+@RTN NVARCHAR(14),
 @nombre NVARCHAR(50),
 @IdMesero INT
 )
@@ -557,9 +557,9 @@ GO
 CREATE PROCEDURE SP_ModificarPedido
 (
 @id INT,
-@fecha DATETIME,
+@fecha NVARCHAR(19),
 @idMesa INT,
-@RTN NVARCHAR(16),
+@RTN NVARCHAR(14),
 @nombre NVARCHAR(50),
 @IdMesero INT
 )

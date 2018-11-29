@@ -188,7 +188,7 @@ namespace Restaurante.Clases
         public void ObteneMeseroPorNombre(string nombre)
         {
             Conexión conexion = new Conexión();
-            string sql = @"SELECT id, nombre FROM Restaurante.Meseros WHERE nombre = '" + nombre + "';";
+            string sql = @"SELECT * FROM Restaurante.Meseros WHERE nombre = '" + nombre + "';";
             SqlCommand cmd = new SqlCommand(sql, conexion.conexion);
             try
             {

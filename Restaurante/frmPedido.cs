@@ -29,7 +29,7 @@ namespace Restaurante
             foreach (DataGridViewColumn c in dgvPedido.Columns)
                 if (c.Name != "Cantidads") c.ReadOnly = true;
         }
-        public static int mesa;
+        public static int mesa1;
         private void CargarCMBMesa()
         {
           
@@ -45,8 +45,8 @@ namespace Restaurante
                 //MessageBox.Show(Convert.ToString(rdr[0]));
                 while (rdr.Read())
                  {
-                lblMesa.Items.Add(Convert.ToString(rdr[1]));
-                     mesa = Convert.ToInt16(rdr[0]);
+                    lblMesa.Items.Add(Convert.ToString(rdr[1]));
+                     mesa1 = Convert.ToInt16(rdr[0]);
                  }
             }
             catch (SqlException ex)
@@ -196,10 +196,10 @@ namespace Restaurante
   
                 Clases.Restaurante.AgregarPedido
                     (
-                        lblFecha.Text,
-                        Convert.ToInt32(mesa),
+                        Convert.ToString(fecha1),
+                        Convert.ToInt32(mesa1),
+                         txtRTN.Text,
                         txtNombre.Text,
-                        txtRTN.Text,
                         mesero.Id
                     );
                 MessageBox.Show("Comanda enviada");
@@ -245,10 +245,12 @@ namespace Restaurante
         }
 
 
-
+        string fecha1;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblFecha.Text = DateTime.Now.ToString();
+            fecha1 = DateTime.Now.ToString();
+            lblFecha.Text = fecha1;
+
         }
 
         public void suma(int id,int op)

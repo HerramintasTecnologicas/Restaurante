@@ -467,7 +467,7 @@
             // 
             this.txtRTN.Location = new System.Drawing.Point(689, 44);
             this.txtRTN.Name = "txtRTN";
-            this.txtRTN.Size = new System.Drawing.Size(156, 20);
+            this.txtRTN.Size = new System.Drawing.Size(201, 20);
             this.txtRTN.TabIndex = 94;
             // 
             // txtNombre

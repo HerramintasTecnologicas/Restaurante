@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Restaurante.Clases
 {
@@ -46,16 +47,18 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
-                cmd.Parameters.Add(new SqlParameter("Fecha", SqlDbType.NVarChar));
+                MessageBox.Show(Nombre);
+                cmd.Parameters.Add(new SqlParameter("Fecha", SqlDbType.NVarChar,19));
                 cmd.Parameters["Fecha"].Value = Fecha;
                 cmd.Parameters.Add(new SqlParameter("idMesa", SqlDbType.Int));
                 cmd.Parameters["idMesa"].Value = IdMesa;
-                cmd.Parameters.Add(new SqlParameter("RTN", SqlDbType.NVarChar));
+                cmd.Parameters.Add(new SqlParameter("RTN", SqlDbType.NVarChar,14));
                 cmd.Parameters["RTN"].Value = RTN;
-                cmd.Parameters.Add(new SqlParameter("NombreCliente", SqlDbType.NVarChar));
+                cmd.Parameters.Add(new SqlParameter("NombreCliente", SqlDbType.NVarChar,50));
                 cmd.Parameters["NombreCliente"].Value = Nombre;
                 cmd.Parameters.Add(new SqlParameter("idMesero", SqlDbType.Int));
                 cmd.Parameters["idMesero"].Value = IdMesero;
+
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -78,13 +81,13 @@ namespace Restaurante.Clases
                 conexion.Abrir();
                 cmd.Parameters.Add(new SqlParameter("id", SqlDbType.Int));
                 cmd.Parameters["id"].Value = IdPedido;
-                cmd.Parameters.Add(new SqlParameter("Fecha", SqlDbType.NVarChar));
+                cmd.Parameters.Add(new SqlParameter("Fecha", SqlDbType.NVarChar,19));
                 cmd.Parameters["Fecha"].Value = Fecha;
                 cmd.Parameters.Add(new SqlParameter("idMesa", SqlDbType.Int));
                 cmd.Parameters["idMesa"].Value = IdMesa;
-                cmd.Parameters.Add(new SqlParameter("RTN", SqlDbType.NVarChar));
+                cmd.Parameters.Add(new SqlParameter("RTN", SqlDbType.NVarChar,14));
                 cmd.Parameters["RTN"].Value = RTN;
-                cmd.Parameters.Add(new SqlParameter("NombreCliente", SqlDbType.NVarChar));
+                cmd.Parameters.Add(new SqlParameter("NombreCliente", SqlDbType.NVarChar,50));
                 cmd.Parameters["NombreCliente"].Value = Nombre;
                 cmd.Parameters.Add(new SqlParameter("idMesero", SqlDbType.Int));
                 cmd.Parameters["idMesero"].Value = IdMesero;

@@ -130,9 +130,9 @@ ELSE
 	BEGIN
 		CREATE TABLE Restaurante.Pedidos(
 			id INT IDENTITY (1, 100) NOT NULL,			--index del pedido
-			Fecha DATETIME NOT NULL,						--fecha y hora en la que se realizo el pedido 
+			Fecha NVARCHAR(19) NOT NULL,						--fecha y hora en la que se realizo el pedido 
 			idMesa INT NOT NULL,							--identificador de la mesa donde se entregara el pedido
-			RTN NVARCHAR(16),							--RTN del cliente
+			RTN NVARCHAR(14),							--RTN del cliente
 			NombreCliente NVARCHAR (50),					--nombre de la persona que realizo el pedido
 			idMesero INT NOT NULL,							--identificador del mesero que atendera la mesa
 			estado BIT DEFAULT 1
@@ -148,12 +148,12 @@ ELSE
 			idFactura INT IDENTITY(1,1) NOT NULL,
 			idPedido INT NOT NULL,
 			idUsuario INT NOT NULL,
-			subTotal DECIMAL (8,4),
-			descuento DECIMAL(6,4),
-			exento DECIMAL(6,4),
-			iva15 DECIMAL(6,4),
-			iva18 DECIMAL(6,4),
-			total DECIMAL (8,4)NOT NULL,
+			subTotal DECIMAL (8,2),
+			descuento DECIMAL(6,2),
+			exento DECIMAL(6,2),
+			iva15 DECIMAL(6,2),
+			iva18 DECIMAL(6,2),
+			total DECIMAL (8,2)NOT NULL,
 			estado BIT DEFAULT 1
 		);
 	END
