@@ -532,25 +532,25 @@ CREATE PROCEDURE SP_AgregarPedido
 )
 AS
 BEGIN
-	DECLARE @existe int;
-	SET @existe = 0;
+	--DECLARE @existe int;
+	--SET @existe = 0;
 
-	SELECT @existe = COUNT(Restaurante.Pedidos.id) FROM Restaurante.Pedidos WHERE idMesa=@idMesa;
-	IF (@existe > 0)
-		BEGIN
-			RAISERROR(N'No existe ninguna Mesa con el id "%d"', 16, 1,@idMesa);
-			RETURN 0
+	--SELECT @existe = COUNT(Restaurante.Pedidos.id) FROM Restaurante.Pedidos WHERE id=@id;
+	--IF (@existe > 0)
+	--	BEGIN
+	--		RAISERROR(N'No existe ninguna Mesa con el id "%d"', 16, 1,@idMesa);
+	--		RETURN 0
 			
-		END
-	ELSE
-		BEGIN
+	--	END
+	--ELSE
+		--BEGIN
 			INSERT INTO Restaurante.Pedidos(Fecha,idMesa,RTN,NombreCliente,idMesero)
 				VALUES(@fecha,@idMesa,@RTN,@nombre,@IdMesero)
 
 			
 			RETURN 1
 
-		END
+		--END
 END
 GO
 
@@ -614,37 +614,39 @@ GO
 -----------------------------------------------------------------------------------
 --Modulo DetallePedido
 
-CREATE PROCEDURE SP_AgregarDetallePedido
+ALTER PROCEDURE SP_AgregarDetallePedido
 (
 	@idPedido INT,
     @idInventario INT,
-    @cantidad INT
+    @cantidad INT,
+	@subtotal DECIMAL
 )
 AS
 BEGIN
-    DECLARE @existe int;
-    SET @existe = 0;
+    --DECLARE @existe int;
+    --SET @existe = 0;
 
-    SELECT @existe = COUNT(Restaurante.DetallePedidos.idDetallePedido) FROM Restaurante.DetallePedidos WHERE idPedido = @idPedido;
-    IF (@existe > 0)
-        BEGIN
-            RAISERROR(N'Ya existe un detalle con ese  %d"', 16, 1,@idPedido);
-            RETURN 0
+    --SELECT @existe = COUNT(Restaurante.DetallePedidos.idDetallePedido) FROM Restaurante.DetallePedidos WHERE idPedido = @idPedido;
+    --IF (@existe > 0)
+    --    BEGIN
+    --        RAISERROR(N'Ya existe un detalle con ese  %d"', 16, 1,@idPedido);
+    --        RETURN 0
             
-        END
-    ELSE
-        BEGIN
+    --    END
+    --ELSE
+    --    BEGIN
             INSERT INTO Restaurante.DetallePedidos
             (
                 idPedido,
                 idInventario,
-                cantidad
+                cantidad,
+				subTotal
             )
             VALUES
-            ( @idPedido,@idInventario,@cantidad)
+            ( @idPedido,@idInventario,@cantidad,@subtotal)
                 
             RETURN 1
-        END
+        --END
 END
 GO
 
@@ -653,7 +655,8 @@ CREATE PROCEDURE SP_ModificarDetallePedido
 	@idDetalle INT,
 	@idPedido INT,
     @idInventario INT,
-    @cantidad INT
+    @cantidad INT,
+	@subtotal DECIMAL
 )
 AS
 BEGIN
@@ -672,7 +675,8 @@ BEGIN
             UPDATE Restaurante.DetallePedidos
 					SET idPedido=@idPedido,
 						idInventario=@idInventario,
-						cantidad=@cantidad
+						cantidad=@cantidad,
+						subTotal= @subtotal
                     WHERE idDetallePedido=@idDetalle;
             RETURN 1
         END

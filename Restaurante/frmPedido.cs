@@ -29,7 +29,11 @@ namespace Restaurante
             foreach (DataGridViewColumn c in dgvPedido.Columns)
                 if (c.Name != "Cantidads") c.ReadOnly = true;
         }
-        public static int mesa1;
+        //Variable controla la mesa
+        public int mesa1;
+        /// <summary>
+        /// Se llena el text de mesa
+        /// </summary>
         private void CargarCMBMesa()
         {
           
@@ -41,12 +45,10 @@ namespace Restaurante
                 // Establecer la conexión
                 conexion.Abrir();
                 SqlDataReader rdr = cmd.ExecuteReader();
-
-                //MessageBox.Show(Convert.ToString(rdr[0]));
                 while (rdr.Read())
                  {
                     lblMesa.Items.Add(Convert.ToString(rdr[1]));
-                     mesa1 = Convert.ToInt16(rdr[0]);
+                    mesa1 = Convert.ToInt16(rdr[0]);
                  }
             }
             catch (SqlException ex)
@@ -60,11 +62,17 @@ namespace Restaurante
             }
             //lblMesa.Text = Convert.ToString(cmd);
         }
+        /// <summary>
+        /// Se encarga de darle estilos a los grid
+        /// </summary>
         private void dgwPedidoEstilo(DataGridView dgw)
         {
             dgw.DefaultCellStyle.BackColor = Color.LightBlue;
             dgw.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
         }
+        /// <summary>
+        /// Se encarga de mostrar los meseros
+        /// </summary>
         private void CargarCMBMeseros()
         {
             DataTable dt = new DataTable();
@@ -79,6 +87,9 @@ namespace Restaurante
         }
 
         private int id = 0;
+        /// <summary>
+        /// Llena el grid del inventario
+        /// </summary>
         private void CargarDGWinventario()
         {
             try
@@ -91,7 +102,9 @@ namespace Restaurante
                 MessageBox.Show(ex.Message);
             }
         }
-        //public static int cantidad=1;
+        /// <summary>
+        /// cuando se le da click al grid de inventario se llena el grid de pedidos
+        /// </summary>
         private void dgvInventario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
@@ -106,11 +119,13 @@ namespace Restaurante
                 dgvInventario.Select();
                 this.id = inventario.IdInventario;
                 decimal importe = inventario.PrecioVenta * cantidad;
-               // MessageBox.Show(Convert.ToString(id));
                 producto(inventario.IdInventario, inventario.Descripcion, cantidad, inventario.PrecioVenta, importe);
             }
    
         }
+        /// <summary>
+        /// Funcion que hace la suma del importe en el grid de pedido
+        /// </summary>
         public void Total()
         {
             decimal total = 0;
@@ -121,6 +136,9 @@ namespace Restaurante
             }
             txtTotal.Text = Convert.ToString(total);
         }
+        /// <summary>
+        /// Funcion que hace el traslado de un grid a otro
+        /// </summary>
         public void producto(int id, string nombre, int cantidad, decimal precio, decimal importe)
         {
             int igual = 0;
@@ -141,49 +159,126 @@ namespace Restaurante
                 Total();
             }
         }
+        int Comidas = 1;
+        int Licores = 2;
+        int Bebidas = 3;
+        int Categoria;
 
+        /// <summary>
+        /// Boton de filtro por categoria Comidas
+        /// </summary>
         private void button2_Click(object sender, EventArgs e)
         {
-            //Comidas
+
+            
             try
             {
-                dgvInventario.DataSource = Clases.Inventario.GetDataView1(1);
+                dgvInventario.DataSource = Clases.Inventario.GetDataView1(Comidas);
+                Categoria = Comidas;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Boton de filtro por categoria Bebidas
+        /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
             //Bebidas
             try
             {
-                dgvInventario.DataSource = Clases.Inventario.GetDataView1(3);
+                dgvInventario.DataSource = Clases.Inventario.GetDataView1(Bebidas);
+                Categoria = Bebidas;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Boton de filtro por categoria Licores
+        /// </summary>
         private void button3_Click(object sender, EventArgs e)
         {
             //licores
             try
             {
-                dgvInventario.DataSource = Clases.Inventario.GetDataView1(2);
+                dgvInventario.DataSource = Clases.Inventario.GetDataView1(Licores);
+                Categoria = Licores;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
+        /// <summary>
+        /// Boton Salir
+        /// </summary>
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        int idPedido;
+        /// <summary>
+        /// Boton que hace la insercion de todos los detalle del pedido 
+        /// </summary>
+        public void Detalle() {      
+            Clases.Conexión conexion = new Clases.Conexión();
+            string sql = "SELECT MAX(id) FROM Restaurante.Pedidos";
+            SqlCommand cmd = new SqlCommand(sql, conexion.conexion);
+            try
+            {
+                // Establecer la conexión
+                conexion.Abrir();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                //MessageBox.Show(Convert.ToString(rdr[0]));
+                while (rdr.Read())
+                {                  
+                    idPedido = Convert.ToInt16(rdr[0]);
+                }
+                Producto(idPedido);
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace, "¡Detalles de la excepción!");
+            }
+            finally
+            {
+                // Cerrar la conexión
+                conexion.Cerrar();
+            }
+        }
+
+        /// <summary>
+        /// Funcion que recorre todo el grid para agregar fila por fila del pedido
+        /// </summary>
+        public void Producto(int id)
+        {
+            if (id != 0)
+            {
+                for (int i = 0; i < dgvPedido.Rows.Count; i++)
+                {
+
+                    try
+                    {
+                        Clases.Detalle detalle = new Clases.Detalle(
+                            id,
+                            Convert.ToInt16(dgvPedido.Rows[i].Cells["Código"].Value.ToString()),
+                            Convert.ToInt16(dgvPedido.Rows[i].Cells["Cantidads"].Value.ToString()),
+                           Convert.ToDecimal(dgvPedido.Rows[i].Cells["PrecioI"].Value.ToString())
+                         );
+                        detalle.Agregar();
+                        MessageBox.Show("Agregado");
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Clases.Mensaje.Advertencia(ex);
+                    }
+                }
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -202,7 +297,9 @@ namespace Restaurante
                         txtNombre.Text,
                         mesero.Id
                     );
+
                 MessageBox.Show("Comanda enviada");
+                Detalle();
             }
             catch (Exception ex)
             {
@@ -293,6 +390,14 @@ namespace Restaurante
             }
         }
 
+        private void txtProducto_TextChanged(object sender, EventArgs e)
+        {
+            dgvInventario.DataSource = Clases.Inventario.GetDataViewFiltro(Categoria,txtProducto.Text);
+        }
 
+        private void button9_Click(object sender, EventArgs e)
+        {
+            txtProducto.Text = "";
+        }
     }
 }

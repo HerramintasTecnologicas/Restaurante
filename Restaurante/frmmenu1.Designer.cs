@@ -28,21 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnPedidos = new System.Windows.Forms.Button();
+            this.btnEntrega = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btnPedidos
+            // 
+            this.btnPedidos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
+            this.btnPedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnPedidos.Location = new System.Drawing.Point(15, 10);
+            this.btnPedidos.Name = "btnPedidos";
+            this.btnPedidos.Size = new System.Drawing.Size(171, 64);
+            this.btnPedidos.TabIndex = 70;
+            this.btnPedidos.Text = "Pedidos";
+            this.btnPedidos.UseVisualStyleBackColor = false;
+            this.btnPedidos.Click += new System.EventHandler(this.btnPedidos_Click);
+            // 
+            // btnEntrega
+            // 
+            this.btnEntrega.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
+            this.btnEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntrega.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnEntrega.Location = new System.Drawing.Point(226, 11);
+            this.btnEntrega.Name = "btnEntrega";
+            this.btnEntrega.Size = new System.Drawing.Size(171, 64);
+            this.btnEntrega.TabIndex = 71;
+            this.btnEntrega.Text = "Entregas";
+            this.btnEntrega.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancelar.Location = new System.Drawing.Point(432, 12);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(171, 64);
+            this.btnCancelar.TabIndex = 72;
+            this.btnCancelar.Text = "Cancelar Cuenta";
+            this.btnCancelar.UseVisualStyleBackColor = false;
             // 
             // frmmenu1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 104);
+            this.ClientSize = new System.Drawing.Size(620, 87);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnEntrega);
+            this.Controls.Add(this.btnPedidos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmmenu1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmmenu1";
+            this.Load += new System.EventHandler(this.frmmenu1_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnPedidos;
+        private System.Windows.Forms.Button btnEntrega;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

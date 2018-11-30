@@ -795,12 +795,10 @@ namespace Restaurante.Clases
                 (
                 string Fecha,
                 int idMesa,
-                string rtn,
-                string nombre,
                 int idMesero
                 )
         {
-            if (Fecha == "" || idMesa <= 0 || rtn == "" || nombre ==""||idMesero<=0 )
+            if (Fecha == "" || idMesa <= 0 ||idMesero<=0 )
             {
                 throw new Clases.Excepcion
                     (
@@ -825,7 +823,7 @@ namespace Restaurante.Clases
         {
             try
             {
-                ValidarPedido(Fecha, idMesa, rtn , nombre, idMesero);
+                ValidarPedido(Fecha, idMesa, idMesero);
                 Clases.Pedidos pedidos = new Clases.Pedidos(
                  Fecha,
                  idMesa,
@@ -854,7 +852,7 @@ namespace Restaurante.Clases
         {
             try
             {
-                ValidarPedido(Fecha,idMesa,rtn, nombre, idMesero);
+                ValidarPedido(Fecha,idMesa, idMesero);
                 Clases.Pedidos pedidos = new Clases.Pedidos(
                   id,
                  Fecha,

@@ -168,6 +168,7 @@ ELSE
 			idPedido INT NOT NULL,
 			idInventario INT NOT NULL,
 			cantidad INT NOT NULL,
+			subTotal DECIMAL NOT NULL,
 			estado BIT DEFAULT 1
 
 		);

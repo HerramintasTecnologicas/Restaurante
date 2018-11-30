@@ -14,22 +14,25 @@ namespace Restaurante.Clases
         public int IdPedido { set; get; }
         public int IdInventario { set; get; }
         public int Cantidad { set; get; }
+        public decimal SubTotal { set; get; }
         
 
         public Detalle() { }
         ~Detalle() { }
-        public Detalle(int idPedido, int idInventario, int cantidad)
+        public Detalle(int idPedido, int idInventario, int cantidad,decimal subTotal)
         {
             IdPedido = idPedido;
             IdInventario = idInventario;
             Cantidad = cantidad;
+            SubTotal = subTotal;
         }
-        public Detalle(int idDetallePedido, int idPedido, int idInventario, int cantidad)
+        public Detalle(int idDetallePedido, int idPedido, int idInventario, int cantidad,decimal subTotal)
         {
             IdDetallePedido = idDetallePedido;
             IdPedido = idPedido;           
             IdInventario = idInventario;
             Cantidad = cantidad;
+            SubTotal = subTotal;
         }
         public Detalle(int idDetallePedido) { IdDetallePedido = idDetallePedido; }
         public void Agregar()
@@ -44,8 +47,10 @@ namespace Restaurante.Clases
                 cmd.Parameters["idPedido"].Value = IdPedido;
                 cmd.Parameters.Add(new SqlParameter("idInventario", SqlDbType.Int));
                 cmd.Parameters["idInventario"].Value = IdInventario;
-                cmd.Parameters.Add(new SqlParameter("Cantidad", SqlDbType.Int));
-                cmd.Parameters["Cantidad"].Value = Cantidad;
+                cmd.Parameters.Add(new SqlParameter("cantidad", SqlDbType.Int));
+                cmd.Parameters["cantidad"].Value = Cantidad;
+                cmd.Parameters.Add(new SqlParameter("subTotal", SqlDbType.Decimal));
+                cmd.Parameters["subTotal"].Value = SubTotal;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -74,6 +79,8 @@ namespace Restaurante.Clases
                 cmd.Parameters["idInventario"].Value = IdInventario;
                 cmd.Parameters.Add(new SqlParameter("Cantidad", SqlDbType.Int));
                 cmd.Parameters["Cantidad"].Value = Cantidad;
+                cmd.Parameters.Add(new SqlParameter("subTotal", SqlDbType.Decimal));
+                cmd.Parameters["subTotal"].Value = SubTotal;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)

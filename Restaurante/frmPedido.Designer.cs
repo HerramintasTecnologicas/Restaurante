@@ -52,7 +52,7 @@
             this.btnPreFac = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.txtCantidadInventario = new System.Windows.Forms.TextBox();
+            this.txtProducto = new System.Windows.Forms.TextBox();
             this.lblProducto = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDisminuirCantidad = new System.Windows.Forms.Button();
@@ -67,9 +67,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblFecha = new System.Windows.Forms.Label();
-            this.txtRTN = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblCliente = new System.Windows.Forms.Label();
+            this.txtRTN = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
@@ -240,7 +240,7 @@
             this.panel2.Controls.Add(this.btnPreFac);
             this.panel2.Controls.Add(this.lblTotal);
             this.panel2.Controls.Add(this.txtTotal);
-            this.panel2.Controls.Add(this.txtCantidadInventario);
+            this.panel2.Controls.Add(this.txtProducto);
             this.panel2.Controls.Add(this.lblProducto);
             this.panel2.Controls.Add(this.dgvInventario);
             this.panel2.Location = new System.Drawing.Point(522, 121);
@@ -271,6 +271,7 @@
             this.button9.TabIndex = 91;
             this.button9.Text = "Limpiar";
             this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // btnPreFac
             // 
@@ -303,12 +304,13 @@
             this.txtTotal.Size = new System.Drawing.Size(135, 31);
             this.txtTotal.TabIndex = 85;
             // 
-            // txtCantidadInventario
+            // txtProducto
             // 
-            this.txtCantidadInventario.Location = new System.Drawing.Point(138, 21);
-            this.txtCantidadInventario.Name = "txtCantidadInventario";
-            this.txtCantidadInventario.Size = new System.Drawing.Size(156, 20);
-            this.txtCantidadInventario.TabIndex = 83;
+            this.txtProducto.Location = new System.Drawing.Point(138, 21);
+            this.txtProducto.Name = "txtProducto";
+            this.txtProducto.Size = new System.Drawing.Size(156, 20);
+            this.txtProducto.TabIndex = 83;
+            this.txtProducto.TextChanged += new System.EventHandler(this.txtProducto_TextChanged);
             // 
             // lblProducto
             // 
@@ -463,13 +465,6 @@
             this.lblFecha.Size = new System.Drawing.Size(252, 29);
             this.lblFecha.TabIndex = 93;
             // 
-            // txtRTN
-            // 
-            this.txtRTN.Location = new System.Drawing.Point(689, 44);
-            this.txtRTN.Name = "txtRTN";
-            this.txtRTN.Size = new System.Drawing.Size(201, 20);
-            this.txtRTN.TabIndex = 94;
-            // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(734, 75);
@@ -486,14 +481,22 @@
             this.lblCliente.TabIndex = 95;
             this.lblCliente.Text = "Nombre Cliente";
             // 
+            // txtRTN
+            // 
+            this.txtRTN.Location = new System.Drawing.Point(689, 41);
+            this.txtRTN.Mask = "99999999999999";
+            this.txtRTN.Name = "txtRTN";
+            this.txtRTN.Size = new System.Drawing.Size(181, 20);
+            this.txtRTN.TabIndex = 97;
+            // 
             // frmPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 612);
+            this.Controls.Add(this.txtRTN);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblCliente);
-            this.Controls.Add(this.txtRTN);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblMesa);
@@ -545,7 +548,7 @@
         private System.Windows.Forms.Button btnDisminuirCantidad;
         private System.Windows.Forms.Button btnQuitar;
         private System.Windows.Forms.Button btnAumentarCantidad;
-        private System.Windows.Forms.TextBox txtCantidadInventario;
+        private System.Windows.Forms.TextBox txtProducto;
         private System.Windows.Forms.Label lblProducto;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button8;
@@ -566,8 +569,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Button btnFactura;
-        private System.Windows.Forms.TextBox txtRTN;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblCliente;
+        private System.Windows.Forms.MaskedTextBox txtRTN;
     }
 }

@@ -47,15 +47,14 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
-                MessageBox.Show(Nombre);
-                cmd.Parameters.Add(new SqlParameter("Fecha", SqlDbType.NVarChar,19));
-                cmd.Parameters["Fecha"].Value = Fecha;
+                cmd.Parameters.Add(new SqlParameter("fecha", SqlDbType.NVarChar,19));
+                cmd.Parameters["fecha"].Value = Fecha;
                 cmd.Parameters.Add(new SqlParameter("idMesa", SqlDbType.Int));
                 cmd.Parameters["idMesa"].Value = IdMesa;
                 cmd.Parameters.Add(new SqlParameter("RTN", SqlDbType.NVarChar,14));
                 cmd.Parameters["RTN"].Value = RTN;
-                cmd.Parameters.Add(new SqlParameter("NombreCliente", SqlDbType.NVarChar,50));
-                cmd.Parameters["NombreCliente"].Value = Nombre;
+                cmd.Parameters.Add(new SqlParameter("nombre", SqlDbType.NVarChar,50));
+                cmd.Parameters["nombre"].Value = Nombre;
                 cmd.Parameters.Add(new SqlParameter("idMesero", SqlDbType.Int));
                 cmd.Parameters["idMesero"].Value = IdMesero;
 

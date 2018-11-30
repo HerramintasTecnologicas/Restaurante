@@ -356,5 +356,41 @@ namespace Restaurante.Clases
             }
 
         }
+        public static DataView GetDataViewFiltro(int categoria,string nombre)
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            string sql = @"SELECT   Restaurante.Inventario.idInventario         as Código,
+                                    Restaurante.Inventario.descripcion          as Nombre,
+                                    Restaurante.Inventario.precioVenta          as PrecioVenta,
+                                    Restaurante.CategoriaProducto.descripcion   as Categoría,
+                                    Restaurante.TipoProducto.nombre             as TipoProducto  
+                                    FROM Restaurante.TipoProducto
+                                    INNER JOIN Restaurante.Inventario
+                                    ON Restaurante.Inventario.idTipoProducto = Restaurante.TipoProducto.idTipoProducto 
+                                    INNER JOIN Restaurante.CategoriaProducto
+                                    ON Restaurante.CategoriaProducto.idCategoria = Restaurante.Inventario.idCategoria
+                                    WHERE Restaurante.Inventario.idCategoria = " + categoria + " AND Restaurante.Inventario.descripcion like '%"+ nombre+"%';";
+            try
+            {
+                SqlDataAdapter data = new SqlDataAdapter();
+                data.SelectCommand = new SqlCommand(sql, conexion.conexion);
+                DataSet ds = new DataSet();
+                data.Fill(ds, "Restaurante.Inventario");
+                DataTable dt = ds.Tables["Restaurante.Inventario"];
+                DataView dv = new DataView(dt,
+                    "",
+                    "Código",
+                    DataViewRowState.Unchanged);
+                return dv;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
     }
 }
