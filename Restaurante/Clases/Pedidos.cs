@@ -82,16 +82,16 @@ namespace Restaurante.Clases
                 conexion.Abrir();
                 cmd.Parameters.Add(new SqlParameter("id", SqlDbType.Int));
                 cmd.Parameters["id"].Value = IdPedido;
-                cmd.Parameters.Add(new SqlParameter("Fecha", SqlDbType.NVarChar,19));
-                cmd.Parameters["Fecha"].Value = Fecha;
+                cmd.Parameters.Add(new SqlParameter("fecha", SqlDbType.NVarChar,19));
+                cmd.Parameters["fecha"].Value = Fecha;
                 cmd.Parameters.Add(new SqlParameter("idMesa", SqlDbType.Int));
                 cmd.Parameters["idMesa"].Value = IdMesa;
                 cmd.Parameters.Add(new SqlParameter("RTN", SqlDbType.NVarChar,14));
                 cmd.Parameters["RTN"].Value = RTN;
-                cmd.Parameters.Add(new SqlParameter("NombreCliente", SqlDbType.NVarChar,50));
-                cmd.Parameters["NombreCliente"].Value = Nombre;
-                cmd.Parameters.Add(new SqlParameter("idMesero", SqlDbType.Int));
-                cmd.Parameters["idMesero"].Value = IdMesero;
+                cmd.Parameters.Add(new SqlParameter("nombre", SqlDbType.NVarChar,50));
+                cmd.Parameters["nombre"].Value = Nombre;
+                cmd.Parameters.Add(new SqlParameter("IdMesero", SqlDbType.Int));
+                cmd.Parameters["IdMesero"].Value = IdMesero;
                 cmd.Parameters.Add(new SqlParameter("estado", SqlDbType.Int));
                 cmd.Parameters["estado"].Value = Estado;
                 cmd.ExecuteNonQuery();
@@ -173,7 +173,7 @@ namespace Restaurante.Clases
         public void ObtenerPedido(int mesa, int fase)
         {
             Conexión conexion = new Conexión();
-            string sql = @"SELECT id,idMesero,estado FROM Restaurante.Pedidos WHERE idMesa = " + mesa + " AND estado="+fase+";";
+            string sql = @"SELECT id,RTN,nombreCliente,idMesero,estado FROM Restaurante.Pedidos WHERE idMesa = " + mesa + " AND estado="+fase+";";
             SqlCommand cmd = new SqlCommand(sql, conexion.conexion);
             try
             {
@@ -181,9 +181,12 @@ namespace Restaurante.Clases
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
+                    
                     IdPedido = dr.GetInt32(0);
-                    IdMesero = dr.GetInt32(1);
-                    Estado = dr.GetInt32(2);
+                    RTN = dr.GetString(1);
+                    Nombre = dr.GetString(2);
+                    IdMesero = dr.GetInt32(3);
+                    Estado = dr.GetInt32(4);
                 }
             }
             catch (SqlException ex)

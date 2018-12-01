@@ -127,10 +127,12 @@ EXEC SP_AgregarInsumo 'Pescado',50,15,3,2,'de 100 lempiras',1
 --SP_AgregarInventario(	descripcion,costo,precioVenta ,cantidad,cantidadMinima,idCategoria,idTipoProducto,idProveedor )
 
 EXEC SP_AgregarInventario 'Pescado', 60, 100, 3, 1, 1, 1, 1
-EXEC SP_AgregarInventario 'Fresco', 15, 20, 3, 1, 1, 2, 1
+EXEC SP_AgregarInventario 'Fresco', 15, 20, 3, 1, 2, 2, 1
+EXEC SP_AgregarInventario 'Pollo', 50, 70, 3, 1, 1, 1, 1
+EXEC SP_AgregarInventario 'Chuleta', 55, 80, 3, 1, 1, 1, 1
 --SP_AgregarPedido(fecha, idMesa, RTN, NombreCliente, idMesero)
-EXEC SP_AgregarPedido '28/11/2018', 5, '03181998011792', 'Norman', 1
---SP_AgregarDetallePedido(idPedido, idInventario, cantidad)
-EXEC SP_AgregarDetallePedido 1, 1, 2
---SP_AgregarFactura(idPedido, idUsuario, subTotal, descuento, exento, iva15, iva18, total)
-EXEC SP_AgregarFactura 1, 1, 1, 100, 0, 0, 10, 0, 110
+--EXEC SP_AgregarPedido '28/11/2018', 5, '03181998011792', 'Norman', 1
+----SP_AgregarDetallePedido(idPedido, idInventario, cantidad)
+--EXEC SP_AgregarDetallePedido 1, 1, 2
+----SP_AgregarFactura(idPedido, idUsuario, subTotal, descuento, exento, iva15, iva18, total)
+--EXEC SP_AgregarFactura 1, 1, 1, 100, 0, 0, 10, 0, 110

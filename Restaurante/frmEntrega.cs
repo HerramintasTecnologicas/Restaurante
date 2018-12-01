@@ -26,6 +26,8 @@ namespace Restaurante
         }
         public int mesa1;
         public int id;
+        public string rtn;
+        public string nombre;
         public int idMesero;
         public int estado;
         
@@ -37,6 +39,9 @@ namespace Restaurante
             Clases.Pedidos pedidos = new Clases.Pedidos();
             pedidos.ObtenerPedido(id2,1);
             id = pedidos.IdPedido;
+            
+            rtn = pedidos.RTN;
+            nombre = pedidos.Nombre;
             idMesero = pedidos.IdMesero;
             estado = pedidos.Estado;
             CargarCMBMesero(idMesero);
@@ -44,11 +49,15 @@ namespace Restaurante
 
 
         }
-        private void CargarDGWPedido(int id4)
+        private void CargarDGWPedido(int id)
         {
             try
             {
-                dgvPedido.DataSource = Clases.Detalle.GetDataView(id4);
+                MessageBox.Show(id.ToString());
+                dgvPedidos.DataSource = Clases.Detalle.GetDataView(id);
+                dgvpedido.DataSource = Clases.Detalle.GetDataView(id);
+                dgvPedidos.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
+                //dgvPedidos.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
             catch (Exception ex)
             {
@@ -110,14 +119,7 @@ namespace Restaurante
             }
             //lblMesa.Text = Convert.ToString(cmd);
         }
-        /// <summary>
-        /// Se encarga de darle estilos a los grid
-        /// </summary>
-        //private void dgwPedidoEstilo(DataGridView dgw)
-        //{
-        //    dgw.DefaultCellStyle.BackColor = Color.LightBlue;
-        //    dgw.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
-        //}
+
 
 
         private void button3_Click(object sender, EventArgs e)
@@ -127,7 +129,7 @@ namespace Restaurante
 
         private void frmEntrega_Load(object sender, EventArgs e)
         {
-
+            btnEntregado.Enabled = false;
             CargarCMBPedido();
             CargarCMBMesa();
         }
@@ -145,33 +147,87 @@ namespace Restaurante
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (idgrid != 0)
+            if (idgrid != -1)
+            {
+                dgvPedidos.Rows[idgrid].DefaultCellStyle.BackColor = Color.Green;
+                desbloquear();
+            }
+        }
+        int cuentaGrid=0;
+        public void desbloquear()
+        {
+
+            for (int i = 0; i < dgvPedidos.RowCount; i++)
             {
 
 
-                dgvPedido.Rows[idgrid].DefaultCellStyle.BackColor = Color.Green;
+                if (dgvPedidos.Rows[i].DefaultCellStyle.BackColor == Color.Green)
+                {
+                    cuentaGrid += 1;
+                    if (cuentaGrid== dgvPedidos.RowCount)
+                    {
+                        btnEntregado.Enabled = true;
+                    }
+                }
             }
         }
-         public int idgrid;
+        public int idgrid;
 
         private void dgvPedido_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex!=-1)
-            {
-                idgrid = e.RowIndex;
-                dgvPedido.Select();
-            }
+     
         }
+        int tiempo=1000;
 
         private void btnEntregado_Click(object sender, EventArgs e)
         {
-            if (idgrid != 0)
+
+            if (idgrid != -1)
             {
 
+                timer2.Interval =tiempo;
+                dgvPedidos.Rows[idgrid].DefaultCellStyle.BackColor = Color.Orange;
 
-                dgvPedido.Rows[idgrid].DefaultCellStyle.BackColor = Color.Orange;
+                timer2.Start();
+
             }
 
+        }
+        public void tempo() {
+
+            timer2.Enabled = false;
+            timer2.Stop();
+
+            dgvPedidos.Rows.RemoveAt(idgrid);
+            if (dgvPedidos.Rows.Count == 0)
+            {
+                Clases.Restaurante.ModificarPedido(id, fecha1, id2, rtn, nombre, idMesero, 2);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                idgrid = e.RowIndex;
+                dgvPedidos.Select();
+                
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (timer2.Interval <= 2000)
+            {
+                timer2.Interval += 1000;
+                //MessageBox.Show(timer2.Interval.ToString());
+                
+            }
+            else
+            {
+                tempo();
+                timer2.Stop();
+            }
         }
     }
 }

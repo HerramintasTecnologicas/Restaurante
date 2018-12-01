@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEntrega));
-            this.dgvPedido = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblFecha = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -42,23 +42,13 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblMesa = new System.Windows.Forms.ListView();
             this.lblMesero = new System.Windows.Forms.ListView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
+            this.dgvPedidos = new System.Windows.Forms.DataGridView();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.dgvpedido = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvpedido)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvPedido
-            // 
-            this.dgvPedido.AllowUserToAddRows = false;
-            this.dgvPedido.AllowUserToDeleteRows = false;
-            this.dgvPedido.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedido.Location = new System.Drawing.Point(44, 103);
-            this.dgvPedido.Name = "dgvPedido";
-            this.dgvPedido.ReadOnly = true;
-            this.dgvPedido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedido.Size = new System.Drawing.Size(295, 180);
-            this.dgvPedido.TabIndex = 83;
-            this.dgvPedido.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellClick);
             // 
             // lblFecha
             // 
@@ -99,7 +89,7 @@
             this.btnPreparacion.Name = "btnPreparacion";
             this.btnPreparacion.Size = new System.Drawing.Size(144, 61);
             this.btnPreparacion.TabIndex = 98;
-            this.btnPreparacion.Text = "En Preparacion";
+            this.btnPreparacion.Text = "En Preparación";
             this.btnPreparacion.UseVisualStyleBackColor = false;
             this.btnPreparacion.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -135,7 +125,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 103;
-            this.label2.Text = "Numero de mesa:";
+            this.label2.Text = "Número de mesa:";
             // 
             // lblUnidad
             // 
@@ -168,11 +158,48 @@
             this.lblMesero.TabIndex = 105;
             this.lblMesero.UseCompatibleStateImageBehavior = false;
             // 
+            // dgvPedidos
+            // 
+            this.dgvPedidos.AllowUserToAddRows = false;
+            this.dgvPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvPedidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPedidos.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPedidos.Location = new System.Drawing.Point(44, 109);
+            this.dgvPedidos.MultiSelect = false;
+            this.dgvPedidos.Name = "dgvPedidos";
+            this.dgvPedidos.ReadOnly = true;
+            this.dgvPedidos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvPedidos.Size = new System.Drawing.Size(296, 172);
+            this.dgvPedidos.TabIndex = 106;
+            this.dgvPedidos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // dgvpedido
+            // 
+            this.dgvpedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvpedido.Location = new System.Drawing.Point(45, 316);
+            this.dgvpedido.Name = "dgvpedido";
+            this.dgvpedido.Size = new System.Drawing.Size(303, 58);
+            this.dgvpedido.TabIndex = 107;
+            // 
             // frmEntrega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 401);
+            this.Controls.Add(this.dgvpedido);
+            this.Controls.Add(this.dgvPedidos);
             this.Controls.Add(this.lblMesero);
             this.Controls.Add(this.lblMesa);
             this.Controls.Add(this.label2);
@@ -183,22 +210,20 @@
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvPedido);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmEntrega";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEntrega";
             this.Load += new System.EventHandler(this.frmEntrega_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvpedido)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvPedido;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
@@ -210,5 +235,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ListView lblMesa;
         private System.Windows.Forms.ListView lblMesero;
+        private System.Windows.Forms.DataGridView dgvPedidos;
+        public System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.DataGridView dgvpedido;
     }
 }
