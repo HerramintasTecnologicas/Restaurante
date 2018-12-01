@@ -17,6 +17,7 @@ namespace Restaurante.Clases
         public string RTN { set; get; }
         public string Nombre { set; get; }
         public int IdMesero { set; get;}
+        public int Estado { set; get; }
         public Pedidos() { }
         ~Pedidos() { }
         public Pedidos(string fecha, int idMesa, string rtn,string nombre, int idMesero)
@@ -28,7 +29,7 @@ namespace Restaurante.Clases
             IdMesero = idMesero;
 
         }
-        public Pedidos(int idPedido, string fecha, int idMesa,string rtn, string nombre, int idMesero)
+        public Pedidos(int idPedido, string fecha, int idMesa,string rtn, string nombre, int idMesero, int estado)
         {
             IdPedido = idPedido;
             Fecha = fecha;
@@ -36,6 +37,7 @@ namespace Restaurante.Clases
             RTN = rtn;
             Nombre = nombre;
             IdMesero = idMesero;
+            Estado = estado;
         }
         public Pedidos(int idPedido) { IdPedido = idPedido; }
 
@@ -90,6 +92,8 @@ namespace Restaurante.Clases
                 cmd.Parameters["NombreCliente"].Value = Nombre;
                 cmd.Parameters.Add(new SqlParameter("idMesero", SqlDbType.Int));
                 cmd.Parameters["idMesero"].Value = IdMesero;
+                cmd.Parameters.Add(new SqlParameter("estado", SqlDbType.Int));
+                cmd.Parameters["estado"].Value = Estado;
                 cmd.ExecuteNonQuery();
 
             }
@@ -143,7 +147,6 @@ namespace Restaurante.Clases
                             ON Restaurante.TipoProducto.idTipoProducto = Restaurante.Inventario.idTipoProducto
                             INNER JOIN Restaurante.CategoriaProducto
                             ON Restaurante.CategoriaProducto.idCategoria = Restaurante.Inventario.idCategoria";
-
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();
@@ -160,6 +163,34 @@ namespace Restaurante.Clases
             catch (SqlException ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
+
+        public void ObtenerPedido(int mesa, int fase)
+        {
+            Conexión conexion = new Conexión();
+            string sql = @"SELECT id,idMesero,estado FROM Restaurante.Pedidos WHERE idMesa = " + mesa + " AND estado="+fase+";";
+            SqlCommand cmd = new SqlCommand(sql, conexion.conexion);
+            try
+            {
+                conexion.Abrir();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    IdPedido = dr.GetInt32(0);
+                    IdMesero = dr.GetInt32(1);
+                    Estado = dr.GetInt32(2);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Clases.Excepcion(
+                   String.Format("{0} \n\n{1}",
+                   "No podemos obtener la informacion del Producto", ex.Message), ex, "Clase_Pedido"); ;
             }
             finally
             {

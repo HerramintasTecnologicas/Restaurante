@@ -561,7 +561,8 @@ CREATE PROCEDURE SP_ModificarPedido
 @idMesa INT,
 @RTN NVARCHAR(14),
 @nombre NVARCHAR(50),
-@IdMesero INT
+@IdMesero INT,
+@estado INT
 )
 AS
 BEGIN
@@ -582,8 +583,8 @@ BEGIN
 						idMesa=@idMesa,
 						RTN=@RTN,
 						NombreCliente=@nombre,
-						idMesero=@IdMesero
-						
+						idMesero=@IdMesero,
+						estado=@estado
 					WHERE id=@id;
 			RETURN 1
 		END	
@@ -614,7 +615,7 @@ GO
 -----------------------------------------------------------------------------------
 --Modulo DetallePedido
 
-ALTER PROCEDURE SP_AgregarDetallePedido
+CREATE PROCEDURE SP_AgregarDetallePedido
 (
 	@idPedido INT,
     @idInventario INT,

@@ -846,8 +846,8 @@ namespace Restaurante.Clases
                 int idMesa,
                 string rtn,
                 string nombre,
-                int idMesero         
-
+                int idMesero ,
+                int estado   
             )
         {
             try
@@ -859,7 +859,8 @@ namespace Restaurante.Clases
                  idMesa,
                  rtn,
                  nombre,
-                 idMesero
+                 idMesero,
+                 estado
                     );
                 pedidos.Modificar();
             }

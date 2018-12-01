@@ -30,10 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPedido));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnBebidas = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lblProveedor = new System.Windows.Forms.Label();
             this.cmbMesero = new System.Windows.Forms.ComboBox();
             this.lblUnidad = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -41,11 +43,6 @@
             this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
-            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidads = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnFactura = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -64,12 +61,18 @@
             this.btnComidas = new System.Windows.Forms.Button();
             this.btnLicores = new System.Windows.Forms.Button();
             this.lblMesa = new System.Windows.Forms.ListView();
-            this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblFecha = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.txtRTN = new System.Windows.Forms.MaskedTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidads = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
@@ -93,7 +96,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(653, 47);
+            this.label3.Location = new System.Drawing.Point(469, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 76;
@@ -102,20 +105,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(468, 53);
+            this.label2.Location = new System.Drawing.Point(267, 55);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 74;
             this.label2.Text = "Numero de mesa:";
-            // 
-            // lblProveedor
-            // 
-            this.lblProveedor.AutoSize = true;
-            this.lblProveedor.Location = new System.Drawing.Point(269, 54);
-            this.lblProveedor.Name = "lblProveedor";
-            this.lblProveedor.Size = new System.Drawing.Size(83, 13);
-            this.lblProveedor.TabIndex = 72;
-            this.lblProveedor.Text = "Número de Caja";
             // 
             // cmbMesero
             // 
@@ -168,7 +162,7 @@
             this.dgvInventario.Name = "dgvInventario";
             this.dgvInventario.ReadOnly = true;
             this.dgvInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInventario.Size = new System.Drawing.Size(419, 228);
+            this.dgvInventario.Size = new System.Drawing.Size(419, 210);
             this.dgvInventario.TabIndex = 82;
             this.dgvInventario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInventario_CellClick);
             // 
@@ -198,43 +192,10 @@
             this.dgvPedido.TabIndex = 0;
             this.dgvPedido.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellClick);
             // 
-            // Código
-            // 
-            this.Código.HeaderText = "Código";
-            this.Código.Name = "Código";
-            this.Código.ReadOnly = true;
-            this.Código.Width = 50;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 150;
-            // 
-            // Cantidads
-            // 
-            this.Cantidads.HeaderText = "Cantidad";
-            this.Cantidads.Name = "Cantidads";
-            this.Cantidads.ReadOnly = true;
-            this.Cantidads.Width = 50;
-            // 
-            // PrecioU
-            // 
-            this.PrecioU.HeaderText = "Precio Unitario";
-            this.PrecioU.Name = "PrecioU";
-            this.PrecioU.ReadOnly = true;
-            this.PrecioU.Width = 60;
-            // 
-            // PrecioI
-            // 
-            this.PrecioI.HeaderText = "Importe";
-            this.PrecioI.Name = "PrecioI";
-            this.PrecioI.ReadOnly = true;
-            this.PrecioI.Width = 60;
-            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.btnFactura);
             this.panel2.Controls.Add(this.button9);
             this.panel2.Controls.Add(this.btnPreFac);
@@ -243,16 +204,16 @@
             this.panel2.Controls.Add(this.txtProducto);
             this.panel2.Controls.Add(this.lblProducto);
             this.panel2.Controls.Add(this.dgvInventario);
-            this.panel2.Location = new System.Drawing.Point(522, 121);
+            this.panel2.Location = new System.Drawing.Point(524, 97);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(456, 378);
+            this.panel2.Size = new System.Drawing.Size(456, 398);
             this.panel2.TabIndex = 84;
             // 
             // btnFactura
             // 
             this.btnFactura.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnFactura.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnFactura.Location = new System.Drawing.Point(122, 314);
+            this.btnFactura.Location = new System.Drawing.Point(122, 339);
             this.btnFactura.Name = "btnFactura";
             this.btnFactura.Size = new System.Drawing.Size(101, 47);
             this.btnFactura.TabIndex = 92;
@@ -277,7 +238,7 @@
             // 
             this.btnPreFac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnPreFac.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnPreFac.Location = new System.Drawing.Point(18, 314);
+            this.btnPreFac.Location = new System.Drawing.Point(18, 339);
             this.btnPreFac.Name = "btnPreFac";
             this.btnPreFac.Size = new System.Drawing.Size(101, 47);
             this.btnPreFac.TabIndex = 87;
@@ -289,7 +250,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(229, 333);
+            this.lblTotal.Location = new System.Drawing.Point(229, 358);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(65, 25);
             this.lblTotal.TabIndex = 86;
@@ -299,10 +260,11 @@
             // 
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.txtTotal.Location = new System.Drawing.Point(302, 330);
+            this.txtTotal.Location = new System.Drawing.Point(302, 355);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(135, 31);
             this.txtTotal.TabIndex = 85;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtProducto
             // 
@@ -434,21 +396,12 @@
             // 
             // lblMesa
             // 
-            this.lblMesa.Location = new System.Drawing.Point(564, 48);
+            this.lblMesa.Location = new System.Drawing.Point(363, 50);
             this.lblMesa.Name = "lblMesa";
             this.lblMesa.Size = new System.Drawing.Size(83, 27);
             this.lblMesa.TabIndex = 91;
             this.lblMesa.UseCompatibleStateImageBehavior = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(358, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 20);
-            this.label4.TabIndex = 92;
-            this.label4.Text = "caja 1";
+            this.lblMesa.SelectedIndexChanged += new System.EventHandler(this.lblMesa_SelectedIndexChanged);
             // 
             // timer1
             // 
@@ -467,7 +420,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(734, 75);
+            this.txtNombre.Location = new System.Drawing.Point(734, 51);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(156, 20);
             this.txtNombre.TabIndex = 96;
@@ -475,7 +428,7 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(653, 78);
+            this.lblCliente.Location = new System.Drawing.Point(653, 54);
             this.lblCliente.Name = "lblCliente";
             this.lblCliente.Size = new System.Drawing.Size(79, 13);
             this.lblCliente.TabIndex = 95;
@@ -483,11 +436,69 @@
             // 
             // txtRTN
             // 
-            this.txtRTN.Location = new System.Drawing.Point(689, 41);
+            this.txtRTN.Location = new System.Drawing.Point(505, 51);
             this.txtRTN.Mask = "99999999999999";
             this.txtRTN.Name = "txtRTN";
-            this.txtRTN.Size = new System.Drawing.Size(181, 20);
+            this.txtRTN.Size = new System.Drawing.Size(112, 20);
             this.txtRTN.TabIndex = 97;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(138, 289);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(281, 37);
+            this.textBox1.TabIndex = 98;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(57, 299);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 13);
+            this.label5.TabIndex = 97;
+            this.label5.Text = "Observaciones";
+            // 
+            // Código
+            // 
+            this.Código.HeaderText = "Código";
+            this.Código.Name = "Código";
+            this.Código.ReadOnly = true;
+            this.Código.Width = 50;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 150;
+            // 
+            // Cantidads
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.Cantidads.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Cantidads.HeaderText = "Cantidad";
+            this.Cantidads.Name = "Cantidads";
+            this.Cantidads.ReadOnly = true;
+            this.Cantidads.Width = 50;
+            // 
+            // PrecioU
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.PrecioU.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PrecioU.HeaderText = "Precio Unitario";
+            this.PrecioU.Name = "PrecioU";
+            this.PrecioU.ReadOnly = true;
+            this.PrecioU.Width = 60;
+            // 
+            // PrecioI
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.PrecioI.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PrecioI.HeaderText = "Importe";
+            this.PrecioI.Name = "PrecioI";
+            this.PrecioI.ReadOnly = true;
+            this.PrecioI.Width = 60;
             // 
             // frmPedido
             // 
@@ -498,7 +509,6 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblCliente);
             this.Controls.Add(this.lblFecha);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblMesa);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnQuitar);
@@ -509,7 +519,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblProveedor);
             this.Controls.Add(this.cmbMesero);
             this.Controls.Add(this.lblUnidad);
             this.Controls.Add(this.btnSalir);
@@ -535,7 +544,6 @@
         private System.Windows.Forms.Button btnBebidas;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblProveedor;
         private System.Windows.Forms.ComboBox cmbMesero;
         private System.Windows.Forms.Label lblUnidad;
         private System.Windows.Forms.Button btnSalir;
@@ -560,17 +568,18 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.ListView lswCategoria;
         private System.Windows.Forms.ListView lblMesa;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidads;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioU;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioI;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Button btnFactura;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.MaskedTextBox txtRTN;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidads;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioI;
     }
 }

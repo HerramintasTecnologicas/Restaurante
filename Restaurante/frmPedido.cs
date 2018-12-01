@@ -347,7 +347,6 @@ namespace Restaurante
         {
             fecha1 = DateTime.Now.ToString();
             lblFecha.Text = fecha1;
-
         }
 
         public void suma(int id,int op)
@@ -398,6 +397,11 @@ namespace Restaurante
         private void button9_Click(object sender, EventArgs e)
         {
             txtProducto.Text = "";
+        }
+
+        private void lblMesa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

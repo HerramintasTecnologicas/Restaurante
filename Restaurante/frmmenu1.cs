@@ -15,7 +15,6 @@ namespace Restaurante
         public int id2;
         public frmmenu1(int mesa)
         {
-
             InitializeComponent();
             this.id2 = mesa;
         }
@@ -29,6 +28,14 @@ namespace Restaurante
         {
             frmPedido pedido = new frmPedido(id2);
             pedido.ShowDialog();
+            this.Close();
+        }
+
+        private void btnEntrega_Click(object sender, EventArgs e)
+        {
+            frmEntrega entrega = new frmEntrega(id2);
+            entrega.ShowDialog();
+            this.Close();
         }
     }
 }

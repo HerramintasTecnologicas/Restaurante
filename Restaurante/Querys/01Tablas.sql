@@ -129,13 +129,13 @@ IF OBJECT_ID('Restaurante.Pedidos')	IS NOT NULL
 ELSE
 	BEGIN
 		CREATE TABLE Restaurante.Pedidos(
-			id INT IDENTITY (1, 100) NOT NULL,			--index del pedido
+			id INT IDENTITY (1, 1) NOT NULL,					--index del pedido
 			Fecha NVARCHAR(19) NOT NULL,						--fecha y hora en la que se realizo el pedido 
 			idMesa INT NOT NULL,							--identificador de la mesa donde se entregara el pedido
 			RTN NVARCHAR(14),							--RTN del cliente
 			NombreCliente NVARCHAR (50),					--nombre de la persona que realizo el pedido
 			idMesero INT NOT NULL,							--identificador del mesero que atendera la mesa
-			estado BIT DEFAULT 1
+			estado INT DEFAULT 1
 		);
 	END
 GO
@@ -168,7 +168,7 @@ ELSE
 			idPedido INT NOT NULL,
 			idInventario INT NOT NULL,
 			cantidad INT NOT NULL,
-			subTotal DECIMAL NOT NULL,
+			subTotal DECIMAL(6,2) NOT NULL,
 			estado BIT DEFAULT 1
 
 		);

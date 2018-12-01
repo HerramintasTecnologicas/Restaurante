@@ -57,6 +57,7 @@
             this.btnEntrega.TabIndex = 71;
             this.btnEntrega.Text = "Entregas";
             this.btnEntrega.UseVisualStyleBackColor = false;
+            this.btnEntrega.Click += new System.EventHandler(this.btnEntrega_Click);
             // 
             // btnCancelar
             // 
