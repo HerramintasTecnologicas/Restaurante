@@ -44,10 +44,8 @@
             this.lblMesero = new System.Windows.Forms.ListView();
             this.dgvPedidos = new System.Windows.Forms.DataGridView();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.dgvpedido = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvpedido)).BeginInit();
             this.SuspendLayout();
             // 
             // lblFecha
@@ -185,20 +183,11 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // dgvpedido
-            // 
-            this.dgvpedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvpedido.Location = new System.Drawing.Point(45, 316);
-            this.dgvpedido.Name = "dgvpedido";
-            this.dgvpedido.Size = new System.Drawing.Size(303, 58);
-            this.dgvpedido.TabIndex = 107;
-            // 
             // frmEntrega
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 401);
-            this.Controls.Add(this.dgvpedido);
             this.Controls.Add(this.dgvPedidos);
             this.Controls.Add(this.lblMesero);
             this.Controls.Add(this.lblMesa);
@@ -217,7 +206,6 @@
             this.Load += new System.EventHandler(this.frmEntrega_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvpedido)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,6 +225,5 @@
         private System.Windows.Forms.ListView lblMesero;
         private System.Windows.Forms.DataGridView dgvPedidos;
         public System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.DataGridView dgvpedido;
     }
 }

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPedido));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPedido));
             this.btnBebidas = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,7 +43,14 @@
             this.dgvInventario = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvPedido = new System.Windows.Forms.DataGridView();
+            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidads = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnFactura = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.btnPreFac = new System.Windows.Forms.Button();
@@ -66,13 +73,6 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.txtRTN = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cantidads = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
@@ -192,6 +192,47 @@
             this.dgvPedido.TabIndex = 0;
             this.dgvPedido.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellClick);
             // 
+            // Código
+            // 
+            this.Código.HeaderText = "Código";
+            this.Código.Name = "Código";
+            this.Código.ReadOnly = true;
+            this.Código.Width = 50;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 150;
+            // 
+            // Cantidads
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.Cantidads.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Cantidads.HeaderText = "Cantidad";
+            this.Cantidads.Name = "Cantidads";
+            this.Cantidads.ReadOnly = true;
+            this.Cantidads.Width = 50;
+            // 
+            // PrecioU
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.PrecioU.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PrecioU.HeaderText = "Precio Unitario";
+            this.PrecioU.Name = "PrecioU";
+            this.PrecioU.ReadOnly = true;
+            this.PrecioU.Width = 60;
+            // 
+            // PrecioI
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.PrecioI.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PrecioI.HeaderText = "Importe";
+            this.PrecioI.Name = "PrecioI";
+            this.PrecioI.ReadOnly = true;
+            this.PrecioI.Width = 60;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.textBox1);
@@ -208,6 +249,23 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(456, 398);
             this.panel2.TabIndex = 84;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(138, 289);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(281, 37);
+            this.textBox1.TabIndex = 98;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(57, 299);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 13);
+            this.label5.TabIndex = 97;
+            this.label5.Text = "Observaciones";
             // 
             // btnFactura
             // 
@@ -313,7 +371,7 @@
             this.btnQuitar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnQuitar.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnQuitar.Location = new System.Drawing.Point(458, 253);
+            this.btnQuitar.Location = new System.Drawing.Point(458, 255);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(59, 31);
             this.btnQuitar.TabIndex = 89;
@@ -441,64 +499,6 @@
             this.txtRTN.Name = "txtRTN";
             this.txtRTN.Size = new System.Drawing.Size(112, 20);
             this.txtRTN.TabIndex = 97;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(138, 289);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(281, 37);
-            this.textBox1.TabIndex = 98;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 299);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 13);
-            this.label5.TabIndex = 97;
-            this.label5.Text = "Observaciones";
-            // 
-            // Código
-            // 
-            this.Código.HeaderText = "Código";
-            this.Código.Name = "Código";
-            this.Código.ReadOnly = true;
-            this.Código.Width = 50;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 150;
-            // 
-            // Cantidads
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.Cantidads.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Cantidads.HeaderText = "Cantidad";
-            this.Cantidads.Name = "Cantidads";
-            this.Cantidads.ReadOnly = true;
-            this.Cantidads.Width = 50;
-            // 
-            // PrecioU
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.PrecioU.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PrecioU.HeaderText = "Precio Unitario";
-            this.PrecioU.Name = "PrecioU";
-            this.PrecioU.ReadOnly = true;
-            this.PrecioU.Width = 60;
-            // 
-            // PrecioI
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
-            this.PrecioI.DefaultCellStyle = dataGridViewCellStyle3;
-            this.PrecioI.HeaderText = "Importe";
-            this.PrecioI.Name = "PrecioI";
-            this.PrecioI.ReadOnly = true;
-            this.PrecioI.Width = 60;
             // 
             // frmPedido
             // 

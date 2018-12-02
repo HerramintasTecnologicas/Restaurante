@@ -55,7 +55,7 @@ namespace Restaurante
             {
                 MessageBox.Show(id.ToString());
                 dgvPedidos.DataSource = Clases.Detalle.GetDataView(id);
-                dgvpedido.DataSource = Clases.Detalle.GetDataView(id);
+           
                 dgvPedidos.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
                 //dgvPedidos.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
