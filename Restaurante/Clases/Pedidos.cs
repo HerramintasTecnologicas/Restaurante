@@ -201,5 +201,33 @@ namespace Restaurante.Clases
             }
 
         }
+
+        public void ObtenerPedido1(int mesa, int fase)
+        {
+            Conexión conexion = new Conexión();
+            string sql = @"SELECT id,estado FROM Restaurante.Pedidos WHERE idMesa = " + mesa + " AND estado=" + fase + ";";
+            SqlCommand cmd = new SqlCommand(sql, conexion.conexion);
+            try
+            {
+                conexion.Abrir();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    IdPedido = dr.GetInt32(0);
+                    Estado = dr.GetInt32(4);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Clases.Excepcion(
+                   String.Format("{0} \n\n{1}",
+                   "No podemos obtener la informacion del Producto", ex.Message), ex, "Clase_Pedido"); ;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+
+        }
     }
 }

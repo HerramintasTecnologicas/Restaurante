@@ -120,10 +120,11 @@ namespace Restaurante.Clases
             string sql = @"SELECT   
                                     Restaurante.Inventario.descripcion                          as Nombre,
                                     Restaurante.DetallePedidos.cantidad                         as Cantidad
-                            FROM Restaurante.DetallePedidos
-                            INNER JOIN Restaurante.Inventario
-                            ON Restaurante.DetallePedidos.idDetallePedido  = Restaurante.Inventario.idInventario
-							WHERE idCategoria=1 AND idPedido="+id+";";
+                            FROM Restaurante.Inventario
+                            INNER JOIN Restaurante.DetallePedidos 
+                            ON Restaurante.Inventario.idInventario = Restaurante.DetallePedidos.idInventario 
+                            and Restaurante.Inventario.idCategoria = 1
+                            and Restaurante.DetallePedidos.idPedido=" + id+";";
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();
@@ -146,6 +147,37 @@ namespace Restaurante.Clases
                 conexion.Cerrar();
             }
         }
-
+        public static DataView GetDataView1(int id)
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            string sql = @"SELECT   
+                                    Restaurante.Inventario.descripcion                          as Nombre,
+                                    Restaurante.DetallePedidos.cantidad                         as Cantidad
+                            FROM Restaurante.Inventario
+                            INNER JOIN Restaurante.DetallePedidos 
+                            ON Restaurante.Inventario.idInventario = Restaurante.DetallePedidos.idInventario                           
+                            and Restaurante.DetallePedidos.idPedido=" + id + ";";
+            try
+            {
+                SqlDataAdapter data = new SqlDataAdapter();
+                data.SelectCommand = new SqlCommand(sql, conexion.conexion);
+                DataSet ds = new DataSet();
+                data.Fill(ds, "Restaurante.DetallePedidos");
+                DataTable dt = ds.Tables["Restaurante.DetallePedidos"];
+                DataView dv = new DataView(dt,
+                    "",
+                    "Nombre",
+                    DataViewRowState.Unchanged);
+                return dv;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace Restaurante
             InitializeComponent();
             this.id2 = mesa;
         }
-
+        public int Color1 { get; set; }
         private void frmmenu1_Load(object sender, EventArgs e)
         {
             
@@ -27,14 +27,47 @@ namespace Restaurante
         private void btnPedidos_Click(object sender, EventArgs e)
         {
             frmPedido pedido = new frmPedido(id2);
-            pedido.ShowDialog();
+
+            if (pedido.ShowDialog() == DialogResult.OK)
+            {
+                Color1 = pedido.Color1;
+            }
+            else
+            {
+                Color1 = 0;
+            }
+            DialogResult = DialogResult.OK;
             this.Close();
         }
+   
 
         private void btnEntrega_Click(object sender, EventArgs e)
         {
             frmEntrega entrega = new frmEntrega(id2);
-            entrega.ShowDialog();
+            if(entrega.ShowDialog() == DialogResult.OK)
+            {
+                Color1 = entrega.Color1;
+            }
+            else
+            {
+                Color1 = 0;
+            }
+            DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            frmFactura factura = new frmFactura(id2);
+           if( factura.ShowDialog() == DialogResult.OK)
+            {
+                Color1 = factura.Color1;
+            }
+            else
+            {
+                Color1 = 0;
+            }
+            DialogResult = DialogResult.OK;
             this.Close();
         }
     }

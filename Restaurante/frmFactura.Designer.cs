@@ -38,7 +38,6 @@
             this.lblJornada = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblSetJornada = new System.Windows.Forms.Label();
-            this.lblSetCaja = new System.Windows.Forms.Label();
             this.lblSetFecha = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -46,7 +45,9 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvPedido = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvDetalle = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,8 +65,7 @@
             this.lblVuelto = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblImporte = new System.Windows.Forms.Label();
-            this.dgvPedido = new System.Windows.Forms.DataGridView();
-            this.dgvDetalle = new System.Windows.Forms.DataGridView();
+            this.lblMesa = new System.Windows.Forms.ListView();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -73,10 +73,10 @@
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel2
@@ -123,11 +123,11 @@
             // 
             // panel7
             // 
+            this.panel7.Controls.Add(this.lblMesa);
             this.panel7.Controls.Add(this.lblCaja);
             this.panel7.Controls.Add(this.lblJornada);
             this.panel7.Controls.Add(this.lblFecha);
             this.panel7.Controls.Add(this.lblSetJornada);
-            this.panel7.Controls.Add(this.lblSetCaja);
             this.panel7.Controls.Add(this.lblSetFecha);
             this.panel7.Location = new System.Drawing.Point(3, 43);
             this.panel7.Name = "panel7";
@@ -140,9 +140,9 @@
             this.lblCaja.AutoSize = true;
             this.lblCaja.Location = new System.Drawing.Point(228, 4);
             this.lblCaja.Name = "lblCaja";
-            this.lblCaja.Size = new System.Drawing.Size(28, 13);
+            this.lblCaja.Size = new System.Drawing.Size(33, 13);
             this.lblCaja.TabIndex = 19;
-            this.lblCaja.Text = "Caja";
+            this.lblCaja.Text = "Mesa";
             // 
             // lblJornada
             // 
@@ -170,15 +170,6 @@
             this.lblSetJornada.Size = new System.Drawing.Size(13, 13);
             this.lblSetJornada.TabIndex = 16;
             this.lblSetJornada.Text = "--";
-            // 
-            // lblSetCaja
-            // 
-            this.lblSetCaja.AutoSize = true;
-            this.lblSetCaja.Location = new System.Drawing.Point(262, 4);
-            this.lblSetCaja.Name = "lblSetCaja";
-            this.lblSetCaja.Size = new System.Drawing.Size(13, 13);
-            this.lblSetCaja.TabIndex = 15;
-            this.lblSetCaja.Text = "--";
             // 
             // lblSetFecha
             // 
@@ -243,6 +234,16 @@
             this.panel1.Size = new System.Drawing.Size(272, 210);
             this.panel1.TabIndex = 88;
             // 
+            // dgvPedido
+            // 
+            this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPedido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPedido.Location = new System.Drawing.Point(0, 0);
+            this.dgvPedido.Name = "dgvPedido";
+            this.dgvPedido.Size = new System.Drawing.Size(272, 210);
+            this.dgvPedido.TabIndex = 1;
+            this.dgvPedido.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellClick);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dgvDetalle);
@@ -250,6 +251,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(282, 210);
             this.panel2.TabIndex = 89;
+            // 
+            // dgvDetalle
+            // 
+            this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDetalle.Location = new System.Drawing.Point(0, 0);
+            this.dgvDetalle.Name = "dgvDetalle";
+            this.dgvDetalle.ReadOnly = true;
+            this.dgvDetalle.Size = new System.Drawing.Size(282, 210);
+            this.dgvDetalle.TabIndex = 1;
             // 
             // panel3
             // 
@@ -298,6 +309,7 @@
             this.button3.TabIndex = 13;
             this.button3.Text = "Registrar Cobro";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label7
             // 
@@ -406,25 +418,14 @@
             this.lblImporte.TabIndex = 0;
             this.lblImporte.Text = "Importe S/:";
             // 
-            // dgvPedido
+            // lblMesa
             // 
-            this.dgvPedido.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPedido.Location = new System.Drawing.Point(0, 0);
-            this.dgvPedido.Name = "dgvPedido";
-            this.dgvPedido.Size = new System.Drawing.Size(272, 210);
-            this.dgvPedido.TabIndex = 1;
-            this.dgvPedido.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPedido_CellClick);
-            // 
-            // dgvDetalle
-            // 
-            this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvDetalle.Location = new System.Drawing.Point(0, 0);
-            this.dgvDetalle.Name = "dgvDetalle";
-            this.dgvDetalle.ReadOnly = true;
-            this.dgvDetalle.Size = new System.Drawing.Size(282, 210);
-            this.dgvDetalle.TabIndex = 1;
+            this.lblMesa.BackColor = System.Drawing.SystemColors.Control;
+            this.lblMesa.Location = new System.Drawing.Point(263, 3);
+            this.lblMesa.Name = "lblMesa";
+            this.lblMesa.Size = new System.Drawing.Size(83, 27);
+            this.lblMesa.TabIndex = 92;
+            this.lblMesa.UseCompatibleStateImageBehavior = false;
             // 
             // frmFactura
             // 
@@ -453,11 +454,11 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPedido)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -470,7 +471,6 @@
         private System.Windows.Forms.Label lblJornada;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblSetJornada;
-        private System.Windows.Forms.Label lblSetCaja;
         private System.Windows.Forms.Label lblSetFecha;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel5;
@@ -501,5 +501,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dgvPedido;
         private System.Windows.Forms.DataGridView dgvDetalle;
+        private System.Windows.Forms.ListView lblMesa;
     }
 }

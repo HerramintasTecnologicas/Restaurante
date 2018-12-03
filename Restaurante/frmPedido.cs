@@ -19,7 +19,7 @@ namespace Restaurante
             InitializeComponent();
         }
 
-   
+        public int Color1 { get; set; }
 
 
         private void frmPedido_Load(object sender, EventArgs e)
@@ -218,6 +218,7 @@ namespace Restaurante
         /// </summary>
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.OK;
             this.Close();
         }
         int idPedido;
@@ -270,7 +271,7 @@ namespace Restaurante
                            Convert.ToDecimal(dgvPedido.Rows[i].Cells["PrecioI"].Value.ToString())
                          );
                         detalle.Agregar();
-                        MessageBox.Show("Agregado");
+                       // MessageBox.Show("Agregado");
                     }
                     catch (Exception ex)
                     {
@@ -278,6 +279,10 @@ namespace Restaurante
                         Clases.Mensaje.Advertencia(ex);
                     }
                 }
+                
+                    Color1 = 1;
+                
+                
             }
         }
 
@@ -312,6 +317,7 @@ namespace Restaurante
 
         private void btnPreFac_Click(object sender, EventArgs e)
         {
+            Color1 = 2; 
             MessageBox.Show("Prefactura imprimiendo");
         }
 

@@ -14,6 +14,7 @@ namespace Restaurante
 {
     public partial class frmEntrega : Form
     {
+        public int Color1 { get; set; }
         public frmEntrega(int mesa)
         {
             this.id2=mesa;
@@ -124,6 +125,12 @@ namespace Restaurante
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (id > 1)
+            {
+                Color1 = estado;
+            }
+            else { Color1 = 0; }
+            DialogResult = DialogResult.OK;
             this.Close();
         }
 

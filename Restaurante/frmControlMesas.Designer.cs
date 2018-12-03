@@ -988,6 +988,7 @@
             // 
             // mesas1
             // 
+            this.mesas1.BackColor = System.Drawing.Color.Transparent;
             this.mesas1.Image = ((System.Drawing.Image)(resources.GetObject("mesas1.Image")));
             this.mesas1.Location = new System.Drawing.Point(43, 18);
             this.mesas1.Name = "mesas1";
