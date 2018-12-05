@@ -557,11 +557,6 @@ GO
 CREATE PROCEDURE SP_ModificarPedido
 (
 @id INT,
-@fecha NVARCHAR(19),
-@idMesa INT,
-@RTN NVARCHAR(14),
-@nombre NVARCHAR(50),
-@IdMesero INT,
 @estado INT
 )
 AS
@@ -579,12 +574,7 @@ BEGIN
 	ELSE
 		BEGIN
 			UPDATE Restaurante.Pedidos
-				SET 	Fecha=@fecha,
-						idMesa=@idMesa,
-						RTN=@RTN,
-						NombreCliente=@nombre,
-						idMesero=@IdMesero,
-						estado=@estado
+				SET estado=@estado
 					WHERE id=@id;
 			RETURN 1
 		END	
@@ -624,18 +614,6 @@ CREATE PROCEDURE SP_AgregarDetallePedido
 )
 AS
 BEGIN
-    --DECLARE @existe int;
-    --SET @existe = 0;
-
-    --SELECT @existe = COUNT(Restaurante.DetallePedidos.idDetallePedido) FROM Restaurante.DetallePedidos WHERE idPedido = @idPedido;
-    --IF (@existe > 0)
-    --    BEGIN
-    --        RAISERROR(N'Ya existe un detalle con ese  %d"', 16, 1,@idPedido);
-    --        RETURN 0
-            
-    --    END
-    --ELSE
-    --    BEGIN
             INSERT INTO Restaurante.DetallePedidos
             (
                 idPedido,
@@ -654,10 +632,7 @@ GO
 CREATE PROCEDURE SP_ModificarDetallePedido
 (
 	@idDetalle INT,
-	@idPedido INT,
-    @idInventario INT,
-    @cantidad INT,
-	@subtotal DECIMAL
+	@estado INT
 )
 AS
 BEGIN
@@ -674,10 +649,7 @@ BEGIN
     ELSE
         BEGIN
             UPDATE Restaurante.DetallePedidos
-					SET idPedido=@idPedido,
-						idInventario=@idInventario,
-						cantidad=@cantidad,
-						subTotal= @subtotal
+					SET estado=@estado
                     WHERE idDetallePedido=@idDetalle;
             RETURN 1
         END

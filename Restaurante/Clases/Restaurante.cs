@@ -842,24 +842,20 @@ namespace Restaurante.Clases
         public static void ModificarPedido
             (
                 int id,
-                string Fecha,
-                int idMesa,
-                string rtn,
-                string nombre,
-                int idMesero ,
+                //string Fecha,
+                //int idMesa,
+                //string rtn,
+                //string nombre,
+                //int idMesero ,
                 int estado   
             )
         {
             try
             {
-                ValidarPedido(Fecha,idMesa, idMesero);
+                //ValidarPedido(Fecha,idMesa, idMesero);
                 Clases.Pedidos pedidos = new Clases.Pedidos(
                   id,
-                 Fecha,
-                 idMesa,
-                 rtn,
-                 nombre,
-                 idMesero,
+
                  estado
                     );
                 pedidos.Modificar();
@@ -880,6 +876,26 @@ namespace Restaurante.Clases
                     id
                     );
                 pedidos.Eliminar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void ModificarDetalle
+    (
+        int id,
+        int estado
+    )
+        {
+            try
+            {
+                Clases.Detalle pedidos = new Clases.Detalle(
+                  id,
+                 estado
+                    );
+                pedidos.Modificar();
             }
             catch (Exception ex)
             {

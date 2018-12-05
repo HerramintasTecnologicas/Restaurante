@@ -154,7 +154,7 @@ ELSE
 			iva15 DECIMAL(6,2),
 			iva18 DECIMAL(6,2),
 			total DECIMAL (8,2)NOT NULL,
-			estado BIT DEFAULT 1
+			estado INT DEFAULT 1
 		);
 	END
 GO
@@ -169,7 +169,7 @@ ELSE
 			idInventario INT NOT NULL,
 			cantidad INT NOT NULL,
 			subTotal DECIMAL(6,2) NOT NULL,
-			estado BIT DEFAULT 1
+			estado int DEFAULT 1
 
 		);
 	END

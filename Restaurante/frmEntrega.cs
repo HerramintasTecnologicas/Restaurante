@@ -26,7 +26,7 @@ namespace Restaurante
             
         }
         public int mesa1;
-        public int id;
+        public int idPro;
         public string rtn;
         public string nombre;
         public int idMesero;
@@ -38,31 +38,26 @@ namespace Restaurante
         private void CargarCMBPedido()
         {
             Clases.Pedidos pedidos = new Clases.Pedidos();
-            pedidos.ObtenerPedido(id2,1);
-            id = pedidos.IdPedido;
-            
-            rtn = pedidos.RTN;
-            nombre = pedidos.Nombre;
+            pedidos.ObtenerPedido(id2);
             idMesero = pedidos.IdMesero;
-            estado = pedidos.Estado;
             CargarCMBMesero(idMesero);
-            CargarDGWPedido(id);
-
-
+            
         }
-        private void CargarDGWPedido(int id)
+
+        private void CargarPedidos()
+        {
+            dgvPedidos.DataSource = Clases.Pedidos.GetDataView(id2);
+        }
+        private void CargarDGWDetalle(int id)
         {
             try
             {
-                MessageBox.Show(id.ToString());
-                dgvPedidos.DataSource = Clases.Detalle.GetDataView(id);
-           
-                dgvPedidos.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
-                //dgvPedidos.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
+                dgvDetalle.DataSource = Clases.Detalle.GetDataView(id);        
+                dgvDetalle.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
+                btnPreparacion.Enabled = true;
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }
@@ -125,7 +120,7 @@ namespace Restaurante
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (id > 1)
+            if (idPedido > 1)
             {
                 Color1 = estado;
             }
@@ -138,6 +133,7 @@ namespace Restaurante
         {
             btnEntregado.Enabled = false;
             CargarCMBPedido();
+            CargarPedidos();
             CargarCMBMesa();
         }
         string fecha1;
@@ -147,16 +143,15 @@ namespace Restaurante
             lblFecha.Text = fecha1;
         }
 
-        private void lblFecha_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (idgrid != -1)
+
+            if (idgrid != -1 )
             {
-                dgvPedidos.Rows[idgrid].DefaultCellStyle.BackColor = Color.Green;
+
+                dgvDetalle.Rows[idgrid].DefaultCellStyle.BackColor = Color.Green;
                 desbloquear();
             }
         }
@@ -164,14 +159,12 @@ namespace Restaurante
         public void desbloquear()
         {
 
-            for (int i = 0; i < dgvPedidos.RowCount; i++)
+            for (int i = 0; i < dgvDetalle.RowCount; i++)
             {
-
-
-                if (dgvPedidos.Rows[i].DefaultCellStyle.BackColor == Color.Green)
+                if (dgvDetalle.Rows[i].DefaultCellStyle.BackColor == Color.Green)
                 {
                     cuentaGrid += 1;
-                    if (cuentaGrid== dgvPedidos.RowCount)
+                    if (cuentaGrid== dgvDetalle.RowCount)
                     {
                         btnEntregado.Enabled = true;
                     }
@@ -180,45 +173,48 @@ namespace Restaurante
         }
         public int idgrid;
 
-        private void dgvPedido_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-     
-        }
-        int tiempo=1000;
+  
+        int tiempo=2000;
 
         private void btnEntregado_Click(object sender, EventArgs e)
         {
 
             if (idgrid != -1)
             {
-
                 timer2.Interval =tiempo;
-                dgvPedidos.Rows[idgrid].DefaultCellStyle.BackColor = Color.Orange;
-
+                dgvDetalle.Rows[idgrid].DefaultCellStyle.BackColor = Color.Orange;
                 timer2.Start();
-
             }
 
         }
         public void tempo() {
 
-            timer2.Enabled = false;
+            //timer2.Enabled = false;
             timer2.Stop();
 
-            dgvPedidos.Rows.RemoveAt(idgrid);
-            if (dgvPedidos.Rows.Count == 0)
+            dgvDetalle.Rows.RemoveAt(idgrid);
+            Clases.Restaurante.ModificarDetalle(detalle, 2);
+            if (dgvDetalle.Rows.Count == 0)
             {
-                Clases.Restaurante.ModificarPedido(id, fecha1, id2, rtn, nombre, idMesero, 2);
+                Clases.Restaurante.ModificarPedido(idPedido, 2);
+                dgvPedidos.Enabled = true;
+                dgvDetalle.Enabled = false;
+
             }
         }
+        public int idPedido;
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1)
             {
-                idgrid = e.RowIndex;
-                dgvPedidos.Select();
-                
+                idPedido = Convert.ToInt32(dgvPedidos.Rows[e.RowIndex].Cells["Código"].Value.ToString());
+                if (idPedido > 0)
+                {
+                    CargarDGWDetalle(idPedido);
+                    dgvDetalle.Enabled = true;
+                    dgvPedidos.Enabled = false;
+                }
             }
         }
 
@@ -227,14 +223,28 @@ namespace Restaurante
             if (timer2.Interval <= 2000)
             {
                 timer2.Interval += 1000;
-                //MessageBox.Show(timer2.Interval.ToString());
-                
             }
             else
             {
                 tempo();
                 timer2.Stop();
             }
+        }
+        public int detalle;
+        private void dgvDetalle_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                detalle = Convert.ToInt32(dgvDetalle.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                idgrid = e.RowIndex;
+                dgvDetalle.Select();
+
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Clases.Restaurante.ModificarDetalle(detalle, 4);
         }
     }
 }

@@ -62,7 +62,7 @@ namespace Restaurante
         private void CargarCMBPedido()
         {
             Clases.Pedidos pedidos = new Clases.Pedidos();
-            pedidos.ObtenerPedido(id2, 2);
+            pedidos.ObtenerPedido(id2);
             id = pedidos.IdPedido;
 
             rtn = pedidos.RTN;
@@ -70,7 +70,7 @@ namespace Restaurante
             idMesero = pedidos.IdMesero;
             estado = pedidos.Estado;
             //CargarCMBMesero(idMesero);
-            CargarDGWPedido(id);
+            //CargarDGWPedido(id);
 
 
         }
@@ -78,16 +78,36 @@ namespace Restaurante
         private void frmFactura_Load(object sender, EventArgs e)
         {
             Encabezado();
+            CargarCMBMesa();
             CargarCMBPedido();
+            CargarDGWPedido(id2);
+            CargarDGWDetalle(id2);
         }
-        private void CargarDGWPedido(int id)
+        private void CargarDGWDetalle(int id)
         {
             try
             {
                 MessageBox.Show(id.ToString());
                 dgvDetalle.DataSource = Clases.Detalle.GetDataView1(id);
 
-                dgvPedido.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
+                dgvDetalle.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
+                //dgvPedidos.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void CargarDGWPedido(int id)
+        {
+            try
+            {
+                MessageBox.Show(id.ToString());
+                dgvPedido.DataSource = Clases.Pedidos.GetDataView1(id);
+
+                dgvDetalle.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
                 //dgvPedidos.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
             catch (Exception ex)

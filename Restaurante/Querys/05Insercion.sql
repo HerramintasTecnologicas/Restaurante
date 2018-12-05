@@ -127,7 +127,7 @@ EXEC SP_AgregarInsumo 'Pescado',50,15,3,2,'de 100 lempiras',1
 --SP_AgregarInventario(	descripcion,costo,precioVenta ,cantidad,cantidadMinima,idCategoria,idTipoProducto,idProveedor )
 
 EXEC SP_AgregarInventario 'Pescado', 60, 100, 3, 1, 1, 1, 1
-EXEC SP_AgregarInventario 'Fresco', 15, 20, 3, 1, 2, 2, 1
+EXEC SP_AgregarInventario 'Fresco', 15, 20, 3, 1, 3, 2, 1
 EXEC SP_AgregarInventario 'Pollo', 50, 70, 3, 1, 1, 1, 1
 EXEC SP_AgregarInventario 'Chuleta', 55, 80, 3, 1, 1, 1, 1
 --SP_AgregarPedido(fecha, idMesa, RTN, NombreCliente, idMesero)

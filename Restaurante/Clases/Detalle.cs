@@ -15,6 +15,7 @@ namespace Restaurante.Clases
         public int IdInventario { set; get; }
         public int Cantidad { set; get; }
         public decimal SubTotal { set; get; }
+        public int Estado { set; get; }
         
 
         public Detalle() { }
@@ -26,13 +27,10 @@ namespace Restaurante.Clases
             Cantidad = cantidad;
             SubTotal = subTotal;
         }
-        public Detalle(int idDetallePedido, int idPedido, int idInventario, int cantidad,decimal subTotal)
+        public Detalle(int idDetallePedido, int estado)
         {
             IdDetallePedido = idDetallePedido;
-            IdPedido = idPedido;           
-            IdInventario = idInventario;
-            Cantidad = cantidad;
-            SubTotal = subTotal;
+            Estado = estado;
         }
         public Detalle(int idDetallePedido) { IdDetallePedido = idDetallePedido; }
         public void Agregar()
@@ -71,16 +69,18 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
-                cmd.Parameters.Add(new SqlParameter("idDetallePedido", SqlDbType.Int));
-                cmd.Parameters["idDetallePedido"].Value = IdDetallePedido;
-                cmd.Parameters.Add(new SqlParameter("idPedido", SqlDbType.Int));
-                cmd.Parameters["idPedido"].Value = IdPedido;
-                cmd.Parameters.Add(new SqlParameter("idInventario", SqlDbType.Int));
-                cmd.Parameters["idInventario"].Value = IdInventario;
-                cmd.Parameters.Add(new SqlParameter("Cantidad", SqlDbType.Int));
-                cmd.Parameters["Cantidad"].Value = Cantidad;
-                cmd.Parameters.Add(new SqlParameter("subTotal", SqlDbType.Decimal));
-                cmd.Parameters["subTotal"].Value = SubTotal;
+                cmd.Parameters.Add(new SqlParameter("idDetalle", SqlDbType.Int));
+                cmd.Parameters["idDetalle"].Value = IdDetallePedido;
+                //cmd.Parameters.Add(new SqlParameter("idPedido", SqlDbType.Int));
+                //cmd.Parameters["idPedido"].Value = IdPedido;
+                //cmd.Parameters.Add(new SqlParameter("idInventario", SqlDbType.Int));
+                //cmd.Parameters["idInventario"].Value = IdInventario;
+                //cmd.Parameters.Add(new SqlParameter("Cantidad", SqlDbType.Int));
+                //cmd.Parameters["Cantidad"].Value = Cantidad;
+                //cmd.Parameters.Add(new SqlParameter("subTotal", SqlDbType.Decimal));
+                //cmd.Parameters["subTotal"].Value = SubTotal;
+                cmd.Parameters.Add(new SqlParameter("estado", SqlDbType.Int));
+                cmd.Parameters["estado"].Value = Estado;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -101,8 +101,8 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
-                cmd.Parameters.Add(new SqlParameter("idDetallePedido", SqlDbType.Int));
-                cmd.Parameters["idDetallePedido"].Value = IdDetallePedido;
+                cmd.Parameters.Add(new SqlParameter("idDetalle", SqlDbType.Int));
+                cmd.Parameters["idDetalle"].Value = IdDetallePedido;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
@@ -117,14 +117,17 @@ namespace Restaurante.Clases
         public static DataView GetDataView(int id)
         {
             Clases.Conexión conexion = new Clases.Conexión();
-            string sql = @"SELECT   
+            string sql = @"SELECT   Restaurante.DetallePedidos.idDetallePedido                  as id,
                                     Restaurante.Inventario.descripcion                          as Nombre,
                                     Restaurante.DetallePedidos.cantidad                         as Cantidad
                             FROM Restaurante.Inventario
                             INNER JOIN Restaurante.DetallePedidos 
                             ON Restaurante.Inventario.idInventario = Restaurante.DetallePedidos.idInventario 
+                            INNER JOIN Restaurante.Pedidos
+                            ON Restaurante.DetallePedidos.idPedido = Restaurante.Pedidos.id
                             and Restaurante.Inventario.idCategoria = 1
-                            and Restaurante.DetallePedidos.idPedido=" + id+";";
+							and Restaurante.DetallePedidos.estado = 1
+                            and Restaurante.Pedidos.id =" + id+";";
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();
@@ -134,7 +137,7 @@ namespace Restaurante.Clases
                 DataTable dt = ds.Tables["Restaurante.DetallePedidos"];
                 DataView dv = new DataView(dt,
                     "",
-                    "Nombre",
+                    "id",
                     DataViewRowState.Unchanged);
                 return dv;
             }
@@ -147,16 +150,18 @@ namespace Restaurante.Clases
                 conexion.Cerrar();
             }
         }
-        public static DataView GetDataView1(int id)
+        public static DataView GetDataView1(int idmesa)
         {
             Clases.Conexión conexion = new Clases.Conexión();
-            string sql = @"SELECT   
+            string sql = @"SELECT   Restaurante.DetallePedidos.idDetallePedido                  as id,
                                     Restaurante.Inventario.descripcion                          as Nombre,
                                     Restaurante.DetallePedidos.cantidad                         as Cantidad
                             FROM Restaurante.Inventario
                             INNER JOIN Restaurante.DetallePedidos 
-                            ON Restaurante.Inventario.idInventario = Restaurante.DetallePedidos.idInventario                           
-                            and Restaurante.DetallePedidos.idPedido=" + id + ";";
+                            ON Restaurante.Inventario.idInventario = Restaurante.DetallePedidos.idInventario       
+                            INNER JOIN Restaurante.Pedidos
+                            ON Restaurante.DetallePedidos.idPedido = Restaurante.Pedidos.id
+                            and Restaurante.Pedidos.idMesa=" + idmesa+ ";";
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();
