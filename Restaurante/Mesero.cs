@@ -29,7 +29,7 @@ namespace Restaurante
         {
             try
             {
-                dgvMeseros.DataSource = Clases.Mesero.GetDataView();
+                dgvMeseros.DataSource = Clases.Mesero.GetDataView(1);
             }
             catch (Exception ex)
             {

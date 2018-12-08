@@ -52,7 +52,7 @@ namespace Restaurante
         {
             try
             {
-                dgwUsuarios.DataSource = Clases.Usuarios.GetDataView();
+                dgwUsuarios.DataSource = Clases.Usuarios.GetDataView(1);
             }
             catch (Exception ex)
             {

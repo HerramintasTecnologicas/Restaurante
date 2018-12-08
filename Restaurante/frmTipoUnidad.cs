@@ -30,7 +30,7 @@ namespace Restaurante
         {
             try
             {
-                dgvTipoUnidad.DataSource = Clases.TipoUnidad.GetDataView();
+                dgvTipoUnidad.DataSource = Clases.TipoUnidad.GetDataView(1);
             }
             catch (Exception ex)
             {

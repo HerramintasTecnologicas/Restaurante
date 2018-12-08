@@ -681,7 +681,6 @@ GO
 --Modulo Factura
 CREATE PROCEDURE SP_AgregarFactura
 (
-@idFactura INT,
 @idPedido INT,
 @idUsuario INT,
 @subTotal DECIMAL(8,4),
@@ -689,17 +688,19 @@ CREATE PROCEDURE SP_AgregarFactura
 @exento DECIMAL(6,4),
 @isv15 DECIMAL(6,4),
 @isv18 DECIMAL(6,4),
-@total DECIMAL(8,4)
+@total DECIMAL(8,4),
+@idCaja INT,
+@tipoPago INT
 )
 AS
 BEGIN
 	DECLARE @existe int;
 	SET @existe = 0;
 
-	SELECT @existe = COUNT(Restaurante.Facturas.idFactura) FROM Restaurante.Facturas WHERE idFactura=@idFactura;
+	SELECT @existe = COUNT(Restaurante.Facturas.idPedido) FROM Restaurante.Facturas WHERE idPedido=@idPedido;
 	IF (@existe > 0)
 		BEGIN
-			RAISERROR(N'Ya existe una factura con el id "%d"', 16, 1,@idFactura);
+			RAISERROR(N'Ya existe un pedido con el id "%d"', 16, 1,@idPedido);
 			RETURN 0
 			
 		END
@@ -714,10 +715,12 @@ BEGIN
 			    exento,
 			    iva15,
 			    iva18,
-			    total
+			    total,
+				idCaja,
+				tipoPago
 			)
 			VALUES
-			(  @idPedido,@idUsuario,@subTotal,@descuento,@exento,@isv15,@isv18,@total
+			(  @idPedido,@idUsuario,@subTotal,@descuento,@exento,@isv15,@isv18,@total,@idCaja,@tipoPago
 			    )
 			RETURN 1
 		END

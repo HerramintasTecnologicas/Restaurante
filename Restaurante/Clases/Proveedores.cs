@@ -147,7 +147,7 @@ namespace Restaurante.Clases
             }
         }
 
-        public static DataView GetDataView()
+        public static DataView GetDataView(int estado)
         {
             Clases.Conexión conexion = new Clases.Conexión();
             //colocar el nombre del area a la cual pertenece el usuario en el strin de conexion
@@ -155,7 +155,8 @@ namespace Restaurante.Clases
                                     Restaurante.Proveedores.nombre      as Proveedor, 
                                     Restaurante.Proveedores.telefono    as Teléfono,
                                     Restaurante.Proveedores.direccion   as Direccion
-                            FROM Restaurante.Proveedores";
+                            FROM Restaurante.Proveedores
+                            WHERE estado=" + estado + ";";
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();

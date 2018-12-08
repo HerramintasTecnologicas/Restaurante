@@ -152,7 +152,7 @@ namespace Restaurante.Clases
 
         }
         //Se aplican las funciones de ADO.NET donde usamos un dataAdapter
-        public static DataView GetDataView()
+        public static DataView GetDataView(int estado)
         {
             Clases.Conexión conexion = new Clases.Conexión();
             //Se traen todos los datos de la tabla meseros y los almacena la variable sql
@@ -160,7 +160,8 @@ namespace Restaurante.Clases
                                     Restaurante.Meseros.identidad   as Identidad,
                                     Restaurante.Meseros.nombre      as Mesero, 
                                     Restaurante.Meseros.apellido    as Apellido
-                            FROM Restaurante.Meseros";
+                            FROM Restaurante.Meseros
+                            WHERE estado=" + estado + ";";
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();

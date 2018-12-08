@@ -34,7 +34,7 @@ namespace Restaurante.Clases
         public void Agregar()
         {
             Clases.Conexión conexion = new Clases.Conexión();
-            SqlCommand cmd = new SqlCommand("SP_InsertarCategoriaProducto", conexion.conexion);
+            SqlCommand cmd = new SqlCommand("SP_AgregarCategoriaProducto", conexion.conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             try
             {
@@ -62,8 +62,8 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
-                cmd.Parameters.Add(new SqlParameter("idCategoria", SqlDbType.Int));
-                cmd.Parameters["idCategoria"].Value = Id;
+                cmd.Parameters.Add(new SqlParameter("idCategoriaProducto", SqlDbType.Int));
+                cmd.Parameters["idCategoriaProducto"].Value = Id;
                 cmd.Parameters.Add(new SqlParameter("descripcion", SqlDbType.NVarChar, 100));
                 cmd.Parameters["descripcion"].Value = Descripcion;
                 cmd.ExecuteNonQuery();
@@ -183,5 +183,35 @@ namespace Restaurante.Clases
                 conexion.Cerrar();
             }
         }
+        public static DataView GetDataView1()
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            string sql = @"SELECT   Restaurante.CategoriaProducto.idCategoria     as Código,
+                                    Restaurante.CategoriaProducto.descripcion     as Descripción
+                            FROM Restaurante.CategoriaProducto
+                            WHERE estado = 1 and idCategoria>3";
+            try
+            {
+                SqlDataAdapter data = new SqlDataAdapter();
+                data.SelectCommand = new SqlCommand(sql, conexion.conexion);
+                DataSet ds = new DataSet();
+                data.Fill(ds, "Restaurante.CategoriaProducto");
+                DataTable dt = ds.Tables["Restaurante.CategoriaProducto"];
+                DataView dv = new DataView(dt,
+                    "",
+                    "Código",
+                    DataViewRowState.Unchanged);
+                return dv;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
+    
     }
 }

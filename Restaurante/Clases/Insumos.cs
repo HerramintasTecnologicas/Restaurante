@@ -184,7 +184,7 @@ namespace Restaurante.Clases
 
         }
 
-        public static DataView GetDataView()
+        public static DataView GetDataView(int estado)
         {
             Clases.Conexión conexion = new Clases.Conexión();
             string sql = @"SELECT   Restaurante.Insumos.idInsumo        as Código,
@@ -199,7 +199,8 @@ namespace Restaurante.Clases
                             INNER JOIN Restaurante.Insumos
                             ON Restaurante.Proveedores.idProveedor = Restaurante.Insumos.idProveedor
                             INNER JOIN Restaurante.TipoUnidad
-                            ON Restaurante.TipoUnidad.idTipoUnidad = Restaurante.Insumos.idTipoUnidad";
+                            ON Restaurante.TipoUnidad.idTipoUnidad = Restaurante.Insumos.idTipoUnidad
+                            AND estado=" + estado + ";";
 
             try
             {

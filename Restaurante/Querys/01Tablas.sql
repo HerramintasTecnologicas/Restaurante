@@ -146,8 +146,10 @@ ELSE
 	BEGIN
 		CREATE TABLE Restaurante.Facturas(
 			idFactura INT IDENTITY(1,1) NOT NULL,
+			idCaja INT NOT NULL,
 			idPedido INT NOT NULL,
 			idUsuario INT NOT NULL,
+			tipoPago INT NOT NULL,
 			subTotal DECIMAL (8,2),
 			descuento DECIMAL(6,2),
 			exento DECIMAL(6,2),

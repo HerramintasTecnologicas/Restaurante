@@ -158,14 +158,15 @@ namespace Restaurante.Clases
             }
         }
 
-        public static DataView GetDataView()
+        public static DataView GetDataView(int estado)
         {
             Clases.Conexión conexion = new Clases.Conexión();
             string sql = @"SELECT   Acceso.Usuarios.id          as Código,
                                     Acceso.Usuarios.nombre      as Nombre, 
                                     Acceso.Usuarios.apellido    as Apellido, 
                                     Acceso.Usuarios.usuario     as Usuario
-                            FROM Acceso.Usuarios;";
+                            FROM Acceso.Usuarios
+                            WHERE estado=" + estado + ";";
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();

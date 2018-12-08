@@ -129,20 +129,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(293, 54);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(279, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 13);
+            this.label2.Size = new System.Drawing.Size(115, 16);
             this.label2.TabIndex = 103;
             this.label2.Text = "Número de mesa:";
             // 
             // lblUnidad
             // 
             this.lblUnidad.AutoSize = true;
+            this.lblUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnidad.Location = new System.Drawing.Point(41, 54);
             this.lblUnidad.Name = "lblUnidad";
-            this.lblUnidad.Size = new System.Drawing.Size(42, 13);
+            this.lblUnidad.Size = new System.Drawing.Size(57, 16);
             this.lblUnidad.TabIndex = 102;
-            this.lblUnidad.Text = "Mesero";
+            this.lblUnidad.Text = "Mesero:";
             // 
             // timer1
             // 
@@ -152,7 +154,7 @@
             // 
             // lblMesa
             // 
-            this.lblMesa.Location = new System.Drawing.Point(390, 46);
+            this.lblMesa.Location = new System.Drawing.Point(400, 50);
             this.lblMesa.Name = "lblMesa";
             this.lblMesa.Size = new System.Drawing.Size(83, 27);
             this.lblMesa.TabIndex = 104;
@@ -160,7 +162,7 @@
             // 
             // lblMesero
             // 
-            this.lblMesero.Location = new System.Drawing.Point(115, 45);
+            this.lblMesero.Location = new System.Drawing.Point(110, 50);
             this.lblMesero.Name = "lblMesero";
             this.lblMesero.Size = new System.Drawing.Size(149, 27);
             this.lblMesero.TabIndex = 105;
@@ -260,6 +262,7 @@
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnEliminar.Enabled = false;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnEliminar.Location = new System.Drawing.Point(560, 234);

@@ -34,7 +34,7 @@ namespace Restaurante
         {
             try
             {
-                dgvInventario.DataSource = Clases.Inventario.GetDataView();
+                dgvInventario.DataSource = Clases.Inventario.GetDataView(1);
 
             }
             catch (Exception ex)

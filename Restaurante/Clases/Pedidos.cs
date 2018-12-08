@@ -159,7 +159,7 @@ namespace Restaurante.Clases
             string sql = @"SELECT   Restaurante.Pedidos.id                      as Código,
                                     Restaurante.Pedidos.NombreCliente           as Nombre
                             FROM Restaurante.Pedidos
-                            WHERE Restaurante.Pedidos.estado=1 AND Restaurante.Pedidos.idMesa=" + mesa + ";";
+                            WHERE Restaurante.Pedidos.estado=2 AND Restaurante.Pedidos.idMesa=" + mesa + ";";
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();
@@ -183,10 +183,10 @@ namespace Restaurante.Clases
             }
         }
 
-        public void ObtenerPedido(int mesa)
+        public void ObtenerPedido(int id, int mesa)
         {
             Conexión conexion = new Conexión();
-            string sql = @"SELECT id,RTN,nombreCliente,idMesero,estado FROM Restaurante.Pedidos WHERE idMesa = " + mesa +";";
+            string sql = @"SELECT id,RTN,nombreCliente,idMesero,estado FROM Restaurante.Pedidos WHERE idMesa = " + mesa +" and id ="+id+" ;";
             SqlCommand cmd = new SqlCommand(sql, conexion.conexion);
             try
             {
@@ -198,6 +198,33 @@ namespace Restaurante.Clases
                     Nombre = dr.GetString(2);
                     IdMesero = dr.GetInt32(3);
                    
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Clases.Excepcion(
+                   String.Format("{0} \n\n{1}",
+                   "No podemos obtener la informacion del Producto", ex.Message), ex, "Clase_Pedido"); ;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+
+        }
+        public void ObtenerPedido2(int id,int estado)
+        {
+            Conexión conexion = new Conexión();
+            string sql = @"SELECT Max(id)FROM Restaurante.Pedidos WHERE idMesa =" +id + " and estado="+ estado+";";
+            SqlCommand cmd = new SqlCommand(sql, conexion.conexion);
+            try
+            {
+                conexion.Abrir();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+
+                        IdPedido = dr.GetInt32(0);
                 }
             }
             catch (SqlException ex)

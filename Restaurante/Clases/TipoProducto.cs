@@ -129,12 +129,13 @@ namespace Restaurante.Clases
 
         }
 
-        public static DataView GetDataView()
+        public static DataView GetDataView(int estado)
         {
             Clases.Conexión conexion = new Clases.Conexión();
             string sql = @"SELECT   Restaurante.TipoProducto.idTipoProducto     as Código,
                                     Restaurante.TipoProducto.nombre             as Descripción
-                            FROM Restaurante.TipoProducto";
+                            FROM Restaurante.TipoProducto
+                            WHERE estado=" + estado + ";";
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();

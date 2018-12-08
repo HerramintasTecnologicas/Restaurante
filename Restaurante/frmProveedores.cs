@@ -26,7 +26,7 @@ namespace Restaurante
         {
             try
             {
-                dgvProveedores.DataSource = Clases.Proveedores.GetDataView();
+                dgvProveedores.DataSource = Clases.Proveedores.GetDataView(1);
             }
             catch (Exception ex)
             {

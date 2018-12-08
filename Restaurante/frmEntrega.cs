@@ -35,18 +35,31 @@ namespace Restaurante
         /// <summary>
         /// Se llena el text de mesa
         /// </summary>
-        private void CargarCMBPedido()
+        private void CargarCMBPedido(int id,int mesa)
         {
             Clases.Pedidos pedidos = new Clases.Pedidos();
-            pedidos.ObtenerPedido(id2);
+            pedidos.ObtenerPedido(id,mesa);
             idMesero = pedidos.IdMesero;
             CargarCMBMesero(idMesero);
+            
+        }
+        private void Id()
+        {
+            Clases.Pedidos pedidos = new Clases.Pedidos();
+            pedidos.ObtenerPedido2(id2,1);
+            
+                CargarCMBPedido(pedidos.IdPedido, id2);
             
         }
 
         private void CargarPedidos()
         {
             dgvPedidos.DataSource = Clases.Pedidos.GetDataView(id2);
+            if (dgvPedidos.RowCount==0)
+            {
+                MessageBox.Show("No hay pedidos en mesa");
+            }
+
         }
         private void CargarDGWDetalle(int id)
         {
@@ -55,6 +68,10 @@ namespace Restaurante
                 dgvDetalle.DataSource = Clases.Detalle.GetDataView(id);        
                 dgvDetalle.SortedColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
                 btnPreparacion.Enabled = true;
+                if (dgvDetalle.RowCount >= 1)
+                {
+                    btnEliminar.Enabled = true;
+                }
             }
             catch (Exception ex)
             {
@@ -120,11 +137,12 @@ namespace Restaurante
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (idPedido > 1)
+            if (dgvPedidos.RowCount==0 )
             {
-                Color1 = estado;
+                Color1 = 1;
             }
-            else { Color1 = 0; }
+            else {
+                Color1 = 1; }
             DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -132,7 +150,7 @@ namespace Restaurante
         private void frmEntrega_Load(object sender, EventArgs e)
         {
             btnEntregado.Enabled = false;
-            CargarCMBPedido();
+            Id();
             CargarPedidos();
             CargarCMBMesa();
         }
@@ -199,7 +217,7 @@ namespace Restaurante
                 Clases.Restaurante.ModificarPedido(idPedido, 2);
                 dgvPedidos.Enabled = true;
                 dgvDetalle.Enabled = false;
-
+                CargarPedidos();
             }
         }
         public int idPedido;

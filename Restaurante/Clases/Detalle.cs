@@ -125,7 +125,7 @@ namespace Restaurante.Clases
                             ON Restaurante.Inventario.idInventario = Restaurante.DetallePedidos.idInventario 
                             INNER JOIN Restaurante.Pedidos
                             ON Restaurante.DetallePedidos.idPedido = Restaurante.Pedidos.id
-                            and Restaurante.Inventario.idCategoria = 1
+                            and Restaurante.Inventario.idCategoria >= 3
 							and Restaurante.DetallePedidos.estado = 1
                             and Restaurante.Pedidos.id =" + id+";";
             try
@@ -150,18 +150,20 @@ namespace Restaurante.Clases
                 conexion.Cerrar();
             }
         }
-        public static DataView GetDataView1(int idmesa)
+        public static DataView GetDataView1(int id)
         {
             Clases.Conexión conexion = new Clases.Conexión();
             string sql = @"SELECT   Restaurante.DetallePedidos.idDetallePedido                  as id,
                                     Restaurante.Inventario.descripcion                          as Nombre,
-                                    Restaurante.DetallePedidos.cantidad                         as Cantidad
+                                    Restaurante.DetallePedidos.cantidad                         as Cantidad,
+                                    Restaurante.DetallePedidos.subTotal                         as importe,
+                                    Restaurante.Inventario.idCategoria                          as C
                             FROM Restaurante.Inventario
                             INNER JOIN Restaurante.DetallePedidos 
                             ON Restaurante.Inventario.idInventario = Restaurante.DetallePedidos.idInventario       
                             INNER JOIN Restaurante.Pedidos
                             ON Restaurante.DetallePedidos.idPedido = Restaurante.Pedidos.id
-                            and Restaurante.Pedidos.idMesa=" + idmesa+ ";";
+                            and Restaurante.Pedidos.id=" + id+ ";";
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();

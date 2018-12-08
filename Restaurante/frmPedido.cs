@@ -26,6 +26,12 @@ namespace Restaurante
         {
             CargarCMBMeseros();
             CargarCMBMesa();
+            CargarLSWCategoria();
+            if (id2 == 51)
+            {
+                btnFactura.Visible = true;
+                btnFactura.Enabled = true;
+            }
             foreach (DataGridViewColumn c in dgvPedido.Columns)
                 if (c.Name != "Cantidads") c.ReadOnly = true;
         }
@@ -61,6 +67,19 @@ namespace Restaurante
                 conexion.Cerrar();
             }
             //lblMesa.Text = Convert.ToString(cmd);
+        }
+        private void CargarLSWCategoria()
+        {
+            try
+            {
+                dgvCategoria.DataSource = Clases.CategoriaProducto.GetDataView1();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
         }
         /// <summary>
         /// Se encarga de darle estilos a los grid
@@ -159,9 +178,9 @@ namespace Restaurante
                 Total();
             }
         }
-        int Comidas = 1;
+        int Comidas = 3;
         int Licores = 2;
-        int Bebidas = 3;
+        int Bebidas = 1;
         int Categoria;
 
         /// <summary>
@@ -288,6 +307,14 @@ namespace Restaurante
 
         private void button8_Click(object sender, EventArgs e)
         {
+            if (txtRTN.Text == "")
+            {
+                txtRTN.Text = "CONSUMIDOR FINAL";
+            }
+            if (txtNombre.Text=="")
+            {
+                txtNombre.Text = "9999";
+            }
             
             try
             {
@@ -305,6 +332,11 @@ namespace Restaurante
 
                 MessageBox.Show("Comanda enviada");
                 Detalle();
+                if (mesa1!=51)
+                {
+                    DialogResult = DialogResult.OK;
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -405,9 +437,30 @@ namespace Restaurante
             txtProducto.Text = "";
         }
 
-        private void lblMesa_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
+
+      
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int cate=Convert.ToInt32(dgvCategoria.Rows[e.RowIndex].Cells["Código"].Value.ToString());
+
+              dgvInventario.DataSource = Clases.Inventario.GetDataView1(cate);
+                Categoria = cate;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnFactura_Click(object sender, EventArgs e)
+        {
+            frmmenu1 pedido = new frmmenu1(id2, 2);
+            DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

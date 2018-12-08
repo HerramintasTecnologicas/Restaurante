@@ -19,10 +19,10 @@ namespace Restaurante.Clases
         public decimal Sub15 { set; get; }
         public decimal Sub18 { set; get; }
         public decimal Total { set; get; }
-
-        public Factura(int idFactura,int idPedido, int idUsuario, decimal subTotal, decimal descuento, decimal exento, decimal sub15, decimal sub18, decimal total)
+        public int IdCaja { set; get; }
+        public int TipoPago { set; get; }
+        public Factura(int idPedido, int idUsuario, decimal subTotal, decimal descuento, decimal exento, decimal sub15, decimal sub18, decimal total,int idCaja,int tipoPago)
         {
-            IdFactura = idFactura;
             IdPedido = idPedido;
             IdUsuario = idUsuario;
             SubTotal = subTotal;
@@ -31,6 +31,8 @@ namespace Restaurante.Clases
             Sub15 = sub15;
             Sub18 = sub18;
             Total = total;
+            IdCaja = idCaja;
+            TipoPago = tipoPago;
         }
 
         public Factura(){}
@@ -43,8 +45,6 @@ namespace Restaurante.Clases
             try
             {
                 conexion.Abrir();
-                cmd.Parameters.Add(new SqlParameter("idFactura", SqlDbType.Int));
-                cmd.Parameters["idFactura"].Value = IdFactura;
                 cmd.Parameters.Add(new SqlParameter("idPedido", SqlDbType.Int));
                 cmd.Parameters["idPedido"].Value = IdPedido;
                 cmd.Parameters.Add(new SqlParameter("idUsuario", SqlDbType.Int));
@@ -55,12 +55,16 @@ namespace Restaurante.Clases
                 cmd.Parameters["descuento"].Value = Descuento;
                 cmd.Parameters.Add(new SqlParameter("exento", SqlDbType.Decimal));
                 cmd.Parameters["exento"].Value = Exento;
-                cmd.Parameters.Add(new SqlParameter("sub15", SqlDbType.Decimal));
-                cmd.Parameters["sub15"].Value = Sub15;
-                cmd.Parameters.Add(new SqlParameter("sub18", SqlDbType.Decimal));
-                cmd.Parameters["sub18"].Value = Sub18;
+                cmd.Parameters.Add(new SqlParameter("isv15", SqlDbType.Decimal));
+                cmd.Parameters["isv15"].Value = Sub15;
+                cmd.Parameters.Add(new SqlParameter("isv18", SqlDbType.Decimal));
+                cmd.Parameters["isv18"].Value = Sub18;
                 cmd.Parameters.Add(new SqlParameter("total", SqlDbType.Decimal));
                 cmd.Parameters["total"].Value = Total;
+                cmd.Parameters.Add(new SqlParameter("idCaja", SqlDbType.Int));
+                cmd.Parameters["idCaja"].Value = IdCaja;
+                cmd.Parameters.Add(new SqlParameter("tipoPago", SqlDbType.Int));
+                cmd.Parameters["tipoPago"].Value = IdCaja;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)

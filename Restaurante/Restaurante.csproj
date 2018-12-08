@@ -122,11 +122,23 @@
     <Compile Include="frmmenu1.Designer.cs">
       <DependentUpon>frmmenu1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMenuNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuNuevo.Designer.cs">
+      <DependentUpon>frmMenuNuevo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPagosCaja.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPagosCaja.Designer.cs">
       <DependentUpon>frmPagosCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPapelera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPapelera.Designer.cs">
+      <DependentUpon>frmPapelera.cs</DependentUpon>
     </Compile>
     <Compile Include="frmResumenCaja.cs">
       <SubType>Form</SubType>
@@ -238,8 +250,14 @@
     <EmbeddedResource Include="frmmenu1.resx">
       <DependentUpon>frmmenu1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuNuevo.resx">
+      <DependentUpon>frmMenuNuevo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPagosCaja.resx">
       <DependentUpon>frmPagosCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPapelera.resx">
+      <DependentUpon>frmPapelera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmResumenCaja.resx">
       <DependentUpon>frmResumenCaja.cs</DependentUpon>

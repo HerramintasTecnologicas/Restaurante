@@ -31,6 +31,7 @@
             this.btnPedidos = new System.Windows.Forms.Button();
             this.btnEntrega = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnPedidos
@@ -72,11 +73,24 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(604, -1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(17, 18);
+            this.label1.TabIndex = 73;
+            this.label1.Text = "x";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // frmmenu1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 87);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEntrega);
             this.Controls.Add(this.btnPedidos);
@@ -86,6 +100,7 @@
             this.Text = "frmmenu1";
             this.Load += new System.EventHandler(this.frmmenu1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -94,5 +109,6 @@
         private System.Windows.Forms.Button btnPedidos;
         private System.Windows.Forms.Button btnEntrega;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label label1;
     }
 }

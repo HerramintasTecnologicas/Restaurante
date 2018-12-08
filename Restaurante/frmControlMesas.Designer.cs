@@ -222,6 +222,7 @@
             this.button4.TabIndex = 66;
             this.button4.Text = "Unir Mesas";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Visible = false;
             // 
             // button3
             // 
@@ -234,6 +235,7 @@
             this.button3.TabIndex = 65;
             this.button3.Text = "Cambio de Mesa";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Visible = false;
             // 
             // groupBox1
             // 
@@ -1723,6 +1725,7 @@
             this.Name = "frmControlMesas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmControlMesas";
+            this.Load += new System.EventHandler(this.frmControlMesas_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.mesas.ResumeLayout(false);
