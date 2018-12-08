@@ -228,7 +228,7 @@ namespace Restaurante.Clases
                             ON Restaurante.Proveedores.idProveedor = Restaurante.Insumos.idProveedor
                             INNER JOIN Restaurante.TipoUnidad
                             ON Restaurante.TipoUnidad.idTipoUnidad = Restaurante.Insumos.idTipoUnidad
-                            AND estado=" + estado + ";";
+                            AND Restaurante.Insumos.estado=" + estado + ";";
 
             try
             {

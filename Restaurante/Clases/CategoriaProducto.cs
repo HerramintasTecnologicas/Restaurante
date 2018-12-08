@@ -163,7 +163,7 @@ namespace Restaurante.Clases
             string sql = @"SELECT   Restaurante.CategoriaProducto.idCategoria     as Código,
                                     Restaurante.CategoriaProducto.descripcion     as Descripción
                             FROM Restaurante.CategoriaProducto
-                            AND estado=" + estado + ";";
+                            WHERE Restaurante.CategoriaProducto.estado=" + estado + ";";
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();

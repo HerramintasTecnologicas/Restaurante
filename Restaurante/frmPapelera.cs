@@ -150,7 +150,7 @@ namespace Restaurante
                 finally
                 {
                     this.usuario = null;
-                    //ResetFormulario();
+                    ResetFormulario();
                 }
             }
         }
@@ -171,128 +171,217 @@ namespace Restaurante
                 finally
                 {
                     this.usuario = null;
-                    //ResetFormulario();
+                    ResetFormulario();
                 }
             }
         }
-
-        private void dgvTodo_CellClick(object sender, DataGridViewCellEventArgs e)
+        public void ResetFormulario()
         {
             if (ventana.SelectedIndex == 0)
             {
-                Clases.Usuarios usuario = new Clases.Usuarios();
-                usuario.ObtenerUsuario(dgvTodo.Rows[e.RowIndex].Cells["Usuario"].Value.ToString());
-                dgvTodo.Select();
-                txtNombre.Text = usuario.nombre;
-                txtApellido.Text = usuario.apellido;
-                txtClave.Text = usuario.clave;
+                
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtClave.Text = "";
             }
             else
             {
                 if (ventana.SelectedIndex == 1)
                 {
-                    Clases.Mesero mesero = new Clases.Mesero();
-                    mesero.ObtenerMesero(
-                        Convert.ToInt32(
-                            dgvTodo.Rows[e.RowIndex].Cells["Código"].Value.ToString()
-                            )
-                        );
-                    dgvTodo.Select();
-                    this.idmesero = mesero.Id;
-                    txtIdentidad.Text = Convert.ToString(mesero.Identidad);
-                    txtNombre.Text = mesero.Nombre;
-                    txtApellido.Text = mesero.Apellido;
+                  
+                    txtIdentidad.Text ="";
+                    txtNombre2.Text ="";
+                    txtApellido2.Text ="";
 
                 }
                 else
                 {
                     if (ventana.SelectedIndex == 2)
                     {
-                        Clases.Proveedores proveedor = new Clases.Proveedores();
-                        proveedor.ObtenerProveedor(
-                            Convert.ToInt32(
-                                dgvTodo.Rows[e.RowIndex].Cells["Código"].Value.ToString()
-                                )
-                            );
-                        dgvTodo.Select();
-                        this.idproveedor = proveedor.Id;
-                        txtNombre.Text = proveedor.Nombre;
-                        txtTelefono.Text = proveedor.Telefono;
-                        txtDireccion.Text = proveedor.Direccion;
+                       
+                        txtId.Text = "";
+                        txtNombre3.Text = "";
+                        txtTelefono.Text = "";
+                        txtDireccion.Text = "";
                     }
                     else
                     {
                         if (ventana.SelectedIndex == 3)
                         {
-                            Clases.Inventario inventario = new Clases.Inventario();
-                            inventario.ObtenerInventario(
-                                Convert.ToInt32(
-                                    dgvTodo.Rows[e.RowIndex].Cells["Código"].Value.ToString()
-                                    )
-                                );
-                            dgvTodo.Select();
-                            this.idinventario = inventario.IdInventario;
-                            //CargarDGWInsumosInventario();
-
-                            txtId.Text = inventario.IdInventario.ToString();
-                            txtDescripcion.Text = inventario.Descripcion.ToString();
-                            txtCosto.Text = inventario.Costo.ToString();
-                            txtPrecioVenta.Text = inventario.PrecioVenta.ToString();
-                            txtCantidad.Text = inventario.Cantidad.ToString();
-                            txtCantMinima.Text = inventario.CantidadMinima.ToString();
+                            
+                            txtIdI.Text ="";
+                            txtDescripcion.Text = "";
+                            txtCosto.Text = "";
+                            txtPrecioVenta.Text = "";
+                            txtCantidad.Text = "";
+                            txtCantMinima.Text = "";
                         }
                         else
                         {
                             if (ventana.SelectedIndex == 4)
                             {
-                                Clases.Insumos insumos = new Clases.Insumos();
-                                insumos.ObtenerInsumo(
-                                    Convert.ToInt32(
-                                        dgvTodo.Rows[e.RowIndex].Cells["Código"].Value.ToString()
-                                        )
-                                    );
-                                dgvTodo.Select();
-                                this.idinsumo = insumos.Id;
+                                
 
-                                txtId.Text = insumos.Id.ToString();
-                                txtNombre.Text = insumos.Nombre;
-                                txtCosto.Text = insumos.Costo.ToString();
-                                txtCantidad.Text = insumos.Cantidad.ToString();
-                                txtCantMinima.Text = insumos.CantidadMinima.ToString();
-                                cmbUnidad.SelectedIndex = insumos.IdTipoUnidad - 1;
-                                txtDescripcion.Text = insumos.Descripcion;
-                                cmbProveedor.SelectedIndex = insumos.IdProveedor - 1;
+                                txtIdIn.Text = "";
+                                txtNombreI.Text = "";
+                                txtCostoI.Text = "";
+                                txtCantidadI.Text = "";
+                                txtMinima.Text = "";
+
+                                txtDescripcionI.Text = "";
+
                             }
                             else
                             {
                                 if (ventana.SelectedIndex == 5)
                                 {
-                                    Clases.CategoriaProducto categoriaproducto = new Clases.CategoriaProducto();
-                                    categoriaproducto.ObtenerCategoriaProducto(
-                                        Convert.ToInt32(
-                                            dgvTodo.Rows[e.RowIndex].Cells["Código"].Value.ToString()
-                                            )
-                                        );
-                                    dgvTodo.Select();
-                                    this.idcategoria = categoriaproducto.Id;
+                                   
 
-                                    txtId.Text = categoriaproducto.Id.ToString();
+                                    txtIDC.Text = "";
+                                    txtDescripcionC.Text = "";
                                 }
                                 else
                                 {
                                     if (ventana.SelectedIndex == 6)
                                     {
-                                        Clases.TipoUnidad tipounidad = new Clases.TipoUnidad();
-                                        tipounidad.ObtenerTipoUnidad(
+                                    
+
+                                        txtIDT.Text = "";
+                                        txtDescripcionT.Text ="";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        private void dgvTodo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+
+
+                if (ventana.SelectedIndex == 0)
+                {
+                    Clases.Usuarios usuario = new Clases.Usuarios();
+                    usuario.ObtenerUsuario(dgvTodo.Rows[e.RowIndex].Cells["Usuario"].Value.ToString());
+                    dgvTodo.Select();
+                    txtNombre.Text = usuario.nombre;
+                    txtApellido.Text = usuario.apellido;
+                    txtClave.Text = usuario.clave;
+                }
+                else
+                {
+                    if (ventana.SelectedIndex == 1)
+                    {
+                        Clases.Mesero mesero = new Clases.Mesero();
+                        mesero.ObtenerMesero(
+                            Convert.ToInt32(
+                                dgvTodo.Rows[e.RowIndex].Cells["Código"].Value.ToString()
+                                )
+                            );
+                        dgvTodo.Select();
+                        this.idmesero = mesero.Id;
+                        txtIdentidad.Text = Convert.ToString(mesero.Identidad);
+                        txtNombre2.Text = mesero.Nombre;
+                        txtApellido2.Text = mesero.Apellido;
+
+                    }
+                    else
+                    {
+                        if (ventana.SelectedIndex == 2)
+                        {
+                            Clases.Proveedores proveedor = new Clases.Proveedores();
+                            proveedor.ObtenerProveedor(
+                                Convert.ToInt32(
+                                    dgvTodo.Rows[e.RowIndex].Cells["Código"].Value.ToString()
+                                    )
+                                );
+                            dgvTodo.Select();
+                            this.idproveedor = proveedor.Id;
+                            txtId.Text = Convert.ToString(proveedor.Id);
+                            txtNombre3.Text = proveedor.Nombre;
+                            txtTelefono.Text = proveedor.Telefono;
+                            txtDireccion.Text = proveedor.Direccion;
+                        }
+                        else
+                        {
+                            if (ventana.SelectedIndex == 3)
+                            {
+                                Clases.Inventario inventario = new Clases.Inventario();
+                                inventario.ObtenerInventario(
+                                    Convert.ToInt32(
+                                        dgvTodo.Rows[e.RowIndex].Cells["Código"].Value.ToString()
+                                        )
+                                    );
+                                dgvTodo.Select();
+                                this.idinventario = inventario.IdInventario;
+                                //CargarDGWInsumosInventario();
+
+                                txtIdI.Text = inventario.IdInventario.ToString();
+                                txtDescripcion.Text = inventario.Descripcion.ToString();
+                                txtCosto.Text = inventario.Costo.ToString();
+                                txtPrecioVenta.Text = inventario.PrecioVenta.ToString();
+                                txtCantidad.Text = inventario.Cantidad.ToString();
+                                txtCantMinima.Text = inventario.CantidadMinima.ToString();
+                            }
+                            else
+                            {
+                                if (ventana.SelectedIndex == 4)
+                                {
+                                    Clases.Insumos insumos = new Clases.Insumos();
+                                    insumos.ObtenerInsumo(
+                                        Convert.ToInt32(
+                                            dgvTodo.Rows[e.RowIndex].Cells["Código"].Value.ToString()
+                                            )
+                                        );
+                                    dgvTodo.Select();
+                                    this.idinsumo = insumos.Id;
+
+                                    txtIdIn.Text = insumos.Id.ToString();
+                                    txtNombreI.Text = insumos.Nombre;
+                                    txtCostoI.Text = insumos.Costo.ToString();
+                                    txtCantidadI.Text = insumos.Cantidad.ToString();
+                                    txtMinima.Text = insumos.CantidadMinima.ToString();
+
+                                    txtDescripcionI.Text = insumos.Descripcion;
+
+                                }
+                                else
+                                {
+                                    if (ventana.SelectedIndex == 5)
+                                    {
+                                        Clases.CategoriaProducto categoriaproducto = new Clases.CategoriaProducto();
+                                        categoriaproducto.ObtenerCategoriaProducto(
                                             Convert.ToInt32(
                                                 dgvTodo.Rows[e.RowIndex].Cells["Código"].Value.ToString()
                                                 )
                                             );
                                         dgvTodo.Select();
-                                        this.idtipo = tipounidad.Id;
+                                        this.idcategoria = categoriaproducto.Id;
 
-                                        txtId.Text = tipounidad.Id.ToString();
-                                        txtDescripcion.Text = tipounidad.Descripcion;
+                                        txtIDC.Text = categoriaproducto.Id.ToString();
+                                        txtDescripcionC.Text = categoriaproducto.Descripcion;
+                                    }
+                                    else
+                                    {
+                                        if (ventana.SelectedIndex == 6)
+                                        {
+                                            Clases.TipoUnidad tipounidad = new Clases.TipoUnidad();
+                                            tipounidad.ObtenerTipoUnidad(
+                                                Convert.ToInt32(
+                                                    dgvTodo.Rows[e.RowIndex].Cells["Código"].Value.ToString()
+                                                    )
+                                                );
+                                            dgvTodo.Select();
+                                            this.idtipo = tipounidad.Id;
+
+                                            txtIDT.Text = tipounidad.Id.ToString();
+                                            txtDescripcionT.Text = tipounidad.Descripcion;
+                                        }
                                     }
                                 }
                             }
@@ -317,7 +406,7 @@ namespace Restaurante
                 }
                 finally
                 {
-                   // ResetFormulario();
+                   ResetFormulario();
                 }
             }
         }
@@ -337,7 +426,7 @@ namespace Restaurante
                 }
                 finally
                 {
-                    //ResetFormulario();
+                    ResetFormulario();
                 }
             }
         }
@@ -358,7 +447,7 @@ namespace Restaurante
                 }
                 finally
                 {
-                    //ResetFormulario();
+                    ResetFormulario();
                 }
 
             }
@@ -380,7 +469,7 @@ namespace Restaurante
                 }
                 finally
                 {
-                    //ResetFormulario();
+                    ResetFormulario();
                 }
 
             }
@@ -402,7 +491,7 @@ namespace Restaurante
                 }
                 finally
                 {
-                    //ResetFormulario();
+                    ResetFormulario();
                 }
             }
         }
@@ -423,7 +512,7 @@ namespace Restaurante
                 }
                 finally
                 {
-                   // ResetFormulario();
+                   ResetFormulario();
                 }
             }
         }
@@ -443,7 +532,7 @@ namespace Restaurante
                 }
                 finally
                 {
-                    //ResetFormulario();
+                    ResetFormulario();
                 }
 
             }
@@ -464,7 +553,7 @@ namespace Restaurante
                 }
                 finally
                 {
-                   // ResetFormulario();
+                   ResetFormulario();
                 }
 
             }
@@ -485,7 +574,7 @@ namespace Restaurante
                 }
                 finally
                 {
-                    //ResetFormulario();
+                    ResetFormulario();
                 }
 
             }
@@ -506,7 +595,7 @@ namespace Restaurante
                 }
                 finally
                 {
-                    //ResetFormulario();
+                    ResetFormulario();
                 }
 
             }
@@ -527,7 +616,7 @@ namespace Restaurante
                 }
                 finally
                 {
-                    //ResetFormulario();
+                    ResetFormulario();
                 }
             }
         }
@@ -547,7 +636,7 @@ namespace Restaurante
                 }
                 finally
                 {
-                    //ResetFormulario();
+                    ResetFormulario();
                 }
             }
         }

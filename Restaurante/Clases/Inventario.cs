@@ -291,7 +291,7 @@ namespace Restaurante.Clases
                             ON Restaurante.TipoProducto.idTipoProducto = Restaurante.Inventario.idTipoProducto
                             INNER JOIN Restaurante.CategoriaProducto
                             ON Restaurante.CategoriaProducto.idCategoria = Restaurante.Inventario.idCategoria
-                            AND estado=" + estado + ";";
+                            AND Restaurante.Inventario.estado=" + estado + ";";
 
             try
             {
