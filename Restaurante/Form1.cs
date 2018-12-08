@@ -54,10 +54,11 @@ namespace Restaurante
                     }
                     else
                     {
+                        Clases.VariablesGlobales.user = txtUsuario.Text;
                         MessageBox.Show("Bienvenido");
                         /* MenuPrincipal menuPrincipal = new MenuPrincipal();
                          menuPrincipal.rol = 1;*/
-                        rfMenu menu = new rfMenu();
+                        frmTransaccionesCaja menu = new frmTransaccionesCaja();
 
                         this.Hide();
                         menu.ShowDialog();
@@ -95,7 +96,10 @@ namespace Restaurante
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-
+            //Se navega por la pagina web especificada y se captura el dato seleccionado. 
+            browser.Navigate("http://www.bch.hn/");
+            browser.ScriptErrorsSuppressed = true;
+            browser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(this.datosCargados);
             LimpiarFormulario();
         }
 
@@ -108,6 +112,30 @@ namespace Restaurante
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        /// <summary>
+        /// Contiene la pagina web en la que se buscara el dato.
+        /// </summary>
+        WebBrowser browser = new WebBrowser();
+
+        /// <summary>
+        /// Variable que contiene el cambio de Dolar en Lempiras.
+        /// </summary>
+        public static decimal dolar { get; set; }
+
+        private void datosCargados(object sender, EventArgs e)
+        {
+            //Se navega, se busca y se selecciona solo el dato que se necesita.
+            int i = 0;
+            foreach (HtmlElement item in browser.Document.All)
+            {
+                if (item.GetAttribute("classname").Contains("neg") && i == 0)
+                {
+                    dolar = Convert.ToDecimal(item.InnerText);
+                    i += 1;
+                }
+            }
         }
     }
 }

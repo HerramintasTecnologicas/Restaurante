@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Restaurante.Clases
 {
@@ -887,5 +888,201 @@ namespace Restaurante.Clases
             }
         }
 
+        /// <summary>
+        /// Validacion de datos para la Apertura de Caja.
+        /// </summary>
+        /// <param name="apertura"></param>
+        /// <param name="usuario"></param>
+        public static void ValidarAperturaCaja(decimal apertura, string usuario)
+        {
+            try
+            {
+                if (apertura < 0 || usuario.Length == 0)
+                {
+                    throw new Clases.Excepcion
+                    (
+                    "Error al hacer la Apertura de Caja. \n\n" +
+                    "Existen datos obligatorios que se necesitan para hacer la Apertura de Caja.\n" +
+                    "Apertura   : L 2000.00 1\n",
+                    new Exception(),
+                    "Clase Caja"
+                    );
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Insercion de la Apertura de Caja.
+        /// </summary>
+        /// <param name="apertura"></param>
+        /// <param name="dolares"></param>
+        /// <param name="fiveh"></param>
+        /// <param name="hundred"></param>
+        /// <param name="fifty"></param>
+        /// <param name="twenty"></param>
+        /// <param name="ten"></param>
+        /// <param name="five"></param>
+        /// <param name="two"></param>
+        /// <param name="one"></param>
+        /// <param name="usuario"></param>
+        public static void AperturarCaja(decimal apertura, int dolares, int fiveh,
+                                         int hundred, int fifty, int twenty, int ten, int five, int two, int one, 
+                                         string usuario)
+        {
+            try
+            {
+                ValidarAperturaCaja(apertura, usuario);
+                Clases.Caja caja = new Clases.Caja(apertura, dolares, fiveh, hundred,
+                                                   fifty, twenty, ten, five, two, one, usuario);
+                caja.AgregarApertura();
+                MessageBox.Show("Se ha realizado la Apertura de Caja correctamente!", "Mensaje");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Validacion de datos del Cierre de Caja.
+        /// </summary>
+        /// <param name="cierre"></param>
+        /// <param name="usuario"></param>
+        public static void ValidarCierreCaja(decimal cierre, string usuario)
+        {
+            try
+            {
+                if (cierre < 0 || usuario.Length == 0)
+                {
+                    throw new Clases.Excepcion(
+                        "Error al hacer el Cierre de Caja. \n\n" +
+                        "Existen datos obligatorios que se necesitan para hacer la Apertura de Caja.\n" +
+                        "Cierre   : L 2000.00 1\n",
+                        new Exception(),
+                        "Clase Caja");
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Insercino del Cierre de Caja.
+        /// </summary>
+        /// <param name="cierre"></param>
+        /// <param name="dolares"></param>
+        /// <param name="pos"></param>
+        /// <param name="fiveh"></param>
+        /// <param name="hundred"></param>
+        /// <param name="fifty"></param>
+        /// <param name="twenty"></param>
+        /// <param name="ten"></param>
+        /// <param name="five"></param>
+        /// <param name="two"></param>
+        /// <param name="one"></param>
+        /// <param name="usuario"></param>
+        public static void CierreCaja(decimal cierre, int dolares, decimal pos, int fiveh,
+                               int hundred, int fifty, int twenty, int ten, int five, int two, int one, 
+                               string usuario)
+        {
+            try
+            {
+                ValidarAperturaCaja(cierre, usuario);
+                Clases.Caja c = new Clases.Caja(cierre, dolares, pos, fiveh, hundred,
+                                                fifty, twenty, ten, five, two, one, usuario);
+
+                c.AgregarCierre();
+                MessageBox.Show("El Cierre de caja se ha realizado correctamente!", "Mensaje");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Validacion de datos de los Pagos de Servicio Publico.
+        /// </summary>
+        /// <param name="ServicioPublico"></param>
+        /// <param name="Monto"></param>
+        /// <param name="Usuario"></param>
+        public static void ValidarPagoServicioPublico(string ServicioPublico, decimal Monto, string Usuario)
+        {
+            if (ServicioPublico == "" || Monto <= 0 || Usuario == "")
+            {
+                throw new Clases.Excepcion
+                (
+                "Error al insertar un Pago de Servicio Publico. \n\n" +
+                "Existen datos obligatorios que se necesitan para hacer la Apertura de Caja.\n" +
+                "Servicio Publico   : Agua" +
+                "Monto              : L 2000.00" +
+                "Usuario            : ECalix",
+                new Exception(),
+                "Clase Caja"
+                );
+            }
+        }
+
+        /// <summary>
+        /// Insercion de los Pagos de Servicios Publicos.
+        /// </summary>
+        /// <param name="nombreServicioPublico"></param>
+        /// <param name="Monto"></param>
+        /// <param name="usuario"></param>
+        public static void InsertarPagoServicioPublico(string nombreServicioPublico, decimal Monto, string usuario)
+        {
+            ValidarPagoServicioPublico(nombreServicioPublico, Monto, usuario);
+            Clases.ServicioPublico sp = new Clases.ServicioPublico(nombreServicioPublico, Monto, usuario);
+
+            sp.AgregarPagoServicioPublico();
+            MessageBox.Show("El pago se inserto existosamente!", "Mensaje");
+        }
+
+        /// <summary>
+        /// Validacion de datos de las Salidas Varias.
+        /// </summary>
+        /// <param name="descripcion"></param>
+        /// <param name="Monto"></param>
+        /// <param name="usuario"></param>
+        public static void ValidarSalida(string descripcion, decimal Monto, string usuario)
+        {
+            if (descripcion == "" || Monto <= 0 || usuario == "")
+            {
+                throw new Clases.Excepcion
+                (
+                "Error al insertar la salida. \n\n" +
+                "Existen datos obligatorios que se necesitan para hacer la insercion de la salida.\n" +
+                "Servicio Publico   : Agua" +
+                "Monto              : L 2000.00" +
+                "Usuario            : ECalix",
+                new Exception(),
+                "Clase Caja"
+                );
+            }
+        }
+
+        /// <summary>
+        /// Insercion de Salidas Varias.
+        /// </summary>
+        /// <param name="descripcionSalida"></param>
+        /// <param name="Monto"></param>
+        /// <param name="usuario"></param>
+        public static void InsertarSalida(string descripcionSalida, decimal Monto, string usuario)
+        {
+            ValidarSalida(descripcionSalida, Monto, usuario);
+            Clases.OtrasSalidas s = new Clases.OtrasSalidas(descripcionSalida, Monto, usuario);
+
+            s.AgregarOtraSalida();
+            MessageBox.Show("La salida se inserto existosamente!", "Mensaje");
+        }
     }
 }

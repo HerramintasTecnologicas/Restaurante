@@ -68,24 +68,21 @@
     <Compile Include="Clases\Inventario.cs" />
     <Compile Include="Clases\Mensaje.cs" />
     <Compile Include="Clases\Mesero.cs" />
+    <Compile Include="Clases\OtrasSalidas.cs" />
     <Compile Include="Clases\Pedidos.cs" />
     <Compile Include="Clases\Proveedores.cs" />
     <Compile Include="Clases\Restaurante.cs" />
     <Compile Include="Clases\Rol.cs" />
+    <Compile Include="Clases\ServicioPublico.cs" />
     <Compile Include="Clases\TipoProducto.cs" />
     <Compile Include="Clases\TipoUnidad.cs" />
     <Compile Include="Clases\Usuarios.cs" />
+    <Compile Include="Clases\VariablesGlobales.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAperturaCaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAperturaCaja.Designer.cs">
-      <DependentUpon>frmAperturaCaja.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCambioDolar.cs">
       <SubType>Form</SubType>
@@ -93,17 +90,11 @@
     <Compile Include="frmCambioDolar.Designer.cs">
       <DependentUpon>frmCambioDolar.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCancelarCuentaCaja.cs">
+    <Compile Include="frmAperturaCierreCaja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCancelarCuentaCaja.Designer.cs">
-      <DependentUpon>frmCancelarCuentaCaja.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCierreCaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCierreCaja.Designer.cs">
-      <DependentUpon>frmCierreCaja.cs</DependentUpon>
+    <Compile Include="frmAperturaCierreCaja.Designer.cs">
+      <DependentUpon>frmAperturaCierreCaja.cs</DependentUpon>
     </Compile>
     <Compile Include="frmmenu1.cs">
       <SubType>Form</SubType>
@@ -122,12 +113,6 @@
     </Compile>
     <Compile Include="frmResumenCaja.Designer.cs">
       <DependentUpon>frmResumenCaja.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmSalidasCaja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSalidasCaja.Designer.cs">
-      <DependentUpon>frmSalidasCaja.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTransaccionesCaja.cs">
       <SubType>Form</SubType>
@@ -206,17 +191,11 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAperturaCaja.resx">
-      <DependentUpon>frmAperturaCaja.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCambioDolar.resx">
       <DependentUpon>frmCambioDolar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCancelarCuentaCaja.resx">
-      <DependentUpon>frmCancelarCuentaCaja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCierreCaja.resx">
-      <DependentUpon>frmCierreCaja.cs</DependentUpon>
+    <EmbeddedResource Include="frmAperturaCierreCaja.resx">
+      <DependentUpon>frmAperturaCierreCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmmenu1.resx">
       <DependentUpon>frmmenu1.cs</DependentUpon>
@@ -226,9 +205,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmResumenCaja.resx">
       <DependentUpon>frmResumenCaja.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSalidasCaja.resx">
-      <DependentUpon>frmSalidasCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTransaccionesCaja.resx">
       <DependentUpon>frmTransaccionesCaja.cs</DependentUpon>

@@ -126,3 +126,10 @@ EXEC SP_AgregarInsumo 'tomate',10,5,1,1,'para condimentar',1
 EXEC SP_AgregarInsumo 'Pescado',50,15,3,2,'de 100 lempiras',1
 --SP_AgregarInventario(	descripcion,costo,precioVenta ,cantidad,cantidadMinima,idCategoria,idTipoProducto,idProveedor )
  
+ INSERT INTO Restaurante.ServicioPublico (Descripcion)
+	VALUES('Otro'),
+		  ('Energia Electrica')
+
+INSERT INTO Restaurante.DetalleCaja(Descripcion)
+	VALUES('Apertura'),
+		  ('Cierre')

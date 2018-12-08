@@ -26,7 +26,7 @@ namespace Restaurante
         }
         void bbiPrintPreview_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmCierreCaja cierreCaja = new frmCierreCaja();
+            frmAperturaCierreCaja cierreCaja = new frmAperturaCierreCaja();
             cierreCaja.ShowDialog();
         }
         public BindingList<Customer> GetDataSource()
@@ -122,12 +122,6 @@ namespace Restaurante
             mesero.ShowDialog();
         }
 
-        private void barButtonItem12_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            frmSalidasCaja salidasCaja = new frmSalidasCaja();
-            salidasCaja.ShowDialog();
-        }
-
         private void barButtonItem10_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmCategoriaProducto producto = new frmCategoriaProducto();
@@ -140,16 +134,10 @@ namespace Restaurante
             pedido.ShowDialog();
         }
 
-        private void barButtonItem13_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            frmCancelarCuentaCaja cuentaCaja = new frmCancelarCuentaCaja();
-            cuentaCaja.ShowDialog();
-        }
-
         private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmAperturaCaja frmAperturaCaja = new frmAperturaCaja();
-            frmAperturaCaja.ShowDialog();
+            frmAperturaCierreCaja frmAperturaCierreCaja = new frmAperturaCierreCaja();
+            frmAperturaCierreCaja.ShowDialog();
         }
 
         private void bbiEdit_ItemClick(object sender, ItemClickEventArgs e)

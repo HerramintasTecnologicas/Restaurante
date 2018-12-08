@@ -19,13 +19,13 @@ namespace Restaurante
 
         private void btnAbrirCaja_Click(object sender, EventArgs e)
         {
-            frmAperturaCaja ac = new frmAperturaCaja();
+            frmAperturaCierreCaja ac = new frmAperturaCierreCaja();
             ac.Show();
         }
 
         private void btnCierreCaja_Click(object sender, EventArgs e)
         {
-            frmCierreCaja cc = new frmCierreCaja();
+            frmAperturaCierreCaja cc = new frmAperturaCierreCaja();
             cc.Show();
         }
 
@@ -33,18 +33,6 @@ namespace Restaurante
         {
             frmPagosCaja pc = new frmPagosCaja();
             pc.Show();
-        }
-
-        private void btnSalidasCaja_Click(object sender, EventArgs e)
-        {
-            frmSalidasCaja sc = new frmSalidasCaja();
-            sc.Show();
-        }
-
-        private void btnCancelarCuenta_Click(object sender, EventArgs e)
-        {
-            frmCancelarCuentaCaja cac = new frmCancelarCuentaCaja();
-            cac.Show();
         }
 
         private void btnCambioDolar_Click(object sender, EventArgs e)

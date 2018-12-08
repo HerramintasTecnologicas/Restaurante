@@ -15,6 +15,7 @@ namespace Restaurante
         public frmCambioDolar()
         {
             InitializeComponent();
+            txtLempirasCambioDolar.Text = Convert.ToString(frmLogin.dolar);
         }
 
         private void btnSalirAperturarCaja_Click(object sender, EventArgs e)
