@@ -171,7 +171,7 @@ namespace Restaurante
             {
                 try
                 {
-                    Clases.Restaurante.EliminarUsuario(this.usuario);
+                    Clases.Restaurante.EliminarUsuario1(this.usuario,0);
                 }
                 catch (SqlException ex)
                 {

@@ -15,6 +15,7 @@ namespace Restaurante.Clases
         public string Identidad { set; get; }
         public string Nombre { set; get; }
         public string Apellido { set; get; }
+        public int Estado { get; set; }
         //Se define un constructor
         public Mesero() { }
         //Se define el destructor
@@ -39,6 +40,12 @@ namespace Restaurante.Clases
         public Mesero(int id)
         {
             Id = id;
+        }
+
+        public Mesero(int id, int estado)
+        {
+            Id = id;
+            Estado = estado;
         }
         //Funcion para llamar el store Procedure y asignar los parametros que insertaremos
         public void Agregar()
@@ -110,6 +117,30 @@ namespace Restaurante.Clases
                 conexion.Abrir();
                 cmd.Parameters.Add(new SqlParameter("id", SqlDbType.Int));
                 cmd.Parameters["id"].Value = Id;
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
+
+        public void Eliminar1()
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            SqlCommand cmd = new SqlCommand("SP_EliminarMesero1", conexion.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conexion.Abrir();
+                cmd.Parameters.Add(new SqlParameter("id", SqlDbType.Int));
+                cmd.Parameters["id"].Value = Id;
+                cmd.Parameters.Add(new SqlParameter("estado", SqlDbType.Int));
+                cmd.Parameters["estado"].Value = Estado;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)

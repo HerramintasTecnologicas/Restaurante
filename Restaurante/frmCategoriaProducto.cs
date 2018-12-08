@@ -27,7 +27,7 @@ namespace Restaurante
         {
             try
             {
-                dgvCategoriaProducto.DataSource = Clases.CategoriaProducto.GetDataView();
+                dgvCategoriaProducto.DataSource = Clases.CategoriaProducto.GetDataView(1);
             }
             catch (Exception ex)
             {

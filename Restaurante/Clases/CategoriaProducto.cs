@@ -12,6 +12,7 @@ namespace Restaurante.Clases
     {
         public int Id { set; get; }
         public string Descripcion { set; get; }
+        public int Estado { get; set; }
         public CategoriaProducto() { }
         ~CategoriaProducto() { }
 
@@ -29,6 +30,11 @@ namespace Restaurante.Clases
         public CategoriaProducto(int id)
         {
             Id = id;
+        }
+        public CategoriaProducto(int id, int estado)
+        {
+            Id = id;
+            Estado = estado;
         }
 
         public void Agregar()
@@ -100,6 +106,29 @@ namespace Restaurante.Clases
                 conexion.Cerrar();
             }
         }
+        public void Eliminar1()
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            SqlCommand cmd = new SqlCommand("SP_EliminarCategoriaProducto1", conexion.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conexion.Abrir();
+                cmd.Parameters.Add(new SqlParameter("idCategoria", SqlDbType.Int));
+                cmd.Parameters["idCategoria"].Value = Id;
+                cmd.Parameters.Add(new SqlParameter("estado", SqlDbType.Int));
+                cmd.Parameters["estado"].Value = Estado;
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Clases.Excepcion(ex.Message, ex, "Clase_CategoriaProducto");
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
 
         public void ObtenerCategoriaProducto(int id)
         {
@@ -128,12 +157,13 @@ namespace Restaurante.Clases
             }
         }
 
-        public static DataView GetDataView()
+        public static DataView GetDataView(int estado)
         {
             Clases.Conexión conexion = new Clases.Conexión();
             string sql = @"SELECT   Restaurante.CategoriaProducto.idCategoria     as Código,
                                     Restaurante.CategoriaProducto.descripcion     as Descripción
-                            FROM Restaurante.CategoriaProducto";
+                            FROM Restaurante.CategoriaProducto
+                            AND estado=" + estado + ";";
             try
             {
                 SqlDataAdapter data = new SqlDataAdapter();

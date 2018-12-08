@@ -179,7 +179,7 @@ namespace Restaurante
             {
                 try
                 {
-                    Clases.Restaurante.EliminarMesero(this.id);
+                    Clases.Restaurante.EliminarMesero1(this.id,0);
                 }
                 catch (Exception ex)
                 {

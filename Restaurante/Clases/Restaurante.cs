@@ -90,6 +90,18 @@ namespace Restaurante.Clases
                 throw ex;
             }
         }
+        public static void EliminarMesero1(int id,int estado)
+        {
+            try
+            {
+                Clases.Mesero mesero = new Clases.Mesero(id,estado);
+                mesero.Eliminar1();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
 
@@ -165,7 +177,7 @@ namespace Restaurante.Clases
             try
             {
                 Clases.Usuarios usuarios = new Clases.Usuarios(usu);
-
+                usuarios.Eliminar();
             }
             catch (Exception es)
             {
@@ -173,8 +185,21 @@ namespace Restaurante.Clases
                 throw es;
             }
         }
-        
-                //Modulo proveedor
+        public static void EliminarUsuario1(string usu, int estado)
+        {
+            try
+            {
+                Clases.Usuarios usuarios = new Clases.Usuarios(usu,estado);
+                usuarios.Eliminar1();
+            }
+            catch (Exception es)
+            {
+
+                throw es;
+            }
+        }
+
+        //Modulo proveedor
         private static void ValidarProveedor
     (
     string nombre,
@@ -238,6 +263,19 @@ namespace Restaurante.Clases
                 Clases.Proveedores proveedor = new Clases.Proveedores(
                     id);
                 proveedor.Eliminar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void EliminarProveedor1(int id,int estado)
+        {
+            try
+            {
+                Clases.Proveedores proveedor = new Clases.Proveedores(
+                    id,estado);
+                proveedor.Eliminar1();
             }
             catch (Exception ex)
             {
@@ -316,6 +354,23 @@ namespace Restaurante.Clases
                      id
                      );
                 tipounidad.Eliminar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void EliminarTipoUnidad1
+     (
+     int id,int estado
+     )
+        {
+            try
+            {
+                Clases.TipoUnidad tipounidad = new Clases.TipoUnidad(
+                     id,estado
+                     );
+                tipounidad.Eliminar1();
             }
             catch (Exception ex)
             {
@@ -432,7 +487,20 @@ namespace Restaurante.Clases
                 throw ex;
             }
         }
-
+        public static void EliminarInsumo1( int id,int estado   )
+        {
+            try
+            {
+                Clases.Insumos insumo = new Clases.Insumos(
+                    id,estado
+                    );
+                insumo.Eliminar1();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         private static void ValidarInventario
                 (
                 string descripcion,
@@ -541,6 +609,22 @@ namespace Restaurante.Clases
                 Clases.Inventario inventario = new Clases.Inventario(
                     id);
                 inventario.Eliminar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public static void EliminarInventario1
+      (
+      int id,int estado
+      )
+        {
+            try
+            {
+                Clases.Inventario inventario = new Clases.Inventario(
+                    id,estado);
+                inventario.Eliminar1();
             }
             catch (Exception ex)
             {
@@ -694,6 +778,24 @@ namespace Restaurante.Clases
                     id
                     );
                 categoria.Eliminar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static void EliminarCategoriaProducto1
+    (
+    int id,int estado
+    )
+        {
+            try
+            {
+                Clases.CategoriaProducto categoria = new Clases.CategoriaProducto(
+                    id,estado
+                    );
+                categoria.Eliminar1();
             }
             catch (Exception ex)
             {

@@ -23,6 +23,7 @@ namespace Restaurante.Clases
         {
             this.con = new SqlConnection(@"server = (local)\CALIX;
             integrated security = true; database = DBRestauranteMarias; ");
+            //this.con = new SqlConnection("data source=192.168.0.254,1433; initial catalog=DBRestauranteMarias; user id=Restaurante; password=abc123;");
 
         }
         //Creamos el metodo para abrir la conecion con la base de datos

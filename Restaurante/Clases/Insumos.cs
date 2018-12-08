@@ -19,6 +19,7 @@ namespace Restaurante.Clases
         public int IdTipoUnidad { set; get; }
         public string Descripcion { set; get; }
         public int IdProveedor { set; get; }
+        public int Estado { get; set; }
 
         ~Insumos() { }
 
@@ -49,7 +50,11 @@ namespace Restaurante.Clases
         {
             Id = id;
         }
-
+        public Insumos(int id, int estado)
+        {
+            Id = id;
+            Estado = estado;
+        }
         public Insumos()
         {
 
@@ -138,6 +143,29 @@ namespace Restaurante.Clases
                 conexion.Abrir();
                 cmd.Parameters.Add(new SqlParameter("idInsumo", SqlDbType.Int));
                 cmd.Parameters["idInsumo"].Value = Id;
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Clases.Excepcion(ex.Message, ex, "Clase_Insumo");
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
+        public void Eliminar1()
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            SqlCommand cmd = new SqlCommand("SP_EliminarInsumo1", conexion.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conexion.Abrir();
+                cmd.Parameters.Add(new SqlParameter("idInsumo", SqlDbType.Int));
+                cmd.Parameters["idInsumo"].Value = Id;
+                cmd.Parameters.Add(new SqlParameter("estado", SqlDbType.Int));
+                cmd.Parameters["estado"].Value = Estado;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)

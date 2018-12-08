@@ -15,6 +15,7 @@ namespace Restaurante.Clases
         public string usuario { get; set; }
         public string clave { get; set; }
         public int rol { get; set; }
+        public int Estado { get; set; }
 
 
         public Usuarios() { }
@@ -22,6 +23,11 @@ namespace Restaurante.Clases
         public Usuarios(string usuario)
         {
             this.usuario = usuario;
+        }
+        public Usuarios(string usuario,int estado)
+        {
+            this.usuario = usuario;
+            this.Estado = estado;
         }
         public Usuarios(string nombre, string apellido, string clave, int rol)
         {
@@ -135,6 +141,30 @@ namespace Restaurante.Clases
             }
         }
 
+        public void Eliminar1()
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            SqlCommand cmd = new SqlCommand("SP_EliminarUsuario1", conexion.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conexion.Abrir();
+                cmd.Parameters.Add(new SqlParameter("Usuario", SqlDbType.VarChar, 26));
+                cmd.Parameters["usuario"].Value = this.usuario;
+                cmd.Parameters.Add(new SqlParameter("estado", SqlDbType.Int));
+                cmd.Parameters["estado"].Value = Estado;
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
         public void Eliminar()
         {
             Clases.Conexión conexion = new Clases.Conexión();

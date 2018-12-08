@@ -101,9 +101,10 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE SP_EliminarUsuario
+CREATE PROCEDURE SP_EliminarUsuario1
 (
-    @usuario NVARCHAR(26)
+    @usuario NVARCHAR(26),
+	@estado BIT
 )
 AS
 BEGIN
@@ -117,7 +118,29 @@ BEGIN
                 END     
             ELSE
                 BEGIN
-                    UPDATE Acceso.Usuarios SET estado=0 WHERE usuario = @usuario;
+                    UPDATE Acceso.Usuarios SET estado=@estado WHERE usuario = @usuario;
+                    RETURN 1
+                END
+END
+GO
+CREATE PROCEDURE SP_EliminarUsuario
+(
+    @usuario NVARCHAR(26)
+)
+AS
+BEGIN
+    DECLARE @existe int;
+    SET @existe = 0;
+
+            SELECT @existe = COUNT(Acceso.Usuarios.usuario) FROM Acceso.Usuarios WHERE usuario = @usuario;
+            IF (@existe = 0)
+                BEGIN
+                    RAISERROR(N'No existe un usuario con el nombre "', 16, 1);
+                    RETURN 0
+                END     
+            ELSE
+                BEGIN
+                    DELETE FROM Acceso.Usuarios WHERE usuario = @usuario;
                     RETURN 1
                 END
 END
@@ -181,6 +204,29 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE SP_EliminarProveedor1
+(
+	@idProveedor INT,
+	@estado BIT
+)
+AS
+BEGIN
+	DECLARE @existe int;
+	SET @existe = 0;
+		SELECT @existe = COUNT(Restaurante.Proveedores.idProveedor) FROM Restaurante.Proveedores WHERE idProveedor = @idProveedor;
+		IF (@existe = 0)
+			BEGIN
+				RAISERROR(N'No existe el proveedor con el id %d"', 16, 1, @idProveedor);
+				RETURN 0
+			END 	
+		ELSE
+			BEGIN
+				UPDATE Restaurante.Proveedores SET estado=@estado	WHERE idProveedor = @idProveedor;
+				RETURN 1
+			END
+END
+GO
+
 CREATE PROCEDURE SP_EliminarProveedor
 (
 	@idProveedor INT
@@ -197,7 +243,7 @@ BEGIN
 			END 	
 		ELSE
 			BEGIN
-				UPDATE Restaurante.Proveedores SET estado=0	WHERE idProveedor = @idProveedor;
+				DELETE FROM Restaurante.Proveedores	WHERE idProveedor = @idProveedor;
 				RETURN 1
 			END
 END
@@ -259,6 +305,29 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE SP_EliminarMesero1
+(
+	@id INT,
+	@estado BIT
+)
+AS
+BEGIN
+	DECLARE @existe int;
+	SET @existe = 0;
+			SELECT @existe = COUNT(Restaurante.Meseros.id) FROM Restaurante.Meseros WHERE id=@id;
+		IF (@existe = 0)
+			BEGIN
+				RAISERROR(N'No existe el mesero con el id %d"', 16, 1, @id);
+				RETURN 0
+			END 	
+		ELSE
+			BEGIN
+				UPDATE Restaurante.Meseros SET estado=@estado	WHERE id=@id;
+				RETURN 1
+			END
+END
+GO
+
 CREATE PROCEDURE SP_EliminarMesero
 (
 	@id INT
@@ -275,7 +344,7 @@ BEGIN
 			END 	
 		ELSE
 			BEGIN
-				UPDATE Restaurante.Meseros SET estado=0	WHERE id=@id;
+				DELETE FROM Restaurante.Meseros	WHERE id=@id;
 				RETURN 1
 			END
 END
@@ -354,6 +423,29 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE SP_EliminarInsumo1
+(
+    @idInsumo INT,
+	@estado BIT
+)
+AS
+BEGIN
+    DECLARE @existe int;
+    SET @existe = 0;
+        SELECT @existe = COUNT(Restaurante.Insumos.IdInsumo) FROM Restaurante.Insumos WHERE IdInsumo = @idInsumo;
+        IF (@existe = 0)
+            BEGIN
+                RAISERROR(N'No existe el insumo con el id %d"', 16, 1, @idInsumo);
+                RETURN 0
+            END     
+        ELSE
+            BEGIN
+                UPDATE Restaurante.Insumos SET estado=@estado WHERE idInsumo = @idInsumo;
+                RETURN 1
+            END
+END
+GO
+
 CREATE PROCEDURE SP_EliminarInsumo
 (
     @idInsumo INT
@@ -370,7 +462,7 @@ BEGIN
             END     
         ELSE
             BEGIN
-                UPDATE Restaurante.Insumos SET estado=0 WHERE idInsumo = @idInsumo;
+                DELETE FROM Restaurante.Insumos WHERE idInsumo = @idInsumo;
                 RETURN 1
             END
 END
@@ -426,6 +518,28 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE SP_EliminarTipoUnidad1
+(
+    @idTipoUnidad INT,
+	@estado BIT
+)
+AS
+BEGIN
+    DECLARE @existe int;
+    SET @existe = 0;
+    SELECT @existe = COUNT(Restaurante.TipoUnidad.idTipoUnidad) FROM Restaurante.TipoUnidad WHERE idTipoUnidad=@idTipoUnidad;
+    IF (@existe = 0)
+        BEGIN
+            RAISERROR(N'No existe ningún Tipo de Unidad con el id "%d"', 16, 1, @idTipoUnidad);
+            RETURN 0
+        END     
+    ELSE
+        BEGIN
+            UPDATE Restaurante.TipoUnidad SET estado=@estado WHERE idTipoUnidad = @idTipoUnidad;
+            RETURN 1
+        END
+END
+GO
 CREATE PROCEDURE SP_EliminarTipoUnidad
 (
     @idTipoUnidad INT
@@ -442,7 +556,7 @@ BEGIN
         END     
     ELSE
         BEGIN
-            UPDATE Restaurante.TipoUnidad SET estado=0 WHERE idTipoUnidad = @idTipoUnidad;
+            DELETE FROM Restaurante.TipoUnidad  WHERE idTipoUnidad = @idTipoUnidad;
             RETURN 1
         END
 END
@@ -799,6 +913,29 @@ BEGIN
 END
 GO
 
+CREATE PROCEDURE SP_EliminarInventario1
+(
+	@idInventario INT,
+	@estado BIT
+)
+AS
+BEGIN
+	DECLARE @existe int;
+	SET @existe = 0;
+		SELECT @existe = COUNT(Restaurante.Inventario.idInventario) FROM Restaurante.Inventario WHERE idInventario = @idInventario;
+		IF (@existe = 0)
+			BEGIN
+				RAISERROR(N'No existe el Producto con el id %d"', 16, 1, @idInventario);
+				RETURN 0
+			END 	
+		ELSE
+			BEGIN
+				UPDATE Restaurante.Inventario SET estado=@estado WHERE idInventario = @idInventario;
+				RETURN 1
+			END
+END
+GO
+
 CREATE PROCEDURE SP_EliminarInventario
 (
 	@idInventario INT
@@ -815,7 +952,7 @@ BEGIN
 			END 	
 		ELSE
 			BEGIN
-				UPDATE Restaurante.Inventario SET estado=0 WHERE idInventario = @idInventario;
+				DELETE FROM Restaurante.Inventario WHERE idInventario = @idInventario;
 				RETURN 1
 			END
 END
@@ -955,9 +1092,10 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE SP_EliminarCategoriaProducto
+CREATE PROCEDURE SP_EliminarCategoriaProducto1
 (
-	@idCategoriaProducto INT
+	@idCategoriaProducto INT,
+	@estado BIT
 )
 AS
 BEGIN
@@ -971,7 +1109,29 @@ BEGIN
 		END 	
 	ELSE
 		BEGIN
-			UPDATE Restaurante.CategoriaProducto SET estado=0 WHERE idCategoria = @idCategoriaProducto;
+			UPDATE Restaurante.CategoriaProducto SET estado=@estado WHERE idCategoria = @idCategoriaProducto;
+			RETURN 1
+		END
+END
+GO
+CREATE PROCEDURE SP_EliminarCategoriaProducto
+(
+	@idCategoriaProducto INT
+
+)
+AS
+BEGIN
+	DECLARE @existe int;
+	SET @existe = 0;
+	SELECT @existe = COUNT(Restaurante.CategoriaProducto.idCategoria) FROM Restaurante.CategoriaProducto WHERE idCategoria=@idCategoriaProducto;
+	IF (@existe = 0)
+		BEGIN
+			RAISERROR(N'No existe ningún Tipo de Unidad con el id "%d"', 16, 1, @idCategoriaProducto);
+			RETURN 0
+		END 	
+	ELSE
+		BEGIN
+			DELETE FROM Restaurante.CategoriaProducto WHERE idCategoria = @idCategoriaProducto;
 			RETURN 1
 		END
 END

@@ -15,6 +15,7 @@ namespace Restaurante.Clases
         public string Nombre { set; get; }
         public string Telefono { set; get; }
         public string Direccion { set; get; }
+        public int Estado { get; set; }
         public Proveedores() { }
         public Proveedores(string nombre, string telefono, string direccion)
         {
@@ -34,7 +35,11 @@ namespace Restaurante.Clases
         {
             Id = id;
         }
-
+        public Proveedores(int id, int estado)
+        {
+            Id = id;
+            Estado = estado;
+        }
         public void Agregar()
         {
             Clases.Conexión conexion = new Clases.Conexión();
@@ -113,7 +118,29 @@ namespace Restaurante.Clases
                 conexion.Cerrar();
             }
         }
-
+        public void Eliminar1()
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            SqlCommand cmd = new SqlCommand("SP_EliminarProveedor1", conexion.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conexion.Abrir();
+                cmd.Parameters.Add(new SqlParameter("idProveedor", SqlDbType.Int));
+                cmd.Parameters["idProveedor"].Value = Id;
+                cmd.Parameters.Add(new SqlParameter("estado", SqlDbType.Int));
+                cmd.Parameters["estado"].Value = Estado;
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
         public void ObtenerProveedor(int id)
         {
             Conexión conexion = new Conexión();

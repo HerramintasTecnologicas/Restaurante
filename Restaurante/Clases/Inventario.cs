@@ -19,6 +19,7 @@ namespace Restaurante.Clases
         public int IdCategoria { set; get; }
         public int IdTipoProducto { set; get; }
         public int IdProveedor { set; get; }
+        public int Estado { get; set; }
 
         public Inventario() { }
 
@@ -51,7 +52,11 @@ namespace Restaurante.Clases
         {
             IdInventario = id;
         }
-
+        public Inventario(int id, int estado)
+        {
+            IdInventario = id;
+            Estado = estado;
+        }
         public void Agregar()
         {
             Clases.Conexión conexion = new Clases.Conexión();
@@ -138,6 +143,29 @@ namespace Restaurante.Clases
                 conexion.Abrir();
                 cmd.Parameters.Add(new SqlParameter("idInventario", SqlDbType.Int));
                 cmd.Parameters["idInventario"].Value = IdInventario;
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Clases.Excepcion(ex.Message, ex, "Clase_Inventario");
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
+        public void Eliminar1()
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            SqlCommand cmd = new SqlCommand("SP_EliminarInventario1", conexion.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conexion.Abrir();
+                cmd.Parameters.Add(new SqlParameter("idInventario", SqlDbType.Int));
+                cmd.Parameters["idInventario"].Value = IdInventario;
+                cmd.Parameters.Add(new SqlParameter("estado", SqlDbType.Int));
+                cmd.Parameters["estado"].Value = Estado;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)

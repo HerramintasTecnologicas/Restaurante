@@ -11,6 +11,7 @@ namespace Restaurante.Clases
     {
         public int Id { set; get; }
         public string Descripcion { set; get; }
+        public int Estado { get; set; }
         public TipoUnidad() { }
         ~TipoUnidad() { }
 
@@ -28,6 +29,11 @@ namespace Restaurante.Clases
         public TipoUnidad(int id)
         {
             Id = id;
+        }
+        public TipoUnidad(int id,int estado)
+        {
+            Id = id;
+            Estado = estado;
         }
 
         public void Agregar()
@@ -56,7 +62,7 @@ namespace Restaurante.Clases
         public void Modificar()
         {
             Clases.Conexión conexion = new Clases.Conexión();
-            SqlCommand cmd = new SqlCommand("SP_ModificarTipoUnidad", conexion.conexion);
+            SqlCommand cmd = new SqlCommand("SP_ModificarTipoUnidad1", conexion.conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             try
             {
@@ -88,6 +94,29 @@ namespace Restaurante.Clases
                 conexion.Abrir();
                 cmd.Parameters.Add(new SqlParameter("idTipoUnidad", SqlDbType.Int));
                 cmd.Parameters["idTipoUnidad"].Value = Id;
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Cerrar();
+            }
+        }
+        public void Eliminar1()
+        {
+            Clases.Conexión conexion = new Clases.Conexión();
+            SqlCommand cmd = new SqlCommand("SP_EliminarTipoUnidad", conexion.conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conexion.Abrir();
+                cmd.Parameters.Add(new SqlParameter("idTipoUnidad", SqlDbType.Int));
+                cmd.Parameters["idTipoUnidad"].Value = Id;
+                cmd.Parameters.Add(new SqlParameter("estado", SqlDbType.Int));
+                cmd.Parameters["estado"].Value = Estado;
                 cmd.ExecuteNonQuery();
             }
             catch (SqlException ex)
