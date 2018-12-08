@@ -84,7 +84,6 @@
             this.btnCancelarCuenta.TabIndex = 4;
             this.btnCancelarCuenta.Text = "Cancelar Cuenta";
             this.btnCancelarCuenta.UseVisualStyleBackColor = true;
-            this.btnCancelarCuenta.Click += new System.EventHandler(this.btnCancelarCuenta_Click);
             // 
             // btnSalidasCaja
             // 
@@ -94,7 +93,6 @@
             this.btnSalidasCaja.TabIndex = 3;
             this.btnSalidasCaja.Text = "Salidas de Caja";
             this.btnSalidasCaja.UseVisualStyleBackColor = true;
-            this.btnSalidasCaja.Click += new System.EventHandler(this.btnSalidasCaja_Click);
             // 
             // btnPagos
             // 
