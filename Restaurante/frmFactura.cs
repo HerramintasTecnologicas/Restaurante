@@ -96,10 +96,15 @@ namespace Restaurante
              total1 = suma + impuesto;
             txtTotal.Text = Convert.ToString(total1); 
         }
+        public static int IdUsuario;
+        public static int Idapertura = Clases.VariablesGlobales.idapertura;
         private void Id() {
             Clases.Pedidos pedidos = new Clases.Pedidos();
             pedidos.ObtenerPedido2(id2,2);
             CargarCMBPedido(pedidos.IdPedido,id2);
+            Clases.Usuarios usuarios = new Clases.Usuarios();
+            usuarios.ObtenerUsuario(Clases.VariablesGlobales.user);
+            IdUsuario = usuarios.id;
         }
 
 
@@ -197,7 +202,7 @@ namespace Restaurante
                 try
                 {
                     Clases.Factura factura = new Clases.Factura(
-                        idPedido, 1,
+                        idPedido, IdUsuario,
                        Convert.ToDecimal(txtSubTotal.Text),
                         Convert.ToDecimal(txtDescuento.Text),
                         Convert.ToDecimal(txtExento.Text),

@@ -22,5 +22,10 @@ namespace Restaurante
         {
             this.Close();
         }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

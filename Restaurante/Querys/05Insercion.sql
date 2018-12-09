@@ -53,9 +53,10 @@ INSERT INTO Acceso.Roles
 --SP_InsertarUsuario(nombre, apellido, usuario, clave, tipoArea)
 EXEC SP_InsertarUsuario 'eduardo','calix','nose', 1
 --Agregar Categorias 
-EXEC SP_AgregarCategoriaProducto 'Comidas'
+
 EXEC SP_AgregarCategoriaProducto 'Licores'
 EXEC SP_AgregarCategoriaProducto 'Bebidas'
+EXEC SP_AgregarCategoriaProducto 'Comidas'
 --Agregar Tipo productos
 EXEC SP_InsertarTipoProducto 'Elaborado'
 EXEC SP_InsertarTipoProducto 'Artificial'

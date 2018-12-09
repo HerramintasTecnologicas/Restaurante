@@ -178,8 +178,30 @@ ALTER TABLE Restaurante.Caja
 	ADD CONSTRAINT PK_Caja_id
 	PRIMARY KEY NONCLUSTERED (id)
 
-ALTER TABLE Restaurante.Caja
-	ADD CONSTRAINT FK_Caja$TieneUn$DetalleCaja
-		FOREIGN KEY (idDetalleCaja)
-		REFERENCES Restaurante.DetalleCaja (id)
+--ALTER TABLE Restaurante.Caja
+--	ADD CONSTRAINT FK_Caja$TieneUn$DetalleCaja
+--		FOREIGN KEY (idDetalleCaja)
+		--REFERENCES Restaurante.DetalleServicioPublico(id)
 
+ALTER TABLE	Restaurante.Caja
+	ADD CONSTRAINT FK_Restaurante_Caja_idFactura$TieneUn$Restaurante_Factura_id
+		FOREIGN KEY (id)
+			REFERENCES Restaurante.Facturas(idCaja)
+GO
+
+ALTER TABLE Restaurante.DetalleServicioPublico
+	ADD CONSTRAINT PK_DetalleServicioPublico_id
+	PRIMARY KEY NONCLUSTERED (id)
+
+ALTER TABLE Restaurante.ServicioPublico
+	ADD CONSTRAINT PK_ServicioPublico_id
+	PRIMARY KEY NONCLUSTERED (id)
+
+ALTER TABLE Restaurante.DetalleServicioPublico
+	ADD CONSTRAINT FK_DetalleServicioPublico$TieneUn$ServicioPublico
+	FOREIGN KEY (idServicioPublico)
+	REFERENCES Restaurante.ServicioPublico (id)
+
+ALTER TABLE Restaurante.OtrasSalidas
+	ADD CONSTRAINT PK_OtrasSalidas_id
+	PRIMARY KEY NONCLUSTERED (id)

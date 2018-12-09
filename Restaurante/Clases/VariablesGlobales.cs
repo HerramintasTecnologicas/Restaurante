@@ -13,6 +13,7 @@ namespace Restaurante.Clases
         //Estas variables estan funcionando. Si se eliminan, tener en cuenta el crearlas.
         public static int controlPagoSalida;
         public static string user;
+        public static int idapertura;
 
         
     }

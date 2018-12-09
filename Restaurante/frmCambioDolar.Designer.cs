@@ -117,6 +117,7 @@
             this.btnCalcular.TabIndex = 59;
             this.btnCalcular.Text = "Calcular";
             this.btnCalcular.UseVisualStyleBackColor = false;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
             // frmCambioDolar
             // 

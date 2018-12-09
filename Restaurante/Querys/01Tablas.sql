@@ -149,14 +149,14 @@ ELSE
 			idCaja INT NOT NULL,
 			idPedido INT NOT NULL,
 			idUsuario INT NOT NULL,
-			tipoPago INT NOT NULL,
-			subTotal DECIMAL (8,2),
 			descuento DECIMAL(6,2),
 			exento DECIMAL(6,2),
 			iva15 DECIMAL(6,2),
 			iva18 DECIMAL(6,2),
 			total DECIMAL (8,2)NOT NULL,
-			estado INT DEFAULT 1
+			estado INT DEFAULT 1,
+			tipoPago INT NOT NULL,
+			subTotal DECIMAL (8,2)
 		);
 	END
 GO
@@ -341,6 +341,18 @@ ELSE
 			Monto NVARCHAR(200) NOT NULL,
 			Fecha DATETIME NOT NULL,
 			Usuario NVARCHAR(20) NOT NULL
+		)
+	END
+GO
+
+IF OBJECT_ID('Restaurante.DetalleCaja')	IS NOT NULL
+	DROP TABLE Restaurante.DetalleCaja
+ELSE
+	BEGIN
+		CREATE TABLE Restaurante.DetalleCaja
+		(
+			id int IDENTITY(1,1) NOT NULL,
+			Descripcion varchar(20) NOT NULL
 		)
 	END
 GO

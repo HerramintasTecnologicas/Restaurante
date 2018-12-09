@@ -22,7 +22,7 @@ namespace Restaurante.Clases
         public Conexión()
         {
             //Cambiar la instancia del servidor local de SQL Server.
-            this.con = new SqlConnection(@"server = (local)\chrisfiallos;
+            this.con = new SqlConnection(@"server = (local)\CALIX;
             integrated security = true; database = DBRestauranteMarias; ");
             //this.con = new SqlConnection("data source=192.168.0.254,1433; initial catalog=DBRestauranteMarias; user id=Restaurante; password=abc123;");
 

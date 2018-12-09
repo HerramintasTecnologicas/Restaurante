@@ -198,7 +198,7 @@ namespace Restaurante.Clases
             {
                 SqlDataAdapter da = new SqlDataAdapter();
                 da.SelectCommand = new SqlCommand(sql, conexión.conexion);
-                DataSet ds = new DataSet();
+                System.Data.DataSet ds = new System.Data.DataSet();
                 da.Fill(ds, "Restaurante.Caja");
                 DataTable dt = ds.Tables["Restaurante.Caja"];
                 DataView dv = new DataView(dt, "", "Descripcion", DataViewRowState.Unchanged);

@@ -1138,42 +1138,42 @@ END
 GO
 -- Modulo caja
 -- INSERTAR datos en la APERTURA de CAJA
-CREATE PROCEDURE SP_Agregar_AperturaCaja
-(
-	@Apertura decimal(18,0),
-	@idDetalleCaja int
-)
-AS
-BEGIN
-	INSERT INTO Restaurante.Caja (apertura, idDetalleCaja, fecha)
-		VALUES (@Apertura, @idDetalleCaja, GETDATE())
-END
-GO
+--CREATE PROCEDURE SP_Agregar_AperturaCaja
+--(
+--	@Apertura decimal(18,0),
+--	@idDetalleCaja int
+--)
+--AS
+--BEGIN
+--	INSERT INTO Restaurante.Caja (apertura, idDetalleCaja, fecha)
+--		VALUES (@Apertura, @idDetalleCaja, GETDATE())
+--END
+--GO
 
--- INSERTAR datos en el CIERRE de CAJA
-CREATE PROCEDURE SP_Agregar_CierreCaja
-(
-	@Cierre decimal(18,0),
-	@idDetalleCaja int,
-	@Dolares decimal(18,0),
-	@POS decimal(18,0),
-	@Fiveh int,
-	@Hundred int,
-	@Fifty int,
-	@Twenty int,
-	@Ten int,
-	@Five int,
-	@Two int,
-	@One int
-)
-AS
-BEGIN
-	INSERT INTO Restaurante.Caja (cierre, dolares, POS, quinientos, cien, cincuenta,
-								  veinte, diez, cinco, dos, uno, fecha, idDetalleCaja)
-		VALUES (@Cierre, @Dolares, @POS, @Fiveh, @Hundred, @Fifty, @Twenty, @Ten, 
-				@Five, @Two, @One, GETDATE(), @idDetalleCaja)
-END
-GO
+---- INSERTAR datos en el CIERRE de CAJA
+--CREATE PROCEDURE SP_Agregar_CierreCaja
+--(
+--	@Cierre decimal(18,0),
+--	@idDetalleCaja int,
+--	@Dolares decimal(18,0),
+--	@POS decimal(18,0),
+--	@Fiveh int,
+--	@Hundred int,
+--	@Fifty int,
+--	@Twenty int,
+--	@Ten int,
+--	@Five int,
+--	@Two int,
+--	@One int
+--)
+--AS
+--BEGIN
+--	INSERT INTO Restaurante.Caja (cierre, dolares, POS, quinientos, cien, cincuenta,
+--								  veinte, diez, cinco, dos, uno, fecha, idDetalleCaja)
+--		VALUES (@Cierre, @Dolares, @POS, @Fiveh, @Hundred, @Fifty, @Twenty, @Ten, 
+--				@Five, @Two, @One, GETDATE(), @idDetalleCaja)
+--END
+--GO
 ---------------------------------------------------------
 --Modulo Tipo de Producto
 CREATE PROCEDURE SP_InsertarTipoProducto
@@ -1385,7 +1385,7 @@ GO
 */
 
 --Insertar Apertura de Caja
-ALTER PROCEDURE SP_Agregar_AperturaCaja
+CREATE PROCEDURE SP_Agregar_AperturaCaja
 (
 	@Apertura decimal(18,0),
 	@Dolares int,
@@ -1406,79 +1406,81 @@ BEGIN
 		VALUES (@Apertura, @Dolares, 0, @Fiveh, @Hundred, @Fifty, @Twenty, @Ten, 
 				@Five, @Two, @One, GETDATE(), 1, @User)
 END
+GO
 
 --Insertar Cierre de Caja
 -- OJO!!!! Este SP esta funcional. Hay que agregarlo a la Base de Datos. Lo comente porque aqui da un error y para
 -- que no lo de, lo comente. Si se omite este, no se podra hacer el cierre de caja.
---CREATE PROCEDURE SP_Agregar_CierreCaja
---(
---	@Cierre decimal(18,0),
---	@Dolares decimal(18,0),
---	@POS decimal(18,0),
---	@Fiveh int,
---	@Hundred int,
---	@Fifty int,
---	@Twenty int,
---	@Ten int,
---	@Five int,
---	@Two int,
---	@One int,
---	@User NVARCHAR(20)
---)
---AS
---BEGIN
---	INSERT INTO Restaurante.Caja (monto, dolares, POS, quinientos, cien, cincuenta,
---								  veinte, diez, cinco, dos, uno, idDetalleCaja, fecha, Usuario)
---		VALUES (@Cierre, @Dolares, @POS, @Fiveh, @Hundred, @Fifty, @Twenty, @Ten, 
---				@Five, @Two, @One, 2, GETDATE(), @User)
---END
-
+CREATE PROCEDURE SP_AgregarCierreCaja
+(
+	@Cierre decimal(18,0),
+	@Dolares decimal(18,0),
+	@POS decimal(18,0),
+	@Fiveh int,
+	@Hundred int,
+	@Fifty int,
+	@Twenty int,
+	@Ten int,
+	@Five int,
+	@Two int,
+	@One int,
+	@User NVARCHAR(20)
+)
+AS
+BEGIN
+	INSERT INTO Restaurante.Caja (monto, dolares, POS, quinientos, cien, cincuenta,
+								  veinte, diez, cinco, dos, uno, idDetalleCaja, fecha, Usuario)
+		VALUES (@Cierre, @Dolares, @POS, @Fiveh, @Hundred, @Fifty, @Twenty, @Ten, 
+				@Five, @Two, @One, 2, GETDATE(), @User)
+END
+GO
 
 --Insertar Pago de Servicio Publico
 -- OJO!!!! Este SP esta funcional. Hay que agregarlo a la Base de Datos. Lo comente porque aqui da un error y para
 -- que no lo de, lo comente. Si se omite este, no se podra hacer el cierre de caja.
---CREATE PROCEDURE SP_InsertarPago_ServicioPublico
---(
---	@ServicioPublico nvarchar(50),
---	@Monto decimal(18,0),
---	@Usuario nvarchar(20)
---)
---AS
---BEGIN
---	DECLARE @id int
---	SET @id = (SELECT id
---	FROM Restaurante.ServicioPublico
---	WHERE Descripcion = @ServicioPublico)
+CREATE PROCEDURE SP_InsertarPago_ServicioPublico
+(
+	@ServicioPublico nvarchar(50),
+	@Monto decimal(18,0),
+	@Usuario nvarchar(20)
+)
+AS
+BEGIN
+	DECLARE @id int
+	SET @id = (SELECT id
+	FROM Restaurante.ServicioPublico
+	WHERE Descripcion = @ServicioPublico)
 
---	INSERT INTO Restaurante.DetalleServicioPublico(idServicioPublico, Monto, fecha, Usuario)
---		VALUES (@id, @Monto, GETDATE(), @Usuario)
---END
-
+	INSERT INTO Restaurante.DetalleServicioPublico(idServicioPublico, Monto, fecha, Usuario)
+		VALUES (@id, @Monto, GETDATE(), @Usuario)
+END
+GO
 --Insertar Salidas Varias
 -- OJO!!!! Este SP esta funcional. Hay que agregarlo a la Base de Datos. Lo comente porque aqui da un error y para
 -- que no lo de, lo comente. Si se omite este, no se podra hacer el cierre de caja.
---CREATE PROCEDURE SP_InsertarPago_OtrasSalidas
---(
---	@Descripcion nvarchar(200),
---	@Monto decimal(18,0),
---	@Usuario nvarchar(20)
---)
---AS
---BEGIN
---	INSERT INTO Restaurante.OtrasSalidas(Descripcion, Monto, fecha, Usuario)
---		VALUES (@Descripcion, @Monto, GETDATE(), @Usuario)
---END
-
+CREATE PROCEDURE SP_InsertarPago_OtrasSalidas
+(
+	@Descripcion nvarchar(200),
+	@Monto decimal(18,0),
+	@Usuario nvarchar(20)
+)
+AS
+BEGIN
+	INSERT INTO Restaurante.OtrasSalidas(Descripcion, Monto, fecha, Usuario)
+		VALUES (@Descripcion, @Monto, GETDATE(), @Usuario)
+END
+GO
 
 --Insertar Servicios Publicos
 -- OJO!!!! Este SP esta funcional. Hay que agregarlo a la Base de Datos. Lo comente porque aqui da un error y para
 -- que no lo de, lo comente. Si se omite este, no se podra hacer el cierre de caja.
---CREATE PROCEDURE SP_Agregar_ServicioPublico
---(
---	@Descripcion NVARCHAR (30)
---)
---AS
---BEGIN
---	INSERT INTO Restaurante.ServicioPublico (Descripcion)
---		VALUES (@Descripcion)
---END
+CREATE PROCEDURE SP_Agregar_ServicioPublico
+(
+	@Descripcion NVARCHAR (30)
+)
+AS
+BEGIN
+	INSERT INTO Restaurante.ServicioPublico (Descripcion)
+		VALUES (@Descripcion)
+END
+GO

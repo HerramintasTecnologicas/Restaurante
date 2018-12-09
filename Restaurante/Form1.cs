@@ -58,7 +58,7 @@ namespace Restaurante
                         MessageBox.Show("Bienvenido");
                         /* MenuPrincipal menuPrincipal = new MenuPrincipal();
                          menuPrincipal.rol = 1;*/
-                        frmTransaccionesCaja menu = new frmTransaccionesCaja();
+                        frmMenuNuevo menu = new frmMenuNuevo();
 
                         this.Hide();
                         menu.ShowDialog();

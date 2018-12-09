@@ -146,7 +146,7 @@ namespace Restaurante
 
         private void LimpiarFormulario()
         {
-            cbTipoPagoSalida.TabIndex = -1;
+            cbTipoPagoSalida.SelectedValue = "";
             txtMontoPagoSalida.Text = "";
             txtDescripcionPagosSalidas.Text = "";
         }
