@@ -204,7 +204,7 @@ namespace Restaurante
                 try
                 {
                     Clases.Factura factura = new Clases.Factura(
-                        idPedido, caja, IdUsuario,
+                        idPedido, caja, 1,
                         Convert.ToDecimal(txtDescuento.Text),
                         Convert.ToDecimal(txtExento.Text),
                        Convert.ToDecimal(txt15.Text),

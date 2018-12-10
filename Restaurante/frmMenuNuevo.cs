@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -129,8 +131,7 @@ namespace Restaurante
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
-            Restaurante.Reportes.Reportes reporte = new Reportes.Reportes();
-            reporte.Show();
+            
         }
 
         private void toolStripMenuItem10_Click(object sender, EventArgs e)
@@ -143,6 +144,13 @@ namespace Restaurante
         {
             Restaurante.Reportes.reportecaja reportecaja = new Reportes.reportecaja();
             reportecaja.ShowDialog();
+        }
+
+        private void Ayuda_Click(object sender, EventArgs e)
+        {
+            string pdfPath = Path.Combine(Application.StartupPath, @"Fotos2\Las_Marias3.pdf");
+
+            Process.Start(pdfPath);
         }
     }
 }

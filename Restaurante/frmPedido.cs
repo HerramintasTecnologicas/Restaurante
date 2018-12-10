@@ -290,8 +290,8 @@ namespace Restaurante
                            Convert.ToDecimal(dgvPedido.Rows[i].Cells["PrecioI"].Value.ToString())
                          );
                         detalle.Agregar();
-                        Reportes.Reportes reportes = new Reportes.Reportes();
-                        reportes.Show();
+                        Restaurante.Reportes.MostrarReporteComanda reporte = new Reportes.MostrarReporteComanda();
+                        reporte.Show();
                         // MessageBox.Show("Agregado");
                     }
                     catch (Exception ex)

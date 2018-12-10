@@ -322,7 +322,7 @@
             this.Meseros.BackColor = System.Drawing.SystemColors.Menu;
             this.Meseros.Image = global::Restaurante.Properties.Resources.descarga__2_;
             this.Meseros.Name = "Meseros";
-            this.Meseros.Size = new System.Drawing.Size(205, 36);
+            this.Meseros.Size = new System.Drawing.Size(191, 22);
             this.Meseros.Text = "Meseros";
             this.Meseros.Click += new System.EventHandler(this.Meseros_Click);
             // 
@@ -339,7 +339,7 @@
             // 
             this.Papelera.Image = global::Restaurante.Properties.Resources.images_1_;
             this.Papelera.Name = "Papelera";
-            this.Papelera.Size = new System.Drawing.Size(205, 36);
+            this.Papelera.Size = new System.Drawing.Size(191, 22);
             this.Papelera.Text = "Papelera de Reciclaje";
             this.Papelera.Click += new System.EventHandler(this.Papelera_Click);
             // 
@@ -357,6 +357,7 @@
             this.Ayuda.Name = "Ayuda";
             this.Ayuda.Size = new System.Drawing.Size(89, 39);
             this.Ayuda.Text = "Ayuda";
+            this.Ayuda.Click += new System.EventHandler(this.Ayuda_Click);
             // 
             // CerrarSesión
             // 
@@ -372,9 +373,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-19, 698);
+            this.pictureBox1.Location = new System.Drawing.Point(-14, 701);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1441, 86);
+            this.pictureBox1.Size = new System.Drawing.Size(1442, 86);
             this.pictureBox1.TabIndex = 70;
             this.pictureBox1.TabStop = false;
             // 

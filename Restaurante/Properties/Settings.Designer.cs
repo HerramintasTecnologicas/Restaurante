@@ -44,5 +44,15 @@ namespace Restaurante.Properties {
                 return ((string)(this["DBRestauranteMariasConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=DBRestauranteMarias;Integrated Security=True")]
+        public string DBRestauranteMariasConnectionString2 {
+            get {
+                return ((string)(this["DBRestauranteMariasConnectionString2"]));
+            }
+        }
     }
 }

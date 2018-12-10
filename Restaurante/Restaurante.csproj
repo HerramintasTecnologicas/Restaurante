@@ -99,10 +99,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\DataSetComanda.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetComanda.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet\Inventario.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Inventario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBRestauranteMariasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBRestauranteMariasDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DBRestauranteMariasDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -237,11 +247,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\Informe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Informe.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\Inventario.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\Inventario.Designer.cs">
       <DependentUpon>Inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\MostrarReporteComanda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\MostrarReporteComanda.Designer.cs">
+      <DependentUpon>MostrarReporteComanda.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\reportecaja.cs">
       <SubType>Form</SubType>
@@ -331,11 +352,15 @@
     <EmbeddedResource Include="Reportes\Inventario.resx">
       <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\MostrarReporteComanda.resx">
+      <DependentUpon>MostrarReporteComanda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Report1.rdlc" />
     <EmbeddedResource Include="Reportes\Report2.rdlc" />
     <EmbeddedResource Include="Reportes\reportecaja.resx">
       <DependentUpon>reportecaja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteComanda.rdlc" />
     <EmbeddedResource Include="Reportes\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
@@ -350,6 +375,17 @@
     <None Include="DataSet\DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="DataSet\DataSetComanda.xsc">
+      <DependentUpon>DataSetComanda.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\DataSetComanda.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetComanda.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\DataSetComanda.xss">
+      <DependentUpon>DataSetComanda.xsd</DependentUpon>
+    </None>
     <None Include="DataSet\Inventario.xsc">
       <DependentUpon>Inventario.xsd</DependentUpon>
     </None>
@@ -360,6 +396,17 @@
     </None>
     <None Include="DataSet\Inventario.xss">
       <DependentUpon>Inventario.xsd</DependentUpon>
+    </None>
+    <None Include="DBRestauranteMariasDataSet.xsc">
+      <DependentUpon>DBRestauranteMariasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBRestauranteMariasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBRestauranteMariasDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBRestauranteMariasDataSet.xss">
+      <DependentUpon>DBRestauranteMariasDataSet.xsd</DependentUpon>
     </None>
     <None Include="DBRestauranteMariasDataSet1.xsc">
       <DependentUpon>DBRestauranteMariasDataSet1.xsd</DependentUpon>
@@ -387,6 +434,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reportes\Informe.xsc">
+      <DependentUpon>Informe.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\Informe.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Informe.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\Informe.xss">
+      <DependentUpon>Informe.xsd</DependentUpon>
+    </None>
     <None Include="Resources\logo.jpg" />
   </ItemGroup>
   <ItemGroup>
