@@ -204,14 +204,14 @@ namespace Restaurante
                 try
                 {
                     Clases.Factura factura = new Clases.Factura(
-                        idPedido, IdUsuario,
-                       Convert.ToDecimal(txtSubTotal.Text),
+                        idPedido, caja, IdUsuario,
                         Convert.ToDecimal(txtDescuento.Text),
                         Convert.ToDecimal(txtExento.Text),
                        Convert.ToDecimal(txt15.Text),
                         Convert.ToDecimal(txt18.Text),
                        Convert.ToDecimal(txtTotal.Text),
-                       caja, tipo);
+                        tipo,
+                       Convert.ToDecimal(txtSubTotal.Text));
 
                     factura.Agregar();
                     dgvPedido.Rows.RemoveAt(idgrid);

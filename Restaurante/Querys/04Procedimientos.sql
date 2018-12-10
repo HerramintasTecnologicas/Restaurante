@@ -824,8 +824,7 @@ BEGIN
 			(
 			    idPedido,
 				idCaja,
-			    idUsuario,
-			    
+			    idUsuario,			    
 			    descuento,
 			    exento,
 			    iva15,
