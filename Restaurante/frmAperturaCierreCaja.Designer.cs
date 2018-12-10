@@ -541,6 +541,7 @@
             this.tcAperturaCierreCaja.SelectedIndex = 0;
             this.tcAperturaCierreCaja.Size = new System.Drawing.Size(721, 338);
             this.tcAperturaCierreCaja.TabIndex = 52;
+            this.tcAperturaCierreCaja.SelectedIndexChanged += new System.EventHandler(this.tcAperturaCierreCaja_SelectedIndexChanged);
             // 
             // tpAperturaCaja
             // 
@@ -554,6 +555,7 @@
             this.tpAperturaCaja.TabIndex = 0;
             this.tpAperturaCaja.Text = "Apertura de Caja";
             this.tpAperturaCaja.UseVisualStyleBackColor = true;
+            this.tpAperturaCaja.Click += new System.EventHandler(this.tpAperturaCaja_Click);
             // 
             // gbBotonesApertura
             // 
@@ -628,6 +630,7 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(86, 26);
             this.txtTotal.TabIndex = 36;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblTotalAperturaCaja
             // 
@@ -646,6 +649,7 @@
             this.txtDolares.Size = new System.Drawing.Size(86, 20);
             this.txtDolares.TabIndex = 34;
             this.txtDolares.Text = "0";
+            this.txtDolares.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDolares.TextChanged += new System.EventHandler(this.txtDolares_TextChanged);
             this.txtDolares.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDolares_KeyPress);
             // 
@@ -665,6 +669,7 @@
             this.txtL20.Size = new System.Drawing.Size(86, 20);
             this.txtL20.TabIndex = 32;
             this.txtL20.Text = "0";
+            this.txtL20.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtL20.TextChanged += new System.EventHandler(this.txtL20_TextChanged);
             this.txtL20.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtL20_KeyPress);
             // 
@@ -675,6 +680,7 @@
             this.txtL50.Size = new System.Drawing.Size(86, 20);
             this.txtL50.TabIndex = 31;
             this.txtL50.Text = "0";
+            this.txtL50.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtL50.TextChanged += new System.EventHandler(this.txtL50_TextChanged);
             this.txtL50.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtL50_KeyPress);
             // 
@@ -685,6 +691,7 @@
             this.txtL1.Size = new System.Drawing.Size(86, 20);
             this.txtL1.TabIndex = 30;
             this.txtL1.Text = "0";
+            this.txtL1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtL1.TextChanged += new System.EventHandler(this.txtL1_TextChanged);
             this.txtL1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtL1_KeyPress);
             // 
@@ -695,6 +702,7 @@
             this.txtL2.Size = new System.Drawing.Size(86, 20);
             this.txtL2.TabIndex = 29;
             this.txtL2.Text = "0";
+            this.txtL2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtL2.TextChanged += new System.EventHandler(this.txtL2_TextChanged);
             this.txtL2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtL2_KeyPress);
             // 
@@ -705,6 +713,7 @@
             this.txtL5.Size = new System.Drawing.Size(86, 20);
             this.txtL5.TabIndex = 28;
             this.txtL5.Text = "0";
+            this.txtL5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtL5.TextChanged += new System.EventHandler(this.txtL5_TextChanged);
             this.txtL5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtL5_KeyPress);
             // 
@@ -715,6 +724,7 @@
             this.txtL10.Size = new System.Drawing.Size(86, 20);
             this.txtL10.TabIndex = 27;
             this.txtL10.Text = "0";
+            this.txtL10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtL10.TextChanged += new System.EventHandler(this.txtL10_TextChanged);
             this.txtL10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtL10_KeyPress);
             // 
@@ -725,6 +735,7 @@
             this.txtL100.Size = new System.Drawing.Size(86, 20);
             this.txtL100.TabIndex = 26;
             this.txtL100.Text = "0";
+            this.txtL100.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtL100.TextChanged += new System.EventHandler(this.txtL100_TextChanged);
             this.txtL100.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtL100_KeyPress);
             // 
@@ -735,6 +746,7 @@
             this.txtL500.Size = new System.Drawing.Size(86, 20);
             this.txtL500.TabIndex = 25;
             this.txtL500.Text = "0";
+            this.txtL500.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtL500.TextChanged += new System.EventHandler(this.txtL500_TextChanged);
             this.txtL500.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtL500_KeyPress);
             // 
@@ -872,6 +884,8 @@
             this.txtSaldoTotalAperturaCaja.Name = "txtSaldoTotalAperturaCaja";
             this.txtSaldoTotalAperturaCaja.Size = new System.Drawing.Size(160, 20);
             this.txtSaldoTotalAperturaCaja.TabIndex = 55;
+            this.txtSaldoTotalAperturaCaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSaldoTotalAperturaCaja.TextChanged += new System.EventHandler(this.txtSaldoTotalAperturaCaja_TextChanged);
             // 
             // lblUsuarioAperturaCaja
             // 
@@ -900,6 +914,7 @@
             this.txtSaldoInicialAperturaCaja.Name = "txtSaldoInicialAperturaCaja";
             this.txtSaldoInicialAperturaCaja.Size = new System.Drawing.Size(160, 20);
             this.txtSaldoInicialAperturaCaja.TabIndex = 57;
+            this.txtSaldoInicialAperturaCaja.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tpCierreCaja
             // 

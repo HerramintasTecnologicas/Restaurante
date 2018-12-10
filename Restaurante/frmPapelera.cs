@@ -640,5 +640,10 @@ namespace Restaurante
                 }
             }
         }
+
+        private void frmPapelera_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

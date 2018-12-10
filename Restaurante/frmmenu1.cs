@@ -84,7 +84,7 @@ namespace Restaurante
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Color1 = 0;
+            //Color1 = 0;
         
         DialogResult = DialogResult.OK;
             this.Close();

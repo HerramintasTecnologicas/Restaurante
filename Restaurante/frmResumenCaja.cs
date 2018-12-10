@@ -97,7 +97,7 @@ namespace Restaurante
 
         private void btnFiltrarAperturasCierres_Click(object sender, EventArgs e)
         {
-
+            CargarDGWResumenCaja();
         }
     }
 }

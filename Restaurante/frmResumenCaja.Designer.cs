@@ -33,6 +33,7 @@
             this.gvResumenCaja = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gbResuemnCaja = new System.Windows.Forms.GroupBox();
+            this.btnFiltrarAperturasCierres = new System.Windows.Forms.Button();
             this.btnSalidasVarias = new System.Windows.Forms.Button();
             this.cbServiciosPublicos = new System.Windows.Forms.ComboBox();
             this.lblServicioPublicoResumenCaja = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.lblTituloResumenCaja = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnFiltrarAperturasCierres = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvResumenCaja)).BeginInit();
             this.gbResuemnCaja.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -70,14 +70,27 @@
             this.gbResuemnCaja.TabIndex = 4;
             this.gbResuemnCaja.TabStop = false;
             // 
+            // btnFiltrarAperturasCierres
+            // 
+            this.btnFiltrarAperturasCierres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
+            this.btnFiltrarAperturasCierres.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFiltrarAperturasCierres.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btnFiltrarAperturasCierres.Location = new System.Drawing.Point(56, 147);
+            this.btnFiltrarAperturasCierres.Name = "btnFiltrarAperturasCierres";
+            this.btnFiltrarAperturasCierres.Size = new System.Drawing.Size(168, 48);
+            this.btnFiltrarAperturasCierres.TabIndex = 57;
+            this.btnFiltrarAperturasCierres.Text = "Aperturas y Cierres";
+            this.btnFiltrarAperturasCierres.UseVisualStyleBackColor = false;
+            this.btnFiltrarAperturasCierres.Click += new System.EventHandler(this.btnFiltrarAperturasCierres_Click);
+            // 
             // btnSalidasVarias
             // 
             this.btnSalidasVarias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnSalidasVarias.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalidasVarias.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSalidasVarias.Location = new System.Drawing.Point(82, 137);
+            this.btnSalidasVarias.Location = new System.Drawing.Point(56, 63);
             this.btnSalidasVarias.Name = "btnSalidasVarias";
-            this.btnSalidasVarias.Size = new System.Drawing.Size(106, 25);
+            this.btnSalidasVarias.Size = new System.Drawing.Size(168, 68);
             this.btnSalidasVarias.TabIndex = 56;
             this.btnSalidasVarias.Text = "Salidas Varias";
             this.btnSalidasVarias.UseVisualStyleBackColor = false;
@@ -86,29 +99,31 @@
             // cbServiciosPublicos
             // 
             this.cbServiciosPublicos.FormattingEnabled = true;
-            this.cbServiciosPublicos.Location = new System.Drawing.Point(80, 82);
+            this.cbServiciosPublicos.Location = new System.Drawing.Point(82, 301);
             this.cbServiciosPublicos.Name = "cbServiciosPublicos";
             this.cbServiciosPublicos.Size = new System.Drawing.Size(189, 21);
             this.cbServiciosPublicos.TabIndex = 55;
+            this.cbServiciosPublicos.Visible = false;
             // 
             // lblServicioPublicoResumenCaja
             // 
             this.lblServicioPublicoResumenCaja.AutoSize = true;
             this.lblServicioPublicoResumenCaja.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServicioPublicoResumenCaja.Location = new System.Drawing.Point(17, 82);
+            this.lblServicioPublicoResumenCaja.Location = new System.Drawing.Point(19, 301);
             this.lblServicioPublicoResumenCaja.Name = "lblServicioPublicoResumenCaja";
             this.lblServicioPublicoResumenCaja.Size = new System.Drawing.Size(57, 32);
             this.lblServicioPublicoResumenCaja.TabIndex = 54;
             this.lblServicioPublicoResumenCaja.Text = "Servicio\r\nPublico";
+            this.lblServicioPublicoResumenCaja.Visible = false;
             // 
             // btnSalirAperturarCaja
             // 
             this.btnSalirAperturarCaja.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
             this.btnSalirAperturarCaja.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalirAperturarCaja.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnSalirAperturarCaja.Location = new System.Drawing.Point(96, 297);
+            this.btnSalirAperturarCaja.Location = new System.Drawing.Point(56, 220);
             this.btnSalirAperturarCaja.Name = "btnSalirAperturarCaja";
-            this.btnSalirAperturarCaja.Size = new System.Drawing.Size(75, 25);
+            this.btnSalirAperturarCaja.Size = new System.Drawing.Size(168, 39);
             this.btnSalirAperturarCaja.TabIndex = 53;
             this.btnSalirAperturarCaja.Text = "Salir";
             this.btnSalirAperturarCaja.UseVisualStyleBackColor = false;
@@ -153,19 +168,6 @@
             this.btnSalir.TabStop = false;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnFiltrarAperturasCierres
-            // 
-            this.btnFiltrarAperturasCierres.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(76)))), ((int)(((byte)(126)))));
-            this.btnFiltrarAperturasCierres.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFiltrarAperturasCierres.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnFiltrarAperturasCierres.Location = new System.Drawing.Point(80, 28);
-            this.btnFiltrarAperturasCierres.Name = "btnFiltrarAperturasCierres";
-            this.btnFiltrarAperturasCierres.Size = new System.Drawing.Size(106, 25);
-            this.btnFiltrarAperturasCierres.TabIndex = 57;
-            this.btnFiltrarAperturasCierres.Text = "Aperturas y Cierres";
-            this.btnFiltrarAperturasCierres.UseVisualStyleBackColor = false;
-            this.btnFiltrarAperturasCierres.Click += new System.EventHandler(this.btnFiltrarAperturasCierres_Click);
             // 
             // frmResumenCaja
             // 

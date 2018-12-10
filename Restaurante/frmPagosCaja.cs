@@ -72,7 +72,7 @@ namespace Restaurante
         {
             try
             {
-                if (frmAperturaCierreCaja.state == 0)
+                if (frmAperturaCierreCaja.state == 1)
                 {
                     MessageBox.Show("Para registrar un pago o salida de caja es necesario realizar la Apertura de Caja", "Error!");
                 }
@@ -112,8 +112,9 @@ namespace Restaurante
         /// <param name="e"></param>
         private void frmPagosCaja_Load(object sender, EventArgs e)
         {
+            frmAperturaCierreCaja.estado();
             txtUsuarioPagosSalidas.Text = Clases.VariablesGlobales.user;
-            if (frmAperturaCierreCaja.state == 0)
+            if (frmAperturaCierreCaja.state == 1)
             {
                 btnRegistrarPagoPagosSalidas.Enabled = false;
             }

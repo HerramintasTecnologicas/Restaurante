@@ -290,7 +290,9 @@ namespace Restaurante
                            Convert.ToDecimal(dgvPedido.Rows[i].Cells["PrecioI"].Value.ToString())
                          );
                         detalle.Agregar();
-                       // MessageBox.Show("Agregado");
+                        Reportes.Reportes reportes = new Reportes.Reportes();
+                        reportes.Show();
+                        // MessageBox.Show("Agregado");
                     }
                     catch (Exception ex)
                     {
@@ -334,6 +336,7 @@ namespace Restaurante
                 Detalle();
                 if (mesa1!=51)
                 {
+                    
                     DialogResult = DialogResult.OK;
                     this.Close();
                 }

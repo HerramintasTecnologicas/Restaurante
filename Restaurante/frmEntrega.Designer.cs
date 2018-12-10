@@ -66,6 +66,7 @@
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.Size = new System.Drawing.Size(215, 29);
             this.lblFecha.TabIndex = 96;
+            this.lblFecha.Click += new System.EventHandler(this.lblFecha_Click);
             // 
             // label1
             // 

@@ -980,6 +980,7 @@
             this.Name = "frmPapelera";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPapelera";
+            this.Load += new System.EventHandler(this.frmPapelera_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTodo)).EndInit();
             this.ventana.ResumeLayout(false);
             this.usuarios.ResumeLayout(false);

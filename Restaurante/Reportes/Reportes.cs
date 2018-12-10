@@ -19,6 +19,10 @@ namespace Restaurante.Reportes
 
         private void Reportes_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.Detalle' Puede moverla o quitarla según sea necesario.
+            this.detalleTableAdapter.Fill(this.dataSet1.Detalle);
+            // TODO: esta línea de código carga datos en la tabla 'dataSet1.pedido' Puede moverla o quitarla según sea necesario.
+            this.pedidoTableAdapter.Fill(this.dataSet1.pedido);
 
             this.reportViewer1.RefreshReport();
         }

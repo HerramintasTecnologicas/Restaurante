@@ -137,28 +137,28 @@
             // Apertura
             // 
             this.Apertura.Name = "Apertura";
-            this.Apertura.Size = new System.Drawing.Size(180, 22);
+            this.Apertura.Size = new System.Drawing.Size(168, 22);
             this.Apertura.Text = "Apertura de caja";
             this.Apertura.Click += new System.EventHandler(this.Apertura_Click);
             // 
             // Pagos
             // 
             this.Pagos.Name = "Pagos";
-            this.Pagos.Size = new System.Drawing.Size(180, 22);
+            this.Pagos.Size = new System.Drawing.Size(168, 22);
             this.Pagos.Text = "Pagos Caja";
             this.Pagos.Click += new System.EventHandler(this.Pagos_Click);
             // 
             // Resumen
             // 
             this.Resumen.Name = "Resumen";
-            this.Resumen.Size = new System.Drawing.Size(180, 22);
+            this.Resumen.Size = new System.Drawing.Size(168, 22);
             this.Resumen.Text = "Resumen Caja";
             this.Resumen.Click += new System.EventHandler(this.Resumen_Click);
             // 
             // Cambio
             // 
             this.Cambio.Name = "Cambio";
-            this.Cambio.Size = new System.Drawing.Size(180, 22);
+            this.Cambio.Size = new System.Drawing.Size(168, 22);
             this.Cambio.Text = "Cambio del Dolar";
             this.Cambio.Click += new System.EventHandler(this.Cambio_Click);
             // 
@@ -272,6 +272,7 @@
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
             this.toolStripMenuItem10.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem10.Text = "Inventario";
+            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
             // 
             // toolStripMenuItem11
             // 
@@ -286,6 +287,7 @@
             this.resumenMensualToolStripMenuItem.Name = "resumenMensualToolStripMenuItem";
             this.resumenMensualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.resumenMensualToolStripMenuItem.Text = "Resumen Mensual";
+            this.resumenMensualToolStripMenuItem.Click += new System.EventHandler(this.resumenMensualToolStripMenuItem_Click);
             // 
             // pagosRealizadosToolStripMenuItem
             // 
@@ -328,9 +330,8 @@
             // 
             this.Usuarios.BackColor = System.Drawing.SystemColors.Menu;
             this.Usuarios.Image = global::Restaurante.Properties.Resources.mod;
-            this.Usuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.Usuarios.Name = "Usuarios";
-            this.Usuarios.Size = new System.Drawing.Size(205, 36);
+            this.Usuarios.Size = new System.Drawing.Size(191, 22);
             this.Usuarios.Text = "Usuarios";
             this.Usuarios.Click += new System.EventHandler(this.Usuarios_Click);
             // 
@@ -371,9 +372,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-19, 688);
+            this.pictureBox1.Location = new System.Drawing.Point(-19, 698);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1320, 96);
+            this.pictureBox1.Size = new System.Drawing.Size(1441, 86);
             this.pictureBox1.TabIndex = 70;
             this.pictureBox1.TabStop = false;
             // 

@@ -91,10 +91,23 @@
     <Compile Include="Clases\TipoUnidad.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="Clases\VariablesGlobales.cs" />
-    <Compile Include="DataSet\Comanda.Designer.cs">
+    <Compile Include="DataSet\DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Comanda.xsd</DependentUpon>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\Inventario.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Inventario.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBRestauranteMariasDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBRestauranteMariasDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -224,6 +237,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\Inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Inventario.Designer.cs">
+      <DependentUpon>Inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\reportecaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\reportecaja.Designer.cs">
+      <DependentUpon>reportecaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\Reportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -303,19 +328,49 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reportes\Comanda.rdlc" />
+    <EmbeddedResource Include="Reportes\Inventario.resx">
+      <DependentUpon>Inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Report1.rdlc" />
+    <EmbeddedResource Include="Reportes\Report2.rdlc" />
+    <EmbeddedResource Include="Reportes\reportecaja.resx">
+      <DependentUpon>reportecaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet\Comanda.xsc">
-      <DependentUpon>Comanda.xsd</DependentUpon>
+    <None Include="DataSet\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
-    <None Include="DataSet\Comanda.xsd">
+    <None Include="DataSet\DataSet1.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Comanda.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DataSet\Comanda.xss">
-      <DependentUpon>Comanda.xsd</DependentUpon>
+    <None Include="DataSet\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\Inventario.xsc">
+      <DependentUpon>Inventario.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\Inventario.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Inventario.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\Inventario.xss">
+      <DependentUpon>Inventario.xsd</DependentUpon>
+    </None>
+    <None Include="DBRestauranteMariasDataSet1.xsc">
+      <DependentUpon>DBRestauranteMariasDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DBRestauranteMariasDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBRestauranteMariasDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBRestauranteMariasDataSet1.xss">
+      <DependentUpon>DBRestauranteMariasDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

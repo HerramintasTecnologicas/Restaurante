@@ -20,17 +20,17 @@ namespace Restaurante.DataSet {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Comanda")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Inventario")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Comanda : global::System.Data.DataSet {
+    public partial class Inventario : global::System.Data.DataSet {
         
-        private DataTable1DataTable tableDataTable1;
+        private CajaDataTable tableCaja;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public Comanda() {
+        public Inventario() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Restaurante.DataSet {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected Comanda(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Inventario(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace Restaurante.DataSet {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["DataTable1"] != null)) {
-                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
+                if ((ds.Tables["Caja"] != null)) {
+                    base.Tables.Add(new CajaDataTable(ds.Tables["Caja"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Restaurante.DataSet {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DataTable1DataTable DataTable1 {
+        public CajaDataTable Caja {
             get {
-                return this.tableDataTable1;
+                return this.tableCaja;
             }
         }
         
@@ -127,7 +127,7 @@ namespace Restaurante.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Comanda cln = ((Comanda)(base.Clone()));
+            Inventario cln = ((Inventario)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace Restaurante.DataSet {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["DataTable1"] != null)) {
-                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
+                if ((ds.Tables["Caja"] != null)) {
+                    base.Tables.Add(new CajaDataTable(ds.Tables["Caja"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Restaurante.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableDataTable1 = ((DataTable1DataTable)(base.Tables["DataTable1"]));
+            this.tableCaja = ((CajaDataTable)(base.Tables["Caja"]));
             if ((initTable == true)) {
-                if ((this.tableDataTable1 != null)) {
-                    this.tableDataTable1.InitVars();
+                if ((this.tableCaja != null)) {
+                    this.tableCaja.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace Restaurante.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Comanda";
+            this.DataSetName = "Inventario";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Comanda.xsd";
+            this.Namespace = "http://tempuri.org/Inventario.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableDataTable1 = new DataTable1DataTable();
-            base.Tables.Add(this.tableDataTable1);
+            this.tableCaja = new CajaDataTable();
+            base.Tables.Add(this.tableCaja);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeDataTable1() {
+        private bool ShouldSerializeCaja() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace Restaurante.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Comanda ds = new Comanda();
+            Inventario ds = new Inventario();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,35 +270,45 @@ namespace Restaurante.DataSet {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void DataTable1RowChangeEventHandler(object sender, DataTable1RowChangeEvent e);
+        public delegate void CajaRowChangeEventHandler(object sender, CajaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
+        public partial class CajaDataTable : global::System.Data.TypedTableBase<CajaRow> {
             
             private global::System.Data.DataColumn columnid;
             
-            private global::System.Data.DataColumn columnidMesa;
+            private global::System.Data.DataColumn columndolares;
             
-            private global::System.Data.DataColumn columnidMesero;
+            private global::System.Data.DataColumn columnPOS;
             
-            private global::System.Data.DataColumn columnFecha;
+            private global::System.Data.DataColumn columnquinientos;
             
-            private global::System.Data.DataColumn columncantidad;
+            private global::System.Data.DataColumn columncien;
             
-            private global::System.Data.DataColumn columnsubTotal;
+            private global::System.Data.DataColumn columncincuenta;
             
-            private global::System.Data.DataColumn columndescripcion;
+            private global::System.Data.DataColumn columnveinte;
             
-            private global::System.Data.DataColumn columnprecioVenta;
+            private global::System.Data.DataColumn columndiez;
+            
+            private global::System.Data.DataColumn columncinco;
+            
+            private global::System.Data.DataColumn columndos;
+            
+            private global::System.Data.DataColumn columnuno;
+            
+            private global::System.Data.DataColumn columnMonto;
+            
+            private global::System.Data.DataColumn columnfecha;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1DataTable() {
-                this.TableName = "DataTable1";
+            public CajaDataTable() {
+                this.TableName = "Caja";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -306,7 +316,7 @@ namespace Restaurante.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal DataTable1DataTable(global::System.Data.DataTable table) {
+            internal CajaDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -323,7 +333,7 @@ namespace Restaurante.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected DataTable1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected CajaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -338,57 +348,97 @@ namespace Restaurante.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn idMesaColumn {
+            public global::System.Data.DataColumn dolaresColumn {
                 get {
-                    return this.columnidMesa;
+                    return this.columndolares;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn idMeseroColumn {
+            public global::System.Data.DataColumn POSColumn {
                 get {
-                    return this.columnidMesero;
+                    return this.columnPOS;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn FechaColumn {
+            public global::System.Data.DataColumn quinientosColumn {
                 get {
-                    return this.columnFecha;
+                    return this.columnquinientos;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn cantidadColumn {
+            public global::System.Data.DataColumn cienColumn {
                 get {
-                    return this.columncantidad;
+                    return this.columncien;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn subTotalColumn {
+            public global::System.Data.DataColumn cincuentaColumn {
                 get {
-                    return this.columnsubTotal;
+                    return this.columncincuenta;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn descripcionColumn {
+            public global::System.Data.DataColumn veinteColumn {
                 get {
-                    return this.columndescripcion;
+                    return this.columnveinte;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn precioVentaColumn {
+            public global::System.Data.DataColumn diezColumn {
                 get {
-                    return this.columnprecioVenta;
+                    return this.columndiez;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn cincoColumn {
+                get {
+                    return this.columncinco;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn dosColumn {
+                get {
+                    return this.columndos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn unoColumn {
+                get {
+                    return this.columnuno;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn MontoColumn {
+                get {
+                    return this.columnMonto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn fechaColumn {
+                get {
+                    return this.columnfecha;
                 }
             }
             
@@ -403,59 +453,64 @@ namespace Restaurante.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row this[int index] {
+            public CajaRow this[int index] {
                 get {
-                    return ((DataTable1Row)(this.Rows[index]));
+                    return ((CajaRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowChanging;
+            public event CajaRowChangeEventHandler CajaRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowChanged;
+            public event CajaRowChangeEventHandler CajaRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowDeleting;
+            public event CajaRowChangeEventHandler CajaRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowDeleted;
+            public event CajaRowChangeEventHandler CajaRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddDataTable1Row(DataTable1Row row) {
+            public void AddCajaRow(CajaRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row AddDataTable1Row(int idMesa, int idMesero, string Fecha, int cantidad, decimal subTotal, string descripcion, decimal precioVenta) {
-                DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
+            public CajaRow AddCajaRow(decimal dolares, decimal POS, int quinientos, int cien, int cincuenta, int veinte, int diez, int cinco, int dos, int uno, decimal Monto, System.DateTime fecha) {
+                CajaRow rowCajaRow = ((CajaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        idMesa,
-                        idMesero,
-                        Fecha,
-                        cantidad,
-                        subTotal,
-                        descripcion,
-                        precioVenta};
-                rowDataTable1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDataTable1Row);
-                return rowDataTable1Row;
+                        dolares,
+                        POS,
+                        quinientos,
+                        cien,
+                        cincuenta,
+                        veinte,
+                        diez,
+                        cinco,
+                        dos,
+                        uno,
+                        Monto,
+                        fecha};
+                rowCajaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCajaRow);
+                return rowCajaRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row FindByid(int id) {
-                return ((DataTable1Row)(this.Rows.Find(new object[] {
+            public CajaRow FindByid(int id) {
+                return ((CajaRow)(this.Rows.Find(new object[] {
                             id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                DataTable1DataTable cln = ((DataTable1DataTable)(base.Clone()));
+                CajaDataTable cln = ((CajaDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -463,20 +518,25 @@ namespace Restaurante.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new DataTable1DataTable();
+                return new CajaDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnid = base.Columns["id"];
-                this.columnidMesa = base.Columns["idMesa"];
-                this.columnidMesero = base.Columns["idMesero"];
-                this.columnFecha = base.Columns["Fecha"];
-                this.columncantidad = base.Columns["cantidad"];
-                this.columnsubTotal = base.Columns["subTotal"];
-                this.columndescripcion = base.Columns["descripcion"];
-                this.columnprecioVenta = base.Columns["precioVenta"];
+                this.columndolares = base.Columns["dolares"];
+                this.columnPOS = base.Columns["POS"];
+                this.columnquinientos = base.Columns["quinientos"];
+                this.columncien = base.Columns["cien"];
+                this.columncincuenta = base.Columns["cincuenta"];
+                this.columnveinte = base.Columns["veinte"];
+                this.columndiez = base.Columns["diez"];
+                this.columncinco = base.Columns["cinco"];
+                this.columndos = base.Columns["dos"];
+                this.columnuno = base.Columns["uno"];
+                this.columnMonto = base.Columns["Monto"];
+                this.columnfecha = base.Columns["fecha"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -484,20 +544,30 @@ namespace Restaurante.DataSet {
             private void InitClass() {
                 this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
-                this.columnidMesa = new global::System.Data.DataColumn("idMesa", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidMesa);
-                this.columnidMesero = new global::System.Data.DataColumn("idMesero", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnidMesero);
-                this.columnFecha = new global::System.Data.DataColumn("Fecha", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFecha);
-                this.columncantidad = new global::System.Data.DataColumn("cantidad", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncantidad);
-                this.columnsubTotal = new global::System.Data.DataColumn("subTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsubTotal);
-                this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndescripcion);
-                this.columnprecioVenta = new global::System.Data.DataColumn("precioVenta", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnprecioVenta);
+                this.columndolares = new global::System.Data.DataColumn("dolares", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndolares);
+                this.columnPOS = new global::System.Data.DataColumn("POS", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPOS);
+                this.columnquinientos = new global::System.Data.DataColumn("quinientos", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnquinientos);
+                this.columncien = new global::System.Data.DataColumn("cien", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncien);
+                this.columncincuenta = new global::System.Data.DataColumn("cincuenta", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncincuenta);
+                this.columnveinte = new global::System.Data.DataColumn("veinte", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnveinte);
+                this.columndiez = new global::System.Data.DataColumn("diez", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndiez);
+                this.columncinco = new global::System.Data.DataColumn("cinco", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncinco);
+                this.columndos = new global::System.Data.DataColumn("dos", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndos);
+                this.columnuno = new global::System.Data.DataColumn("uno", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnuno);
+                this.columnMonto = new global::System.Data.DataColumn("Monto", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMonto);
+                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfecha);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -506,41 +576,42 @@ namespace Restaurante.DataSet {
                 this.columnid.AllowDBNull = false;
                 this.columnid.ReadOnly = true;
                 this.columnid.Unique = true;
-                this.columnidMesa.AllowDBNull = false;
-                this.columnidMesero.AllowDBNull = false;
-                this.columnFecha.AllowDBNull = false;
-                this.columnFecha.MaxLength = 19;
-                this.columncantidad.AllowDBNull = false;
-                this.columnsubTotal.AllowDBNull = false;
-                this.columndescripcion.AllowDBNull = false;
-                this.columndescripcion.MaxLength = 100;
-                this.columnprecioVenta.AllowDBNull = false;
+                this.columnquinientos.AllowDBNull = false;
+                this.columncien.AllowDBNull = false;
+                this.columncincuenta.AllowDBNull = false;
+                this.columnveinte.AllowDBNull = false;
+                this.columndiez.AllowDBNull = false;
+                this.columncinco.AllowDBNull = false;
+                this.columndos.AllowDBNull = false;
+                this.columnuno.AllowDBNull = false;
+                this.columnMonto.AllowDBNull = false;
+                this.columnfecha.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row NewDataTable1Row() {
-                return ((DataTable1Row)(this.NewRow()));
+            public CajaRow NewCajaRow() {
+                return ((CajaRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DataTable1Row(builder);
+                return new CajaRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(DataTable1Row);
+                return typeof(CajaRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.DataTable1RowChanged != null)) {
-                    this.DataTable1RowChanged(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.CajaRowChanged != null)) {
+                    this.CajaRowChanged(this, new CajaRowChangeEvent(((CajaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -548,8 +619,8 @@ namespace Restaurante.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.DataTable1RowChanging != null)) {
-                    this.DataTable1RowChanging(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.CajaRowChanging != null)) {
+                    this.CajaRowChanging(this, new CajaRowChangeEvent(((CajaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -557,8 +628,8 @@ namespace Restaurante.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.DataTable1RowDeleted != null)) {
-                    this.DataTable1RowDeleted(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.CajaRowDeleted != null)) {
+                    this.CajaRowDeleted(this, new CajaRowChangeEvent(((CajaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -566,14 +637,14 @@ namespace Restaurante.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.DataTable1RowDeleting != null)) {
-                    this.DataTable1RowDeleting(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.CajaRowDeleting != null)) {
+                    this.CajaRowDeleting(this, new CajaRowChangeEvent(((CajaRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveDataTable1Row(DataTable1Row row) {
+            public void RemoveCajaRow(CajaRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -582,7 +653,7 @@ namespace Restaurante.DataSet {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Comanda ds = new Comanda();
+                Inventario ds = new Inventario();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -600,7 +671,7 @@ namespace Restaurante.DataSet {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DataTable1DataTable";
+                attribute2.FixedValue = "CajaDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -644,103 +715,192 @@ namespace Restaurante.DataSet {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DataTable1Row : global::System.Data.DataRow {
+        public partial class CajaRow : global::System.Data.DataRow {
             
-            private DataTable1DataTable tableDataTable1;
+            private CajaDataTable tableCaja;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal DataTable1Row(global::System.Data.DataRowBuilder rb) : 
+            internal CajaRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableDataTable1 = ((DataTable1DataTable)(this.Table));
+                this.tableCaja = ((CajaDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int id {
                 get {
-                    return ((int)(this[this.tableDataTable1.idColumn]));
+                    return ((int)(this[this.tableCaja.idColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.idColumn] = value;
+                    this[this.tableCaja.idColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int idMesa {
+            public decimal dolares {
                 get {
-                    return ((int)(this[this.tableDataTable1.idMesaColumn]));
+                    try {
+                        return ((decimal)(this[this.tableCaja.dolaresColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'dolares\' de la tabla \'Caja\' es DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableDataTable1.idMesaColumn] = value;
+                    this[this.tableCaja.dolaresColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int idMesero {
+            public decimal POS {
                 get {
-                    return ((int)(this[this.tableDataTable1.idMeseroColumn]));
+                    try {
+                        return ((decimal)(this[this.tableCaja.POSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'POS\' de la tabla \'Caja\' es DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableDataTable1.idMeseroColumn] = value;
+                    this[this.tableCaja.POSColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Fecha {
+            public int quinientos {
                 get {
-                    return ((string)(this[this.tableDataTable1.FechaColumn]));
+                    return ((int)(this[this.tableCaja.quinientosColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.FechaColumn] = value;
+                    this[this.tableCaja.quinientosColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int cantidad {
+            public int cien {
                 get {
-                    return ((int)(this[this.tableDataTable1.cantidadColumn]));
+                    return ((int)(this[this.tableCaja.cienColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.cantidadColumn] = value;
+                    this[this.tableCaja.cienColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal subTotal {
+            public int cincuenta {
                 get {
-                    return ((decimal)(this[this.tableDataTable1.subTotalColumn]));
+                    return ((int)(this[this.tableCaja.cincuentaColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.subTotalColumn] = value;
+                    this[this.tableCaja.cincuentaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string descripcion {
+            public int veinte {
                 get {
-                    return ((string)(this[this.tableDataTable1.descripcionColumn]));
+                    return ((int)(this[this.tableCaja.veinteColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.descripcionColumn] = value;
+                    this[this.tableCaja.veinteColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal precioVenta {
+            public int diez {
                 get {
-                    return ((decimal)(this[this.tableDataTable1.precioVentaColumn]));
+                    return ((int)(this[this.tableCaja.diezColumn]));
                 }
                 set {
-                    this[this.tableDataTable1.precioVentaColumn] = value;
+                    this[this.tableCaja.diezColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int cinco {
+                get {
+                    return ((int)(this[this.tableCaja.cincoColumn]));
+                }
+                set {
+                    this[this.tableCaja.cincoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int dos {
+                get {
+                    return ((int)(this[this.tableCaja.dosColumn]));
+                }
+                set {
+                    this[this.tableCaja.dosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int uno {
+                get {
+                    return ((int)(this[this.tableCaja.unoColumn]));
+                }
+                set {
+                    this[this.tableCaja.unoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal Monto {
+                get {
+                    return ((decimal)(this[this.tableCaja.MontoColumn]));
+                }
+                set {
+                    this[this.tableCaja.MontoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime fecha {
+                get {
+                    return ((global::System.DateTime)(this[this.tableCaja.fechaColumn]));
+                }
+                set {
+                    this[this.tableCaja.fechaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsdolaresNull() {
+                return this.IsNull(this.tableCaja.dolaresColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetdolaresNull() {
+                this[this.tableCaja.dolaresColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsPOSNull() {
+                return this.IsNull(this.tableCaja.POSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetPOSNull() {
+                this[this.tableCaja.POSColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -748,22 +908,22 @@ namespace Restaurante.DataSet {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class DataTable1RowChangeEvent : global::System.EventArgs {
+        public class CajaRowChangeEvent : global::System.EventArgs {
             
-            private DataTable1Row eventRow;
+            private CajaRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1RowChangeEvent(DataTable1Row row, global::System.Data.DataRowAction action) {
+            public CajaRowChangeEvent(CajaRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public DataTable1Row Row {
+            public CajaRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -779,7 +939,7 @@ namespace Restaurante.DataSet {
         }
     }
 }
-namespace Restaurante.DataSet.ComandaTableAdapters {
+namespace Restaurante.DataSet.InventarioTableAdapters {
     
     
     /// <summary>
@@ -791,7 +951,7 @@ namespace Restaurante.DataSet.ComandaTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class DataTable1TableAdapter : global::System.ComponentModel.Component {
+    public partial class CajaTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -805,7 +965,7 @@ namespace Restaurante.DataSet.ComandaTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public DataTable1TableAdapter() {
+        public CajaTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -902,23 +1062,80 @@ namespace Restaurante.DataSet.ComandaTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "DataTable1";
+            tableMapping.DataSetTable = "Caja";
             tableMapping.ColumnMappings.Add("id", "id");
-            tableMapping.ColumnMappings.Add("idMesa", "idMesa");
-            tableMapping.ColumnMappings.Add("idMesero", "idMesero");
-            tableMapping.ColumnMappings.Add("Fecha", "Fecha");
-            tableMapping.ColumnMappings.Add("cantidad", "cantidad");
-            tableMapping.ColumnMappings.Add("subTotal", "subTotal");
-            tableMapping.ColumnMappings.Add("descripcion", "descripcion");
-            tableMapping.ColumnMappings.Add("precioVenta", "precioVenta");
+            tableMapping.ColumnMappings.Add("dolares", "dolares");
+            tableMapping.ColumnMappings.Add("POS", "POS");
+            tableMapping.ColumnMappings.Add("quinientos", "quinientos");
+            tableMapping.ColumnMappings.Add("cien", "cien");
+            tableMapping.ColumnMappings.Add("cincuenta", "cincuenta");
+            tableMapping.ColumnMappings.Add("veinte", "veinte");
+            tableMapping.ColumnMappings.Add("diez", "diez");
+            tableMapping.ColumnMappings.Add("cinco", "cinco");
+            tableMapping.ColumnMappings.Add("dos", "dos");
+            tableMapping.ColumnMappings.Add("uno", "uno");
+            tableMapping.ColumnMappings.Add("Monto", "Monto");
+            tableMapping.ColumnMappings.Add("fecha", "fecha");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [Restaurante].[Caja] WHERE (([id] = @Original_id) AND ((@IsNull_dolares = 1 AND [dolares] IS NULL) OR ([dolares] = @Original_dolares)) AND ((@IsNull_POS = 1 AND [POS] IS NULL) OR ([POS] = @Original_POS)) AND ([quinientos] = @Original_quinientos) AND ([cien] = @Original_cien) AND ([cincuenta] = @Original_cincuenta) AND ([veinte] = @Original_veinte) AND ([diez] = @Original_diez) AND ([cinco] = @Original_cinco) AND ([dos] = @Original_dos) AND ([uno] = @Original_uno) AND ([Monto] = @Original_Monto) AND ([fecha] = @Original_fecha))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dolares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dolares", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dolares", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "dolares", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_POS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "POS", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_POS", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "POS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_quinientos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quinientos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cien", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cien", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cincuenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cincuenta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_veinte", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "veinte", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_diez", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "diez", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cinco", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cinco", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_uno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "uno", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Monto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "Monto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Restaurante].[Caja] SET [dolares] = @dolares, [POS] = @POS, [quinientos] = @quinientos, [cien] = @cien, [cincuenta] = @cincuenta, [veinte] = @veinte, [diez] = @diez, [cinco] = @cinco, [dos] = @dos, [uno] = @uno, [Monto] = @Monto, [fecha] = @fecha WHERE (([id] = @Original_id) AND ((@IsNull_dolares = 1 AND [dolares] IS NULL) OR ([dolares] = @Original_dolares)) AND ((@IsNull_POS = 1 AND [POS] IS NULL) OR ([POS] = @Original_POS)) AND ([quinientos] = @Original_quinientos) AND ([cien] = @Original_cien) AND ([cincuenta] = @Original_cincuenta) AND ([veinte] = @Original_veinte) AND ([diez] = @Original_diez) AND ([cinco] = @Original_cinco) AND ([dos] = @Original_dos) AND ([uno] = @Original_uno) AND ([Monto] = @Original_Monto) AND ([fecha] = @Original_fecha));
+SELECT id, dolares, POS, quinientos, cien, cincuenta, veinte, diez, cinco, dos, uno, Monto, fecha FROM Restaurante.Caja WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dolares", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "dolares", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@POS", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "POS", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quinientos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quinientos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cien", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cien", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cincuenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cincuenta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@veinte", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "veinte", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@diez", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "diez", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cinco", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cinco", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dos", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@uno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "uno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Monto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "Monto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_dolares", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dolares", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dolares", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "dolares", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_POS", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "POS", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_POS", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "POS", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_quinientos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quinientos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cien", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cien", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cincuenta", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cincuenta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_veinte", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "veinte", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_diez", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "diez", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_cinco", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cinco", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dos", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dos", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_uno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "uno", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Monto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 6, 2, "Monto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "fecha", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Restaurante.Properties.Settings.Default.DBRestauranteMariasConnectionString;
+            this._connection.ConnectionString = global::Restaurante.Properties.Settings.Default.DBRestauranteMariasConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -927,11 +1144,8 @@ namespace Restaurante.DataSet.ComandaTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Restaurante.Pedidos.id, Restaurante.Pedidos.idMesa, Restaurante.Pedidos.idMesero, Restaurante.Pedidos.Fecha, Restaurante.DetallePedidos.cantidad, Restaurante.DetallePedidos.subTotal, 
-                         Restaurante.Inventario.descripcion, Restaurante.Inventario.precioVenta
-FROM            Restaurante.DetallePedidos INNER JOIN
-                         Restaurante.Inventario ON Restaurante.DetallePedidos.idInventario = Restaurante.Inventario.idInventario INNER JOIN
-                         Restaurante.Pedidos ON Restaurante.DetallePedidos.idPedido = Restaurante.Pedidos.id";
+            this._commandCollection[0].CommandText = "SELECT        id, dolares, POS, quinientos, cien, cincuenta, veinte, diez, cinco," +
+                " dos, uno, Monto, fecha\r\nFROM            Restaurante.Caja";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -939,7 +1153,7 @@ FROM            Restaurante.DetallePedidos INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Comanda.DataTable1DataTable dataTable) {
+        public virtual int Fill1(Inventario.CajaDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -952,11 +1166,218 @@ FROM            Restaurante.DetallePedidos INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Comanda.DataTable1DataTable GetData() {
+        public virtual Inventario.CajaDataTable GetData1() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Comanda.DataTable1DataTable dataTable = new Comanda.DataTable1DataTable();
+            Inventario.CajaDataTable dataTable = new Inventario.CajaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Inventario.CajaDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(Inventario dataSet) {
+            return this.Adapter.Update(dataSet, "Caja");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_id, global::System.Nullable<decimal> Original_dolares, global::System.Nullable<decimal> Original_POS, int Original_quinientos, int Original_cien, int Original_cincuenta, int Original_veinte, int Original_diez, int Original_cinco, int Original_dos, int Original_uno, decimal Original_Monto, System.DateTime Original_fecha) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
+            if ((Original_dolares.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_dolares.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Original_POS.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_POS.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_quinientos));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_cien));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((int)(Original_cincuenta));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_veinte));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_diez));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_cinco));
+            this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_dos));
+            this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_uno));
+            this.Adapter.DeleteCommand.Parameters[13].Value = ((decimal)(Original_Monto));
+            this.Adapter.DeleteCommand.Parameters[14].Value = ((System.DateTime)(Original_fecha));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    global::System.Nullable<decimal> dolares, 
+                    global::System.Nullable<decimal> POS, 
+                    int quinientos, 
+                    int cien, 
+                    int cincuenta, 
+                    int veinte, 
+                    int diez, 
+                    int cinco, 
+                    int dos, 
+                    int uno, 
+                    decimal Monto, 
+                    System.DateTime fecha, 
+                    int Original_id, 
+                    global::System.Nullable<decimal> Original_dolares, 
+                    global::System.Nullable<decimal> Original_POS, 
+                    int Original_quinientos, 
+                    int Original_cien, 
+                    int Original_cincuenta, 
+                    int Original_veinte, 
+                    int Original_diez, 
+                    int Original_cinco, 
+                    int Original_dos, 
+                    int Original_uno, 
+                    decimal Original_Monto, 
+                    System.DateTime Original_fecha, 
+                    int id) {
+            if ((dolares.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((decimal)(dolares.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((POS.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(POS.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(quinientos));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(cien));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(cincuenta));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(veinte));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(diez));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(cinco));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(dos));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(uno));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Monto));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(fecha));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_id));
+            if ((Original_dolares.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((decimal)(Original_dolares.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_POS.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((decimal)(Original_POS.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_quinientos));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_cien));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_cincuenta));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_veinte));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_diez));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_cinco));
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_dos));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_uno));
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((decimal)(Original_Monto));
+            this.Adapter.UpdateCommand.Parameters[26].Value = ((System.DateTime)(Original_fecha));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(id));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(
+                    global::System.Nullable<decimal> dolares, 
+                    global::System.Nullable<decimal> POS, 
+                    int quinientos, 
+                    int cien, 
+                    int cincuenta, 
+                    int veinte, 
+                    int diez, 
+                    int cinco, 
+                    int dos, 
+                    int uno, 
+                    decimal Monto, 
+                    System.DateTime fecha, 
+                    int Original_id, 
+                    global::System.Nullable<decimal> Original_dolares, 
+                    global::System.Nullable<decimal> Original_POS, 
+                    int Original_quinientos, 
+                    int Original_cien, 
+                    int Original_cincuenta, 
+                    int Original_veinte, 
+                    int Original_diez, 
+                    int Original_cinco, 
+                    int Original_dos, 
+                    int Original_uno, 
+                    decimal Original_Monto, 
+                    System.DateTime Original_fecha) {
+            return this.Update(dolares, POS, quinientos, cien, cincuenta, veinte, diez, cinco, dos, uno, Monto, fecha, Original_id, Original_dolares, Original_POS, Original_quinientos, Original_cien, Original_cincuenta, Original_veinte, Original_diez, Original_cinco, Original_dos, Original_uno, Original_Monto, Original_fecha, Original_id);
         }
     }
     
@@ -972,6 +1393,8 @@ FROM            Restaurante.DetallePedidos INNER JOIN
         
         private UpdateOrderOption _updateOrder;
         
+        private CajaTableAdapter _cajaTableAdapter;
+        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -984,6 +1407,20 @@ FROM            Restaurante.DetallePedidos INNER JOIN
             }
             set {
                 this._updateOrder = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public CajaTableAdapter CajaTableAdapter {
+            get {
+                return this._cajaTableAdapter;
+            }
+            set {
+                this._cajaTableAdapter = value;
             }
         }
         
@@ -1006,6 +1443,10 @@ FROM            Restaurante.DetallePedidos INNER JOIN
                 if ((this._connection != null)) {
                     return this._connection;
                 }
+                if (((this._cajaTableAdapter != null) 
+                            && (this._cajaTableAdapter.Connection != null))) {
+                    return this._cajaTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -1019,6 +1460,9 @@ FROM            Restaurante.DetallePedidos INNER JOIN
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
+                if ((this._cajaTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -1028,8 +1472,17 @@ FROM            Restaurante.DetallePedidos INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(Comanda dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(Inventario dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._cajaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Caja.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._cajaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -1038,8 +1491,16 @@ FROM            Restaurante.DetallePedidos INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(Comanda dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(Inventario dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._cajaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Caja.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._cajaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -1048,8 +1509,16 @@ FROM            Restaurante.DetallePedidos INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(Comanda dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(Inventario dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._cajaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Caja.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._cajaTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             return result;
         }
         
@@ -1082,12 +1551,17 @@ FROM            Restaurante.DetallePedidos INNER JOIN
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(Comanda dataSet) {
+        public virtual int UpdateAll(Inventario dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
+            }
+            if (((this._cajaTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._cajaTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
+                        "sma cadena de conexión.");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
@@ -1121,6 +1595,15 @@ FROM            Restaurante.DetallePedidos INNER JOIN
             try {
                 // ---- Prepare for update -----------
                 //
+                if ((this._cajaTableAdapter != null)) {
+                    revertConnections.Add(this._cajaTableAdapter, this._cajaTableAdapter.Connection);
+                    this._cajaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._cajaTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._cajaTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._cajaTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._cajaTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -1178,6 +1661,10 @@ FROM            Restaurante.DetallePedidos INNER JOIN
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
+                }
+                if ((this._cajaTableAdapter != null)) {
+                    this._cajaTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._cajaTableAdapter]));
+                    this._cajaTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

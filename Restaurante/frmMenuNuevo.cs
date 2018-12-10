@@ -132,5 +132,17 @@ namespace Restaurante
             Restaurante.Reportes.Reportes reporte = new Reportes.Reportes();
             reporte.Show();
         }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            Restaurante.Reportes.Inventario reportes = new Reportes.Inventario();
+            reportes.ShowDialog();
+        }
+
+        private void resumenMensualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Restaurante.Reportes.reportecaja reportecaja = new Reportes.reportecaja();
+            reportecaja.ShowDialog();
+        }
     }
 }

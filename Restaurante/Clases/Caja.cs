@@ -13,9 +13,9 @@ namespace Restaurante.Clases
     { 
         //Propiedades
         public int Id { get; set; }
-        public decimal Apertura { get; set; }
-        public decimal Cierre { get; set; }
-        public int Dolares { get; set; }
+        //public decimal Apertura { get; set; }
+        //public decimal Cierre { get; set; }
+        public decimal Dolares { get; set; }
         public decimal Pos { get; set; }
         public int Fiveh { get; set; }
         public int Hundred { get; set; }
@@ -26,7 +26,9 @@ namespace Restaurante.Clases
         public int Two { get; set; }
         public int One { get; set; }
         public string Fecha { get; set; }
-        public int DetalleCaja { get; set; }
+        public int Estado { get; set; }
+        public decimal Monto { get; set; }
+        //public int DetalleCaja { get; set; }
         public string Usuario {get; set; }
 
         //Constructor Vacio
@@ -36,26 +38,26 @@ namespace Restaurante.Clases
         ~Caja() { }
 
         //Constructores
-        public Caja(decimal apertura, int dolares, int fiveh,
-                    int hundred, int fifty, int twenty, int ten, int five, int two, int one, string usuario)
-        {
-            Apertura = apertura;
-            Dolares = dolares;
-            Fiveh = fiveh;
-            Hundred = hundred;
-            Fifty = fifty;
-            Twenty = twenty;
-            Ten = ten;
-            Five = five;
-            Two = two;
-            One = one;
-            Usuario = usuario;
-        }
+        //public Caja(decimal apertura, int dolares, int fiveh,
+        //            int hundred, int fifty, int twenty, int ten, int five, int two, int one, string usuario)
+        //{
+        //    //Apertura = apertura;
+        //    Dolares = dolares;
+        //    Fiveh = fiveh;
+        //    Hundred = hundred;
+        //    Fifty = fifty;
+        //    Twenty = twenty;
+        //    Ten = ten;
+        //    Five = five;
+        //    Two = two;
+        //    One = one;
+        //    Usuario = usuario;
+        //}
 
-        public Caja(decimal cierre, int dolares, decimal pos, int fiveh,
-                    int hundred, int fifty, int twenty, int ten, int five, int two, int one, string usuario)
+        public Caja( int dolares, decimal pos, int fiveh,
+                    int hundred, int fifty, int twenty, int ten, int five, int two, int one,int estado,decimal monto, string usuario)
         {
-            Cierre = cierre;
+            
             Dolares = dolares;
             Pos = pos;
             Fiveh = fiveh;
@@ -66,68 +68,69 @@ namespace Restaurante.Clases
             Five = five;
             Two = two;
             One = one;
+            Estado = estado;
+            Monto = monto;
             Usuario = usuario;
         }
 
         /// <summary>
         /// Insercion de la Apertura de Caja.
         /// </summary>
-        public void AgregarApertura()
-        {
-            Clases.Conexión conexión = new Clases.Conexión();
-            SqlCommand cmd = new SqlCommand("SP_Agregar_AperturaCaja", conexión.conexion);
-            cmd.CommandType = CommandType.StoredProcedure;
-            try
-            {
-                //Abrir Conexion
-                conexión.Abrir();
-                cmd.Parameters.Add(new SqlParameter("Apertura", SqlDbType.Decimal));
-                cmd.Parameters["Apertura"].Value = Apertura;
-                cmd.Parameters.Add(new SqlParameter("Dolares", SqlDbType.Int));
-                cmd.Parameters["Dolares"].Value = Dolares;
-                cmd.Parameters.Add(new SqlParameter("Fiveh", SqlDbType.Int));
-                cmd.Parameters["Fiveh"].Value = Fiveh;
-                cmd.Parameters.Add(new SqlParameter("Hundred", SqlDbType.Int));
-                cmd.Parameters["Hundred"].Value = Hundred;
-                cmd.Parameters.Add(new SqlParameter("Fifty", SqlDbType.Int));
-                cmd.Parameters["Fifty"].Value = Fifty;
-                cmd.Parameters.Add(new SqlParameter("Twenty", SqlDbType.Int));
-                cmd.Parameters["Twenty"].Value = Twenty;
-                cmd.Parameters.Add(new SqlParameter("Ten", SqlDbType.Int));
-                cmd.Parameters["Ten"].Value = Ten;
-                cmd.Parameters.Add(new SqlParameter("Five", SqlDbType.Int));
-                cmd.Parameters["Five"].Value = Five;
-                cmd.Parameters.Add(new SqlParameter("Two", SqlDbType.Int));
-                cmd.Parameters["Two"].Value = Two;
-                cmd.Parameters.Add(new SqlParameter("One", SqlDbType.Int));
-                cmd.Parameters["One"].Value = One;
-                cmd.Parameters.Add(new SqlParameter("User", SqlDbType.NVarChar));
-                cmd.Parameters["User"].Value = Usuario;
-                cmd.ExecuteNonQuery();
-            }
-            catch (SqlException ex)
-            {
-                throw new Clases.Excepcion(ex.Message, ex, "Clase Caja");
-            }
-            finally
-            {
-                //Cerrar conexion
-                conexión.Cerrar();
-            }
-        }
-        /// <summary>
+        //public void AgregarApertura()
+        //{
+        //    Clases.Conexión conexión = new Clases.Conexión();
+        //    SqlCommand cmd = new SqlCommand("SP_Agregar_AperturaCaja", conexión.conexion);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    try
+        //    {
+        //        //Abrir Conexion
+        //        conexión.Abrir();
+        //        cmd.Parameters.Add(new SqlParameter("Apertura", SqlDbType.Decimal));
+        //        cmd.Parameters["Apertura"].Value = Apertura;
+        //        cmd.Parameters.Add(new SqlParameter("Dolares", SqlDbType.Int));
+        //        cmd.Parameters["Dolares"].Value = Dolares;
+        //        cmd.Parameters.Add(new SqlParameter("Fiveh", SqlDbType.Int));
+        //        cmd.Parameters["Fiveh"].Value = Fiveh;
+        //        cmd.Parameters.Add(new SqlParameter("Hundred", SqlDbType.Int));
+        //        cmd.Parameters["Hundred"].Value = Hundred;
+        //        cmd.Parameters.Add(new SqlParameter("Fifty", SqlDbType.Int));
+        //        cmd.Parameters["Fifty"].Value = Fifty;
+        //        cmd.Parameters.Add(new SqlParameter("Twenty", SqlDbType.Int));
+        //        cmd.Parameters["Twenty"].Value = Twenty;
+        //        cmd.Parameters.Add(new SqlParameter("Ten", SqlDbType.Int));
+        //        cmd.Parameters["Ten"].Value = Ten;
+        //        cmd.Parameters.Add(new SqlParameter("Five", SqlDbType.Int));
+        //        cmd.Parameters["Five"].Value = Five;
+        //        cmd.Parameters.Add(new SqlParameter("Two", SqlDbType.Int));
+        //        cmd.Parameters["Two"].Value = Two;
+        //        cmd.Parameters.Add(new SqlParameter("One", SqlDbType.Int));
+        //        cmd.Parameters["One"].Value = One;
+        //        cmd.Parameters.Add(new SqlParameter("User", SqlDbType.NVarChar));
+        //        cmd.Parameters["User"].Value = Usuario;
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        throw new Clases.Excepcion(ex.Message, ex, "Clase Caja");
+        //    }
+        //    finally
+        //    {
+        //        //Cerrar conexion
+        //        conexión.Cerrar();
+        //    }
+        //}
+        ///// <summary>
         /// Insercion del Cierre de Caja.
         /// </summary>
         public void AgregarCierre()
         {
             Clases.Conexión conexión = new Clases.Conexión();
-            SqlCommand cmd = new SqlCommand("SP_Agregar_CierreCaja", conexión.conexion);
+            SqlCommand cmd = new SqlCommand("SP_AgregarCierreCaja", conexión.conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             try
             {
                 conexión.Abrir();
-                cmd.Parameters.Add(new SqlParameter("Cierre", SqlDbType.Decimal));
-                cmd.Parameters["Cierre"].Value = Cierre;
+              
                 cmd.Parameters.Add(new SqlParameter("Dolares", SqlDbType.Int));
                 cmd.Parameters["Dolares"].Value = Dolares;
                 cmd.Parameters.Add(new SqlParameter("POS", SqlDbType.Decimal));
@@ -148,6 +151,10 @@ namespace Restaurante.Clases
                 cmd.Parameters["Two"].Value = Two;
                 cmd.Parameters.Add(new SqlParameter("One", SqlDbType.Int));
                 cmd.Parameters["One"].Value = One;
+                cmd.Parameters.Add(new SqlParameter("Estado", SqlDbType.Int));
+                cmd.Parameters["Estado"].Value = Estado;
+                cmd.Parameters.Add(new SqlParameter("Monto", SqlDbType.Decimal));
+                cmd.Parameters["Monto"].Value = Monto;
                 cmd.Parameters.Add(new SqlParameter("User", SqlDbType.NVarChar));
                 cmd.Parameters["User"].Value = Usuario;
                 cmd.ExecuteNonQuery();
@@ -169,31 +176,32 @@ namespace Restaurante.Clases
         public static DataView GetDataViewGeneral()
         {
             Clases.Conexión conexión = new Clases.Conexión();
-            string sql = @" SELECT Restaurante.DetalleCaja.Descripcion	 AS Descripcion,
-	                               Restaurante.Caja.Monto			     AS Monto,
+            string sql = @" SELECT 'Apertura'							AS Descripcion,
+								   Restaurante.Caja.Monto			     AS Monto,
 	                               Restaurante.Caja.fecha                AS Fecha,
 	                               Restaurante.Caja.Usuario				 AS Usuario
-                            FROM Restaurante.Caja
-                            INNER JOIN Restaurante.DetalleCaja
-                            ON Restaurante.Caja.idDetalleCaja = Restaurante.DetalleCaja.id
-                            WHERE Restaurante.Caja.fecha >= (SELECT MAX(fecha) FROM Restaurante.Caja WHERE idDetalleCaja = 1)
-                            UNION
-                            SELECT Restaurante.ServicioPublico.Descripcion		   AS Descripcion,
+								   FROM Restaurante.Caja 
+								   WHERE Restaurante.Caja.id = (SELECT MAX(id) FROM Restaurante.Caja WHERE estado = 0)
+								   UNION
+								   SELECT
+								   Restaurante.ServicioPublico.Descripcion		   AS Descripcion,
 	                               Restaurante.DetalleServicioPublico.Monto		   AS Monto,
 	                               Restaurante.DetalleServicioPublico.Fecha	       AS Fecha,
-	                               Restaurante.DetalleServicioPublico.Usuario      AS Fecha
+	                               Restaurante.DetalleServicioPublico.Usuario      AS Usuario
                             FROM Restaurante.ServicioPublico
                             INNER JOIN Restaurante.DetalleServicioPublico
                             ON Restaurante.ServicioPublico.id = Restaurante.DetalleServicioPublico.idServicioPublico
-                            WHERE Restaurante.DetalleServicioPublico.Fecha > (SELECT MAX(fecha) FROM Restaurante.Caja WHERE idDetalleCaja = 1)
+							--INNER JOIN Restaurante.Caja 
+							--ON Restaurante.Caja.id = (SELECT MAX(id) FROM Restaurante.Caja WHERE estado = 0)
+                            WHERE Restaurante.DetalleServicioPublico.Fecha > (SELECT MAX(fecha) FROM Restaurante.Caja WHERE estado = 0)
                             UNION
-                            SELECT Descripcion		  AS Usuario,
-	                               Monto			  AS Descripcion,
-	                               Fecha			  AS Fecha,
-	                               Usuario			  AS Usuario
+                            SELECT Descripcion		  AS Descripcion,
+	                               Monto			  AS Monto1,
+	                               Fecha			  AS Fecha1,
+	                               Usuario			  AS Usuario1
                             FROM Restaurante.OtrasSalidas
-                            WHERE Restaurante.OtrasSalidas.Fecha > (SELECT MAX(fecha) FROM Restaurante.Caja WHERE idDetalleCaja = 1)
-                            ORDER BY Fecha, Usuario, Descripcion, Monto ";
+                            WHERE Restaurante.OtrasSalidas.Fecha > (SELECT MAX(fecha) FROM Restaurante.Caja WHERE estado = 0)
+                            ORDER BY Descripcion,Monto ,Fecha, Usuario; ";
             try
             {
                 SqlDataAdapter da = new SqlDataAdapter();

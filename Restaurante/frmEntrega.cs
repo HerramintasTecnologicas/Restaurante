@@ -264,5 +264,10 @@ namespace Restaurante
         {
             Clases.Restaurante.ModificarDetalle(detalle, 4);
         }
+
+        private void lblFecha_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

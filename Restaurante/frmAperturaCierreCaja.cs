@@ -46,7 +46,7 @@ namespace Restaurante
         //Insercion de la Apertura de Caja/
         private void btnAbrirCaja_Click(object sender, EventArgs e)
         {
-            if (state == 0)
+            if (state == 1)
                 try
                 {
                     if (Convert.ToDecimal(txtSaldoInicialAperturaCaja.Text) >
@@ -55,12 +55,12 @@ namespace Restaurante
                                           "Cierre! Porfavor revise la cantidad!", "Error!");
                     else
                     {
-                        Clases.Restaurante.AperturarCaja(Convert.ToDecimal(txtSaldoInicialAperturaCaja.Text),
-                                                         Convert.ToInt16(txtDolares.Text),
+                        Clases.Restaurante.CierreCaja(   Convert.ToInt16(txtDolares.Text),0,
                                                          Convert.ToInt16(txtL500.Text), Convert.ToInt16(txtL100.Text),
                                                          Convert.ToInt16(txtL50.Text), Convert.ToInt16(txtL20.Text),
                                                          Convert.ToInt16(txtL10.Text), Convert.ToInt16(txtL5.Text),
                                                          Convert.ToInt16(txtL2.Text), Convert.ToInt16(txtL1.Text),
+                                                         0, Convert.ToDecimal(txtSaldoInicialAperturaCaja.Text),
                                                          Convert.ToString(txtUsuarioAperturaCaja.Text));
                         this.Close();
                         //Clases.VariablesGlobales.state = 1;
@@ -98,8 +98,8 @@ namespace Restaurante
             int.TryParse(txtL2.Text, out L2);
             int L1 = 0;
             int.TryParse(txtL1.Text, out L1);
-            int Dolar = 0;
-            int.TryParse(txtDolares.Text, out Dolar);
+            decimal Dolar = 0;
+            decimal.TryParse(txtDolares.Text, out Dolar);
 
             txtTotal.Text = Convert.ToString(Convert.ToDecimal((L500 * 500) + (L100 * 100) + (L50 * 50) + (L20 * 20)
                                                                + (L10 * 10) + (L5 * 5) + (L2 * 2) + L1 + 
@@ -154,10 +154,10 @@ namespace Restaurante
         //Insercion del Cierre de Caja
         private void btnCerrarCaja_Click(object sender, EventArgs e)
         {
-            if (state == 1)
+            if (state == 0)
                 try
                 {
-                        Clases.Restaurante.CierreCaja(Convert.ToDecimal(txtSaldoFinalDiaCierreCaja.Text),
+                        Clases.Restaurante.CierreCaja(
                                                       Convert.ToInt16(txtTotalDolaresCierreCaja.Text), 
                                                       Convert.ToDecimal(txtTotalPOSCierreCaja.Text),
                                                       Convert.ToInt16(txtBilletes500CierreCaja.Text), 
@@ -167,7 +167,8 @@ namespace Restaurante
                                                       Convert.ToInt16(txtBilletes10CierreCaja.Text), 
                                                       Convert.ToInt16(txtBilletes5CierreCaja.Text),
                                                       Convert.ToInt16(txtBilletes2CierreCaja.Text), 
-                                                      Convert.ToInt16(txtBilletes1CierreCaja.Text),
+                                                      Convert.ToInt16(txtBilletes1CierreCaja.Text),1,
+                                                      Convert.ToDecimal(txtSaldoFinalDiaCierreCaja.Text),
                                                       Convert.ToString(txtUsuarioCierreCaja.Text));
                         this.Close();
                         //Clases.VariablesGlobales.state = 0;
@@ -269,12 +270,13 @@ namespace Restaurante
         //esta habilitado, el otro tendra que esta deshabilitado. Los dos no pueden estar habilitados al mismo tiempo.
         private void frmAperturaCierreCaja_Load(object sender, EventArgs e)
         {
-            if (state == 0)
+            estado();
+            if (state == 1)
             {
                 Clases.Caja.saldoUltimo(txtSaldoTotalAperturaCaja);
                 btnCerrarCaja.Enabled = false;
             }
-            else if (state == 1)
+            else if (state == 0)
             {
                 Clases.Caja.saldoUltimo(txtSaldoInicialDiaCierreCaja);
                 btnAbrirCaja.Enabled = false;
@@ -463,7 +465,8 @@ namespace Restaurante
         //Variable que controla el estado de caja.
         //Si la caja esta abierta la variable tomara el valor de 1. De lo contrario, tendra el valor de 0
         public static int state;
-
+        public static int  var;
+        public static int id;
         /// <summary>
         /// Se hace la consulta a la base para saber si el ultimo movimiento de la tabla Caja
         /// fue Apertura o Cierre.
@@ -471,9 +474,9 @@ namespace Restaurante
         /// </summary>
         public static void estado()
         {
-            int var;
+            
             Clases.Conexión conn = new Clases.Conexión();
-            string query = "SELECT MAX(idDetalleCaja) FROM Restaurante.Caja WHERE idDetalleCaja = 1";
+            string query = "SELECT id,estado FROM Restaurante.Caja WHERE id= (SELECT MAX(id)FROM Restaurante.Caja)";
             SqlCommand cmd = new SqlCommand(query, conn.conexion);
 
 
@@ -482,18 +485,22 @@ namespace Restaurante
                 conn.Abrir();
                 SqlDataReader reader = cmd.ExecuteReader();
 
-                if (reader.HasRows)
+                //if (reader.HasRows)
                     while (reader.Read())
                     {
-                        reader.Read();
-
-                        var = Convert.ToInt16(reader[0]);
-
-                        if (var == 2)
-                            state = 0;
-                        else if (var == 1)
-                            state = 1;
+                       // reader.Read();
+                       id = Convert.ToInt16(reader.GetInt32(0));
+                    var = Convert.ToInt16(reader.GetInt32(1));                     
                     }
+                if (var == 0)
+                {
+                    state = 0;
+                    Clases.VariablesGlobales.idapertura = id;
+                }
+                else if (var == 1) {
+                    state = 1;
+                    Clases.VariablesGlobales.idapertura = 0;
+                }
             }
             catch (Exception ex)
             {
@@ -503,6 +510,29 @@ namespace Restaurante
             {
                 conn.Cerrar();
             }
+        }
+
+        private void tpAperturaCaja_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSaldoTotalAperturaCaja_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tcAperturaCierreCaja_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        //    if (tcAperturaCierreCaja.SelectedIndex == 0)
+        //    {
+        //        state = 0;
+        //    }
+        //    else
+        //    {
+        //        state = 1;
+        //    }
         }
     }
 }

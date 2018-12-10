@@ -19,12 +19,13 @@ namespace Restaurante.Clases
                 return con;
             }
         }
+        //D:\Caja de Pandora\Trabajos\Herraminetas Tecnologicas\Proyecto\Restaurante\Restaurante\Clases\Conexión.cs
         public Conexión()
         {
             //Cambiar la instancia del servidor local de SQL Server.
-            this.con = new SqlConnection(@"server = (local)\CALIX;
+            this.con = new SqlConnection(@"server = 192.168.0.190;
             integrated security = true; database = DBRestauranteMarias; ");
-            //this.con = new SqlConnection("data source=192.168.0.254,1433; initial catalog=DBRestauranteMarias; user id=Restaurante; password=abc123;");
+            //this.con = new SqlConnection("data source=127.0.0.1,1433; initial catalog=DBRestauranteMarias; user id=Restaurante; password=abc123;");
 
         }
         //Creamos el metodo para abrir la conecion con la base de datos

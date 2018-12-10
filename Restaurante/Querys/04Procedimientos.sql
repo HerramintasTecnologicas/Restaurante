@@ -796,15 +796,15 @@ GO
 CREATE PROCEDURE SP_AgregarFactura
 (
 @idPedido INT,
+@idCaja INT,
 @idUsuario INT,
-@subTotal DECIMAL(8,4),
 @descuento DECIMAL(6,4),
 @exento DECIMAL(6,4),
 @isv15 DECIMAL(6,4),
 @isv18 DECIMAL(6,4),
 @total DECIMAL(8,4),
-@idCaja INT,
-@tipoPago INT
+@tipoPago INT,
+@subTotal DECIMAL(8,4)
 )
 AS
 BEGIN
@@ -823,18 +823,19 @@ BEGIN
 			INSERT INTO Restaurante.Facturas
 			(
 			    idPedido,
+				idCaja,
 			    idUsuario,
-			    subTotal,
+			    
 			    descuento,
 			    exento,
 			    iva15,
 			    iva18,
 			    total,
-				idCaja,
-				tipoPago
+				tipoPago,
+				subTotal
 			)
 			VALUES
-			(  @idPedido,@idUsuario,@subTotal,@descuento,@exento,@isv15,@isv18,@total,@idCaja,@tipoPago
+			(  @idPedido,@idCaja,@idUsuario,@descuento,@exento,@isv15,@isv18,@total,@tipoPago,@subTotal
 			    )
 			RETURN 1
 		END
@@ -1387,8 +1388,9 @@ GO
 --Insertar Apertura de Caja
 CREATE PROCEDURE SP_Agregar_AperturaCaja
 (
-	@Apertura decimal(18,0),
-	@Dolares int,
+	--@Apertura decimal(18,0),
+	@Dolares DECIMAL(6,2),
+	@POS DECIMAL(6,2),
 	@Fiveh int,
 	@Hundred int,
 	@Fifty int,
@@ -1397,14 +1399,16 @@ CREATE PROCEDURE SP_Agregar_AperturaCaja
 	@Five int,
 	@Two int,
 	@One int,
+	@Estado INT,
+	@Monto DECIMAL(6,2),
 	@User nvarchar(20)
 )
 AS
 BEGIN
-	INSERT INTO Restaurante.Caja(Monto, dolares, pos, quinientos, cien, cincuenta,
-								  veinte, diez, cinco, dos, uno, fecha, idDetalleCaja, Usuario)
-		VALUES (@Apertura, @Dolares, 0, @Fiveh, @Hundred, @Fifty, @Twenty, @Ten, 
-				@Five, @Two, @One, GETDATE(), 1, @User)
+	INSERT INTO Restaurante.Caja( dolares, POS, quinientos, cien, cincuenta,
+								  veinte, diez, cinco, dos, uno, fecha,estado,Monto, Usuario)
+		VALUES ( @Dolares, @POS,@Fiveh, @Hundred, @Fifty, @Twenty, @Ten, 
+				@Five, @Two, @One,GETDATE(),@Estado, @Monto, @User)
 END
 GO
 
@@ -1413,9 +1417,9 @@ GO
 -- que no lo de, lo comente. Si se omite este, no se podra hacer el cierre de caja.
 CREATE PROCEDURE SP_AgregarCierreCaja
 (
-	@Cierre decimal(18,0),
-	@Dolares decimal(18,0),
-	@POS decimal(18,0),
+	--@Cierre decimal(18,0),
+	@Dolares DECIMAL(6,2),
+	@POS DECIMAL(6,2),
 	@Fiveh int,
 	@Hundred int,
 	@Fifty int,
@@ -1424,14 +1428,16 @@ CREATE PROCEDURE SP_AgregarCierreCaja
 	@Five int,
 	@Two int,
 	@One int,
-	@User NVARCHAR(20)
+	@Estado INT,
+	@Monto DECIMAL(6,2),
+	@User nvarchar(20)
 )
 AS
 BEGIN
-	INSERT INTO Restaurante.Caja (monto, dolares, POS, quinientos, cien, cincuenta,
-								  veinte, diez, cinco, dos, uno, idDetalleCaja, fecha, Usuario)
-		VALUES (@Cierre, @Dolares, @POS, @Fiveh, @Hundred, @Fifty, @Twenty, @Ten, 
-				@Five, @Two, @One, 2, GETDATE(), @User)
+	INSERT INTO Restaurante.Caja( dolares, POS, quinientos, cien, cincuenta,
+								  veinte, diez, cinco, dos, uno, fecha,estado,Monto, Usuario)
+		VALUES ( @Dolares, @POS,@Fiveh, @Hundred, @Fifty, @Twenty, @Ten, 
+				@Five, @Two, @One,GETDATE(),@Estado, @Monto, @User)
 END
 GO
 
@@ -1441,7 +1447,7 @@ GO
 CREATE PROCEDURE SP_InsertarPago_ServicioPublico
 (
 	@ServicioPublico nvarchar(50),
-	@Monto decimal(18,0),
+	@Monto decimal(8,2),
 	@Usuario nvarchar(20)
 )
 AS
@@ -1451,8 +1457,8 @@ BEGIN
 	FROM Restaurante.ServicioPublico
 	WHERE Descripcion = @ServicioPublico)
 
-	INSERT INTO Restaurante.DetalleServicioPublico(idServicioPublico, Monto, fecha, Usuario)
-		VALUES (@id, @Monto, GETDATE(), @Usuario)
+	INSERT INTO Restaurante.DetalleServicioPublico( Monto, fecha, Usuario,idServicioPublico)
+		VALUES ( @Monto, GETDATE(), @Usuario,@id)
 END
 GO
 --Insertar Salidas Varias
@@ -1461,7 +1467,7 @@ GO
 CREATE PROCEDURE SP_InsertarPago_OtrasSalidas
 (
 	@Descripcion nvarchar(200),
-	@Monto decimal(18,0),
+	@Monto decimal(8,2),
 	@Usuario nvarchar(20)
 )
 AS

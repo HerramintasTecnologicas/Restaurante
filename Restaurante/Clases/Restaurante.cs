@@ -1048,24 +1048,24 @@ namespace Restaurante.Clases
         /// <param name="two"></param>
         /// <param name="one"></param>
         /// <param name="usuario"></param>
-        public static void AperturarCaja(decimal apertura, int dolares, int fiveh,
-                                         int hundred, int fifty, int twenty, int ten, int five, int two, int one, 
-                                         string usuario)
-        {
-            try
-            {
-                ValidarAperturaCaja(apertura, usuario);
-                Clases.Caja caja = new Clases.Caja(apertura, dolares, fiveh, hundred,
-                                                   fifty, twenty, ten, five, two, one, usuario);
-                caja.AgregarApertura();
-                MessageBox.Show("Se ha realizado la Apertura de Caja correctamente!", "Mensaje");
-            }
-            catch (Exception)
-            {
+        //public static void AperturarCaja( int dolares, int fiveh,
+        //                                 int hundred, int fifty, int twenty, int ten, int five, int two, int one, 
+        //                                 string usuario)
+        //{
+        //    try
+        //    {
+        //        ValidarAperturaCaja(apertura, usuario);
+        //        Clases.Caja caja = new Clases.Caja(apertura, dolares, fiveh, hundred,
+        //                                           fifty, twenty, ten, five, two, one, usuario);
+        //        caja.AgregarApertura();
+        //        MessageBox.Show("Se ha realizado la Apertura de Caja correctamente!", "Mensaje");
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
 
         /// <summary>
         /// Validacion de datos del Cierre de Caja.
@@ -1107,18 +1107,22 @@ namespace Restaurante.Clases
         /// <param name="two"></param>
         /// <param name="one"></param>
         /// <param name="usuario"></param>
-        public static void CierreCaja(decimal cierre, int dolares, decimal pos, int fiveh,
+        public static void CierreCaja( int dolares, decimal pos, int fiveh,
                                int hundred, int fifty, int twenty, int ten, int five, int two, int one, 
-                               string usuario)
+                               int estado,decimal monto, string usuario)
         {
             try
             {
-                ValidarAperturaCaja(cierre, usuario);
-                Clases.Caja c = new Clases.Caja(cierre, dolares, pos, fiveh, hundred,
-                                                fifty, twenty, ten, five, two, one, usuario);
+                // ValidarAperturaCaja(estado, usuario);
+                Clases.Caja c = new Clases.Caja(dolares, pos, fiveh, hundred,
+                                                fifty, twenty, ten, five, two, one, estado, monto, usuario);
 
                 c.AgregarCierre();
-                MessageBox.Show("El Cierre de caja se ha realizado correctamente!", "Mensaje");
+                if (estado == 0)
+                {
+                    MessageBox.Show("La Apertura de caja se ha realizado correctamente!", "Mensaje");
+                }
+                else { MessageBox.Show("El Cierre de caja se ha realizado correctamente!", "Mensaje"); }
             }
             catch (Exception)
             {

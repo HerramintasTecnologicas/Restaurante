@@ -284,9 +284,9 @@ IF OBJECT_ID('Restaurante.Caja')	IS NOT NULL
 ELSE
 	BEGIN
 		CREATE TABLE Restaurante.Caja(
-			id INT IDENTITY NOT NULL,
-			dolares DECIMAL NOT NULL,
-			POS DECIMAL NOT NULL,
+			id INT IDENTITY(1,1) NOT NULL,
+			dolares DECIMAL(6,2),
+			POS DECIMAL(6,2) ,
 			quinientos INT NOT NULL,
 			cien INT NOT NULL,
 			cincuenta INT NOT NULL,
@@ -296,12 +296,24 @@ ELSE
 			dos INT NOT NULL, 
 			uno INT NOT NULL,
 			fecha DATETIME NOT NULL,
-			idDetalleCaja INT NOT NULL,
-			Monto DECIMAL NOT NULL,
+			estado INT NOT NULL,
+			Monto DECIMAL (6,2)NOT NULL,
 			Usuario NVARCHAR(20) NOT NULL
+
 		);
 	END
 GO
+--IF OBJECT_ID('Restaurante.DetalleCaja')	IS NOT NULL
+--	DROP TABLE Restaurante.DetalleCaja
+--ELSE
+--	BEGIN
+--		CREATE TABLE Restaurante.DetalleCaja
+--		(
+--			id int IDENTITY(1,1) NOT NULL,
+--			Descripcion varchar(20) NOT NULL
+--		)
+--	END
+--GO
 
 IF OBJECT_ID('Restaurante.ServicioPublico')	IS NOT NULL
 	DROP TABLE Restaurante.ServicioPublico
@@ -322,7 +334,7 @@ ELSE
 		CREATE TABLE Restaurante.DetalleServicioPublico
 		(
 			id INT IDENTITY(1,1) NOT NULL,
-			Monto DECIMAL(18,0) NOT NULL,
+			Monto DECIMAL(8,2) NOT NULL,
 			Fecha DATETIME NOT NULL,
 			Usuario NVARCHAR(20) NOT NULL,
 			idServicioPublico INT NOT NULL
@@ -338,21 +350,10 @@ ELSE
 		(
 			id INT IDENTITY(1,1) NOT NULL,
 			Descripcion NVARCHAR(30) NOT NULL,
-			Monto NVARCHAR(200) NOT NULL,
+			Monto DECIMAL(8,2) NOT NULL,
 			Fecha DATETIME NOT NULL,
 			Usuario NVARCHAR(20) NOT NULL
 		)
 	END
 GO
 
-IF OBJECT_ID('Restaurante.DetalleCaja')	IS NOT NULL
-	DROP TABLE Restaurante.DetalleCaja
-ELSE
-	BEGIN
-		CREATE TABLE Restaurante.DetalleCaja
-		(
-			id int IDENTITY(1,1) NOT NULL,
-			Descripcion varchar(20) NOT NULL
-		)
-	END
-GO

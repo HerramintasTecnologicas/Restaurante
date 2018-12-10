@@ -149,8 +149,10 @@ namespace Restaurante
                 MessageBox.Show(ex.Message);
             }
         }
+        public static int caja = Restaurante.Clases.VariablesGlobales.idapertura;
         private void Encabezado()
         {
+
 
             lblSetFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             int hora = DateTime.Now.Hour;
@@ -209,7 +211,7 @@ namespace Restaurante
                        Convert.ToDecimal(txt15.Text),
                         Convert.ToDecimal(txt18.Text),
                        Convert.ToDecimal(txtTotal.Text),
-                       1, tipo);
+                       caja, tipo);
 
                     factura.Agregar();
                     dgvPedido.Rows.RemoveAt(idgrid);
